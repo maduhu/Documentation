@@ -1,2 +1,2 @@
 # Docs
-Docs, architecture, designs, wiki, stuff.
+Docs, architecture, designs, wiki, stuff
