@@ -4,3 +4,8 @@
 ## ILP Component Architecture
 
 ![ILP Component Block Diagram](./block-diagram.png)
+
+## ILP Flow
+
+![ILP Flow Diagramt](./flow-diagram.png)
+
