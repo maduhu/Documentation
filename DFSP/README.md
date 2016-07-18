@@ -12,10 +12,10 @@ DFSP functionality is split in the following services
 - **identity** - methods for managing identity related data, like sessions, images, PINs, etc.
 
 The diagram below shows how services interact:
-![microservices component diagram](./microServices.svg)
+![microservices component diagram](./microServices.png)
 
 
 
 # Push transfer sequence diagram
 
-![Push transfer sequence diagram](./transfer.push.create.svg)
+![Push transfer sequence diagram](./transfer.push.create.png)
