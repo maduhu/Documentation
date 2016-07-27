@@ -1,6 +1,6 @@
 # Central Directory
 
-The Central Directory is a group of loosely coupled microservices that allow DFSPs to store and retrieve End User information.
+The Central Directory API is a group of loosely coupled microservices that allow DFSPs to store and retrieve End User information.
 
 ## Endpoints
 
