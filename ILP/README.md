@@ -17,7 +17,7 @@
 
 ## ILP Flow
 
-![ILP Flow Diagramt](./flow-diagram.png)
+![ILP Flow Diagram](./flow-diagram.png)
 
 Notes:
 * Ripple may reimplement the SPSP/ILP Client in Java so that it can run on top of MuleSoft and DFSPs can interact with it using any APIs provided by MuleSoft
