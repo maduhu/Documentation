@@ -19,3 +19,7 @@ The diagram below shows how services interact:
 # Push transfer sequence diagram
 
 ![Push transfer sequence diagram](./transfer.push.create.png)
+
+# Bulk transfer sequence diagram
+
+![Bulk transfer sequence diagram](./transfer.bulk.create.png)
