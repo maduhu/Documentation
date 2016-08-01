@@ -8,4 +8,4 @@
 1. **account.float.~** - methods for float accounts
 1. **account.voucher.~** - methods for vouchers
 1. **account.nfc.~** - methods for NFC
-1. **account.fingerprint.~** - methods for biometric fingerprints
+

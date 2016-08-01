@@ -24,8 +24,9 @@
     * sourceAmount - amount to be sent
     * destinationUserNumber / destinationAccountNumber - recipient
     * destinationAmount - amount to be received
+    * message - a message associated with the transaction
     * currency - currency of the amount
-    * token - the token received during qouting
+    * token - the token received during quoting
   * result
     * receipt - transaction approval identifier, unique to sender's DFSP
   * error - all errors from quote +
