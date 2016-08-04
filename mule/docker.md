@@ -1,12 +1,13 @@
 # Mule's docker image
 This docker image is based on Java's official docker image. 
 
-The applications are incorporated into the image, which is why we need to change the dockerfile in order to do a COPY command to copy the zip file into mule's applications folder: "/opt/mule/apps"
+Applications are incorporated into the image, which is why we need to change the dockerfile in order to do a COPY command to copy the zip file into mule's applications folder: "/opt/mule/apps"
 
 Mule folders for domains, confs and logs are mounted volumes so those can be mapped to host directories. 
+
 ### Building it
 
-#### Parametes
+#### Parameters
 There are two different parameters to build, one is the version and the other is the port that is exposed. In case a parameter is missing then the defaults are 3.8.0 for version and 8081 for ports.
 The versions that are supported are: 3.8.0, 3.7.0, 3.6.1, 3.6.0 and 3.5.0
 
