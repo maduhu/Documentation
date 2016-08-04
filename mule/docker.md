@@ -32,7 +32,7 @@ The following command starts and runs a container:
 
 -d is indicating that it will run as a daemon. 
 -v is used to map a hostFolder to a container's volume. 
-<<imageUserName>>/<<imageName>>:<<imageTag>> is mandatory and specifies which image to use for the new container.
+"imageUserName:/"imageName":"imageTag" is mandatory and specifies which image to use for the new container.
 
 Example: 
 
