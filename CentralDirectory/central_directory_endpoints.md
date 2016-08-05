@@ -18,7 +18,10 @@ Content-Type: application/json
 {
   "user_number": 11122233333333,
   "name": "Bob Smith",
-  "account": "http://ledger.com/USD/accounts/bob",
+  "account": {
+  	"currency": "USD",
+  	"address": "http://ledger.com/USD/accounts/bob"
+  },
   "status": "Active"
 }
 ```
@@ -37,7 +40,10 @@ Content-Type: application/json
 {
   "user_number": 11122233333333,
   "name": "Bob Smith",
-  "account": "http://ledger.com/USD/accounts/bob",
+  "account": {
+  	"currency": "USD",
+  	"address": "http://ledger.com/USD/accounts/bob"
+  },
   "status": "Active"
 }
 ```
@@ -51,7 +57,10 @@ POST https://central-directory/users HTTP/1.1
 Accept: application/json
 {
   "name": "Bob Smith",
-  "account": "http://ledger.com/USD/accounts/bob"
+  "account": {
+  	"currency": "USD",
+  	"address": "http://ledger.com/USD/accounts/bob"
+  }
 }
 ```
 
@@ -61,7 +70,10 @@ Content-Type: application/json
 {
   "user_number": 11122233333333,
   "name": "Robert Smith",
-  "account": "http://ledger.com/USD/accounts/bob",
+  "account": {
+  	"currency": "USD",
+  	"address": "http://ledger.com/USD/accounts/bob"
+  },
   "status": "Active"
 }
 ```
@@ -75,7 +87,10 @@ PUT https://central-directory/users/11122233333333 HTTP/1.1
 Accept: application/json
 {
   "name": "Robert Smith",
-  "account": "http://ledger.com/USD/accounts/bob"
+  "account": {
+  	"currency": "USD",
+  	"address": "http://ledger.com/USD/accounts/bob"
+  }
 }
 ```
 
@@ -85,7 +100,10 @@ Content-Type: application/json
 {
   "user_number": 11122233333333,
   "name": "Robert Smith",
-  "account": "http://ledger.com/USD/accounts/bob",
+  "account": {
+  	"currency": "USD",
+  	"address": "http://ledger.com/USD/accounts/bob"
+  },
   "status": "Active"
 }
 ```
