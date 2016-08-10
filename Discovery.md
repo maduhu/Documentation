@@ -79,7 +79,9 @@ should provide implementations of some discovery services to bootstrap ecsosyste
 possible for a DFSP to be configured to use other discovery services as long as they meet the minim requirment of resolving a URL 
 from a URI.
 
-Therefor the logical steps for a sending DFSP are:
+In deployments where all discovery is done through the same service (e.g. a central directory) the logic for processing different identifier types can be deployed as part of that service. Therefor it will be unneccssary for the sending system (DFSP) to be capable of calling different servides based on the identifier type. While this is an optimization that may be possible for such a deployment, removing this logic from the DFSP will make introducing new discovery services in future more difficult unless they are always proxied through the central service.
+
+The logical steps for a sending DFSP are:
 1. Get receiver identifier
 2. Normalize identifier to a URI if required
 3. Determine which discovery service to use based on URI scheme
