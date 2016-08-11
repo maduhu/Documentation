@@ -10,9 +10,9 @@ even a photograph of the receiver for validation by the sender.
 
 1. The sender (End User) has an identifier for the receiver such as their account number, mobile number, national identity number 
 or similar identifier.
-2. The sending system (DFSP) uses this identifer to discover the information required to:   
-  a. Render an appropriate UI to the sender (name of receiver, currency code of receiving account etc)  
-  b. Initiate the ILP tansfer (ILP address of receiving account, amount, condition etc)  
+2. The sending system (DFSP) uses this identifier to discover the information required to:   
+  a. Render an appropriate UI to the sender (name of receiver, currency code of receiving account etc.)  
+  b. Initiate the ILP transfer (ILP address of receiving account, amount, condition etc.)  
   c. Get a quote for the transfer
 3. The sender confirms the transfer and initiates it via the sending DFSP
 
@@ -25,9 +25,9 @@ or similar identifier.
 
 ## Service Discovery vs Data Discovery
 
-Rather than discovering data about the receiver a more extensible solution will use the the receiver identifier 
+Rather than discovering data about the receiver a more extensible solution will use the receiver identifier 
 to resolve a service endpoint. The service at this endpoint can be standardized (this will be the SPSP entry-point) and in 
-future this sevice may be extended to provide additional functionality and data.
+future this service may be extended to provide additional functionality and data.
 
 By decoupling the discovery of the service from the service itself we define distinct phases in the preparation of 
 an ILP transfer; *discovery* and *setup*. These phases can be defined by distinct entry and exit gates and the specific
@@ -36,9 +36,9 @@ implementations can be changed as long as the input and output of each phase is 
 Using such an architecture it is also possible to host the service at a URL that does not reveal any data about the
 receiver allowing public discovery systems to be used without compromising the receiver's privacy.
 
-Example of privacy protecting SPSP recevier URL:
-- tel:+2612345678 - resolves to -> https://ist.ng/ea472-cd5346-87df2h6680 (using a puplic unsecured registry)
-- SPSP session initated at https://ist.ng/ea472-cd5346-87df2h6680 requires authentication
+Example of privacy protecting SPSP receiver URL:
+- tel:+2612345678 - resolves to -> https://ist.ng/ea472-cd5346-87df2h6680 (using a public unsecured registry)
+- SPSP session initiated at https://ist.ng/ea472-cd5346-87df2h6680 requires authentication
 
 It is assumed that access to the SPSP receiver endpoints will be subject to policies that are designed to protect receiver 
 data privacy (i.e. either not exposed on the public internet or protected behind an effective authorization system)
@@ -62,10 +62,10 @@ Identifiers that do not have a natural URI form can normally be converted to one
 identifier is provided to a sending system that is not a URI it is the responsibility of the sending system to determine the 
 correct form based on the context and, if required, through interaction with the user.
 
-Example 1: The sender provides the indentifier `+26 78 097 8763` and the sending system recognises this as an E164 format number
+Example 1: The sender provides the identifier `+26 78 097 8763` and the sending system recognizes this as an E164 format number
 and converts it to the URI `tel:+26780978763`.
-Example 2: The sender provides the indentifier `bob@dfsp1.com` and the sending system prompts the user to specify if this is 
-an emailaddress or an account identifier and then converts the identifier to the form `mailto:bob@dfsp1.com` or `acct:bob@dfsp1.com`.
+Example 2: The sender provides the identifier `bob@dfsp1.com` and the sending system prompts the user to specify if this is 
+an email address or an account identifier and then converts the identifier to the form `mailto:bob@dfsp1.com` or `acct:bob@dfsp1.com`.
 
 This normalization allows a more rigid definition of a discovery service such that any service that accepts URIs and returns 
 URLs could be used to resolve SPSP receiver endpoint URLs from receiver identifiers.
@@ -78,13 +78,13 @@ that receiver.
 
 Sending systems (DFSPs) SHOULD determine which discovery service to use based on the URI scheme of the identifier.
 
-The rules for this mapping (URI scheme/identifer type to discovery service) should be defined as part of each deployment. The Level
-One project should provide implementations of one or more discovery services to bootstrap ecsosystems where no such thing exists but
+The rules for this mapping (URI scheme/identifier type to discovery service) should be defined as part of each deployment. The Level
+One project should provide implementations of one or more discovery services to bootstrap ecosystems where no such thing exists but
 it should be possible for a DFSP to be configured to use other discovery services as long as they meet the minimum requirement of
 resolving a URL from a URI.
 
 In deployments where all discovery is done through the same service (e.g. a central directory) the logic for processing different
-identifier types can be deployed as part of that service. Therefor it will be unneccessary for the sending system (DFSP) to be capable
+identifier types can be deployed as part of that service. Therefor it will be unnecessary for the sending system (DFSP) to be capable
 of calling different services based on the identifier type. While this is an optimization that may be possible for such a deployment,
 removing this logic from the DFSP will make introducing new discovery services in future more difficult unless they are always proxied
 through the central service.
@@ -99,16 +99,16 @@ The logical steps for a sending DFSP are:
 
 ## Level One OSS Project v0.5
 
-The Level One Project has some specific design constraints and assumtions which drive the design of this implementation. The project
-favours the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not 
-neccessary for the discovery and setup to be decoupled maintaining this architecture future-proofs the solution for deployments where 
+The Level One Project has some specific design constraints and assumptions which drive the design of this implementation. The project
+favors the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not 
+necessary for the discovery and setup to be decoupled maintaining this architecture future-proofs the solution for deployments where 
 these constraints and assumptions no longer hold.
 
 ### Central Directory
 
 The central directory will host a simple lookup service that resolves a receiver identifier to an SPSP URL. It should host different
-endpoints for each identifer type so that these can easily be changed in future if required and so the logic to differentiate between
-identifier types is built into the DFSPs from the start.
+endpoints for each identifier type so that these can easily be changed in future if required and so the logic to differentiate between
+identifier types are built into the DFSPs from the start.
 
 Example: 
  * tel:+26123456789 -send-lookup-query-to-> https://ist.ng/api/tel
@@ -121,7 +121,7 @@ To optimize this process, in a deployment where the SPSP endpoints will be hoste
 as the lookup services. This will allow the client software at the sending DFSP to re-use the underlying connection for efficiency.
 
 An HTTP session based authorization model that is shared by both the lookup service and SPSP service will also mean that the client 
-is able to re-use it's authorized HTTP session further optimizing this process.
+is able to re-use its authorized HTTP session further optimizing this process.
 
 Using HTTP/2 in this architecture should further optimize this process.
 
@@ -147,5 +147,6 @@ Content-Type: application/json
 ```
 (Note: The URL gives nothing away about which DFSP is being proxied)
 
-Step 4. Sending DFSP initates SPSP session at `https://ist.ng/api/spsp/2911ca95-7bab-4699-b23a-6c64c03f3475`  
+Step 4. Sending DFSP initiates SPSP session at `https://ist.ng/api/spsp/2911ca95-7bab-4699-b23a-6c64c03f3475`  
 (Note: Both the lookup API and the SPSP endpoint are hosted at the IST)
+
