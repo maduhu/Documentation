@@ -4,7 +4,10 @@
   "description": "Docs, architecture, designs, wiki, stuff.",
   "main": "index.js",
   "scripts": {
-    "test": "mdspell -n -a -x -r \"**/*.md\""
+    "lint": "mdspell -n -a -x -r \"**/*.md\""
+  },
+  "devDependencies": {
+    "markdown-spellcheck": "^0.11.0"
   },
   "repository": {
     "type": "git",
