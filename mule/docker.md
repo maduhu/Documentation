@@ -3,7 +3,7 @@ This docker image is based on Java's official docker image.
 
 Applications are incorporated into the image, which is why we need to change the dockerfile in order to do a COPY command to copy the zip file into mule's applications folder: "/opt/mule/apps"
 
-Mule folders for domains, confs and logs are mounted volumes so those can be mapped to host directories. 
+Mule folders for domains, configs and logs are mounted volumes so those can be mapped to host directories. 
 
 ### Building it
 

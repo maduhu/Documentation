@@ -7,7 +7,7 @@
     	* user - unique identification of the user
     	* password - password of the user
 	* result
-    	* session - unique session identificatoin
+    	* session - unique session identification
 	* errors
     	* identify.invalidCredention - user or password are invalid
     	* identify.passwordExpired - the password is expired

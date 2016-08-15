@@ -84,7 +84,7 @@ it should be possible for a DFSP to be configured to use other discovery service
 resolving a URL from a URI.
 
 In deployments where all discovery is done through the same service (e.g. a central directory) the logic for processing different
-identifier types can be deployed as part of that service. Therefor it will be unnecessary for the sending system (DFSP) to be capable
+identifier types can be deployed as part of that service. Therefore it will be unnecessary for the sending system (DFSP) to be capable
 of calling different services based on the identifier type. While this is an optimization that may be possible for such a deployment,
 removing this logic from the DFSP will make introducing new discovery services in future more difficult unless they are always proxied
 through the central service.
@@ -100,7 +100,7 @@ The logical steps for a sending DFSP are:
 ## Level One OSS Project v0.5
 
 The Level One Project has some specific design constraints and assumptions which drive the design of this implementation. The project
-favors the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not 
+favours the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not 
 necessary for the discovery and setup to be decoupled maintaining this architecture future-proofs the solution for deployments where 
 these constraints and assumptions no longer hold.
 

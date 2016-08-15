@@ -137,7 +137,7 @@ Reference Implementation: <https://github.com/interledger/five-bells-connector>
 ### ILP Ledger Adapter Gateway
 [ILP Ledger Adapter Gateway]: #ilp-ledger-adapter-gateway
 
-The ILP Ledger Adapater Gateway is a service that proxies requests to and from the ILP Ledger Adapter of the Central Ledger. It may provide any of the following features, or more (to be decided):
+The ILP Ledger Adapter Gateway is a service that proxies requests to and from the ILP Ledger Adapter of the Central Ledger. It may provide any of the following features, or more (to be decided):
 
 * Authentication
 * Connection security/encryption
@@ -159,7 +159,7 @@ In Universal Mode, these three payments are prepared in order, but released in r
 ### Crypto-Conditions
 [Crypto-Conditions]: #crypto-conditions
 
-Crypto-Conditions are a message type used in the Interledger Protocol to provide irrefutable proof that an event has occurred. The Crypto-Conditions specification defines two categories of message, _conditions_ and _fulfillments_. A condition describes a message that will tell you an event has occurred, without giving you enough information to create the message directly. A fulfillment is that message: it tells you an event has occurred, and matches the parameters described in the condition. Generally, a condition is a cryptographic hash of some data from one or more fulfillments.
+Crypto-Conditions are a message type used in the Interledger Protocol to provide irrefutable proof that an event has occurred. The Crypto-Conditions specification defines two categories of message, _conditions_ and _fulfilments_. A condition describes a message that will tell you an event has occurred, without giving you enough information to create the message directly. A fulfillment is that message: it tells you an event has occurred, and matches the parameters described in the condition. Generally, a condition is a cryptographic hash of some data from one or more fulfilments.
 
 There are many types of Crypto-Conditions, but the Simple Payment Services Protocol (SPSP) only uses the PREIMAGE-SHA-256 type of Crypto-Condition.
 

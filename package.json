@@ -1,0 +1,20 @@
+{
+  "name": "@leveloneproject/docs",
+  "version": "1.0.0",
+  "description": "Docs, architecture, designs, wiki, stuff.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mdspell -n -a -x -r \"**/*.md\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevelOneProject/Docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LevelOneProject/Docs/issues"
+  },
+  "homepage": "https://github.com/LevelOneProject/Docs#readme"
+}
