@@ -1,0 +1,24 @@
+{
+  "name": "@leveloneproject/docs",
+  "version": "1.0.0",
+  "description": "Docs, architecture, designs, wiki, stuff.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "mdspell -n -a -x -r --en-us \"**/*.md\"",
+    "fixspelling": "mdspell -n -a --en-us \"**/*.md\""
+  },
+  "devDependencies": {
+    "markdown-spellcheck": "^0.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevelOneProject/Docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "SEE LICENSE IN ./LICENSE",
+  "bugs": {
+    "url": "https://github.com/LevelOneProject/Docs/issues"
+  },
+  "homepage": "https://github.com/LevelOneProject/Docs#readme"
+}

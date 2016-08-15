@@ -9,7 +9,7 @@ The directory service is used to for lookup services, like finding URLs, obtaini
 	    * userNumber | accountNumber - recipient user or account Number
   	* result
 	    * userURL | accountURL - recipient full user or account URLs, including the end point DFSP
-	    * currency - recepient account currency	    
+	    * currency - recipient account currency	    
 	* errors
     	* directory.userNotFound - recipient not found
     	* directory.accountNotFound - recipient account not found

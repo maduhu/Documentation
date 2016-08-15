@@ -84,7 +84,7 @@ it should be possible for a DFSP to be configured to use other discovery service
 resolving a URL from a URI.
 
 In deployments where all discovery is done through the same service (e.g. a central directory) the logic for processing different
-identifier types can be deployed as part of that service. Therefor it will be unnecessary for the sending system (DFSP) to be capable
+identifier types can be deployed as part of that service. Therefore it will be unnecessary for the sending system (DFSP) to be capable
 of calling different services based on the identifier type. While this is an optimization that may be possible for such a deployment,
 removing this logic from the DFSP will make introducing new discovery services in future more difficult unless they are always proxied
 through the central service.

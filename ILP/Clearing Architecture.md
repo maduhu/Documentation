@@ -137,7 +137,7 @@ Reference Implementation: <https://github.com/interledger/five-bells-connector>
 ### ILP Ledger Adapter Gateway
 [ILP Ledger Adapter Gateway]: #ilp-ledger-adapter-gateway
 
-The ILP Ledger Adapater Gateway is a service that proxies requests to and from the ILP Ledger Adapter of the Central Ledger. It may provide any of the following features, or more (to be decided):
+The ILP Ledger Adapter Gateway is a service that proxies requests to and from the ILP Ledger Adapter of the Central Ledger. It may provide any of the following features, or more (to be decided):
 
 * Authentication
 * Connection security/encryption
