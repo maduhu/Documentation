@@ -100,7 +100,7 @@ The logical steps for a sending DFSP are:
 ## Level One OSS Project v0.5
 
 The Level One Project has some specific design constraints and assumptions which drive the design of this implementation. The project
-favours the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not 
+favors the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not 
 necessary for the discovery and setup to be decoupled maintaining this architecture future-proofs the solution for deployments where 
 these constraints and assumptions no longer hold.
 
