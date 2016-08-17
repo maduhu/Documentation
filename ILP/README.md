@@ -1,6 +1,10 @@
 # Interledger Docs
 > This folder includes the documentation for the Interledger components
 
+## ILP/SPSP Client REST API
+
+See [ILP/SPSP Client REST API](./ilp-spsp-client-rest-api.md)
+
 ## ILP Component Architecture
 
 ![ILP Component Block Diagram](./block-diagram.png)
