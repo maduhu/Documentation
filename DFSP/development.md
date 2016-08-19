@@ -22,7 +22,11 @@ Install git from the appropriate place for your OS.
 ## Clone the project
 
 Generate and add SSH key to github. If you are not sure how to do that, you can follow the guides here [Generate an SSH key](https://help.github.com/articles/generating-an-ssh-key/)
-Navigate to the directory where the project should be cloned and type in the console for example: `git clone git@github.com:LevelOneProject/dfsp-directory.git`.
+Navigate to the directory where the project should be cloned and type in the console for example:
+
+```bash
+git clone git@github.com:LevelOneProject/dfsp-directory.git
+```
 
 ## Configuration file for the database
 
