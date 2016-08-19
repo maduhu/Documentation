@@ -18,6 +18,7 @@ DFSP functionality is split in the following services
 ## Default ports
 
 Each service has some default ports in the development environment. Below you can find these defaults for each project.
+
 | project                                                                       | debug console    |  httpserver port
 | ---------------                                                               | ------------     | ---------------
 | [dfsp-api](https://github.com/LevelOneProject/dfsp-api)                       | 30010            | 8010

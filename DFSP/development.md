@@ -98,7 +98,8 @@ In VS Code press `ctrl` + `shift` + `p` and type in the new open input field Ins
 
 Find `beautify` in the Extensions marketplace, install and enable it. This extension enables running js-beautify in VS Code. The generated .jsbeautifyrc loads code styling. It should has the following settings:
 
-```{
+```json
+{
   "end_with_newline": true,
   "wrap_line_length": 160,
   "e4x": true,
