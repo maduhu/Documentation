@@ -6,7 +6,7 @@ This is the main entry point for clients to use the Interledger Protocol (ILP) a
 
 The client server is configured with account credentials so that it can communicate with the ledger on the client's behalf.
 
-## GET /query
+## GET /v1/query
 
 Retrieve information about the receiver.
 
@@ -77,7 +77,7 @@ Example Receiver:
 | `invoice_info` | URI | URI where additional information about the invoice can be found. |
 
 
-## GET /quote
+## GET /v1/quote
 
 Get a quote for either a fixed source amount or fixed destination. The amount returned includes exchange rates, when applicable, and fees from all parties in the payment path.
 
@@ -104,7 +104,7 @@ Example quote:
 }
 ```
 
-## POST /setup
+## POST /v1/setup
 
 Set up a payment and get the exact parameters, including the execution condition, from the receiver. This step also allows receivers to refuse payments (for example, if they would push the recipient over a daily transaction limit).
 
@@ -171,7 +171,7 @@ Example setup response:
 | `additional_headers` | Base64-Encoded String | Headers used for routing the payment that the sender should treat as opaque |
 | `condition` | Crypto Condition | Execution condition for the payment |
 
-## PUT /payments/:uuid
+## PUT /v1/payments/:uuid
 
 Execute a payment. This endpoint is idempotent.
 
@@ -228,7 +228,7 @@ OR
 }
 ```
 
-## GET /payments/:uuid
+## GET /v1/payments/:uuid
 
 ### Response
 
