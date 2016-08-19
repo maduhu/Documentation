@@ -6,6 +6,8 @@ This is the main entry point for clients to use the Interledger Protocol (ILP) a
 
 The client server is configured with account credentials so that it can communicate with the ledger on the client's behalf.
 
+The client server is stateless, so no database is needed.
+
 ## GET /v1/query
 
 Retrieve information about the receiver.
@@ -79,7 +81,9 @@ Example Receiver:
 
 ## GET /v1/quote
 
-Get a quote for either a fixed source amount or fixed destination. The amount returned includes exchange rates, when applicable, and fees from all parties in the payment path.
+OPTIONAL: This is an informational endpoint to get a quote for either a fixed source amount or fixed destination amount. The Setup command may be used without getting a quote first.
+
+The amount returned includes exchange rates, when applicable, and fees from all parties in the payment path.
 
 ### Request
 
