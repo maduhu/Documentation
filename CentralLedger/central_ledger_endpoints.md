@@ -190,12 +190,11 @@ HTTP/1.1 200 OK
 This endpoint is used to subscribe for webhook notifications about rebalance and transfer events.
 
 ``` http
-PUT https://central-ledger/subscriptions/7ba9f960-0f4a-e611-80e2-02c4cfdff3c0 HTTP/1.1
+POST https://central-ledger/subscriptions HTTP/1.1
 Accept: application/json
 {
-  "id": "7ba9f960-0f4a-e611-80e2-02c4cfdff3c0",
-  "event": "position.rebalanced",
-  "target": "http://dfsp1.com/rebalance"
+  "url": "http://dfsp1.com/webhooks",
+  "secret": "my-secret"
 }
 ```
 
@@ -203,7 +202,24 @@ Accept: application/json
 HTTP/1.1 201 CREATED
 {
   "id": "7ba9f960-0f4a-e611-80e2-02c4cfdff3c0",
-  "event": "position.rebalanced",
-  "target": "http://dfsp1.com/rebalance"
+  "url": "http://dfsp1.com/webhooks",
+  "created": "2016-08-22T14:18:02.223Z"
+}
+```
+
+### Retrieve subscription
+
+This endpoint is used to retrieve details about a subscription.
+
+``` http
+GET https://central-ledger/subscriptions/7ba9f960-0f4a-e611-80e2-02c4cfdff3c0 HTTP/1.1
+```
+
+``` http
+HTTP/1.1 200 OK
+{
+  "id": "7ba9f960-0f4a-e611-80e2-02c4cfdff3c0",
+  "url": "http://dfsp1.com/webhooks",
+  "created": "2016-08-22T14:18:02.223Z"
 }
 ```
