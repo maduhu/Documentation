@@ -21,6 +21,7 @@ Each service has some default ports in the development environment. Below you ca
 
 | project                                                                       | debug console    |  httpserver port
 | ---------------                                                               | ------------     | ---------------
+| [dfsp-account](https://github.com/LevelOneProject/dfsp-account)               | 30009            | 8009
 | [dfsp-api](https://github.com/LevelOneProject/dfsp-api)                       | 30010            | 8010
 | [dfsp-directory](https://github.com/LevelOneProject/dfsp-directory)           | 30011            | 8011
 | [dfsp-identity](https://github.com/LevelOneProject/dfsp-identity)             | 30012            | 8012
