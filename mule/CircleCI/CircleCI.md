@@ -78,3 +78,4 @@ On the left side of the screen there is a submenu, click on the menu item called
 
 ![EnvironmentVariables](EnvironmentVariables.png "Environment variables")
 
+When you added the project for the first time the project build should have failed because there were no credentials provided. Get back to the dashboard and click on Rebuild so it can build the project again.
