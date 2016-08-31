@@ -107,3 +107,19 @@ Content-Type: application/json
   "status": "Active"
 }
 ```
+
+### Error information
+
+This section identifies the potential errors retruned and the structure of the response.
+
+
+``` http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+{
+  "error": {
+  	"id": "UserNotFound",
+  	"message": "End user was not found"
+  }
+}
+```
