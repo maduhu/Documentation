@@ -39,7 +39,7 @@ After the tests run, a new folder is created in which the test results are copie
 
 Login into CircleCI and go to https://circleci.com/dashboard. There is a menu on your left, click on the third option ("Add Projects")
 
-![AddProjects](/AddProjects.jpg "AddProjects")
+![AddProjects](/AddProjects.png "AddProjects")
 
 In the following screen you should choose the project you want to add from the list, clicking on the button on its right. In case there is no button on the project and you get a "Contact repo admin" message, you need to ask for administrative privileges in order to continue. 
 
@@ -70,5 +70,11 @@ The maven settings file includes credentials that needs to be set as environment
 ```
 
 
-The variables that needs to be set at the moment are: JFROG_USERNAME, JFROG_PASSWORD. In order to do so go to the settings page of the project by clicking on the 
+In order to add the variables go to the settings page of the project by clicking on the gear button next to the project title.
+
+![ProjectSettings](/ProjectSettings.png "Project Settings")
+
+On the left side of the screen there is a submenu, click on the menu item called "Environment Variables" which is below the title "Build Settings". Once in there, you need to add the variables: JFROG_USERNAME and JFROG_PASSWORD. In case you dont know the right values please contact someone from modusbox team.
+
+![EnvironmentVariables](/EnvironmentVariables.png "Environment variables")
 
