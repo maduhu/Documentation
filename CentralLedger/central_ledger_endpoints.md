@@ -223,3 +223,19 @@ HTTP/1.1 200 OK
   "created": "2016-08-22T14:18:02.223Z"
 }
 ```
+
+### Error information
+
+This section identifies the potential errors returned and the structure of the response.
+
+
+``` http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+{
+  "error": {
+  	"id": "TransferNotFound",
+  	"message": "Transfer was not found"
+  }
+}
+```
