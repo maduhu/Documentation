@@ -8,6 +8,13 @@ The ILP/SPSP Client RESTful API needs to be configured with account credentials 
 
 The client server is stateless, so no database is needed.
 
+# Methods
+
+* [Query Receiver - `GET /v1/query`](#get-v1query)
+* [Get Quote - `GET /v1/quote/`](#get-v1quote)
+* [Prepare Payment - `POST /v1/setup`](#post-v1setup)
+* [Execute Payment - `PUT /v1/payments/:uuid`](#put-v1paymentsuuid)
+
 ## GET /v1/query
 
 Retrieve information about the receiver. This method instructs the ILP/SPSP Client RESTful API to use the [Simple Payment Setup Protocol](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md) to look up a particular user at a particular address.
@@ -83,11 +90,11 @@ Example Invoice Receiver:
 
 ## GET /v1/quote
 
-OPTIONAL: This is an informational endpoint to get a quote for either a fixed source amount or fixed destination amount. You may use the [Setup](#post-v1-setup) method without getting a quote first.
+OPTIONAL: This is an informational endpoint to get a quote for either a fixed source amount or fixed destination amount. You may use the [Setup](#post-v1setup) method without getting a quote first.
 
 The amount returned includes exchange rates, when applicable, and fees from all parties in the payment path.
 
-> **Note:** The quotes returned by this method are non-binding. The connectors involved might change their rates between this and the [Setup](#post-v1-setup) step.
+> **Note:** The quotes returned by this method are non-binding. The connectors involved might change their rates between this and the [Setup](#post-v1setup) step.
 
 ### Request
 
@@ -95,7 +102,7 @@ Query Parameters:
 
 | Name                  | Type           | Description                         |
 |:----------------------|:---------------|:------------------------------------|
-| `destination_address` | ILP Address    | Receiver address (obtained from the [Query method](#get-v1-query).) |
+| `destination_address` | ILP Address    | Receiver address (obtained from the [Query method](#get-v1query).) |
 | `destination_amount`  | Decimal String | Amount to deliver (for fixed destination amount quotes). |
 | `source_amount`       | Decimal String | Amount to send (for fixed source amount quotes). |
 
@@ -304,7 +311,7 @@ Example payment response (failed payment):
 
 ### Request
 
-The request uses the UUID created for this payment in the [execute payment step](#PUT-v1-payments-uuid).
+The request uses the UUID created for this payment in the [execute payment step](#put-v1paymentsuuid).
 
 ### Response
 
