@@ -8,6 +8,13 @@ The ILP/SPSP Client RESTful API needs to be configured with account credentials 
 
 The client server is stateless, so no database is needed.
 
+# Methods
+
+* [Query Receiver - `GET /v1/query`](#get-v1query)
+* [Get Quote - `GET /v1/quote/`](#get-v1quote)
+* [Prepare Payment - `POST /v1/setup`](#post-v1setup)
+* [Execute Payment - `PUT /v1/payments/:uuid`](#put-v1paymentsuuid)
+
 ## GET /v1/query
 
 Retrieve information about the receiver. This method instructs the ILP/SPSP Client RESTful API to use the [Simple Payment Setup Protocol](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md) to look up a particular user at a particular address.
@@ -16,8 +23,8 @@ Retrieve information about the receiver. This method instructs the ILP/SPSP Clie
 
 Query Parameters:
 
-| Name       | Type | Description       |
-|:-----------|:-----|:------------------|
+| Name       | Type | Description                                              |
+|:-----------|:-----|:---------------------------------------------------------|
 | `receiver` | URL  | The SPSP Receiver Endpoint to use, including the unique ID of the receiver. |
 
 > **Tip:** The design of this method may seem silly, because it is a request to a URL with another URL as its only parameter. The main purpose of the ILP/SPSP Client RESTful API is to format the response from the given URL into a consistent format even if the other side changes.
@@ -46,11 +53,11 @@ Example Payee Receiver:
 | Name              | Type        | Description                                |
 |:------------------|:------------|:-------------------------------------------|
 | `type`            | String      | The value `"payee"` indicates this is a Payee-type Receiver. |
-| `account`         | ILP Address | ILP Address of the receiver's account.    |
+| `account`         | ILP Address | ILP Address of the receiver's account.     |
 | `currency_code`   | String      | Currency code of the receiver's currency. Currencies that have [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) codes should use those. Sender UIs SHOULD be able to render non-standard codes. |
 | `currency_symbol` | String      | Symbol for the receiver's currency intended for display in the sender's user interface. For example, `"$"` for dollars, or `"shares"` for shares of a security. Sender UIs SHOULD be able to render non-standard symbols. |
 | `name`            | String      | Full name of the individual, company, or organization the receiver represents. |
-| `image_url`       | HTTPS URL   | URL that a picture of the receiver can be fetched from. The image MUST be square and SHOULD be 128x128 pixels. |
+| `image_url`       | HTTPS URL   | (May be omitted) URL that a picture of the receiver can be fetched from. The image MUST be square and SHOULD be 128x128 pixels. |
 
 #### Invoice
 
@@ -66,36 +73,36 @@ Example Invoice Receiver:
   "currency_symbol": "$",
   "amount": "10.40",
   "status": "unpaid",
-  "invoice_info": "https://www.amazon.com/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+  "invoice_info": "https://www.example.com/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
 }
 ```
 
-| Name | Type | Description |
-|---|---|---|
-| `type` | String | The value `"invoice"` indicates this is an Invoice-type Receiver. |
-| `account` | ILP Address | ILP Address of the receiver's account. |
-| `currency_code` | String | Currency code of the receiver's currency. Currencies that have [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) codes should use those. Sender UIs SHOULD be able to render non-standard codes |
-| `currency_symbol` | String | Symbol for the receiver's currency intended for display in the sender's user interface. For example, `"$"` for dollars or `"shares"` for shares of a security. Sender UIs SHOULD be able to render non-standard symbols. |
-| `amount` | Decimal String | Value of the invoice in the receiver's currency. |
-| `status` | Enum: `"paid"`, `"unpaid"`, `"cancelled"` | The current state of the invoice. |
-| `invoice_info` | URL | URL where additional information about the invoice can be found. |
+| Name              | Type           | Description                             |
+|:------------------|:---------------|:----------------------------------------|
+| `type`            | String         | The value `"invoice"` indicates this is an Invoice-type Receiver. |
+| `account`         | ILP Address    | ILP Address of the receiver's account.  |
+| `currency_code`   | String         | Currency code of the receiver's currency. Currencies that have [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) codes should use those. Sender UIs SHOULD be able to render non-standard codes. |
+| `currency_symbol` | String         | Symbol for the receiver's currency intended for display in the sender's user interface. For example, `"$"` for dollars or `"shares"` for shares of a security. Sender UIs SHOULD be able to render non-standard symbols. |
+| `amount`          | Decimal String | Value of the invoice in the receiver's currency. |
+| `status`          | String         | The current state of the invoice. Valid states are `"paid"`, `"unpaid"`, or `"cancelled"`. |
+| `invoice_info`    | HTTPS URL      | (May be omitted) URL where additional information about the invoice can be found. |
 
 
 ## GET /v1/quote
 
-OPTIONAL: This is an informational endpoint to get a quote for either a fixed source amount or fixed destination amount. You may use the [Setup](#post-v1-setup) method without getting a quote first.
+OPTIONAL: This is an informational endpoint to get a quote for either a fixed source amount or fixed destination amount. You may use the [Setup](#post-v1setup) method without getting a quote first.
 
 The amount returned includes exchange rates, when applicable, and fees from all parties in the payment path.
 
-> **Note:** The quotes returned by this method are non-binding. The connectors involved might change their rates between this and the [Setup](#post-v1-setup) step.
+> **Note:** The quotes returned by this method are non-binding. The connectors involved might change their rates between this and the [Setup](#post-v1setup) step.
 
 ### Request
 
 Query Parameters:
 
-| Name                  | Type           | Description                        |
-|:----------------------|:---------------|:-----------------------------------|
-| `destination_address` | ILP Address    | Receiver address (obtained from the [Query method](#get-v1-query).) |
+| Name                  | Type           | Description                         |
+|:----------------------|:---------------|:------------------------------------|
+| `destination_address` | ILP Address    | Receiver address (obtained from the [Query method](#get-v1query).) |
 | `destination_amount`  | Decimal String | Amount to deliver (for fixed destination amount quotes). |
 | `source_amount`       | Decimal String | Amount to send (for fixed source amount quotes). |
 
@@ -141,7 +148,7 @@ For a Payee-type receiver, the request contains the following fields:
 |:---------------------|:---------------|:-------------------------------------|
 | `receiver`           | URL            | The SPSP Receiver Endpoint to use to set up the payment. This is unique to the receiver. |
 | `destination_amount` | Decimal String | Amount the receiver should get, denoted in the receiver's currency. |
-| `memo`               | String         | (Optional) Message for the recipient.           |
+| `memo`               | String         | (Optional) Message for the recipient. |
 | `source_identifier`  | String         | An identifier of the sender. This SHOULD be in a format the receiver's user interface can understand. |
 
 Example setup request with a Payee as receiver:
@@ -161,8 +168,8 @@ POST /v1/setup
 
 For an Invoice-type receiver, the request contains the following fields:
 
-| Name                | Type   | Description       |
-|:--------------------|:-------|:------------------|
+| Name                | Type   | Description                                   |
+|:--------------------|:-------|:----------------------------------------------|
 | `receiver`          | URL    | The SPSP Receiver Endpoint to use to set up the payment. This is unique to the receiver. |
 | `source_identifier` | String | An identifier of the sender. This SHOULD be in a format the receiver's user interface can understand. |
 
@@ -200,8 +207,8 @@ Example setup response:
 }
 ```
 
-| Name                 | Type                  | Description                  |
-|:---------------------|:----------------------|:-----------------------------|
+| Name                 | Type                  | Description                   |
+|:---------------------|:----------------------|:------------------------------|
 | `address`            | ILP Address           | Address the payment will be routed to |
 | `destination_amount` | Decimal String        | Amount the receiver will receive, denoted in the receiver's currency |
 | `source_amount`      | Decimal String        | Amount the sender will send, denoted in the sender's currency |
@@ -220,9 +227,11 @@ Execute a prepared payment. This endpoint is idempotent.
 
 For the request, the sender creates a new UUID for the payment to use in the method URL. The message body is a JSON object in the same format as the response from the Setup endpoint.
 
-Example payment request body:
+Example payment request:
 
 ```json
+PUT /v1/payments/b51ec534-ee48-4575-b6a9-ead2955b8069
+
 {
   "address": "ilpdemo.red.bob.b9c4ceba-51e4-4a80-b1a7-2972383e98af",
   "destination_amount": "10.40",
@@ -236,15 +245,28 @@ Example payment request body:
 }
 ```
 
+Fields in the request body:
+
+| Name                       | Type                  | Description             |
+|:---------------------------|:----------------------|:------------------------|
+| `address`                  | ILP Address           | Address the payment will be routed to |
+| `destination_amount`       | Decimal String        | Amount the receiver will receive, denoted in the receiver's currency |
+| `source_amount`            | Decimal String        | Amount the sender will send, denoted in the sender's currency |
+| `expires_at`               | ISO 8601 Timestamp    | Expiration time of the request. After this time the receiver will no longer fulfill the condition. |
+| `data`                     | Object                | Arbitrary data that will be included in the payment. |
+| `data`.`sender_identifier` | String                | The unique identifier of the sender. |
+| `additional_headers`       | Base64-Encoded String | Headers used for routing the payment that the sender should treat as opaque |
+| `condition`                | Crypto Condition      | Execution condition for the payment, in string format. |
+
 ### Response
 
-A successful response uses the HTTP response code **200 OK** and contains a JSON object describing the payment and its current status. For a canceled or expired payment, the response uses the HTTP response code **400 Bad Request** and contains a standardized error message.
+A successful response uses the HTTP response code **200 OK** and contains a JSON object describing the payment and its current status. For a canceled or expired payment, the response uses the HTTP response code **422 Unprocessable Entity** and contains a standardized error message.
 
 The fields of the response are the same as the request, plus the following:
 
-| Name          | Type                         | Description                  |
-|:--------------|:-----------------------------|:-----------------------------|
-| `fulfillment` | Crypto Condition Fulfillment | Proof that the payment has been executed. This field only appears after the payment has completed successfully. |
+| Name          | Type                         | Description                   |
+|:--------------|:-----------------------------|:------------------------------|
+| `fulfillment` | Crypto-Condition Fulfillment | Proof that the payment has been executed. This field only appears after the payment has completed successfully. |
 | `status`      | String                       | State of the transfer. Valid states are `executed`, `cancelled`, `rejected`, or `pending`. |
 
 Example payment response (successfully executed):
@@ -270,12 +292,15 @@ Example payment response (successfully executed):
 Example payment response (failed payment):
 
 ```json
-400 Bad Request
+422 Unprocessable Entity
 
 //Note: this example is a placeholder
 {
   "errorId": "FulfillmentFailedTimeout",
-  "message": "Transfer timed out"
+  "message": "Transfer timed out",
+  "debug": {
+    "message": "fulfillment for payment b51ec534-ee48-4575-b6a9-ead2955b8069... failed because the current time (2016-09-08T23:18:09Z) is past the expiration for this payment object (2016-08-16T12:00:00Z)."
+  }
 }
 ```
 
@@ -286,7 +311,7 @@ Example payment response (failed payment):
 
 ### Request
 
-The request uses the UUID created for this payment in the [execute payment step](#PUT-v1-payments-uuid).
+The request uses the UUID created for this payment in the [execute payment step](#put-v1paymentsuuid).
 
 ### Response
 
