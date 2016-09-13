@@ -9,8 +9,8 @@ Log into our jfrog artifactory instance here:
 
 JFrog Artifactory supports many different repository types.  Each repository is capable of storing many artifacts.  It can also mirror other remote repositories.  Right now we are using the following repository types:
 * maven
-* [npm](Docs/Artifactory/npm_repos.md)
-* [docker](Docs/Artifactory/docker_repos.md)
+* [npm](https://github.com/LevelOneProject/Docs/blob/master/Artifactory/npm_repos.md)
+* [docker](https://github.com/LevelOneProject/Docs/blob/master/Artifactory/docker_repos.md)
 
 It also supports the concept of repository layouts.
 
