@@ -1,3 +1,7 @@
+### Overview
+
+The following instructions use the `level1project_circleci` account against the repository `level1-npm-release`
+
 ### General
 
 In order for your npm command line client to work with Artifactory you will firstly need to set the relevant authentication. For getting authentication details run the following command:
