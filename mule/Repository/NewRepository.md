@@ -1,4 +1,4 @@
-## New Repository tasks ## 
+## New Repository tasks ##
 
 ### Branches ###
 
