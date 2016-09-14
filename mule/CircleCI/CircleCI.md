@@ -40,15 +40,20 @@ You need to modify the deployment section modifying the git remot set-url comman
 
 In case the project has no tests, you should modify this file by removing the test section and pasting the one included bellow n the TEST section.
 
+
 ## What is this circle.yml file doing? ##
 
+
 ### Checkout ###
+
 In this section and before the code is pulled from github, a settings file for maven gets downloaded. This file is located in a github repository called automation and has the information to authenticate to Artifactory and Github. 
 
 ### Dependencies ###
+
 Maven dependencies are retrieved using maven, this section is run before to speed up future builds by saving dependencies in a cache.
 
 ### Test ###
+
 Almost all the projects has tests to run, but there are two exceptions: interop-domain and interop-parent. In those cases the test section is overriden with a message.
 
 ```yml
@@ -60,6 +65,7 @@ test:
 In those projects with tests to run, after the execution is completed a new folder is created and the test results are copied. By doing that CIRCLECI knows how many tests were run and which were the results.
 
 ### Deployment ###
+
 This section runs only for master branch. First we set both the username and the email, these are set so we can identify that those commits were made by CircleCI.
 
 Maven release plugin is used by both the prepare and release command, the tests are skipped to reduce the build time. 
@@ -69,6 +75,7 @@ Then the last lines are git commands that merges the version number changes back
 
 ## Configuring the project in CircleCI for the first time ##
 
+
 ### Configure github and Jfrog  ###
 
 Login into CircleCI and go to https://circleci.com/dashboard. There is a menu on your left, click on the third option ("Add Projects")
@@ -77,9 +84,7 @@ Login into CircleCI and go to https://circleci.com/dashboard. There is a menu on
 
 In the following screen you should choose the project you want to add from the list, clicking on the button on its right. In case there is no button on the project and you get a "Contact repo admin" message, you need to ask for administrative privileges in order to continue adding it. In case the project is already configured then the button is "Follow Repo", in which case the following steps were already done.
 
-
 ### Setting the environment variables ###
-
 
 In case the project wasn't configured before, you need to add the environment variables. The maven settings file includes credentials that needs to be set as environment variables. The following is a code snippet that shows how the settings file is configured:
 
@@ -112,7 +117,19 @@ On the left side of the screen there is a submenu, click on the menu item called
 
 ![EnvironmentVariables](EnvironmentVariables.png "Environment variables")
 
+### Setting Slack Chat Notifications ###
+
+On the left side of the screen now click on the "Chat Notifications" submenu. In there you should paste this url: https://hooks.slack.com/services/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
+
+![ChatNotifications](ChatNotifications.png "Chat Notifications")
+
+Click on Test and check that the Slack Channel #interop has a new notification "Hello from CircleCI". If this worked, then click on save.
+
+### Rebuild ###
+
 When you added the project for the first time the project build should have failed because there were no credentials provided in the environment variables. Once you finished the configuration get back to the dashboard and click on Rebuild so it can build the project again.
+
+
 
 
 
