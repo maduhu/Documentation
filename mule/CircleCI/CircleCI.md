@@ -1,4 +1,4 @@
-# Including a new project in CircleCI #
+# Adding a new project into CircleCI #
 
 ## Create circle.yml file ##
 
