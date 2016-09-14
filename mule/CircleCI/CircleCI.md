@@ -1,5 +1,11 @@
 # Adding a new project into CircleCI #
 
+## Prerequisites ##
+
+The default branches master and develop must be already setup in order to follow these instructions. If that is not the case go to the New Repository instructions.
+
+https://github.com/LevelOneProject/Docs/blob/master/mule/NewRepository.md
+
 ## Create circle.yml file ##
 
 CircleCI uses a file called “circle.yml” in every project in order to know how to work with it. Add a new file into the root folder of the project and name it "circle.yml", then copy the following content into it.
