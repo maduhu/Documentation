@@ -8,8 +8,7 @@ CircleCI uses a file called “circle.yml” in every project in order to know h
 ---
 checkout:
   pre:
-    - curl -H 'Authorization:token 2966049a0cf5e2723cd9728031bc8e10607e8b1a' -H 'Accept:application/vnd.github.v3.raw' -o /tmp/interop_maven_settings.xml -L https://raw.githubusercontent.com/LevelOneProject/automation/master/interop/interop_maven_settings.xml?token=AC_Z3FCGCSuxKBPvF5oDxwDqb71xSIC6ks5XzjH7wA%3D%3D
-
+    - curl -H "Authorization:token $GITHUB_TOKEN" -H 'Accept:application/vnd.github.v3.raw' -o /tmp/interop_maven_settings.xml -L https://raw.githubusercontent.com/LevelOneProject/automation/master/interop/interop_maven_settings.xml
 dependencies:
   override:
     - "mvn dependency:resolve -s /tmp/interop_maven_settings.xml"
@@ -20,41 +19,76 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
+deployment:
+  releases:
+    branch: master
+    commands:
+      - git config --global user.email "info@modusbox.com"
+      - git config --global user.name "Automatic Deployment via CircleCI"
+      - mvn -B release:prepare -Darguments="-DskipTests" -DscmCommentPrefix="[maven-release-plugin][ci skip]" -s /tmp/interop_maven_settings.xml
+      - mvn -B release:perform -Darguments="-DskipTests" -s /tmp/interop_maven_settings.xml
+
+      - git remote set-url origin https://$GITHUB_TOKEN@github.com/LevelOneProject/interop-xxxxxxxxx.git
+      - git checkout -B develop origin/develop
+      - git pull origin develop
+      - git merge master
+      - git push origin develop
 ```
 
+You need to modify the deployment section modifying the git remot set-url command to point to the right URL. 
+
+In case the project has no tests, you should modify this file by removing the test section and pasting the one included bellow n the TEST section.
 
 ## What is this circle.yml file doing? ##
 
+### Checkout ###
+In this section and before the code is pulled from github, a settings file for maven gets downloaded. This file is located in a github repository called automation and has the information to authenticate to Artifactory and Github. 
 
-Before the code is pulled from github, a settings file for maven gets downloaded.
-After that, the dependencies are retrieved using maven
-Since CircleCI tries to autodetect the type of project and what to do with it, both the dependencies and test section is overrided, the only difference with the command that it would execute on its own is that we are specifying a maven settings file. 
-After the tests run, a new folder is created in which the test results are copied, that is the way CIRCLECI knows how many tests were run and which were the results.
+### Dependencies ###
+Maven dependencies are retrieved using maven, this section is run before to speed up future builds by saving dependencies in a cache.
+
+### Test ###
+Almost all the projects has tests to run, but there are two exceptions: interop-domain and interop-parent. In those cases the test section is overriden with a message.
+
+```yml
+test:
+  override:
+    - echo "This project test section has been overriden on the circle.yml file"
+```
+
+In those projects with tests to run, after the execution is completed a new folder is created and the test results are copied. By doing that CIRCLECI knows how many tests were run and which were the results.
+
+### Deployment ###
+This section runs only for master branch. First we set both the username and the email, these are set so we can identify that those commits were made by CircleCI.
+
+Maven release plugin is used by both the prepare and release command, the tests are skipped to reduce the build time. 
+
+Then the last lines are git commands that merges the version number changes back into develop branch.
 
 
+## Configuring the project in CircleCI for the first time ##
 
-## Configure github and Jfrog account ##
-
-### Configuring the project in CircleCI ###
+### Configure github and Jfrog  ###
 
 Login into CircleCI and go to https://circleci.com/dashboard. There is a menu on your left, click on the third option ("Add Projects")
 
 ![AddProjects](AddProjects.png "AddProjects")
 
-In the following screen you should choose the project you want to add from the list, clicking on the button on its right. In case there is no button on the project and you get a "Contact repo admin" message, you need to ask for administrative privileges in order to continue. 
+In the following screen you should choose the project you want to add from the list, clicking on the button on its right. In case there is no button on the project and you get a "Contact repo admin" message, you need to ask for administrative privileges in order to continue adding it. In case the project is already configured then the button is "Follow Repo", in which case the following steps were already done.
 
 
 ### Setting the environment variables ###
 
 
-The maven settings file includes credentials that needs to be set as environment variables. The following is a code snippet that shows how the settings file is configured:
+In case the project wasn't configured before, you need to add the environment variables. The maven settings file includes credentials that needs to be set as environment variables. The following is a code snippet that shows how the settings file is configured:
 
 ```xml
 <servers>
   <server>
      <id>git</id>  
-     <username>${env.GIT_USERNAME}</username>  
-     <password>${env.GIT_PASSWORD}</password>  
+     <username>${env.GITHUB_USER}</username>  
+     <password>${env.GITHUB_TOKEN}</password>  
   </server> 
   <server>
     <username>${env.JFROG_USERNAME}</username>
@@ -74,8 +108,11 @@ In order to add the variables go to the settings page of the project by clicking
 
 ![ProjectSettings](ProjectSettings.png "Project Settings")
 
-On the left side of the screen there is a submenu, click on the menu item called "Environment Variables" which is below the title "Build Settings". Once in there, you need to add the variables: JFROG_USERNAME and JFROG_PASSWORD. In case you dont know the right values please contact someone from modusbox team.
+On the left side of the screen there is a submenu, click on the menu item called "Environment Variables" which is below the title "Build Settings". Once in there, you need to add the variables: JFROG_USERNAME, JFROG_PASSWORD, GITHUB_USER and GITHUB_TOKEN. In case you dont know the right values please contact someone from modusbox team.
 
 ![EnvironmentVariables](EnvironmentVariables.png "Environment variables")
 
-When you added the project for the first time the project build should have failed because there were no credentials provided. Get back to the dashboard and click on Rebuild so it can build the project again.
+When you added the project for the first time the project build should have failed because there were no credentials provided in the environment variables. Once you finished the configuration get back to the dashboard and click on Rebuild so it can build the project again.
+
+
+
