@@ -38,7 +38,7 @@ deployment:
 
 You need to modify the deployment section modifying the git remot set-url command to point to the right URL. 
 
-In case the project has no tests, you should modify this file by removing the test section and pasting the one included bellow n the TEST section.
+In case the project has no tests, you should modify this file by removing the test section and pasting the one included bellow in the TEST section.
 
 
 ## What is this circle.yml file doing? ##
