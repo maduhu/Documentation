@@ -4,7 +4,7 @@
 
 The default branches master and develop must be already setup in order to follow these instructions. If that is not the case go to the New Repository instructions.
 
-https://github.com/LevelOneProject/Docs/blob/master/mule/NewRepository.md
+https://github.com/LevelOneProject/Docs/blob/master/mule/Repository/NewRepository.md
 
 ## Create circle.yml file ##
 
