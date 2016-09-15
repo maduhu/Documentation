@@ -26,6 +26,27 @@ DFSP Directory Gateway
 | [user/get](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/directory/v1/user/get) | /directory/user/get |
 | [user/add](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/directory/v1/user/add) | for testing only - add accounts to directory |
 
+Data Structure for /user/add - this method takes a list of maps of account information which is then returned via calls to /user/get.  This data should map to accounts that exist in test ledgers.
+
+```json
+{
+  "users": [
+    {
+      "uri": "http://centraldirectory.com/alice",
+      "name": "Chris Griffin",
+      "account": "http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3000/alice",
+      "currency": "USD"
+    },
+    {
+      "uri": "http://centraldirectory.com/bob",
+      "name": "Walter Mitty",
+      "account": "http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3000/bob",
+      "currency": "USD"
+    }
+  ]
+}
+```
+
 DFSP SPSP Client Proxy
 
 | path | Description |
