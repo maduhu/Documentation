@@ -28,6 +28,8 @@ DFSP Directory Gateway
 
 Data Structure for /user/add - this method takes a list of maps of account information which is then returned via calls to /user/get.  This data should map to accounts that exist in test ledgers.  For PI 2 demo purposes only the URI contained in the account field is valuable.  The other information should be taken from the result of calling query on the spsp-client.  The directory service and the whole topic of resolving user identifiers back to account information  will be discussed and refactored as part of the next convening and will be implemented in PI 3.1.
 
+note the uri field below is the key for queries into /user/get.  the result will be the matching user json and the value in its account field shoudl be passed forward into the spsp-client
+
 ```json
 {
   "users": [
