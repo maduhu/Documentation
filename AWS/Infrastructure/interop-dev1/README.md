@@ -18,6 +18,7 @@
 ### Dev
 
 DFSP Directory Gateway
+
 | path | Description |
 | ---- | ----------- |
 | /directory/v1 | directory gateway service root
@@ -26,6 +27,7 @@ DFSP Directory Gateway
 | [user/add](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/directory/v1/user/add) | for testing only - add accounts to directory |
 
 DFSP SPSP Client Proxy
+
 | path | Description |
 | ---- | ----------- |
 | /spsp/client/v1 | spsp client proxy service root |
@@ -33,6 +35,7 @@ DFSP SPSP Client Proxy
 | ... | see api documentation or console for additional functions |
 
 SPSP Server Backend
+
 | path | Description |
 | ---- | ----------- |
 | /spsp/backend/v1 | spsp server backend service root |
