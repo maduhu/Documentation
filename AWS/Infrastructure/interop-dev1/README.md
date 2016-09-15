@@ -11,5 +11,6 @@
 
 | Name | External Ports | Description |
 | ---- | -------------- | ----------- |
-| dfsp-interop-services | 8081 | mule services for sending dfsp (directory / spsp-client-proxy / ilp-ledger-adapter) |
+| dfsp-interop-services | 8081 | mule services for sending dfsp (directory / spsp-client-proxy / ilp-ledger-adapter / spsp-backend ) |
 | dfsp-mock-services | 9081 | temporary mule mocks to support integration |
+| interop-demo-ledger | 3000 | five bells docker image admin / foo |
