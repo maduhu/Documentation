@@ -33,13 +33,13 @@ Data Structure for /user/add - this method takes a list of maps of account infor
   "users": [
     {
       "uri": "http://centraldirectory.com/alice",
-      "name": "Chris Griffin",
+      "name": "Alice Somebody",
       "account": "http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3000/alice",
       "currency": "USD"
     },
     {
       "uri": "http://centraldirectory.com/bob",
-      "name": "Walter Mitty",
+      "name": "Bob Nobody",
       "account": "http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3000/bob",
       "currency": "USD"
     }
