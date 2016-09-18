@@ -87,12 +87,12 @@ If you are getting nothing but errors you can right click on the "Save Responses
 
 These basic tests can be used as the basis for testing any of our other rest based api's.  There are many other connectors available other than rest as well.
 
-** JSON Path Extractor: **
+**JSON Path Extractor:**
 ![JSON Path Extract](https://github.com/LevelOneProject/Docs/blob/master/JMeter/media/json_path_extractor.jpg "JSON Path Extract")
 
 This element shows extracting data from the response of a call to lookup an account.  The `id` field contains the full path of the ledger account and is used in the subsequent call to construct the transfer request.  The data is coming from response text, from the element named `id` in the root of the response object, and is being placed in a variable called fromLedgerPath.  This will be referenced later is `${fromLedgerPath}`
 
-** JSON Path Assertion: **
+**JSON Path Assertion:**
 ![Assertion Example](https://github.com/LevelOneProject/Docs/blob/master/JMeter/media/assertion_example.jpg "Assertion Example")
 
 This element shows reading in the value `state` from the root of the response payload and asserting that it equals `executed`.  The response code assertion further down checks to see if the status was 200.
