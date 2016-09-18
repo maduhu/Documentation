@@ -11,3 +11,16 @@ You will need [Apache JMeter 3.X](http://jmeter.apache.org/download_jmeter.cgi) 
 - Navigate to Options Menu -> Plugin Manager -> Available Plugins (middle tab)
 - Select `JMeter Plugins JSON` and then click `Apply Changes and Restart JMeter`
 
+### Test Configuration
+
+The test is driven by several components
+- environment configuration
+- test case data
+- desired throughput
+- number of concurrent clients
+
+Environment Configuration:
+
+User variables required to configure the test are located in the `User Paramerters` element as shown below
+
+![User Parameters](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
