@@ -23,4 +23,13 @@ Environment Configuration:
 
 User variables required to configure the test are located in the `User Paramerters` element as shown below
 
-![User Parameters](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![User Parameters](https://github.com/LevelOneProject/Docs/blob/master/JMeter/media/user_params.jpg "User Params")
+
+In this section you should configure the following attributes:
+- ledgerHost - the host name the test should connect ro
+- ledgerPort - the port
+- expiresAt - what data for expresAt should be included.  Some date in the future.
+- ledgerUrl - by default its being built by host and port but you can change it here.  these goes inside some of the request messages
+- authorization - the value to be included in the Authorization header element.  This value is correct for admin / foo.  This is a temporary hack.
+
+ 
