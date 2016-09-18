@@ -32,4 +32,26 @@ In this section you should configure the following attributes:
 - ledgerUrl - by default its being built by host and port but you can change it here.  these goes inside some of the request messages
 - authorization - the value to be included in the Authorization header element.  This value is correct for admin / foo.  This is a temporary hack.
 
+Test Case Configuration:
+
+This test loads test cases from a csv file.  You will need to either copy the sample file located here into your `jmeter bin` directory or edit this element and include the path to the file.  The file contains the following data.
+
+![CSV Config](https://github.com/LevelOneProject/Docs/blob/master/JMeter/media/test_data_config.jpg "CSV Config")
+
+fromAccountName, toAccountName, transferAmount
+
+example:
+
+```
+alice,bob,50
+bob,alice,100
+```
+
+Each line in the file will cause be run by a client thread.  When all of the lines have been executed the test will loop back to the beginning. This behavior can be changed.
+
+Note that since this is a test that is intended to be run multiple times it does not create the accounts first.  You will need to create accounts in your ledger with sufficient balances to sustain the test.  When there are insufficnet funds in a ledger you will start seeing errors pop up in the results table.
+
+Number of Concurrent Clients:
+
+
  
