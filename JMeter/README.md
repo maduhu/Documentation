@@ -81,7 +81,7 @@ Results are being collected into a table and a graph.  Other listeners can be co
 
 #### Debugging
 
-If you are getting nothing but errors you can right click on the "Save Responses to a file" element near the bottom and choose enable.  It will save the response from each step into its own file.  You can also click on the `Test Plan` element at the top and select Functional Test Mode`.  This will cause JMeter to store the results of each call into a file.  When debugging I recomment going into the `Thread Group` configuration and setting client threads to 1, unchecking forever and selecting 1 for the number of test iterations to execute.  For this test the thread group element is the second one from the top and is called `ILP Ledger - multi-user performance test`
+If you are getting nothing but errors you can right click on the "Save Responses to a file" element near the bottom and choose enable.  It will save the response from each step into its own file.  You can also click on the `Test Plan` element at the top and select `Functional Test Mode`.  This will cause JMeter to store the results of each call into a file.  When debugging I recomment going into the `Thread Group` configuration and setting client threads to 1, unchecking forever and selecting 1 for the number of test iterations to execute.  For this test the thread group element is the second one from the top and is called `ILP Ledger - multi-user performance test`
 
 #### Extending / Reusing
 
