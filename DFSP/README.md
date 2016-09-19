@@ -19,19 +19,19 @@ DFSP functionality is split in the following services
 
 Each service has some default ports in the development environment. Below you can find these defaults for each project.
 
-| project                                                                       | debug console    |  httpserver port
-| ---------------                                                               | ------------     | ---------------
-| [dfsp-account](https://github.com/LevelOneProject/dfsp-account)               | 30009            | 8009
-| [dfsp-api](https://github.com/LevelOneProject/dfsp-api)                       | 30010            | 8010
-| [dfsp-directory](https://github.com/LevelOneProject/dfsp-directory)           | 30011            | 8011
-| [dfsp-identity](https://github.com/LevelOneProject/dfsp-identity)             | 30012            | 8012
-| [dfsp-interledger](https://github.com/LevelOneProject/dfsp-interledger)       | 30013            | 8013
-| [dfsp-ledger](https://github.com/LevelOneProject/dfsp-ledger)                 | 30014            | 8014
-| [dfsp-notification](https://github.com/LevelOneProject/dfsp-notification)     | 30015            | 8015
-| [dfsp-rule](https://github.com/LevelOneProject/dfsp-rule)                     | 30016            | 8016
-| [dfsp-subscription](https://github.com/LevelOneProject/dfsp-subscription)     | 30017            | 8017
-| [dfsp-transfer](https://github.com/LevelOneProject/dfsp-transfer)             | 30018            | 8018
-| [dfsp-ussd](https://github.com/LevelOneProject/dfsp-ussd)                     | 30019            | 8019
+| project                                                                       | debug console    |  httpserver port | API
+| ---------------                                                               | ------------     | ---------------  | -----------
+| [dfsp-account](https://github.com/LevelOneProject/dfsp-account)               | 30009            | 8009             | 
+| [dfsp-api](https://github.com/LevelOneProject/dfsp-api)                       | 30010            | 8010             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8010/documentation)
+| [dfsp-directory](https://github.com/LevelOneProject/dfsp-directory)           | 30011            | 8011             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8011/documentation)
+| [dfsp-identity](https://github.com/LevelOneProject/dfsp-identity)             | 30012            | 8012             | 
+| [dfsp-interledger](https://github.com/LevelOneProject/dfsp-interledger)       | 30013            | 8013             | 
+| [dfsp-ledger](https://github.com/LevelOneProject/dfsp-ledger)                 | 30014            | 8014             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8014/documentation)
+| [dfsp-notification](https://github.com/LevelOneProject/dfsp-notification)     | 30015            | 8015             | 
+| [dfsp-rule](https://github.com/LevelOneProject/dfsp-rule)                     | 30016            | 8016             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8016/documentation)
+| [dfsp-subscription](https://github.com/LevelOneProject/dfsp-subscription)     | 30017            | 8017             | 
+| [dfsp-transfer](https://github.com/LevelOneProject/dfsp-transfer)             | 30018            | 8018             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8018/documentation)
+| [dfsp-ussd](https://github.com/LevelOneProject/dfsp-ussd)                     | 30019            | 8019             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8019/documentation)
 
 ## Development environment setup
 
