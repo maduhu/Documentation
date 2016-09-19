@@ -57,6 +57,16 @@ DFSP SPSP Client Proxy
 | [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/spsp/client/v1/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
+ILP Ledger Adapter
+
+This deployment of the ILP Ledger Adapter is connected to an instance of the five bells ledger running on interop-dev1.
+
+| path | Description |
+| ---- | ----------- |
+| /ilp/ledger/v1 | spsp client proxy service root |
+| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/ilp/ledger/v1/console/) | api demo console |
+| ... | see api documentation or console for additional functions |
+
 SPSP Server Backend
 
 | path | Description |
