@@ -7,6 +7,12 @@
 | Private DNS | ip-172-31-24-6.us-west-2.compute.internal |
 | Private IPs | 172.31.24.6 |
 
+### SSH
+
+on a mac:  `ssh -i "interop-dev1.pem" ec2-user@ec2-52-37-54-209.us-west-2.compute.amazonaws.com`
+
+on windows:  use putty, and you will need to use the .ppk file linked above.  under the `Connection/SSH/Auth` section you will need to select this .ppk file for `Private key file for authentication`
+
 ### Services
 
 | Name | External Ports | Description |
