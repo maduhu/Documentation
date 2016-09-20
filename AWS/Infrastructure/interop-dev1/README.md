@@ -7,6 +7,23 @@
 | Private DNS | ip-172-31-24-6.us-west-2.compute.internal |
 | Private IPs | 172.31.24.6 |
 
+### Service Info
+
+| Service | Port | Ledger Name |
+| ---- | ----------- |
+| dfsp1-interop | ? |  |
+| dfsp1-ledger | 8014 | http://dfsp1:8014/ledger |
+| ist-interop | 8075 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8075/ilp/ledger/v1 |
+| ist-ledger | 3075 | http://dfsp1:3075 |
+| dfsp2-interop | ? |  |
+| dfsp2-ledger | ? |  |
+| ripple1-interop | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1 |
+| ripple1-ledger | 3088 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3088
+| ripple2-interop | 8090 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8090/ilp/ledger/v1 |
+| ripple2-ledger | 3090 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3090 |
+
+
+
 ### SSH
 
 on a mac:  `ssh -i "interop-dev1.pem" ec2-user@ec2-52-37-54-209.us-west-2.compute.amazonaws.com`
