@@ -10,7 +10,7 @@
 ### Service Info
 
 | Service | Port | Ledger Name |
-| ---- | ----------- |
+| ------- | ---- | ----------- |
 | dfsp1-interop | ? |  |
 | dfsp1-ledger | 8014 | http://dfsp1:8014/ledger |
 | ist-interop | 8075 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8075/ilp/ledger/v1 |
