@@ -13,9 +13,11 @@
 | ------- | ---- | ----------- |
 | dfsp1-interop | ? |  |
 | dfsp1-ledger | 8014 | http://dfsp1:8014/ledger |
+| dfsp1-ilp stack | 3042-3044 | spsp client/server and connector |
 | ist-ledger | 3075 | http://dfsp1:3075 |
 | dfsp2-interop | ? |  |
 | dfsp2-ledger | ? |  |
+| dfsp2-ilp stack | 3045-3048 | spsp client/server and connector |
 | ripple1-interop | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1 |
 | ripple1-ledger | 3088 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3088
 | ripple2-interop | 8090 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8090/ilp/ledger/v1 |
