@@ -9,11 +9,16 @@
 
 ### Service Info
 
-| Service | Port | Ledger Name |
+| Service | Port | Full Service URL |
 | ------- | ---- | ----------- |
 | dfsp1-interop | ? |  |
 | dfsp1-ledger | 8014 | http://dfsp1:8014/ledger |
-| dfsp1-ilp stack | 3042-3044 | spsp client/server and connector |
+| dfsp1-ilp-spsp-client-rest | 3042 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3042 |
+| dfsp1-ilp-spsp-server | 3043 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3043 |
+| dfsp1-ilp-connector | 3044 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3044 |
+| dfsp2-ilp-spsp-client-rest | 3045 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3045 |
+| dfsp2-ilp-spsp-server | 3046 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3046 |
+| dfsp2-ilp-connector | 3047 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3047 |
 | ist-ledger | 3075 | http://dfsp1:3075 |
 | dfsp2-interop | ? |  |
 | dfsp2-ledger | ? |  |
