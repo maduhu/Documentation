@@ -23,12 +23,11 @@
 | dfsp2-interop | ? |  |
 | dfsp2-ledger | ? |  |
 | dfsp2-ilp stack | 3045-3047 | spsp client/server and connector |
-| ripple1-interop | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1 |
-| ripple1-ledger | 3088 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3088
-| ripple2-interop | 8090 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8090/ilp/ledger/v1 |
-| ripple2-ledger | 3090 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3090 |
-
-
+| dfsp1-directory | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1 |
+| dfsp1-spsp proxy | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1 |
+| dfsp1-ledger adapter | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger |
+| dfsp2-spsp backend | 8090 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8090/spsp/backend/v1 |
+| dfsp2-ledger adapter | 8090 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8090/ledger |
 
 ### SSH
 
@@ -51,9 +50,9 @@ DFSP Directory Gateway
 | path | Description |
 | ---- | ----------- |
 | /directory/v1 | directory gateway service root
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) | api demo console |
-| [user/get](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/directory/v1/user/get) | /directory/user/get |
-| [user/add](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/directory/v1/user/add) | for testing only - add accounts to directory |
+| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/console/) | api demo console |
+| [user/get](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user/get) | /directory/user/get |
+| [user/add](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user/add) | for testing only - add accounts to directory |
 
 Data Structure for /user/add - this method takes a list of maps of account information which is then returned via calls to /user/get.  This data should map to accounts that exist in test ledgers.  For PI 2 demo purposes only the URI contained in the account field is valuable.  The other information should be taken from the result of calling query on the spsp-client.  The directory service and the whole topic of resolving user identifiers back to account information  will be discussed and refactored as part of the next convening and will be implemented in PI 3.1.
 
@@ -83,7 +82,7 @@ DFSP SPSP Client Proxy
 | path | Description |
 | ---- | ----------- |
 | /spsp/client/v1 | spsp client proxy service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/spsp/client/v1/console/) | api demo console |
+| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
 ILP Ledger Adapter
@@ -93,7 +92,7 @@ This deployment of the ILP Ledger Adapter is connected to an instance of the fiv
 | path | Description |
 | ---- | ----------- |
 | /ilp/ledger/v1 | spsp client proxy service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/ilp/ledger/v1/console/) | api demo console |
+| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
 SPSP Server Backend
@@ -101,5 +100,5 @@ SPSP Server Backend
 | path | Description |
 | ---- | ----------- |
 | /spsp/backend/v1 | spsp server backend service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8081/spsp/backend/v1/console/) | api demo console |
+| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8090/spsp/backend/v1/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
