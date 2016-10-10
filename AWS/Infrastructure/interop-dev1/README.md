@@ -15,7 +15,7 @@
 | dfsp1-interop-spsp-client-proxy | 8088 |  [http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console) |
 | dfsp1-ilp-spsp-client-rest | 3042 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3042 |
 | dfsp1-ilp-spsp-server | 3043 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3043 |
-| dfsp1-ledger-adapter | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger |
+| dfsp1-interop-ledger-adapter | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger |
 | dfsp1-ledger | 8014 | http://dfsp1:8014/ledger |
 | dfsp1-ilp-connector | 3044 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3044 |
 |     |     |     |
