@@ -26,6 +26,12 @@ The central ledger is a system to record transfers between DFSPs, and to calcula
 
 ### Transfer Object<a name="transfer_object"></a>
 
+A transfer represents money being moved between two DFSP accounts at the central ledger.
+
+The transfer must specify an execution_condition, in which case it executes automatically when presented with the fulfillment for the condition. (Assuming the transfer has not expired or been canceled first.) Currently, the central ledger only supports the condition type of [PREIMAGE-SHA-256](https://interledger.org/five-bells-condition/spec.html#rfc.section.4.1) and a max fulfillment length of 65535. 
+
+Some fields are Read-only, meaning they are set by the API and cannot be modified by clients. A transfer object can have the following fields:
+
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | id   | URI | Resource identifier |
@@ -48,23 +54,31 @@ The central ledger is a system to record transfers between DFSPs, and to calcula
 | credits[].rejection_message | String | *Optional* Reason the credit was rejected |
 | execution_condition | String | The condition for executing the transfer | 
 | expires_at | DateTime | Time when the transfer expires. If the transfer has not executed by this time, the transfer is canceled. |
-| state | String | *Optional* The current state of the transfer (informational only) |
-| timeline | Object | *Optional* Timeline of the transfer's state transitions |
+| state | String | *Optional, Read-only* The current state of the transfer (informational only) |
+| timeline | Object | *Optional, Read-only* Timeline of the transfer's state transitions |
 | timeline.prepared_at | DateTime | *Optional* An informational field added by the ledger to indicate when the transfer was originally prepared |
 | timeline.executed_at | DateTime | *Optional* An informational field added by the ledger to indicate when the transfer was originally executed |
 
 ### Account Object<a name="account_object"></a>
 
+An account represents a DFSP's position at the central ledger.
+
+Some fields are Read-only, meaning they are set by the API and cannot be modified by clients. An account object can have the following fields:
+
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| id | URI | Resource identifier |
+| id | URI | *Read-only* Resource identifier |
 | name | String | Unique name of the account |
-| balance | String | *Optional* Balance as decimal |
-| is_disabled | Boolean | *Optional* Admin users may disable/enable an account |
-| ledger | URI | *Optional* A link to the account's ledger |
-| created | DateTime | *Optional* Time when account was created |
+| balance | String | *Optional, Read-only* Balance as decimal |
+| is_disabled | Boolean | *Optional, Read-only* Admin users may disable/enable an account |
+| ledger | URI | *Optional, Read-only* A link to the account's ledger |
+| created | DateTime | *Optional, Read-only* Time when account was created |
 
 ### Notification Object<a name="notification_object"></a>
+
+The central ledger pushes a notification object to WebSocket clients when a transfer changes state. This notification is sent at most once for each state change. 
+
+A notification object can have the following fields:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -74,6 +88,10 @@ The central ledger is a system to record transfers between DFSPs, and to calcula
 | related\_resources.cancellation\_condition_fulfillment | String | *Optional* Proof of condition completion |
 
 ### Metadata Object<a name="metadata_object"></a>
+
+The central ledger will return a metadata object about itself allowing client's to configure themselves properly.
+
+A metadata object can have the following fields:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -85,6 +103,10 @@ The central ledger is a system to record transfers between DFSPs, and to calcula
 | scale | Integer | How many digits after the decimal place this ledger supports in currency amounts |
 
 ### Position Object<a name="position_object"></a>
+
+The central ledger can report the current positions for all registered accounts.
+
+A position object can have the following fields:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
