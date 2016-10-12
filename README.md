@@ -11,14 +11,15 @@ To participate in the formal, global economy, everyone needs access to digital f
 
 ## Model Architecture
 
-The basic idea behind the L1P model is that we need to connect multiple Digital Financial Services Providers (DFSPs) together into a competitive but interoperable network. We don't want a single monopoly power in control of all payments in a country, but it also doesn't help if there are too many isolated subnetworks. Our model solves this problem with two key elements:
+The basic idea behind the L1P model is that we need to connect multiple Digital Financial Services Providers (DFSPs) together into a competitive but interoperable network. We don't want a single monopoly power in control of all payments in a country, but it also doesn't help if there are too many isolated subnetworks. Our model solves this problem with several key elements:
 
 - A set of central services provides a hub through which money can flow from one DFSP to each other. This is similar to how money moves through a central bank or clearing house in developed countries. Besides a central ledger, central services can provide identity lookup, fraud management, and other such rules.
-- The [Interledger Protocol](https://interledger.org/) (ILP) is an open standard that lets DFSPs settle payments with minimal counterparty risk. (That's the risk you take when someone else is holding your money.) With ILP, you can transact across different systems with no chance that someone in the middle disappears with your money.
+- A standard set of interfaces a DFSP can implement to connect to the system, and example code that shows how to use the system. A DFSP that wants to connect up can adapt our example code or implement the standard interfaces into their own software. The goal is for it to be as straightforward as possible for a DFSP to connect to the interoperable network.
+- The [Interledger Protocol](https://interledger.org/) (ILP), an open standard that lets DFSPs settle payments with minimal counterparty risk. (That's the risk you take when someone else is holding your money.) With ILP, you can transact across different systems with no chance that someone in the middle disappears with your money.
 
-The following architecture diagram shows all the pieces of the Level One Project model:
+The following architecture diagram shows interactions between pieces of the Level One Project model:
 
-![Top Level Architecture](https://github.com/LevelOneProject/Docs/blob/master/Wiki/Top%20Level%20Architecture.png)
+![Top Level Architecture](Wiki/Demo%20Service%20Interactions.png)
 
 ### DFSP Components
 
@@ -36,7 +37,7 @@ Each Digital Financial Services Provider runs these components to provide paymen
 - **DFSP Ledger** - The DFSP's core database of accounts and balances.
     - [Code](https://github.com/LevelOneProject/dfsp-ledger)
 
-### Mules
+### Gateways
 
 These gateways sit between core systems and outside networks. They can provide a variety of benefits like logging and metrics, input sanitization, automatic retries, and other best practices for any internet-facing software.
 
