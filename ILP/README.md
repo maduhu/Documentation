@@ -1,6 +1,10 @@
 # Interledger Docs
 > This folder includes the documentation for the Interledger components
 
+## ILP Ledger Adapter API
+
+See [ILP Ledger Adapter API](./ledger-adapter.md)
+
 ## ILP/SPSP Client REST API
 
 See [ILP/SPSP Client REST API](./ilp-spsp-client-rest-api.md)
