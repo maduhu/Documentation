@@ -32,6 +32,8 @@ Each service has some default ports in the development environment. Below you ca
 | [dfsp-subscription](https://github.com/LevelOneProject/dfsp-subscription)     | 30017            | 8017             | 
 | [dfsp-transfer](https://github.com/LevelOneProject/dfsp-transfer)             | 30018            | 8018             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8018/documentation)
 | [dfsp-ussd](https://github.com/LevelOneProject/dfsp-ussd)                     | 30019            | 8019             | [swagger](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8019/documentation)
+| [dfsp-admin](https://github.com/LevelOneProject/dfsp-admin)                   | 30020            | 8020             | 
+| [dfsp-mock](https://github.com/LevelOneProject/dfsp-mock)                     |                  | 8021             | 
 
 ## Development environment setup
 
