@@ -69,18 +69,18 @@ Some fields are *Read-only*, meaning they are set by the API and cannot be modif
 | `debits`[] | Object | Amount of currency and account holder to send money in this transfer. |
 | *`debits`[].* `account` | [URI][] | Account holding the funds |
 | *`debits`[].* `amount` | String | Positive decimal amount of money to debit from an originator. This is a string so that no precision is lost in JSON encoding/decoding. |
-| *`debits`[].* `authorized` | Boolean | *Optional* Marks that this debit has been approved by its account owner. Only the owner of the `account` for this debit can set this value to `true`. If omitted, defaults to `false`. After a transfer has been prepared, an account owner can authorize the debit by calling the [Prepare Transfer](#prepare-transfer) method again with the same transfer object except this value is set to `true`. |
+| *`debits`[].* `authorized` | Boolean | Marks that this debit has been approved by its account owner. Must be set to `true`. |
 | *`debits`[].* `memo` | Object | *Optional* Additional information related to the debit |
 | `execution_condition` | [Crypto-Condition][] | *Optional* The condition for executing the transfer |
 | `expires_at` | [Date-Time][] | *Optional* Time when the transfer expires. If the transfer has not executed by this time, the transfer is canceled. |
 | `id` | [UUID][] | *Optional* Resource identifier |
 | `ledger` | [URI][] | *Optional* The ledger where the transfer will take place |
-| `rejection_reason` | String | *Optional, Read-only* Why the transfer was rejected. Valid values are `cancelled` and `expired`. |
-| `state` | String | *Optional, Read-only* The current state of the transfer. Valid values are `prepared`, `executed`, and `rejected`. |
+| `rejection_reason` | String | *Optional, Read-only* Why the transfer was rejected. Arbitrary string set in the [Reject Transfer][] method. |
+| `state` | String | *Optional, Read-only* The current state of the transfer. Valid values are `prepared`, `executed`, and `rejected`. (The state `rejected` includes transfers that were manually rejected by a credit account and transfers that expired.) |
 | `timeline` | Object | *Optional, Read-only* Timeline of the transfer's state transitions |
-| *`timeline`.* `executed_at` | [Date-Time][] | *Optional* When the transfer was originally executed |
-| *`timeline`.* `prepared_at` | [Date-Time][] | When the transfer was originally prepared |
-| *`timeline`.* `rejected_at` | [Date-Time][] | *Optional* When the transfer was originally rejected |
+| *`timeline`.* `prepared_at` | [Date-Time][] | When the transfer was originally prepared. Always present, even on unconditional transfers. MUST be before or equal to the `rejected_at` or `executed_at` date. |
+| *`timeline`.* `executed_at` | [Date-Time][] | *Optional* When the transfer was originally executed. Must be present if and only if the transfer's `state` is `executed`. |
+| *`timeline`.* `rejected_at` | [Date-Time][] | *Optional* When the transfer expired or was manually rejected. Must be present if and only if the transfer's `state` is `rejected`. |
 
 [UUID]: http://en.wikipedia.org/wiki/Universally_unique_identifier
 
@@ -326,7 +326,6 @@ HTTP/1.1 200 OK
   "expires_at": "2015-06-16T00:00:01.000Z",
   "state": "executed",
   "timeline": {
-    "proposed_at": "2015-06-16T00:00:00.000Z",
     "prepared_at": "2015-06-16T00:00:00.500Z",
     "executed_at": "2015-06-16T00:00:00.999Z"
   }
