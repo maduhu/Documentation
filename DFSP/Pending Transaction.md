@@ -29,14 +29,14 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 
-###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 
 
 We have to create a new API to in SPSP Client to support the invoice creation.
 
 
-**Create Invoice Method**
+**(1.1)Create Invoice Method**
 
 
 *Request:*
@@ -64,7 +64,7 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 
 
 
-**Create Invoice Method**
+**(1.2)Create Invoice Method**
 
 
 This method will be used for communication between SPSP Client and SPSP Server components
@@ -90,11 +90,11 @@ This method will be used for communication between SPSP Client and SPSP Server c
 
 
 
-###  [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
 
 
-**Create Invoice Method**
+**(1.3)Create Invoice Method**
 
 
 This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.  
@@ -120,12 +120,13 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 
 
-## I. GET INVOICE DETAILS   ##
+## II. GET INVOICE DETAILS   ##
 
 
-###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 
+**(2.1)Get Invoice Details**
 
 Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md#get-v1query)
 
@@ -162,7 +163,7 @@ The following changes will be introduced:
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
-
+**(2.2)Get Invoice Details**
 
 
 Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice)
@@ -197,7 +198,9 @@ The following changes will be introduced:
 
  
 
-###  [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+
+**(2.3)Get Invoice Details**
 
 The following new method will be implemented in DFSP API. SPSP Server will call this new method to obtain information about an invoice from the 'DFSP Logic'.
 
@@ -225,7 +228,9 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 ## PREPARE PAYMENT ##
 
 
-###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+
+**(3.1)Prepare Payment**
 
 For prepare payment, an already existing API from SPSP Client will be used. [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup)
 
@@ -272,6 +277,8 @@ The following changes will be introduced:
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
+**(3.2)Prepare Payment**
+
 For prepare payment, an already existing API from SPSP Server will be used. [PUT invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice-1)
 
 
@@ -289,9 +296,9 @@ For prepare payment, an already existing API from SPSP Server will be used. [PUT
 	}
 
 
-###  [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
-We don't need a notification about the proposed state in 'DFSP Logic'.
+We don't need a notification about the proposed state in SPSP Server backedn and DFSP Logic.
 
 
 
@@ -299,17 +306,23 @@ We don't need a notification about the proposed state in 'DFSP Logic'.
 
 ###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
+**(4.1) Execute Payment**
+
 Use an exiting method:
 
 PUT /v1/payments/:id
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
+**(4.2) Execute Payment**
+
 User an existing method:
 
 PUT /v1/payments/:id
 
-###  [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+
+**(4.3) Execute Payment**
 
 A new method will be introduce for SPSP Server to call DFSP API
 
