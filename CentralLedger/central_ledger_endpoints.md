@@ -22,6 +22,7 @@ The central ledger is a system to record transfers between DFSPs, and to calcula
 	- [Other Endpoints](#other_endpoints)
 		- [Get ledger metadata](#get_ledger_metadata)
 		- [Get net positions](#get_net_positions)
+		- [Settle fulfilled transfers](#settle_fulfilled_transfers)
 - [Error Information](#error_information)
 
 ### Transfer Object<a name="transfer_object"></a>
@@ -537,6 +538,28 @@ HTTP/1.1 200 OK
 }
 ```
 
+#### Settle fulfilled transfers<a name="settle_fulfilled_transfers"></a>
+
+Settle all currently fulfilled transfers in the ledger
+
+``` http
+http://central-ledger/webhooks/settle-transfers
+```
+
+``` http
+POST http://central-ledger/webhooks/settle-transfers HTTP/1.1
+```
+
+##### Response 200 OK
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| N/A | Array | List of transfer ids settled for the ledger |
+
+``` http
+HTTP/1.1 200 OK
+["3a2a1d9e-8640-4d2d-b06c-84f2cd613207", "7e10238b-4e39-49a4-93dc-c8f73afc1717"]
+```
+
 ### Error Information<a name="error_information"></a>
 
 This section identifies the potential errors returned and the structure of the response.
@@ -546,9 +569,7 @@ This section identifies the potential errors returned and the structure of the r
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 {
-  "error": {
-  	"id": "TransferNotFound",
-  	"message": "Transfer was not found"
-  }
+  "error_id": "TransferNotFound",
+  "message": "Transfer was not found"
 }
 ```
