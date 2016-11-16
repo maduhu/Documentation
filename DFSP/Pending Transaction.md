@@ -25,9 +25,9 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 
-## I. INVOICE CREATION  ##
+## I. INVOICE NOTIFICATION CREATION  ##
 
-
+![](./createInvoice.jpg)
 
 ###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -36,7 +36,7 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 We have to create a new API to in SPSP Client to support the invoice creation.
 
 
-**(1.1)Create Invoice Method**
+**(1.1)Create Invoice Notification Method**
 
 
 *Request:*
@@ -45,6 +45,7 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 	{
   		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
   		"dfsp": "dfsp1.spsp-server",
+		"clientUserNumber": "client.user.number",		
   		"memo":"Bolagi Shop $5.00"
 	}
 
@@ -64,7 +65,7 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 
 
 
-**(1.2)Create Invoice Method**
+**(1.2)Create Invoice Notification Method**
 
 
 This method will be used for communication between SPSP Client and SPSP Server components
@@ -72,9 +73,10 @@ This method will be used for communication between SPSP Client and SPSP Server c
 *Request:*
 
 
-	POST http://dfsp1.spsp-server/invoice/
+	POST http://dfsp1.spsp-server/receiver/invoice/
 	{
   		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
+		"clientUserNumber": "client.user.number",		
   		"memo":"Bolagi Shop $5.00"
 	}
 
@@ -94,7 +96,7 @@ This method will be used for communication between SPSP Client and SPSP Server c
 
 
 
-**(1.3)Create Invoice Method**
+**(1.3)Create Invoice Notification Method**
 
 
 This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.  
@@ -102,10 +104,11 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 *Request:*
 
-	POST http://dfsp1.dfsp-api/invoice/
+	POST http://dfsp1.dfsp-api/receiver/invoice/
 
 	{
 		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
+		"clientUserNumber": "client.user.number",		
   		"memo":"Bolagi Shop $5.00"
 	}
 
@@ -122,6 +125,7 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 ## II. GET INVOICE DETAILS   ##
 
+![](./getInvoiceDetails.jpg)
 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -149,6 +153,7 @@ Get Invoice details will be done by using the already defined method [GET /v1/qu
 	  "currencyCode": "USD",
 	  "currencySymbol": "$",
 	  "amount": "10.40",
+	  "fee":"2.4",
 	  "status": "unpaid",
 	  "invoiceInfo": "https://www.example.com/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
 	}
@@ -227,6 +232,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 ## PREPARE PAYMENT ##
 
+![](./prepareInvoicePayment.jpg)
 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -276,6 +282,8 @@ The following changes will be introduced:
 
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
+
+![](./executeInvoicePayment.jpg)
 
 **(3.2)Prepare Payment**
 
