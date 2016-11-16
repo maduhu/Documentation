@@ -27,7 +27,7 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 ## I. INVOICE NOTIFICATION CREATION  ##
 
-![](./createInvoice.jpg)
+![](./CreateInvoice.jpg)
 
 ###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -125,7 +125,7 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 ## II. GET INVOICE DETAILS   ##
 
-![](./getInvoiceDetails.jpg)
+![](./GetInvoiceDetails.jpg)
 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -232,7 +232,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 ## PREPARE PAYMENT ##
 
-![](./prepareInvoicePayment.jpg)
+![](./PrepareInvoicePayment.jpg)
 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -283,7 +283,7 @@ The following changes will be introduced:
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
-![](./executeInvoicePayment.jpg)
+![](./ExecuteInvoicePayment.jpg)
 
 **(3.2)Prepare Payment**
 
