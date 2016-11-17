@@ -484,7 +484,7 @@ HTTP/1.1 200 OK
         "transfer_fulfillment": "http://usd-ledger.example/transfers/:id/fulfillment",
         "accounts": "https://usd-ledger.example/accounts",
         "account": "https://usd-ledger.example/accounts/:name",
-        "websocket": "wss://usd-ledger.example/"
+        "websocket": "wss://usd-ledger.example/websocket"
     },
     "precision": 10,
     "scale": 2
