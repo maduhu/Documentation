@@ -1,4 +1,4 @@
-
+![Physical Architecture](/AWS/Infrastructure/L1P%20diagram.png)
 
 | Instance Name | Size | Region | Elastic IP |
 | ------------- | ---- | ------ | ---------- |
