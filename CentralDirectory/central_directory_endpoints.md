@@ -45,7 +45,7 @@ An identifier type object can have the following fields:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier_type | String | Unique name of the identifier type |
+| identifierType | String | Unique name of the identifier type |
 | description | String | Description of the identifier type |
 
 ### Metadata Object<a name="metadata_object"></a>
@@ -63,11 +63,11 @@ A metadata object can have the following fields:
 This endpoint allows retrieval of a URI that will return customer information by supplying and identifier and identifier type.
 
 ```
-http://central-directory/resources?identifier-type=:type&identifier=:identifier
+http://central-directory/resources?identifierType=:type&identifier=:identifier
 ```
 
 ```http
-GET http://central-directory/resources/?identifier-type=test&identifier=1 HTTP/1.1
+GET http://central-directory/resources/?identifierType=test&identifier=1 HTTP/1.1
 ```
 
 #### Authentication
@@ -78,7 +78,7 @@ GET http://central-directory/resources/?identifier-type=test&identifier=1 HTTP/1
 #### Query Params
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| identifier-type | String | Valid identifier type |
+| identifierType | String | Valid identifier type |
 | identifier | String | Identifier for the user |
 
 #### Response 200 OK
@@ -173,7 +173,7 @@ GET http://central-directory/identifier-types HTTP/1.1
 HTTP/1.1 200 OK
 [
   {
-    "identifier_type": "test",
+    "identifierType": "test",
     "description": "test"
   }
 ]
