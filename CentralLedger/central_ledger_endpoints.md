@@ -569,7 +569,7 @@ This section identifies the potential errors returned and the structure of the r
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 {
-  "error_id": "TransferNotFound",
+  "id": "TransferNotFound",
   "message": "Transfer was not found"
 }
 ```
