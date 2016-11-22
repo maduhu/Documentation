@@ -14,13 +14,13 @@
 
 | Service | Port | Full Service URL |
 | ------- | ---- | ----------- |
-| dfsp1-interop-directory | 8088 |  [http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/console) |
-| dfsp1-interop-spsp-client-proxy | 8088 |  [http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console) |
-| dfsp1-ilp-spsp-client-rest | 3042 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3042 |
-| dfsp1-ilp-spsp-server | 3043 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3043 |
-| dfsp1-interop-ledger-adapter | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger |
+| dfsp1-interop-directory | 8088 |  [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/console/) |
+| dfsp1-interop-spsp-client-proxy | 8088 |  [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console) |
+| dfsp1-ilp-spsp-client-rest | 3042 | http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3042 |
+| dfsp1-ilp-spsp-server | 3043 | http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043 |
+| dfsp1-interop-ledger-adapter | 8088 |  http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/ledger |
 | dfsp1-ledger | 8014 | http://dfsp1:8014/ledger |
-| dfsp1-ilp-connector | 3044 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3044 |
+| dfsp1-ilp-connector | 3044 | http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3044 |
 | dfsp1-interop-spsp-backend | 8088 |  [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/console) |
 |     |     |     |
 | ist-ledger | 3075 | http://dfsp1:3075 |
@@ -39,46 +39,24 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 | dfsp-mock-services | 9081 | temporary mule mocks to support integration |
 | interop-demo-ledger | 3000 | five bells docker image admin / foo |
 
-### Dev
+### QA
 
 DFSP Directory Gateway
 
 | path | Description |
 | ---- | ----------- |
 | /directory/v1 | directory gateway service root
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/console/) | api demo console |
-| [user/get](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user/get) | /directory/user/get |
-| [user/add](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user/add) | for testing only - add accounts to directory |
+| [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/console/) | api demo console |
 
-Data Structure for /user/add - this method takes a list of maps of account information which is then returned via calls to /user/get.  This data should map to accounts that exist in test ledgers.  For PI 2 demo purposes only the URI contained in the account field is valuable.  The other information should be taken from the result of calling query on the spsp-client.  The directory service and the whole topic of resolving user identifiers back to account information  will be discussed and refactored as part of the next convening and will be implemented in PI 3.1.
 
-note the uri field below is the key for queries into /user/get.  the result will be the matching user json and the value in its account field shoudl be passed forward into the spsp-client
-
-```json
-{
-  "users": [
-    {
-      "uri": "http://centraldirectory.com/alice",
-      "name": "Alice Somebody",
-      "account": "http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3000/alice",
-      "currency": "USD"
-    },
-    {
-      "uri": "http://centraldirectory.com/bob",
-      "name": "Bob Nobody",
-      "account": "http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3000/bob",
-      "currency": "USD"
-    }
-  ]
-}
-```
+For adding user: [CentralDirectory Link] (https://github.com/LevelOneProject/Docs/blob/8a342835c15bb77d5e08af1937379788954be829/CentralDirectory/central_directory_endpoints.md)
 
 DFSP SPSP Client Proxy
 
 | path | Description |
 | ---- | ----------- |
 | /spsp/client/v1 | spsp client proxy service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
+| [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
 ILP Ledger Adapter
@@ -88,7 +66,7 @@ This deployment of the ILP Ledger Adapter is connected to an instance of the fiv
 | path | Description |
 | ---- | ----------- |
 | /ilp/ledger/v1 | spsp client proxy service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger/console/) | api demo console |
+| [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/ledger/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
 SPSP Server Backend
@@ -118,13 +96,13 @@ SPSP Server Backend
 
 | Service | Port | Full Service URL |
 | ------- | ---- | ----------- |
-| dfsp2-interop-directory | 8088 |  [http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/console) |
-| dfsp2-interop-spsp-client-proxy | 8088 |  [http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console) |
-| dfsp2-ilp-spsp-client-rest | 3042 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3042 |
-| dfsp2-ilp-spsp-server | 3043 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3043 |
-| dfsp2-interop-ledger-adapter | 8088 |  http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger |
+| dfsp2-interop-directory | 8088 |  [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/directory/v1/console) |
+| dfsp2-interop-spsp-client-proxy | 8088 |  [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console) |
+| dfsp2-ilp-spsp-client-rest | 3042 | http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3042 |
+| dfsp2-ilp-spsp-server | 3043 | http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043 |
+| dfsp2-interop-ledger-adapter | 8088 |  http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/ledger |
 | dfsp2-ledger | 8014 | http://dfsp1:8014/ledger |
-| dfsp2-ilp-connector | 3044 | http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:3044 |
+| dfsp2-ilp-connector | 3044 | http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3044 |
 | dfsp2-interop-spsp-backend | 8088 |  [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/console) |
 |     |     |     |
 | ist-ledger | 3075 | http://dfsp1:3075 |
@@ -143,16 +121,14 @@ on windows:  Same as above except for hostname
 | dfsp-mock-services | 9081 | temporary mule mocks to support integration |
 | interop-demo-ledger | 3000 | five bells docker image admin / foo |
 
-### Dev
+### QA
 
 DFSP Directory Gateway
 
 | path | Description |
 | ---- | ----------- |
 | /directory/v1 | directory gateway service root
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/console/) | api demo console |
-| [user/get](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user/get) | /directory/user/get |
-| [user/add](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/directory/v1/user/add) | for testing only - add accounts to directory |
+| [console](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/directory/v1/console/) | api demo console |
 
 
 DFSP SPSP Client Proxy
@@ -160,7 +136,7 @@ DFSP SPSP Client Proxy
 | path | Description |
 | ---- | ----------- |
 | /spsp/client/v1 | spsp client proxy service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
+| [console](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
 ILP Ledger Adapter
@@ -170,7 +146,7 @@ This deployment of the ILP Ledger Adapter is connected to an instance of the fiv
 | path | Description |
 | ---- | ----------- |
 | /ilp/ledger/v1 | spsp client proxy service root |
-| [console](http://ec2-52-37-54-209.us-west-2.compute.amazonaws.com:8088/ledger/console/) | api demo console |
+| [console](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/ledger/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
 SPSP Server Backend
