@@ -45,7 +45,7 @@ An identifier type object can have the following fields:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier_type | String | Unique name of the identifier type |
+| identifierType | String | Unique name of the identifier type |
 | description | String | Description of the identifier type |
 
 ### Metadata Object<a name="metadata_object"></a>
@@ -63,11 +63,11 @@ A metadata object can have the following fields:
 This endpoint allows retrieval of a URI that will return customer information by supplying and identifier and identifier type.
 
 ```
-http://central-directory/resources?identifier-type=:type&identifier=:identifier
+http://central-directory/resources?identifierType=:type&identifier=:identifier
 ```
 
 ```http
-GET http://central-directory/resources/?identifier-type=test&identifier=1 HTTP/1.1
+GET http://central-directory/resources/?identifierType=test&identifier=1 HTTP/1.1
 ```
 
 #### Authentication
@@ -78,7 +78,7 @@ GET http://central-directory/resources/?identifier-type=test&identifier=1 HTTP/1
 #### Query Params
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| identifier-type | String | Valid identifier type |
+| identifierType | String | Valid identifier type |
 | identifier | String | Identifier for the user |
 
 #### Response 200 OK
@@ -173,7 +173,7 @@ GET http://central-directory/identifier-types HTTP/1.1
 HTTP/1.1 200 OK
 [
   {
-    "identifier_type": "test",
+    "identifierType": "test",
     "description": "test"
   }
 ]
@@ -212,12 +212,33 @@ HTTP/1.1 200 OK
 
 This section identifies the potential errors returned and the structure of the response.
 
+An error object can have the following fields:
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | String | An identifier for the type of error |
+| message | String | A message describing the error that occurred |
+| validationErrors | Array | *Optional* An array of validation errors |
+| validationErrors[].message | String | A message describing the validation error |
+| validationErrors[].params | Object | An object containing the field that caused the validation error |
+| validationErrors[].params.key | String | The name of the field that caused the validation error |
+| validationErrors[].params.value | String | The value that caused the validation error |
+| validationErrors[].params.child | String | The name of the child field |
 
 ``` http
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 {
-  "error_id": "UserNotFound",
-  "message": "End user was not found"
+  "id": "InvalidQueryParameterError",
+  "message": "Error validating one or more query parameters",
+  "validationErrors": [
+    {
+      "message": "'0' is not a registered identifierType",
+      "params": {
+        "key": "identifierType",
+        "value": "0"
+      }
+    }
+  ]
 }
 ```

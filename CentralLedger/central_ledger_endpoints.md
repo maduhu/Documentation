@@ -564,12 +564,33 @@ HTTP/1.1 200 OK
 
 This section identifies the potential errors returned and the structure of the response.
 
+An error object can have the following fields:
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | String | An identifier for the type of error |
+| message | String | A message describing the error that occurred |
+| validationErrors | Array | *Optional* An array of validation errors |
+| validationErrors[].message | String | A message describing the validation error |
+| validationErrors[].params | Object | An object containing the field that caused the validation error |
+| validationErrors[].params.key | String | The name of the field that caused the validation error |
+| validationErrors[].params.value | String | The value that caused the validation error |
+| validationErrors[].params.child | String | The name of the child field |
 
 ``` http
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 {
-  "error_id": "TransferNotFound",
-  "message": "Transfer was not found"
+  "id": "InvalidUriParameterError",
+  "message": "Error validating one or more uri parameters",
+  "validationErrors": [
+    {
+      "message": "id must be a valid GUID",
+      "params": {
+        "value": "7d4f2a70-e0d6-42dc-9efb-6d23060ccd6",
+        "key": "id"
+      }
+    }
+  ]
 }
 ```
