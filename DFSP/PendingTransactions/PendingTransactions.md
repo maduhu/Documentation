@@ -11,15 +11,15 @@
 
 
 
-1. The invoice will be created in the merchant's DFSP. It will be associated with an account. 
+1. The invoice will be created in the merchant's DFSP. It will be associated with an account.
 2. After the invoice is created in the merchant's DFSP a notification with the invoice reference will be send to the default client DFSP.
 3. The client DFSP will stored the reference (full URL) to the merchant's invoice.
 4. The invoice reference in the client DFSP will not be associated with any clients account thus the client can choose an account from which he is going to pay the invoice.
-5. As a consequence of the above, in case the client has accounts in more than one DFSP he will receive the invoice notification only in his default DFSP and from the USSD interface he will be able to pay the invoice only from his default DFSP  
+5. As a consequence of the above, in case the client has accounts in more than one DFSP he will receive the invoice notification only in his default DFSP and from the USSD interface he will be able to pay the invoice only from his default DFSP
 
 
 I would like to propose the following new APIs and changes to the existing APIs defined to support the pending transaction use case.
- 
+
 
 In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoice) and '**dfsp2**' as the merchant DFSP (issuing the invoice)
 
@@ -43,9 +43,9 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 
 	POST http://dfsp2.spsp-client/invoice/
 	{
-  		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-  		"dfsp": "dfsp1.spsp-server",
-		"clientUserNumber": "client.user.number",		
+  		"invoiceId":"12345",
+  		"submissionUrl": "dfsp1.spsp-server",
+		"senderIdentifier": "client.user.number",
   		"memo":"Bolagi Shop $5.00"
 	}
 
@@ -55,9 +55,9 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 	201 Created
 
 
-- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP. 
-- dfsp - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section 
+- invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP.
+- submissionUrl - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
+- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
 
 
@@ -76,7 +76,7 @@ This method will be used for communication between SPSP Client and SPSP Server c
 	POST http://dfsp1.spsp-server/receiver/invoice/
 	{
   		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-		"clientUserNumber": "client.user.number",		
+		"senderIdentifier": "client.user.number",
   		"memo":"Bolagi Shop $5.00"
 	}
 
@@ -87,8 +87,8 @@ This method will be used for communication between SPSP Client and SPSP Server c
 	201 Created
 
 
-- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP. 
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section 
+- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP.
+- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
 
 
@@ -99,7 +99,7 @@ This method will be used for communication between SPSP Client and SPSP Server c
 **(1.3)Create Invoice Notification Method**
 
 
-This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.  
+This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.
 
 
 *Request:*
@@ -108,7 +108,7 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 	{
 		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-		"clientUserNumber": "client.user.number",		
+		"senderIdentifier": "client.user.number",
   		"memo":"Bolagi Shop $5.00"
 	}
 
@@ -118,8 +118,8 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 	201 Created
 
 
-- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP. 
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section 
+- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP.
+- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
 
 
@@ -146,7 +146,7 @@ Get Invoice details will be done by using the already defined method [GET /v1/qu
 *Response:*
 
 	200 OK
-	
+
 	{
 	  "account": "dfsp2.bob.dylan.account",
 	  "name":"Bob Dylan",
@@ -163,7 +163,7 @@ The following changes will be introduced:
 
 - Add the invoiceUrl as request parameter, since this API is used between DFSP-Transfer and SPSP Client component. After that the SPSP client component has to have the URL to the merchant DFSP where the invoice is stored.
 - type field is removed. No need of such field, because the request is for invoice.
-- Add the field 'name' - this is the name of the merchant that has issued the invoice. 
+- Add the field 'name' - this is the name of the merchant that has issued the invoice.
 
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
@@ -198,10 +198,10 @@ The following changes will be introduced:
 
 
 - type field is removed. No need of such field, because the request is for invoice.
-- Add the field 'name' - this is the name of the merchant that has issued the invoice. 
+- Add the field 'name' - this is the name of the merchant that has issued the invoice.
 - Remove field paymentURL - we already have an account field
 
- 
+
 
 ###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
@@ -255,7 +255,7 @@ For prepare payment, an already existing API from SPSP Client will be used. [POS
 *Response:*
 
 	201 Created
-	
+
 	{
 		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
 		"name":"Bob Dilan",
@@ -339,7 +339,7 @@ A new method will be introduce for SPSP Server to call DFSP API
 	PUT http://dfsp2.spsp-server/invoice/12345
 
 *Response:*
-	
+
 	200 OK
 
 	{
