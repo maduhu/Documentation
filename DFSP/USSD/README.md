@@ -14,7 +14,7 @@ The purpose USSD simulator is to simulate a real USSD interface over http protoc
 Below you can see a screen shot of the emulator with the controls marked with a letter in a rectangle. The explanation of each of those you can find further below. 
 
 
-![](./HomeScreen.PNG)
+![](./HomeScreen.png)
 
 
 **A. Screen where the responses from the USSD server are displayed.** The response usually is limited to maximum 160 character(including spaces and new lines) or in case the USSD text is in Unicode or any other 16 bit encoding, the responses from the server are limited to 80 characters 
