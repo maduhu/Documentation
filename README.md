@@ -20,7 +20,9 @@ The basic idea behind the L1P model is that we need to connect multiple Digital 
 - Complete working open-source implementations of both sides of the interfaces - an example DFSP that can send and receive payments and the portals that an existing DFSP could host to connect to the the network. 
 
 ### DFSP Service
-The DFSP code is an example implementation of a mobile money provider. Customers connect to it from their mobile feature phones (via USSD) and it allows them to create accounts, send money, and receive money. See [DFSP Documentation](https://github.com/LevelOneProject/Docs/tree/master/DFSP).
+The DFSP code is an example implementation of a mobile money provider. Customers connect to it from their mobile feature phones (via USSD) and it allows them to create accounts, send money, and receive money. 
+
+See [DFSP Documentation](https://github.com/LevelOneProject/Docs/tree/master/DFSP).
 
 ### Level One Portal Service
 The portal connects a DFSP to other other DFSPs and the central services. It has a few simple interfaces to connect to a DFSP for account holder lookup, payment setup, and ledger operations. The portal can be hosted locally by the DFSP or in a remote data center such as Amazon. 
@@ -29,7 +31,7 @@ The portal connects a DFSP to other other DFSPs and the central services. It has
 
 ### Central Services
 The central services are a collection of separate services that help the DFSPs perform operations on the network. 
-- The [Central Directory Service](https://github.com/LevelOneProject/) finds which DFSP handles a user's accounts. 
+- The [Central Directory Service](https://github.com/LevelOneProject/Docs/tree/master/CentralDirectory) finds which DFSP handles a user's accounts. 
 - The [Central Ledger Service](https://github.com/LevelOneProject/Docs/tree/master/CentralLedger) handles clearing and settlement. 
 - The [Central Rules Service](https://github.com/LevelOneProject/Docs/tree/master/CentralRules) sets policy across the system. 
 - The **Fraud service** aids DFPS in identifying suspicious behavior.
