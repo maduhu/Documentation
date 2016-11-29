@@ -14,7 +14,7 @@ The purpose USSD simulator is to simulate a real USSD interface over http protoc
 Below you can see a screen shot of the emulator with the controls marked with a letter in a rectangle. The explanation of each of those you can find further below. 
 
 
-![](./USSDNavigation.JPG)
+![](./HomeScreen.png)
 
 
 **A. Screen where the responses from the USSD server are displayed.** The response usually is limited to maximum 160 character(including spaces and new lines) or in case the USSD text is in Unicode or any other 16 bit encoding, the responses from the server are limited to 80 characters 
@@ -102,6 +102,42 @@ Send money user case is wire a transfer to another user which can be in differen
 
 
 ----------
+
+###3. Sell Goods
+
+The Sell Goods use case is send an invoice from a merchant to a buyer which can be in different DFSP. When the user number of the receiver is entered, the system display its name. When the amount is entered the system displays the fees that the user which sends the money has to pay. A final confirmation screen is displayed where the user has to enter his PIN.
+
+####3.1 The user case starts by entering an existing user number into the phone box of the simulator and selecting 'Sell Goods' menu item.
+
+![](./SellGoods_1.png)
+
+####3.2 On the next screen the merchant has to enter the amount of the invoice.
+
+![](./SellGoods_2.png)
+
+####3.3 The system displays the buyer name and the amount, and expects the confirmation of the invoice with the user PIN. 
+
+![](./SellGoods_3.png)
+
+---------
+
+###4. Pending Transactions
+
+The Pending Transactions use case is a buyer approving or rejecting a pending invoice from a merchant which can be in different DFSP. When the user number of the receiver is entered, the system display its name. A final confirmation screen is displayed where the user has to enter his PIN.
+
+####4.1 The user case starts by selecting the 'Sell Goods' menu item, and then selecting the pending invoice displayed on the screen.
+
+![](./PendingTransaction_1.png)
+
+####4.2 On the next screen the system displays the name of the merchant and the amount of the invoice to be paid. The user has to confirm by entering his PIN, or he can reject by selecting the 'Reject' menu item.
+
+![](./PendingTransaction_2.png)
+
+####4.3 A confirmation screen is displayed.
+
+![](./PendingTransaction_3.png)
+
+---------
 
 End of document
 
