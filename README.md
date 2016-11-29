@@ -24,10 +24,8 @@ The DFSP code is an example implementation of a mobile money provider. Customers
 
 ### Level One Portal Service
 The portal connects a DFSP to other other DFSPs and the central services. It has a few simple interfaces to connect to a DFSP for account holder lookup, payment setup, and ledger operations. The portal can be hosted locally by the DFSP or in a remote data center such as Amazon. 
-Interfaces:
-- [Ledger Adapter API](https://github.com/LevelOneProject/Docs/blob/f4de22ece6064cc94db0f8b69bad1f6aa25683d9/ILP/ledger-adapter.md)
-- [Simple Payment Setup Protocol API](https://github.com/LevelOneProject/ilp-spsp-client-rest) 
-- [DFSP Identity Lookup](https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md)
+
+[Level One Portal Documentation](https://github.com/LevelOneProject/Docs/blob/master/portal)
 
 ### Central Services
 The central services are a collection of separate services that help the DFSPs perform operations on the network. 
