@@ -41,7 +41,7 @@ The central services are a collection of separate services that help the DFSPs p
 # End-to-End Scenarios
 The individual services listed above can't easily describe how key scenarios work across the system. For each of the [Level One Scenarios](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios) we provide a technical walk through.
 
-1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone),  [walkthrough](https://github.com/LevelOneProject/Docs/wiki/Message-Flow-(PI-2))
+1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone),  [walkthrough](https://github.com/LevelOneProject/Docs/blob/master/portal/scenarios/Send%20Payment.md)
 
 # System-wide Testing
 Individual services have their own tests, but there are system-wide tests as per the [testing strategy](Manual-and-automated-testing-strategy).
