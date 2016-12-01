@@ -19,7 +19,7 @@ The first stage of any transfer is to find out what institution can accept money
 
 [DFSP Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation) DFSP:8011/documentation
 
-Portal Proxy API Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) DFSP:8081/directory/v1/console/
+[Portal Proxy API Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) DFSP:8081/directory/v1/console/
 
     Post :user/get
     Post: user/add # Expect to change
