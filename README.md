@@ -13,6 +13,8 @@ New developers see [Onboarding](https://github.com/LevelOneProject/Docs/wiki/Onb
 The following architecture diagram shows Level One services:
 ![Level One Services](https://github.com/LevelOneProject/Docs/blob/master/Wiki/Basic%20Overview.png)
 
+See here for [physical architecture and machines topology](https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md)
+
 The basic idea behind the L1P model is that we need to connect multiple Digital Financial Services Providers (DFSPs) together into a competitive but interoperable network. We don't want a single monopoly power in control of all payments in a country, or a system that shuts out new players. It also doesn't help if there are too many isolated subnetworks. Our model solves this problem with several key elements:
 
 - A set of central services provides a hub through which money can flow from one DFSP to each other. This is similar to how money moves through a central bank or clearing house in developed countries. Besides a central ledger, central services can provide identity lookup, fraud management, and other such rules.
