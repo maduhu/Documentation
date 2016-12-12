@@ -57,6 +57,7 @@ DFSP SPSP Client Proxy
 | ---- | ----------- |
 | /spsp/client/v1 | spsp client proxy service root |
 | [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
+| [open api documentation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/documentation/index.html#/) | open api documentation |
 | ... | see api documentation or console for additional functions |
 
 ILP Ledger Adapter
@@ -75,6 +76,7 @@ SPSP Server Backend
 | ---- | ----------- |
 | /spsp/backend/v1 | spsp server backend service root |
 | [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/console/) | api demo console |
+| [open api documentation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/documentation/index.html) | open api documentation |
 | ... | see api documentation or console for additional functions |
 
 
