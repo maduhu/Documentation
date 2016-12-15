@@ -1,0 +1,44 @@
+- name: Upgrade SG Amazon Services
+  hosts: localhost
+  vars: 
+    task_name: "{{ service_name }}"
+  tasks:
+    - name: Verify input parameters
+      assert:
+        that:
+            - service_name is defined and service_name != ''
+            - cluster_name is defined and cluster_name != ''
+
+    - name: Stop service -> "{{ service_name }}"
+      ecs_service:
+        name: "{{ service_name }}"
+        region: us-west-2
+        state: present
+        desired_count: 0
+        task_definition: "{{ task_name }}"
+        cluster: "{{ cluster_name }}"
+
+    - name: Delete service -> "{{ service_name }}"
+      ecs_service:
+        name: "{{ service_name }}"
+        region: us-west-2
+        state: absent
+        task_definition: "{{ task_name }}"
+        cluster: "{{ cluster_name }}"
+
+    - name: Check service deletion -> "{{ service_name }}"
+      ecs_service:
+        name: "{{ service_name }}"
+        region: us-west-2
+        state: deleting
+        task_definition: "{{ task_name }}"
+        cluster: "{{ cluster_name }}"
+
+    - name: Create and start service -> "{{ service_name }}"
+      ecs_service:
+        name: "{{ service_name }}"
+        region: us-west-2
+        state: present
+        desired_count: 1
+        task_definition: "{{ task_name }}"
+        cluster: "{{ cluster_name }}"
