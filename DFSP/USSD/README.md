@@ -143,7 +143,7 @@ The Pending Transactions use case is a buyer approving or rejecting a pending in
 The Check Balance USSD menu command enables users to check their current balance. 
 The user selects the 'Check balance' menu item, and their current balance displays on the screen.
 
-![](./Screen_Balance.png)
+![](./Screen_Balance.PNG)
 
 ---------
 
