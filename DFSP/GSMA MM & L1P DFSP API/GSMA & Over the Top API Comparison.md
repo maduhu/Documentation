@@ -109,7 +109,6 @@ Response:
     {
 	    "id": "string",
 	    "name": "string",
-	    "balance": "money",
 	    "currencyCode": "string",
 	    "currencySymbol": "string",
     	"imageUrl": "URL"
