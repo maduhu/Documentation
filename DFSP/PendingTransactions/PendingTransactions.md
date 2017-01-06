@@ -25,6 +25,10 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 
+## I. LOOKUP  RECEIVER ##
+
+![](./QueryReceiver.jpg)
+
 ## I. INVOICE NOTIFICATION CREATION  ##
 
 ![](./CreateInvoice.jpg)
