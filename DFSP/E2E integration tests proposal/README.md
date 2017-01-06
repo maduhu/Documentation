@@ -1,4 +1,5 @@
-E2E integration testing proposal.
+#E2E integration testing proposal.
+
 E2E flows can be tested directly by simulating a sequence of ussd steps programatically. This could be achieved by sending `/POST` requests to `/ussd` . The body of the requests should be `application/json` cointaining the properties `phone` and `message`. e.g:
 
 ```
