@@ -47,6 +47,8 @@ TO BE FILLED BY SG
 
 ## III. POST INVOICE NOTIFICATION  ##
 
+![](./PostInvoiceNotification.jpg)
+
 ### A. post invoice notification ###
 
 DFSP API submits a POST request to SPSP Client Proxy for the invoice notification
