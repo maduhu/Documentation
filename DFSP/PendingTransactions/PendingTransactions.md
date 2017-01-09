@@ -26,15 +26,58 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 ## I. LOOKUP  RECEIVER ##
+      
+a. When the merchant becomes ready to create an invoice for the customer, the merchant does a lookup against the central directory based on the receiver number. Below are the api and the sample request.
+
+TOBEFILLED by SG
+
+*Request*
+
+b. Central directory calls the End User Registry to get the receiver details. Below are the api and sample request and response
+
+*Request*
 
 ![](./QueryReceiver.jpg)
 
-## I. INVOICE NOTIFICATION CREATION  ##
+## II. CREATE INVOICE  ##
 
 ![](./CreateInvoice.jpg)
 
-###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+TO BE FILLED BY SG
 
+## III. POST INVOICE NOTIFICATION  ##
+
+### A. post invoice notification ###
+
+DFSP API submits a POST request to SPSP Client Proxy for the invoice notification
+
+Sample request and response are below:
+
+### B. post invoice notification ###
+
+SPSP Client Proxy submits POST request to SPSP Client
+
+Sample request and response are below:
+
+### C. post invoice notification ###
+
+SPSP Client on merchant dfsp submits POST request to SPSP server on client dfsp
+
+Sample request and response are below:
+
+### D. post invoice notification ###
+
+SPSP Server submits POST request to SPSP Server Backend
+
+Sample request and response are below:
+
+### E. post invoice notification ###
+
+SPSP Server Backend submits POST request to DFSP API
+
+Sample request and response are below:
+
+###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 
 We have to create a new API to in SPSP Client to support the invoice creation.
@@ -126,6 +169,354 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 - memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
 
+
+
+
+
+## IV. SETUP PAYMENT ##
+
+
+
+![](./SetupInvoicePayment.jpg)
+
+###  A. setup request from [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
+
+**Endpoint**
+
+DFSP API calls [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup) endpoint in SPSP Client Proxy
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+
+###  B. setup request from [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) to [ ILP SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest)###
+
+**Endpoint**
+
+SPSP Client Proxy calls [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup) endpoint in ILP SPSP Client
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  C. setup request from [ ILP SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) to [ ILP SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) on Client side DFSP###
+
+**Endpoint**
+
+ILP SPSP CLIENT calls [POST /v1/setup] endpoint in SPSP Server
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  D. setup request from [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-client-server) to [ SPSP SERVER BACKEND ](https://github.com/LevelOneProject/interop-spsp-backend-services)###
+
+**Endpoint**
+
+SPSP SERVER calls [POST /v1/setup] endpoint in SPSP Server Backend
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  E. setup request from [ SPSP SERVER BACKEND](https://github.com/LevelOneProject/interop-spsp-server-backend) to [ DFSP API ](https://github.com/LevelOneProject/dfsp-api)###
+
+**Endpoint**
+
+SPSP SERVER Backend calls [POST /v1/setup] endpoint in DFSP API
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  F. setup request from [ SPSP SERVER BACKEND](https://github.com/LevelOneProject/interop-spsp-server-backend) to [ DFSP API ](https://github.com/LevelOneProject/dfsp-api)###
+
+**Endpoint**
+
+SPSP SERVER Backend calls [POST /v1/setup] endpoint in DFSP API
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+
+## IV. PREPARE PAYMENT ##
+
+![](./PrepareInvoicePayment.jpg)
+
+###  A. setup request from [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
+
+**Endpoint**
+
+DFSP API calls [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup) endpoint in SPSP Client Proxy
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+
+## IV. EXECUTE PAYMENT ##
+
+![](./ExecuteInvoicePayment.jpg)
+
+**(3.2)Prepare Payment**
+
+For prepare payment, an already existing API from SPSP Server will be used. [PUT invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice-1)
+
+
+*Request:*
+
+	PUT http://dfsp2.spsp-server/invoice/12345
+
+*Response:*
+
+	200 OK
+
+	{
+  		"senderIdentifier": "9809890190934023",
+  		"status": "proposed"
+	}
+
+
+###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+
+We don't need a notification about the proposed state in SPSP Server backedn and DFSP Logic.
+
+
+
+## EXECUTE PAYMENT ##
+
+###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+
+**(4.1) Execute Payment**
+
+Use an exiting method:
+
+PUT /v1/payments/:id
+
+###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
+
+**(4.2) Execute Payment**
+
+User an existing method:
+
+PUT /v1/payments/:id
+
+###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+
+**(4.3) Execute Payment**
+
+A new method will be introduce for SPSP Server to call DFSP API
+
+*Request:*
+
+	PUT http://dfsp2.spsp-server/invoice/12345
+
+*Response:*
+
+	200 OK
+
+	{
+		"senderIdentifier": "9809890190934023",
+  		"status": "executed"
+	}
 
 ## II. GET INVOICE DETAILS   ##
 
@@ -232,121 +623,3 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 	  "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
 	}
 
-
-
-## PREPARE PAYMENT ##
-
-![](./PrepareInvoicePayment.jpg)
-
-###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
-
-**(3.1)Prepare Payment**
-
-For prepare payment, an already existing API from SPSP Client will be used. [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup)
-
-
-*Request:*
-
-	POST http://dfsp1.spsp-client/v1/setup
-
-	{
-  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
-  		"sourceAccount": "dfsp1.alice.account",
-  		"sourceIdentifier": "9809890190934023"
-	}
-
-
-*Response:*
-
-	201 Created
-
-	{
-		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
-		"name":"Bob Dilan",
-		"destinationAccount": "dfsp2.bob_dylan.account",
-	  	"destinationAmount": "10.40",
-	  	"sourceAmount": "9.00",
-	  	"sourceAccount": "dfsp1.alice.account",
-	  	"expiresAt": "2016-08-16T12:00:00Z",
-	  	"data": {
-		    "senderIdentifier": "9809890190934023"
-	  	},
-	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
-	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
-	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
-	}
-
-The following changes will be introduced:
-
-
-- Rename 'address' to destinationAccount for consistency
-- Add name field which will contain the name of the merchant.
-- Include cancelation_condition - we need that to be able to cancel the transaction in case the amount or the fee does not satisfy the client
-- Rename condition to execution_condition
-
-
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
-
-![](./ExecuteInvoicePayment.jpg)
-
-**(3.2)Prepare Payment**
-
-For prepare payment, an already existing API from SPSP Server will be used. [PUT invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice-1)
-
-
-*Request:*
-
-	PUT http://dfsp2.spsp-server/invoice/12345
-
-*Response:*
-
-	200 OK
-
-	{
-  		"senderIdentifier": "9809890190934023",
-  		"status": "proposed"
-	}
-
-
-###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
-We don't need a notification about the proposed state in SPSP Server backedn and DFSP Logic.
-
-
-
-## EXECUTE PAYMENT ##
-
-###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
-
-**(4.1) Execute Payment**
-
-Use an exiting method:
-
-PUT /v1/payments/:id
-
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
-
-**(4.2) Execute Payment**
-
-User an existing method:
-
-PUT /v1/payments/:id
-
-###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
-**(4.3) Execute Payment**
-
-A new method will be introduce for SPSP Server to call DFSP API
-
-*Request:*
-
-	PUT http://dfsp2.spsp-server/invoice/12345
-
-*Response:*
-
-	200 OK
-
-	{
-		"senderIdentifier": "9809890190934023",
-  		"status": "executed"
-	}
