@@ -738,11 +738,163 @@ SPSP SERVER Backend calls [POST /v1/setup] endpoint in DFSP API
 
 ![](./PrepareInvoicePayment.jpg)
 
-###  A. setup request from [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
+###  A. Prepare payment request from [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
 
 **Endpoint**
 
-DFSP API calls [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup) endpoint in SPSP Client Proxy
+DFSP API calls [POST /v1/transfers/{id}](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup) endpoint in SPSP Client Proxy
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  B. Prepare payment request from [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
+
+**Endpoint**
+
+DFSP API calls [POST /v1/transfers/{id}](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup) endpoint in SPSP Client Proxy
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  C. Quote request from [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) to [ILP Connector] ###
+
+**Endpoint**
+
+SPSP Client calls [GET /quote]endpoint in ILP Connector
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  D. Prepare payment request from [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) to [ ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+
+**Endpoint**
+
+SPSP Client calls [GET /quote]endpoint in ILP Ledger Adapter
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+###  E. Prepare payment request from [ ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) to  [DFSP Ledger](https://github.com/LevelOneProject/dfsp-ledger) ###
+
+**Endpoint**
+
+ILP Ledger Adapter calls [GET /quote] endpoint in DFSP Ledger
 
 
 *Request:*
