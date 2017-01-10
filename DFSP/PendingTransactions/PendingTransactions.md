@@ -26,6 +26,8 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 ## I. LOOKUP  RECEIVER ##
+
+![](./QueryReceiver.jpg)
       
 a. When the merchant becomes ready to create an invoice for the customer, the merchant does a lookup against the central directory based on the receiver number. Below are the api and the sample request.
 
@@ -37,7 +39,7 @@ b. Central directory calls the End User Registry to get the receiver details. Be
 
 *Request*
 
-![](./QueryReceiver.jpg)
+
 
 ## II. CREATE INVOICE  ##
 
@@ -49,53 +51,21 @@ TO BE FILLED BY SG
 
 ![](./PostInvoiceNotification.jpg)
 
-### A. post invoice notification ###
+####  A. Post Invoice Notification from [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
 
-DFSP API submits a POST request to SPSP Client Proxy for the invoice notification
+**Endpoint**
 
-Sample request and response are below:
-
-### B. post invoice notification ###
-
-SPSP Client Proxy submits POST request to SPSP Client
-
-Sample request and response are below:
-
-### C. post invoice notification ###
-
-SPSP Client on merchant dfsp submits POST request to SPSP server on client dfsp
-
-Sample request and response are below:
-
-### D. post invoice notification ###
-
-SPSP Server submits POST request to SPSP Server Backend
-
-Sample request and response are below:
-
-### E. post invoice notification ###
-
-SPSP Server Backend submits POST request to DFSP API
-
-Sample request and response are below:
-
-###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
-
-
-We have to create a new API to in SPSP Client to support the invoice creation.
-
-
-**(1.1)Create Invoice Notification Method**
+DFSP API calls [POST /v1/invoices] endpoint in SPSP Client Proxy
 
 
 *Request:*
 
-	POST http://dfsp2.spsp-client/invoice/
+	POST http://dfsp1.spsp-client/v1/setup
+
 	{
-  		"invoiceId":"12345",
-  		"submissionUrl": "dfsp1.spsp-server",
-		"senderIdentifier": "client.user.number",
-  		"memo":"Bolagi Shop $5.00"
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
 	}
 
 
@@ -103,80 +73,178 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 
 	201 Created
 
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
 
-- invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP.
-- submissionUrl - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
+####  B. Post Invoice Notification from [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) to [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
+**Endpoint**
 
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
+SPSP Client Proxy calls [POST /v1/invoices] endpoint in SPSP Client
 
-
-
-**(1.2)Create Invoice Notification Method**
-
-
-This method will be used for communication between SPSP Client and SPSP Server components
 
 *Request:*
 
+	POST http://dfsp1.spsp-client/v1/setup
 
-	POST http://dfsp1.spsp-server/receiver/invoice/
 	{
-  		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-		"senderIdentifier": "client.user.number",
-  		"memo":"Bolagi Shop $5.00"
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
 	}
 
 
 *Response:*
 
-
 	201 Created
 
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
 
-- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP.
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
+####  C. Post Invoice Notification from  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) to [ SPSP Server ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
+**Endpoint**
 
-
-###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
-
-
-**(1.3)Create Invoice Notification Method**
-
-
-This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.
+SPSP Client calls [POST /v1/invoices] endpoint in SPSP Server
 
 
 *Request:*
 
-	POST http://dfsp1.dfsp-api/receiver/invoice/
+	POST http://dfsp1.spsp-client/v1/setup
 
 	{
-		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-		"senderIdentifier": "client.user.number",
-  		"memo":"Bolagi Shop $5.00"
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
 	}
+
 
 *Response:*
 
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
+
+####  D. Post Invoice Notification from  [ SPSP Server ](https://github.com/LevelOneProject/ilp-spsp-server) to [ SPSP Server Backend ](https://github.com/LevelOneProject/interop-spsp-server-backend)###
+
+**Endpoint**
+
+SPSP Server calls [POST /v1/invoices] endpoint in SPSP Server Backend
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
 
 	201 Created
 
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
 
-- invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP.
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
+####  E. Post Invoice Notification from  [ SPSP Server Backend ](https://github.com/LevelOneProject/interop-spsp-server-backend)  to [DFSP API](https://github.com/LevelOneProject/dfsp-api) ###
+
+**Endpoint**
+
+SPSP Server Backend calls [POST /v1/invoices] endpoint in DFSP API
 
 
+*Request:*
 
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+*Response:*
+
+	201 Created
+
+	{
+		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
+		"name":"Bob Dilan",
+		"destinationAccount": "dfsp2.bob_dylan.account",
+	  	"destinationAmount": "10.40",
+	  	"sourceAmount": "9.00",
+	  	"sourceAccount": "dfsp1.alice.account",
+	  	"expiresAt": "2016-08-16T12:00:00Z",
+	  	"data": {
+		    "senderIdentifier": "9809890190934023"
+	  	},
+	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
+	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
+	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+	}
 
 
 
 ## IV. SETUP PAYMENT ##
-
 
 
 ![](./SetupInvoicePayment.jpg)
