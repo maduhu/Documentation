@@ -25,47 +25,15 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 
-## I. LOOKUP  RECEIVER ##
+## I. CREATE INVOICE ##
 
-![](./QueryReceiver.jpg)
+![](./CreateInvoice.jpg)
       
 ####  A. User Lookup Request from [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ Central Directory ](https://github.com/LevelOneProject/central-directory) ###
 
 **Endpoint**
 
 DFSP API calls [GET /user] endpoint in Central Directory
-
-
-*Request:*
-
-	POST http://dfsp1.spsp-client/v1/setup
-
-	{
-  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
-  		"sourceAccount": "dfsp1.alice.account",
-  		"sourceIdentifier": "9809890190934023"
-	}
-
-
-*Response:*
-
-	201 Created
-
-	{
-		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
-		"name":"Bob Dilan",
-		"destinationAccount": "dfsp2.bob_dylan.account",
-	  	"destinationAmount": "10.40",
-	  	"sourceAmount": "9.00",
-	  	"sourceAccount": "dfsp1.alice.account",
-	  	"expiresAt": "2016-08-16T12:00:00Z",
-	  	"data": {
-		    "senderIdentifier": "9809890190934023"
-	  	},
-	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
-	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
-	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
-	}
 
 
 ####  B. User Lookup Request from  [ Central Directory ](https://github.com/LevelOneProject/central-directory) to [ Central Registry ](https://github.com/LevelOneProject/central-end-user-registry)###
@@ -75,92 +43,40 @@ DFSP API calls [GET /user] endpoint in Central Directory
 Central Directory [GET /user] endpoint in Central End User Registry
 
 
-*Request:*
-
-	POST http://dfsp1.spsp-client/v1/setup
-
-	{
-  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
-  		"sourceAccount": "dfsp1.alice.account",
-  		"sourceIdentifier": "9809890190934023"
-	}
-
-
-*Response:*
-
-	201 Created
-
-	{
-		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
-		"name":"Bob Dilan",
-		"destinationAccount": "dfsp2.bob_dylan.account",
-	  	"destinationAmount": "10.40",
-	  	"sourceAmount": "9.00",
-	  	"sourceAccount": "dfsp1.alice.account",
-	  	"expiresAt": "2016-08-16T12:00:00Z",
-	  	"data": {
-		    "senderIdentifier": "9809890190934023"
-	  	},
-	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
-	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
-	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
-	}
-
 ####  C. Query Receiver Request from  [ DFSP API ](https://github.com/LevelOneProject/dfsp-api) to [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
 
 **Endpoint**
 
-DFSP API calls [GET /query] endpoint in SPSP Client Proxy
+DFSP API calls [GET /spsp/client/v1/query] endpoint in SPSP Client Proxy
 
 
 *Request:*
 
-	POST http://dfsp1.spsp-client/v1/setup
-
-	{
-  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
-  		"sourceAccount": "dfsp1.alice.account",
-  		"sourceIdentifier": "9809890190934023"
-	}
-
+	GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2:3043/v1/receivers/78956562
+	
 
 *Response:*
-
-	201 Created
-
+	200 OK
 	{
-		"id": "b9c4ceba-51e4-4a80-b1a7-2972383e98af",
-		"name":"Bob Dilan",
-		"destinationAccount": "dfsp2.bob_dylan.account",
-	  	"destinationAmount": "10.40",
-	  	"sourceAmount": "9.00",
-	  	"sourceAccount": "dfsp1.alice.account",
-	  	"expiresAt": "2016-08-16T12:00:00Z",
-	  	"data": {
-		    "senderIdentifier": "9809890190934023"
-	  	},
-	  	"additionalHeaders": "asdf98zxcvlknannasdpfi09qwoijasdfk09xcv009as7zxcv",
-	  	"execution_condition": "cc:0:3:wey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32",
-	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
+  		"type": "payee",
+  		"name": "bob",
+  		"account": "levelone.dfsp2.bob",
+  		"currencyCode": "USD",
+  		"currencySymbol": "$",
+  		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
 	}
+
 
 ####  D. Query Receiver Request from  [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) to [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 **Endpoint**
 
-SPSP Client Proxy calls [GET /query] endpoint in SPSP Client
+SPSP Client Proxy calls [GET /v1/query] endpoint in SPSP Client
 
 
 *Request:*
 
-	POST http://dfsp1.spsp-client/v1/setup
-
-	{
-  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
-  		"sourceAccount": "dfsp1.alice.account",
-  		"sourceIdentifier": "9809890190934023"
-	}
-
+	GET http://dfsp1.spsp-client/v1/query/receiver=http://dfsp2:3043/v1/receivers/78956562
 
 *Response:*
 
