@@ -25,28 +25,50 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 
 
-## I. INVOICE NOTIFICATION CREATION  ##
+## I.  INVOICE CREATION  ##
 
-![](./CreateInvoice.jpg)
+![](./createInvoice.png)
+
+### [DFSP API](https://github.com/LevelOneProject/dfsp-api)
+
+*Request:*
+
+	POST http://dfsp-api/merchantInvoice
+	{
+      account: 'merchant.account',
+      name: 'Merchant name',
+      currencyCode: 'USD',
+      currencySymbol: '$',
+      amount: 100,
+      userNumber: 'client.user.number',
+      spspServer: 'client.spspServer',
+      invoiceInfo: 'invoice info'
+    }
+
+
+*Response:*
+
+	201 Created
+
+- account - merchant's ledger account. e.g. http://dfsp-ledger/ledger/accounts/merchant
+- userNumber - client's user number. e.g. '26547070'
+- spspServer - baseUrl to client's spsp server. e.g. http://sender-spsp-server/v1
+
 
 ###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 
-
-We have to create a new API to in SPSP Client to support the invoice creation.
-
-
-**(1.1)Create Invoice Notification Method**
+**(2.1)Create Invoice Notification Method**
 
 
 *Request:*
 
-	POST http://dfsp2.spsp-client/invoice/
+	POST http://dfsp2.spsp-client/invoices/
 	{
   		"invoiceId":"12345",
-  		"submissionUrl": "dfsp1.spsp-server",
+  		"submissionUrl": "dfsp1.spsp-server/v1/invoices",
 		"senderIdentifier": "client.user.number",
-  		"memo":"Bolagi Shop $5.00"
+  		"memo":"Invoice from merchant for 100 USD"
 	}
 
 
@@ -65,7 +87,7 @@ We have to create a new API to in SPSP Client to support the invoice creation.
 
 
 
-**(1.2)Create Invoice Notification Method**
+**(2.2)Create Invoice Notification Method**
 
 
 This method will be used for communication between SPSP Client and SPSP Server components
@@ -77,7 +99,7 @@ This method will be used for communication between SPSP Client and SPSP Server c
 	{
   		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
 		"senderIdentifier": "client.user.number",
-  		"memo":"Bolagi Shop $5.00"
+  		"memo":"Invoice from merchant for 100 USD"
 	}
 
 
@@ -96,7 +118,7 @@ This method will be used for communication between SPSP Client and SPSP Server c
 
 
 
-**(1.3)Create Invoice Notification Method**
+**(2.5)Create Invoice Notification Method**
 
 
 This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.
