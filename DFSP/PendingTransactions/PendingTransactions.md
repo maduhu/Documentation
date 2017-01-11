@@ -928,175 +928,286 @@ ILP Ledger Adapter calls [GET /quote] endpoint in DFSP Ledger
 	  	"cancelation_condition": "dd:0:5:eey2IMPk-3MsBpbOcObIbtgIMs0f7uBMGwebg1qUeyw:32"
 	}
 
+###  F. Prepare payment notification from [ ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) to  [ ILP Connector](https://github.com/LevelOneProject/central-ledger) ###
 
-## IV. EXECUTE PAYMENT ##
+**Endpoint**
+
+ILP Ledger Adapter posts notification at the below websocket endpoint:
+
+
+*Notification Message:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+
+###  G. Prepare payment request from [ ILP CONNECTOR ](https://github.com/LevelOneProject/interop-ilp-ledger) to  [Central Ledger](https://github.com/LevelOneProject/dfsp-ledger) ###
+
+**Endpoint**
+
+ILP Ledger Adapter calls [GET /quote] endpoint in DFSP Ledger
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+###  G. Prepare payment request from [ ILP CONNECTOR ](https://github.com/LevelOneProject/interop-ilp-ledger) to  [Central Ledger](https://github.com/LevelOneProject/dfsp-ledger) ###
+
+**Endpoint**
+
+ILP Ledger Adapter calls [GET /quote] endpoint in DFSP Ledger
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+  *Response*
+
+  	Comes back as a Websocket notification
+
+ ###  H. Prepare payment request from [ ILP CONNECTOR ](https://github.com/LevelOneProject/interop-ilp-ledger) to  [ Ledger Adapter](https://github.com/LevelOneProject/ilp-ledger-adapter) on the Client DFSP###
+
+**Endpoint**
+
+ILP Connector calls [POST /invoices] endpoint in ILP Ledger Adapter
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+  *Response*
+
+  	Comes back as a Websocket notification
+
+  ###  I. Prepare payment request from [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) to  [ DFSP Ledger ](https://github.com/LevelOneProject/dfsp-ledger) on the Client DFSP###
+
+**Endpoint**
+
+ILP Ledger Adapter calls [POST /invoices] endpoint in DFSP Ledger
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+  *Response*
+
+  	Comes back as a Websocket notification
+
+ ###  J. Send Websocket Notification from [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) to  [ ILP Connector ] and SPSP Server###
+
+
+*Notification Object:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+  *Response*
+
+  	Comes back as a Websocket notification
+
+
+## V. EXECUTE PAYMENT ##
 
 ![](./ExecuteInvoicePayment.jpg)
 
-**(3.2)Prepare Payment**
-
-For prepare payment, an already existing API from SPSP Server will be used. [PUT invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice-1)
+ ###  A. Execute payment request from [ SPSP Server](https://github.com/LevelOneProject/ilp-spsp-server) to [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/ilp-ledger-adapter) ###
 
 
-*Request:*
+**Endpoint**
 
-	PUT http://dfsp2.spsp-server/invoice/12345
-
-*Response:*
-
-	200 OK
-
-	{
-  		"senderIdentifier": "9809890190934023",
-  		"status": "proposed"
-	}
-
-
-###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
-We don't need a notification about the proposed state in SPSP Server backedn and DFSP Logic.
-
-
-
-## EXECUTE PAYMENT ##
-
-###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
-
-**(4.1) Execute Payment**
-
-Use an exiting method:
-
-PUT /v1/payments/:id
-
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
-
-**(4.2) Execute Payment**
-
-User an existing method:
-
-PUT /v1/payments/:id
-
-###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
-**(4.3) Execute Payment**
-
-A new method will be introduce for SPSP Server to call DFSP API
-
-*Request:*
-
-	PUT http://dfsp2.spsp-server/invoice/12345
-
-*Response:*
-
-	200 OK
-
-	{
-		"senderIdentifier": "9809890190934023",
-  		"status": "executed"
-	}
-
-## II. GET INVOICE DETAILS   ##
-
-![](./GetInvoiceDetails.jpg)
-
-###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
-
-
-**(2.1)Get Invoice Details**
-
-Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md#get-v1query)
-
+SPSP Server calls [POST /transfer/{id}/fulfillment] endpoint in ILP Ledger Adapter
 
 
 *Request:*
 
-
-
-	GET http://dfsp1.spsp-clinet/invoice?invoiceUrl=http://dfsp2.spsp-server/invoice/12345
-
-
-*Response:*
-
-	200 OK
+	POST http://dfsp1.spsp-client/v1/setup
 
 	{
-	  "account": "dfsp2.bob.dylan.account",
-	  "name":"Bob Dylan",
-	  "currencyCode": "USD",
-	  "currencySymbol": "$",
-	  "amount": "10.40",
-	  "fee":"2.4",
-	  "status": "unpaid",
-	  "invoiceInfo": "https://www.example.com/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
 	}
 
 
-The following changes will be introduced:
+  *Response*
 
-- Add the invoiceUrl as request parameter, since this API is used between DFSP-Transfer and SPSP Client component. After that the SPSP client component has to have the URL to the merchant DFSP where the invoice is stored.
-- type field is removed. No need of such field, because the request is for invoice.
-- Add the field 'name' - this is the name of the merchant that has issued the invoice.
+  	Comes back as a Websocket notification
 
-
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
-
-**(2.2)Get Invoice Details**
+  ###  B. Execute payment request from [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/ilp-ledger-adapter) to [ DFSP Ledger](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 
-Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice)
+**Endpoint**
+
+ILP Ledger Adapter calls [POST /transfer/{id}/fulfillment] endpoint in DFSP Ledger
 
 
 *Request:*
 
-
-	GET http://dfsp2.spsp-server/invoice/12345
-
-
-*Response:*
-
-	200 OK
+	POST http://dfsp1.spsp-client/v1/setup
 
 	{
-	  "account": "dfsp2.bob.dylan.account",
-	  "name":"Bob Dylan",
-	  "currencyCode": "USD",
-	  "currencySymbol": "$",
-	  "amount": "10.40",
-	  "status": "unpaid",
-	  "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
 	}
 
-The following changes will be introduced:
+
+  *Response*
+
+###  C. Execute complete notification from [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/ilp-ledger-adapter) to [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) and  [ ILP CONNECTOR ]###
 
 
-- type field is removed. No need of such field, because the request is for invoice.
-- Add the field 'name' - this is the name of the merchant that has issued the invoice.
-- Remove field paymentURL - we already have an account field
+**Endpoint**
 
+ILP Ledger Adapter sends Wensocket notification to subscribing accounts in SPSP Server and ILP Connector
 
-
-###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
-**(2.3)Get Invoice Details**
-
-The following new method will be implemented in DFSP API. SPSP Server will call this new method to obtain information about an invoice from the 'DFSP Logic'.
 
 *Request:*
 
-	GET http://dfsp2.dfsp-api/invoice/12345
-
-
-*Response:*
-
-	200 OK
+	POST http://dfsp1.spsp-client/v1/setup
 
 	{
-	  "account": "dfsp2.bob_dylan.account",
-	  "name":"Bob Dylan",
-	  "currencyCode": "USD",
-	  "currencySymbol": "$",
-	  "amount": "10.40",
-	  "status": "unpaid",
-	  "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
 	}
 
+
+ *Response*
+
+###  D.  Send Execute complete request from [ ILP CONNECTOR ]to [ CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
+
+
+**Endpoint**
+
+ILP Connector sends request to end point /POST in Central Ledger
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+ *Response*
+
+###  E.  Send Execute complete notification from [ CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) to [ILP Connector] on both the DFSP ###
+
+
+**Endpoint**
+
+Central Ledger posts Execute Complete Notification 
+
+
+*Response*
+
+###  F.  Send Execute complete request from [ ILP CONNECTOR ]to [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/central-ledger) in DFSP on merchant side ###
+
+
+**Endpoint**
+
+ILP Connector sends request to end point /POST in Central Ledger
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+ *Response*
+
+###  G.  Send Execute complete request from [ INTEROP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) to [ DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
+
+
+**Endpoint**
+
+ILP Connector sends request to end point /POST in Central Ledger
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+ *Response*
+
+###  H.  Send Execute complete notification from [ ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/central-ledger) to [ILP CONNECTOR] and [ SPSP CLIENT PROXY ](https://github.com/LevelOneProject/interop-spsp-client-proxy) ###
+
+
+**Endpoint**
+
+ILP Ledger Adapter sends websocket notification to end point /POST in ILP Connecotor and SPSP Client Proxy
+
+
+*Request:*
+
+	POST http://dfsp1.spsp-client/v1/setup
+
+	{
+  		"receiver": "http://dfsp2.spsp-server/invoice/12345",
+  		"sourceAccount": "dfsp1.alice.account",
+  		"sourceIdentifier": "9809890190934023"
+	}
+
+
+ *Response*
