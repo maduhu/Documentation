@@ -23,13 +23,163 @@ I would like to propose the following new APIs and changes to the existing APIs 
 
 In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoice) and '**dfsp2**' as the merchant DFSP (issuing the invoice)
 
+## I.  GET SENDER DETAILS  ##
+
+![](./getSenderDetails.png)
+
+[DFSP USSD -> DFSP API]()
+
+**(1.1) Get payee**
+
+This method is not exposed as a DFSP Api rest route as it is not meant to be called directly from external systems
+
+*Request:*
+
+	{
+		"identifier": "78956562"
+	}
+
+*Response:*
+	200 OK
+
+	{
+		"spspReceiver": "http://dfsp2-spsp-server:3043/v1"
+	}
+
+- spspReceiver - the base url of sender's spsp server
+
+[DFSP API -> Central Directory]()
+
+**(1.2) User lookup request**
+
+*Request:*
+
+	GET http://central-directory/resources?identifier=78956562&identifierType=eur
 
 
-## I.  INVOICE CREATION  ##
+*Response:*
+
+	200 OK
+
+	{
+		"spspReceiver": "http://dfsp2-spsp-server:3043/v1",
+		"type": "payee",
+		"name": "bob",
+		"account": "levelone.dfsp2.bob",
+		"currencyCode": "USD",
+		"currencySymbol": "$",
+		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+	}
+
+
+- spspReceiver - the base url of sender's spsp server
+
+[Central Directory -> Central User Registry]()
+
+**(1.3) User lookup request**
+
+-- to be filled in
+
+[DFSP API -> SPSP Client Proxy]()
+
+**(1.4) Query user request**
+
+
+*Request:*
+
+	GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2-spsp-server:3043/v1/receivers/78956562
+
+*Response:*
+
+	200 OK
+
+	{
+		"type": "payee",
+		"name": "bob",
+		"account": "levelone.dfsp2.bob",
+		"currencyCode": "USD",
+		"currencySymbol": "$",
+		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+	}
+
+[SPSP Client Proxy -> SPSP Client]()
+
+**(1.5) Query user request**
+
+*Request:*
+
+	GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2-spsp-server:3043/v1/receivers/78956562
+
+*Response:*
+
+	200 OK
+
+	{
+		"type": "payee",
+		"name": "bob",
+		"account": "levelone.dfsp2.bob",
+		"currencyCode": "USD",
+		"currencySymbol": "$",
+		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+	}
+
+[SPSP Client -> SPSP Server]()
+
+**(1.6) Query user request**
+
+*Request:*
+
+	GET http://dfsp2-spsp-server:3043/v1/receivers/78956562
+
+*Response:*
+
+	200 OK
+
+	{
+		"type": "payee",
+		"name": "bob",
+		"account": "levelone.dfsp2.bob",
+		"currencyCode": "USD",
+		"currencySymbol": "$",
+		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+	}
+
+
+[SPSP Server -> SPSP Server Backend]()
+
+**(1.7) Query user request**
+
+-- to be filled in
+
+[SPSP Server Backend -> DFSP Api]()
+
+**(1.8) Query user request**
+
+*Request:*
+
+	GET http://dfsp2-api:8010/v1/receivers/78956562
+
+*Response:*
+
+	200 OK
+
+	{
+		"type": "payee",
+		"name": "bob",
+		"account": "levelone.dfsp2.bob",
+		"currencyCode": "USD",
+		"currencySymbol": "$",
+		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+	}
+
+
+## II.  INVOICE CREATION  ##
 
 ![](./createInvoice.png)
 
-### [DFSP API](https://github.com/LevelOneProject/dfsp-api)
+### [DFSP USSD -> DFSP API]()
+
+**(2.1)Create Invoice Method**
 
 *Request:*
 
@@ -55,10 +205,10 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 - spspServer - baseUrl to client's spsp server. e.g. http://sender-spsp-server/v1
 
 
-###  [ SPSP CLIENT Proxy / SPSP Client](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ DFSP API -> SPSP CLIENT Proxy ]() ###
 
 
-**(2.1)Create Invoice Notification Method**
+**(2.2)Create Invoice Notification Method**
 
 
 *Request:*
@@ -81,13 +231,17 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 - submissionUrl - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
 - memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
+###  [ SPSP CLIENT Proxy -> SPSP CLIENT ]() ###
 
 
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
+**(2.3)Create Invoice Notification Method**
+
+-- to be filled in
+
+###  [  SPSP Client -> SPSP SERVER ]() ###
 
 
-
-**(2.2)Create Invoice Notification Method**
+**(2.4)Create Invoice Notification Method**
 
 
 This method will be used for communication between SPSP Client and SPSP Server components
@@ -113,12 +267,17 @@ This method will be used for communication between SPSP Client and SPSP Server c
 - memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
 
-
-###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
-
+###  [  SPSP SERVER -> SPSP SERVER BACKEND ]() ###
 
 
 **(2.5)Create Invoice Notification Method**
+
+-- to be filled in
+
+###  [ SPSP Server Backend -> DFSP API ]() ###
+
+
+**(2.6)Create Invoice Notification Method**
 
 
 This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.
@@ -145,14 +304,14 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 
 
-## II. GET INVOICE DETAILS   ##
+## III. GET INVOICE DETAILS   ##
 
-![](./GetInvoiceDetails.jpg)
+![](./getInvoiceDetails.png)
 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 
-**(2.1)Get Invoice Details**
+**(3.1)Get Invoice Details**
 
 Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md#get-v1query)
 
@@ -190,7 +349,7 @@ The following changes will be introduced:
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
-**(2.2)Get Invoice Details**
+**(3.2)Get Invoice Details**
 
 
 Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice)
@@ -227,7 +386,7 @@ The following changes will be introduced:
 
 ###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
-**(2.3)Get Invoice Details**
+**(3.3)Get Invoice Details**
 
 The following new method will be implemented in DFSP API. SPSP Server will call this new method to obtain information about an invoice from the 'DFSP Logic'.
 
@@ -252,13 +411,13 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 
 
-## PREPARE PAYMENT ##
+## IV. PREPARE PAYMENT ##
 
-![](./PrepareInvoicePayment.jpg)
+![](./preparePayment.png)
 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
-**(3.1)Prepare Payment**
+**(4.1)Prepare Payment**
 
 For prepare payment, an already existing API from SPSP Client will be used. [POST /v1/setup](https://github.com/LevelOneProject/ilp-spsp-client-rest#post-v1setup)
 
@@ -305,9 +464,7 @@ The following changes will be introduced:
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
-![](./ExecuteInvoicePayment.jpg)
-
-**(3.2)Prepare Payment**
+**(4.2)Prepare Payment**
 
 For prepare payment, an already existing API from SPSP Server will be used. [PUT invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice-1)
 
@@ -332,11 +489,13 @@ We don't need a notification about the proposed state in SPSP Server backedn and
 
 
 
-## EXECUTE PAYMENT ##
+## V. EXECUTE PAYMENT ##
+
+![](./executePayment.png)
 
 ###  [ SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
-**(4.1) Execute Payment**
+**(5.1) Execute Payment**
 
 Use an exiting method:
 
@@ -344,7 +503,7 @@ PUT /v1/payments/:id
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
-**(4.2) Execute Payment**
+**(5.2) Execute Payment**
 
 User an existing method:
 
@@ -352,7 +511,7 @@ PUT /v1/payments/:id
 
 ###  [ SPSP SERVER BACKEND / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
-**(4.3) Execute Payment**
+**(5.3) Execute Payment**
 
 A new method will be introduce for SPSP Server to call DFSP API
 
