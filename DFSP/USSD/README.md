@@ -141,7 +141,7 @@ The Pending Transactions use case is a buyer approving or rejecting a pending in
 
 The Manage Account USSD menu command enables users to manage their accounts, namely to add, edit, and close an account. They can also get account information.
 
-![](./Manage_Accounts.PNG)
+![](./Manage_Accounts.png)
 
 ####5.1 Adding an account
 
