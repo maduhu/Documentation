@@ -192,5 +192,5 @@ This API should be changed to support multiple receivers/amounts and get back th
 
 
 	
-3.ILP Protocol to support multiple payments (Ripple to advice)
+**3.ILP Protocol to support multiple payments (Ripple to advice)**
 
