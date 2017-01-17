@@ -141,7 +141,7 @@ The Pending Transactions use case is a buyer approving or rejecting a pending in
 
 The Manage Account USSD menu command enables users to manage their accounts, namely to add, edit, and close an account. They can also get account information.
 
-![](./Manage_Accounts.PNG)
+![](./Manage_Accounts.png)
 
 ####5.1 Adding an account
 
@@ -158,6 +158,32 @@ The user confirms their choice by entering their PIN, and a confirmation message
 ![](./Select_Account.PNG)
 
 ####5.2 Editing an account
+
+The user can edit an existing account by changing its name, or by setting it as primary.
+The user selects one of their existing accounts, then selects the Manage account USSD menu command, after that they select the Edit account USSD menu command.
+
+![](./Edit_Account.PNG)
+
+To edit the name of an account, the user must enter a new name after the prompt.
+
+![](./Edit_AccountName.PNG)
+
+To make the current account the primary one, the user must enter their PIN to confirm their choice. A confirmation message displays.
+
+![](./Edit_PrimaryAccount.PNG)
+
+####5.3 Closing an account
+
+The user can close any account that is not currently set to primary and which does not have any funds. 
+To close an account, the user must select the Manage account USSD menu command, then select the Close account command. The user enters their PIN to confirm, and a message displays.
+
+![](./Close_Account.PNG)
+
+####5.4 Viewing account information
+
+The user can view information about their current account. They must select the Manage account USSD menu command, then select the Account info command.
+
+![](./Account_Info.PNG)
 
 
 
