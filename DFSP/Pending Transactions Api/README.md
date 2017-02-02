@@ -1,24 +1,37 @@
 ## I.  OVERVIEW  ##
+ 
+Current document will cover the flow of creating and approving/rejecting pending transactions using 
+DFSP Over the Top API. The API exposes the DFSP functionalities for transactions processing, customer and account management, etc. to third party applications such as Android/IPhone smart application. There are additional set of APIs which are used for communication between DFSP to DFSP. Those APIs will not be analyzed in the current document. 
 
-Summary
+API Principles  
 
-![](./diagrams/Pending_Transactions.png)
+  * Restful approach to API design
+  * Based on JSON, no other content types are supported
 
-Assumptions
+Assumptions  
+
+   * Merchant is the party sending the invoices.
+   * Client is the party who is receiving the ivoices and he is able to approve/reject them.
+   * Merchant and the client are in different systems.
+   * Merchant and the client are loggen in their systems.
+
+
+![](./diagrams/pending_transactions.png)
+
+
 
 ## II.  GET CLIENT INFORMATION  ##
 
-Summary
+It will check if the client is in the same system and if he is then it will return information about him. If the client is not in the same system it will ask the central directory and return information about him if there are any matching results. Client information is described bellow.
 
 ### Api description
-
 
 ----
   
 
 * **URL**
 
-  `v1/invoices/client/{userNumber}`
+  `/v1/client/{userNumber}`
 
 * **Method:**
 
@@ -51,21 +64,19 @@ Summary
       "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
     }
   ```
-
+* **<a href="http://localhost:8010/documentation?tags=getClient" target="_blank">Try it out here</a>**
 
 ## III.  CREATE INVOICE  ##
 
-Summary
+The invoice will be created in the merchant's DFSP. It will be associated with an account. After the invoice is created in the merchant's DFSP a notification with the invoice reference will be send to the default client DFSP. The invoice reference in the client DFSP will not be associated with any clients account thus the client can choose an account from which he is going to pay the invoice.
 
 ### Api description
-
-
 ----
   
 
 * **URL**
 
-  `v1/invoices`
+  `/v1/invoices`
 
 * **Method:**
 
@@ -75,7 +86,7 @@ Summary
 
   **Required:**  
 
-   * `account [string] - Invoice issuer's account`  
+   * `account [string] - Invoice merchant's account`  
    * `amount [number] - Invoice amount`  
    * `userNumber [string] - Client's user number`
 
@@ -102,20 +113,20 @@ Summary
     **Content:**
        * `type [string] - Invoice type`
        * `invoiceNotificationId [number] - Invoice notification id`
-       * `account [string] - Invoice issuer's account`  
-       * `name [string] - Invoice issuer's name`
-       * `currencyCode [string] - Invoice issuer's currency code`
-       * `currencySymbol [string] - Invoice issuer's currency symbol`
+       * `account [string] - Invoice merchant's account`  
+       * `name [string] - Invoice merchant's name`
+       * `currencyCode [string] - Invoice merchant's currency code`
+       * `currencySymbol [string] - Invoice merchant's currency symbol`
        * `amount [string] - Invoice amount`
        * `status [string] - Invoice status`
-       * `userNumber [string] - Invoice recepient's user number`
+       * `userNumber [string] - Invoice client's user number`
        * `info [string] - Invoice additional information`
 
 * **Sample Response:**
 
   ```
     {
-      "type": "INVOICE",
+      "type": "invoice",
       "invoiceNotificationId": 1,
       "account": "merchant",
       "name": "merchant",
@@ -127,10 +138,11 @@ Summary
       "info": "Invoice from merchant for 130.34 USD"
     }
   ```
+* **<a href="http://localhost:8010/documentation?tags=postInvoice" target="_blank">Try it out here</a>**
 
 ## IV.  LIST PENDING INVOICES - CLIENT ##
 
-Summary
+Client will be able to check all the invoices associated with him.
 
 ### Api description
 
@@ -139,7 +151,7 @@ Summary
 
 * **URL**
 
-  `v1/invoiceNotifications/pending/{userNumber}`
+  `/v1/invoiceNotifications/pending/{userNumber}`
 
 * **Method:**
 
@@ -160,8 +172,8 @@ Summary
   * **Code:** 200 <br />
     **Content:**
        * `invoiceNotificationId [number] - Invoice notification id`  
-       * `statusid [string] - Invoice notification id`  
-       * `statusid [string] - Additional invoice notification information`  
+       * `status [string] - Invoice notification status`  
+       * `info [string] - Additional invoice notification information`  
 
 * **Sample Response:**
 
@@ -175,11 +187,12 @@ Summary
         }
       ]
     }
-  ```
+  ```  
+* **<a href="http://localhost:8010/documentation?tags=getInvoiceNotificationList" target="_blank">Try it out here</a>**
 
 ## V.  GET INVOICE DETAILS  ##
 
-Summary
+It will return all the data related to the posted invoice by passing the invoice notification ID.
 
 ### Api description
 
@@ -188,7 +201,7 @@ Summary
 
 * **URL**
 
-  `v1/invoicesNotifications/{invoiceNotificationId}`
+  `/v1/invoicesNotifications/{invoiceNotificationId}`
 
 * **Method:**
 
@@ -208,8 +221,8 @@ Summary
 
   * **Code:** 200 <br />
     **Content:**
-       * `firstName [string] - Invoice issuer's first name`  
-       * `lastName [string] - Invoice issuer's last name`  
+       * `firstName [string] - Merchant's first name`  
+       * `lastName [string] - Merchant's last name`  
        * `amount [number] - Invoice amount`  
        * `currencyCode [string] - Currency code`  
        * `currencySymbol [string] - Currency symbol`  
@@ -226,20 +239,20 @@ Summary
       "currencySymbol": "$",
       "fee": 1.23,
     }
-  ```
+  ```  
+* **<a href="http://localhost:8010/documentation?tags=getInvoiceInfo" target="_blank">Try it out here</a>**
 
 ## VI.  APPROVE INVOICE  ##
 
-Summary
+Client will be able to approve invoices. Whit this action invoice notification will be approved, merchant's DFSP will be notified and it will approve the merchant's invoice. After all merchant will receive invoice payment notification. 
 
 ### Api description
-
 ----
   
 
 * **URL**
 
-  `v1/invoiceNotifications/approve`
+  `/v1/invoiceNotifications/approve`
 
 * **Method:**
 
@@ -249,8 +262,8 @@ Summary
 
   **Required:**
 
-   * `account [string] - Invoice issuer's account number`    
-   * `invoiceNotificationid [string] - Invoice notification id`    
+   * `account [string] - Invoice sender's account number`    
+   * `invoiceNotificationId [string] - Invoice notification id`    
 
 * **Sample Call:**
 
@@ -277,11 +290,12 @@ Summary
       "invoiceNotificationId": "3",
       "status": "approved",
     }
-  ```
+  ```  
+* **<a href="http://localhost:8010/documentation?tags=approveInvoiceNotification" target="_blank">Try it out here</a>**
 
 ## VII.  REJECT INVOICE  ##
 
-Summary
+Client also will be able to reject invoices. Whit this action invoice notification will be rejected,merchant's DFSP will be notified and it will reject the merchant's invoice. After all merchant will receive invoice rejection notification.
 
 ### Api description
 ----
@@ -289,7 +303,7 @@ Summary
 
 * **URL**
 
-  `v1/invoiceNotifications/reject`
+  `/v1/invoiceNotifications/reject`
 
 * **Method:**
 
@@ -327,3 +341,4 @@ Summary
       "status": "rejected",
     }
   ```
+* **<a href="http://localhost:8010/documentation?tags=rejectInvoiceNotification" target="_blank">Try it out here</a>**
