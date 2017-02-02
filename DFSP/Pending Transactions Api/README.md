@@ -1,19 +1,19 @@
 ## I.  OVERVIEW  ##
- 
-Current document will cover the flow of creating and approving/rejecting pending transactions using 
-DFSP Over the Top API. The API exposes the DFSP functionalities for transactions processing, customer and account management, etc. to third party applications such as Android/IPhone smart application. There are additional set of APIs which are used for communication between DFSP to DFSP. Those APIs will not be analyzed in the current document. 
 
-API Principles  
+Current document will cover the flow of creating and approving/rejecting pending transfers using
+DFSP Over the Top API. The API exposes the DFSP functionalities for transfers processing, customer and account management, etc. to third party applications such as Android/IPhone smart application. There are additional set of APIs which are used for communication between DFSP to DFSP. Those APIs will not be analyzed in the current document.
+
+API Principles
 
   * Restful approach to API design
   * Based on JSON, no other content types are supported
 
-Assumptions  
+Assumptions
 
    * Merchant is the party sending the invoices.
-   * Client is the party who is receiving the ivoices and he is able to approve/reject them.
-   * Merchant and the client are in different systems.
-   * Merchant and the client are loggen in their systems.
+   * Client is the party who is receiving the ivoices and is able to approve/reject them.
+   * The merchant and the client are in different systems.
+   * The merchant and the client are logged in to their systems.
 
 
 ![](./diagrams/pendingTransactions.png)
@@ -21,12 +21,12 @@ Assumptions
 
 ## II.  GET CLIENT INFORMATION  ##
 
-It will check if the client is in the same system and if he is then it will return information about him. If the client is not in the same system it will ask the central directory and return information about him if there are any matching results. Client information is described bellow.
+The back-end will check whether the client is in the same system and if that's the case then it will return the respective information, otherwise it will query the central directory in order to obtain it.
 
 ### Api description
 
 ----
-  
+
 
 * **URL**
 
@@ -48,12 +48,12 @@ It will check if the client is in the same system and if he is then it will retu
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:**  
+    **Content:**
 
-     * `firstName [string] - Client's first name`  
-     * `lastName [string] - Client's last name`  
+     * `firstName [string] - Client's first name`
+     * `lastName [string] - Client's last name`
      * `imageUrl [string] - Link to the client's image`
-      
+
 * **Sample Response:**
 
   ```
@@ -67,11 +67,11 @@ It will check if the client is in the same system and if he is then it will retu
 
 ## III.  CREATE INVOICE  ##
 
-The invoice will be created in the merchant's DFSP. It will be associated with an account. After the invoice is created in the merchant's DFSP a notification with the invoice reference will be send to the default client DFSP. The invoice reference in the client DFSP will not be associated with any clients account thus the client can choose an account from which he is going to pay the invoice.
+The invoice will be created in the merchant's DFSP. It will be associated with an account. After the invoice is created in the merchant's DFSP a notification with the invoice reference will be send to the default client DFSP. The invoice reference in the client DFSP will not be associated with any clients account thus the client can choose an account from which they are going to pay the invoice.
 
 ### Api description
 ----
-  
+
 
 * **URL**
 
@@ -83,10 +83,10 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
 
 * **Data Params**
 
-  **Required:**  
+  **Required:**
 
-   * `account [string] - Invoice merchant's account`  
-   * `amount [number] - Invoice amount`  
+   * `account [string] - Invoice merchant's account`
+   * `amount [number] - Invoice amount`
    * `userNumber [string] - Client's user number`
 
    **Optional:**
@@ -96,13 +96,13 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
 * **Sample Call:**
 
   ```
-    curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d 
+    curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d
     '{
       "account": "merchant",
       "amount": 123,
       "userNumber": "78956562",
       "info": "Invoice from merchant to Alice"
-    }' 
+    }'
     'http://host/v1/invoices'
   ```
 
@@ -112,7 +112,7 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
     **Content:**
        * `type [string] - Invoice type`
        * `invoiceNotificationId [number] - Invoice notification id`
-       * `account [string] - Invoice merchant's account`  
+       * `account [string] - Invoice merchant's account`
        * `firstName [string] - Merchant's first name`
        * `lastName [string] - Merchant's last name`
        * `currencyCode [string] - Invoice merchant's currency code`
@@ -143,12 +143,12 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
 
 ## IV.  LIST PENDING INVOICES - CLIENT ##
 
-Client will be able to check all the invoices associated with him.
+Client will be able to obtain a list of all the pending invoices associated with him.
 
 ### Api description
 
 ----
-  
+
 
 * **URL**
 
@@ -172,9 +172,9 @@ Client will be able to check all the invoices associated with him.
 
   * **Code:** 200 <br />
     **Content:**
-       * `invoiceNotificationId [number] - Invoice notification id`  
-       * `status [string] - Invoice notification status`  
-       * `info [string] - Additional invoice notification information`  
+       * `invoiceNotificationId [number] - Invoice notification id`
+       * `status [string] - Invoice notification status`
+       * `info [string] - Additional invoice notification information`
 
 * **Sample Response:**
 
@@ -188,7 +188,7 @@ Client will be able to check all the invoices associated with him.
         }
       ]
     }
-  ```  
+  ```
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceNotificationList" target="_blank">Try it out here</a>**
 
 ## V.  GET INVOICE DETAILS  ##
@@ -198,7 +198,7 @@ It will return all the data related to the posted invoice by passing the invoice
 ### Api description
 
 ----
-  
+
 
 * **URL**
 
@@ -222,12 +222,12 @@ It will return all the data related to the posted invoice by passing the invoice
 
   * **Code:** 200 <br />
     **Content:**
-       * `firstName [string] - Merchant's first name`  
-       * `lastName [string] - Merchant's last name`  
-       * `amount [number] - Invoice amount`  
-       * `currencyCode [string] - Currency code`  
-       * `currencySymbol [string] - Currency symbol`  
-       * `fee [number] - Invoice fee`  
+       * `firstName [string] - Merchant's first name`
+       * `lastName [string] - Merchant's last name`
+       * `amount [number] - Invoice amount`
+       * `currencyCode [string] - Currency code`
+       * `currencySymbol [string] - Currency symbol`
+       * `fee [number] - Invoice fee`
 
 * **Sample Response:**
 
@@ -240,16 +240,16 @@ It will return all the data related to the posted invoice by passing the invoice
       "currencySymbol": "$",
       "fee": 1.23,
     }
-  ```  
+  ```
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceInfo" target="_blank">Try it out here</a>**
 
 ## VI.  APPROVE INVOICE  ##
 
-Client will be able to approve invoices. Whit this action invoice notification will be approved, merchant's DFSP will be notified and it will approve the merchant's invoice. After all merchant will receive invoice payment notification. 
+Client will be able to approve invoices. With this action invoice notification will be approved, merchant's DFSP will be notified and it will mark merchant's invoice as approved. Once the payment process is finished the merchant will automatically receive invoice payment notification.
 
 ### Api description
 ----
-  
+
 
 * **URL**
 
@@ -263,17 +263,17 @@ Client will be able to approve invoices. Whit this action invoice notification w
 
   **Required:**
 
-   * `account [string] - Invoice sender's account number`    
-   * `invoiceNotificationId [string] - Invoice notification id`    
+   * `account [string] - Invoice sender's account number`
+   * `invoiceNotificationId [string] - Invoice notification id`
 
 * **Sample Call:**
 
   ```
-    curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d 
+    curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d
     '{
       "account": "merchant",
       "invoiceNotificationId": "6"
-    }' 
+    }'
     'http://host/v1/invoiceNotifications/approve'
   ```
 
@@ -281,8 +281,8 @@ Client will be able to approve invoices. Whit this action invoice notification w
 
   * **Code:** 200 <br />
     **Content:**
-      * `invoiceNotificationId [string] - Invoice notification id`  
-      * `status [string] - Invoice notification status`  
+      * `invoiceNotificationId [string] - Invoice notification id`
+      * `status [string] - Invoice notification status`
 
 * **Sample Response:**
 
@@ -291,16 +291,16 @@ Client will be able to approve invoices. Whit this action invoice notification w
       "invoiceNotificationId": "3",
       "status": "approved",
     }
-  ```  
+  ```
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=approveInvoiceNotification" target="_blank">Try it out here</a>**
 
 ## VII.  REJECT INVOICE  ##
 
-Client also will be able to reject invoices. Whit this action invoice notification will be rejected,merchant's DFSP will be notified and it will reject the merchant's invoice. After all merchant will receive invoice rejection notification.
+Client also will be able to reject invoices. With this action invoice notification will be rejected, merchant's DFSP will be notified and it will reject the merchant's invoice. Once the payment is rejected the merchant will automatically receive invoice rejection notification.
 
 ### Api description
 ----
-  
+
 
 * **URL**
 
@@ -319,10 +319,10 @@ Client also will be able to reject invoices. Whit this action invoice notificati
 * **Sample Call:**
 
   ```
-    curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d 
+    curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d
    '{
        "invoiceNotificationId": "2"
-    }' 
+    }'
     'http://host/v1/invoiceNotifications/reject'
   ```
 
@@ -330,8 +330,8 @@ Client also will be able to reject invoices. Whit this action invoice notificati
 
   * **Code:** 200 <br />
     **Content:**
-      * `invoiceNotificationId [string] - Invoice notification id`  
-      * `status [string] - Invoice notification status`  
+      * `invoiceNotificationId [string] - Invoice notification id`
+      * `status [string] - Invoice notification status`
 
 
 * **Sample Response:**
