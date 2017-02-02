@@ -16,8 +16,7 @@ Assumptions
    * Merchant and the client are loggen in their systems.
 
 
-![](./diagrams/pending_transactions.png)
-
+![](./diagrams/pendingTransactions.png)
 
 
 ## II.  GET CLIENT INFORMATION  ##
