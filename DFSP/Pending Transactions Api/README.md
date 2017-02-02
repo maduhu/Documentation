@@ -64,7 +64,7 @@ It will check if the client is in the same system and if he is then it will retu
       "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
     }
   ```
-* **<a href="http://localhost:8010/documentation?tags=getClient" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getClient" target="_blank">Try it out here</a>**
 
 ## III.  CREATE INVOICE  ##
 
@@ -114,7 +114,8 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
        * `type [string] - Invoice type`
        * `invoiceNotificationId [number] - Invoice notification id`
        * `account [string] - Invoice merchant's account`  
-       * `name [string] - Invoice merchant's name`
+       * `firstName [string] - Merchant's first name`
+       * `lastName [string] - Merchant's last name`
        * `currencyCode [string] - Invoice merchant's currency code`
        * `currencySymbol [string] - Invoice merchant's currency symbol`
        * `amount [string] - Invoice amount`
@@ -129,7 +130,8 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
       "type": "invoice",
       "invoiceNotificationId": 1,
       "account": "merchant",
-      "name": "merchant",
+      "firstName": "John",
+      "lastName": "Smith",
       "currencyCode": "USD",
       "currencySymbol": "$",
       "amount": "130.34",
@@ -138,7 +140,7 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
       "info": "Invoice from merchant for 130.34 USD"
     }
   ```
-* **<a href="http://localhost:8010/documentation?tags=postInvoice" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=postInvoice" target="_blank">Try it out here</a>**
 
 ## IV.  LIST PENDING INVOICES - CLIENT ##
 
@@ -188,7 +190,7 @@ Client will be able to check all the invoices associated with him.
       ]
     }
   ```  
-* **<a href="http://localhost:8010/documentation?tags=getInvoiceNotificationList" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceNotificationList" target="_blank">Try it out here</a>**
 
 ## V.  GET INVOICE DETAILS  ##
 
@@ -240,7 +242,7 @@ It will return all the data related to the posted invoice by passing the invoice
       "fee": 1.23,
     }
   ```  
-* **<a href="http://localhost:8010/documentation?tags=getInvoiceInfo" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceInfo" target="_blank">Try it out here</a>**
 
 ## VI.  APPROVE INVOICE  ##
 
@@ -291,7 +293,7 @@ Client will be able to approve invoices. Whit this action invoice notification w
       "status": "approved",
     }
   ```  
-* **<a href="http://localhost:8010/documentation?tags=approveInvoiceNotification" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=approveInvoiceNotification" target="_blank">Try it out here</a>**
 
 ## VII.  REJECT INVOICE  ##
 
@@ -341,4 +343,4 @@ Client also will be able to reject invoices. Whit this action invoice notificati
       "status": "rejected",
     }
   ```
-* **<a href="http://localhost:8010/documentation?tags=rejectInvoiceNotification" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=rejectInvoiceNotification" target="_blank">Try it out here</a>**
