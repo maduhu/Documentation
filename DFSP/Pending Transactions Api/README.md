@@ -461,7 +461,7 @@ Client also will be able to reject invoices. With this action invoice notificati
 
   ```
     curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d
-   '{
+    '{
        "invoiceNotificationId": "2"
     }'
     'http://host/v1/invoiceNotifications/reject'
