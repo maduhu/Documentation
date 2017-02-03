@@ -263,7 +263,7 @@ Client will be able to approve invoices. With this action invoice notification w
 
   **Required:**
 
-   * `account [string] - Invoice sender's account number`
+   * `account [string] - Client's account`
    * `invoiceNotificationId [string] - Invoice notification id`
 
 * **Sample Call:**
@@ -271,7 +271,7 @@ Client will be able to approve invoices. With this action invoice notification w
   ```
     curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d
     '{
-      "account": "merchant",
+      "account": "bob",
       "invoiceNotificationId": "6"
     }'
     'http://host/v1/invoiceNotifications/approve'
