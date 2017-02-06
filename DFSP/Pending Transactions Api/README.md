@@ -1,9 +1,23 @@
 ## I.  Overview  ##
 
 Current document will cover the flow of creating and approving/rejecting pending transfers using
-DFSP Over the Top API. The API exposes the DFSP functionalities for transfers processing, customer and account management, etc. to third party applications such as Android/IPhone smart application. There are additional set of APIs which are used for communication between DFSP to DFSP. Those APIs will not be analyzed in the current document.
+DFSP Over the Top API. 
 
-API Principles
+In real life, this flow can be seen for merchant purchase use case where a merchant sells goods to customer and both of them have mobile (smart) phones. 
+From end user's perspective the use case looks like this:
+
+1. Merchant log in his smart application and select 'merchant purchase' option.
+2. Merchant enters the customer identification (phone number or user number) or selects it from a list (for regular customers visiting his shop).
+3. The Merchant enters the amount that the customer has to pay and confirms the operation
+4. The system creates an 'invoice' for that amount into merchant's DFSP and send a notification to the customer that he has a pending invoice. 
+5. The customer log in his smart application and see the pending notification that he can approve or reject. He also can go to pending invoices menu where he can see a list of all the pending invoices for him.
+6. The customer selects an invoice that he is going to pay and the system loads all the details for the invoice, together with the fee associated with the transaction.
+7. The customer can approve or reject this pending invoice. Upon approval the customer has to authenticate the transaction (i.e in case the application is configured to use 2 factor authentication), the customer initiate the payment and the merchant gets notification that the invoice has been payed successfully.
+
+
+The API exposes the DFSP functionalities for transfers processing, customer and account management, etc. to third party applications such as Android/IPhone smart application. There are additional set of APIs which are used for communication between DFSP to DFSP. Those APIs will not be analyzed in the current document.
+
+**API Principles**
 
   * Restful approach to API design.
   * Based on JSON, no other content types are supported.
@@ -14,19 +28,19 @@ API Principles
 ## II. Assumptions  ##
 
    * Merchant is the party sending the invoices.
-   * Client is the party who is receiving the ivoices and is able to approve/reject them.
+   * Client is the party who is receiving the invoices and is able to approve/reject them.
    * The merchant and the client are in different systems.
    * The merchant and the client are logged in to their systems.
    * Security is not a part of this specification.
    * Getting information about the customer accounts is not a part of this specification.
-   * Notifications are not a part of this specification, as each platform provides different means for that (e.g. google firebase notification services, SMS notification, email notification, etc.).
+   * Notifications are not a part of this specification, as each platform provides different means for that (e.g. Google Firebase notification services, SMS notification, email notification, etc.).
 
 
-## III.  Get client information  ##
+## III.  Get Client Information  ##
 
-The back-end will check whether the client is in the same system and if that's the case then it will return the respective information, otherwise it will query the central directory in order to obtain it.
+This API will return the information about a client (his first name, last name and a photo) based on client identification such as user number or phone number.
 
-### Api description
+### API Description
 
 ----
 
@@ -89,11 +103,11 @@ The back-end will check whether the client is in the same system and if that's t
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getClient" target="_blank">Try it out here</a>**
 
 
-## IV.  Create invoice  ##
+## IV.  Create Invoice  ##
 
-The invoice will be created in the merchant's DFSP. It will be associated with an account. Currency information will be taken from the merchant's account. After the invoice is created in the merchant's DFSP a notification with the invoice reference will be send to the default client DFSP. The invoice reference in the client DFSP will not be associated with any clients account thus the client can choose an account from which they are going to pay the invoice.
+This API will create an invoice in the merchant's DFSP and will send notification to the client's DFSP. The invoice is created into the merchant's DFSP associated with a merchant's account. Thus then the invoice is paid the money will go into the associated account. The client's DFSP upon receiving the invoice notification can send it to the third party application via SMS, Google Notification service, etc. It is recommended that the invoice reference in the client's DFSP will not be associated with any clients account thus the client can choose an account from which he is going to pay the invoice.
 
-### Api description
+### API Description
 ----
 
 
@@ -198,11 +212,11 @@ The invoice will be created in the merchant's DFSP. It will be associated with a
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=postInvoice" target="_blank">Try it out here</a>**
 
 
-## V.  Pending invoice notifications ##
+## V.  Pending Invoice Notifications ##
 
-Client will be able to obtain a list of all the pending invoices associated with him.
+Client will be able to obtain a list of all the pending invoices. This API is optional for the use case. Depending on the implementation it can be useful in case the third party application implements an option for the client to list all the pending invoices that the client has.
 
-### Api description
+### API Description
 
 ----
 
@@ -276,11 +290,11 @@ Client will be able to obtain a list of all the pending invoices associated with
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceNotificationList" target="_blank">Try it out here</a>**
 
 
-## VI.  Get payment details by invoiceNotificationId  ##
+## VI.  Get Payment Details by Invoice Notification  ##
 
-It will return all the data related to the posted invoice by passing the invoice notification ID.
+This API will return to the client all the details associated with the payment for a certain invoice such as the details about the merchant (first name, last name) and the fee associated with the transaction.
 
-### Api description
+### API Description
 
 ----
 
@@ -350,11 +364,11 @@ It will return all the data related to the posted invoice by passing the invoice
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceInfo" target="_blank">Try it out here</a>**
 
 
-## VII.  Pay invoice  ##
+## VII.  Pay Invoice  ##
 
-Client will be able to approve invoices. With this action invoice notification will be approved, merchant's DFSP will be notified and it will mark merchant's invoice as approved. Once the payment process is finished the merchant will automatically receive invoice payment notification.
+This API will be used by the client's application to request a payment for the invoice. Upon successful payment, merchant's DFSP will mark the invoice as paid and the merchants application should get an invoice payment notification (outside the scope of the current document).
 
-### Api description
+### API Description
 ----
 
 * **URL**
@@ -436,11 +450,11 @@ Client will be able to approve invoices. With this action invoice notification w
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=approveInvoiceNotification" target="_blank">Try it out here</a>**
 
 
-## VIII.  Reject invoice  ##
+## VIII.  Reject Invoice  ##
 
-Client also will be able to reject invoices. With this action invoice notification will be rejected, merchant's DFSP will be notified and it will reject the merchant's invoice. Once the payment is rejected the merchant will automatically receive invoice rejection notification.
+Client also will be able to reject invoices. In most of the cases this API will be used to instruct the client's DFSP to remove this invoice notification from the client's list and to send the reject notification to the merchant's DFSP.
 
-### Api description
+### API Description
 ----
 
 * **URL**
@@ -509,3 +523,4 @@ Client also will be able to reject invoices. With this action invoice notificati
   ```  
 
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=rejectInvoiceNotification" target="_blank">Try it out here</a>**
+
