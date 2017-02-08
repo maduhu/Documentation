@@ -47,31 +47,41 @@ The simulator is accessible without credentials on [/ussd](http://ec2-52-37-54-2
 
 The use case is developed for testing purposes. It register a user with its account and credentials DFSP Identity, DFSP Subscription, DFSP Account and DFSP ledger services. It also sends register the user into DFSP directory gateway. 
 
-####1.1 To initiate the use case a new user must be entered in the phone input box of the USSD emulator and then select open account option from the menu.
- 
+####1.1 To register as a new customer, the user must enter their phone number via the USSD menu. The DFSP then checks whether the provided phone is already associated with an existing user, and in case no such user is found, the USSD displays the following screen, where the user must select the Open account command: 
 
-![](./Onboarding1.JPG)
+![](./RegisterNewCustomer.PNG)
 
-####1.2 The user name must be entered on the next screen.
+####1.2 On the following screen the user must enter their user number or allow the system to create one for them automatically.
 
-![](./Onboarding2.JPG)
+![](./NewUserNumber.PNG)
 
-####1.3 The user number must be entered on the next screen
+####1.3 On the next screen the user must enter their first name.
 
-![](./Onboarding3.JPG)
+![](./NewUserFirstName.PNG)
 
-####1.4 The user has to enter an account number
+####1.4 On the next screen the user must enter their last name.
 
-![](./Onboarding4.JPG)
+![](./NewUserLastName.PNG)
 
-####1.5 The user has to enter his PIN
+####1.5 On the next screen the user must enter their date of birth.
 
-![](./Onboarding5.JPG)
+![](./NewUserDoB.PNG)
 
-####1.6 Successful registration screen is displayed
+####1.6 On the next screen the user must enter their national ID.
 
-![](./Onboarding6.JPG) 
+![](./NewUserNatID.PNG)
 
+####1.7 On the next screen the user must provide an account name.
+
+![](./NewUserAccountName.PNG)
+
+####1.8 A confirmation screen displays, containing information about the user number.
+
+![](./NewUserSuccess.PNG)
+
+Next time the use logs in using their phone number, the system recognizes them and displays the standard welcome screen.
+
+![](./NewUserNewLogin.PNG)
 
 ----------
 
