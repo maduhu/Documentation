@@ -71,11 +71,15 @@ The use case is developed for testing purposes. It register a user with its acco
 
 ![](./NewUserNatID.PNG)
 
-####1.7 On the next screen the user must provide an account name.
+####1.7 On the next screen the user must provide a PIN.
+
+![](./NewUserPIN.PNG)
+
+####1.8 On the next screen the user must provide an account name.
 
 ![](./NewUserAccountName.PNG)
 
-####1.8 A confirmation screen displays, containing information about the user number.
+####1.9 A confirmation screen displays, containing information about the user number.
 
 ![](./NewUserSuccess.PNG)
 
