@@ -11,7 +11,8 @@ New developers see [Onboarding](https://github.com/LevelOneProject/Docs/wiki/Onb
 
 ## Level One Services
 The following architecture diagram shows Level One services:
-![Level One Services](https://github.com/LevelOneProject/Docs/blob/master/Wiki/Basic%20Overview.png)
+
+![Level One Services](./Wiki/Basic%20Overview.png)
 
 See here for [physical architecture and machines topology](https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md)
 
