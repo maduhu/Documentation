@@ -52,7 +52,7 @@ Individual services have their own tests, but there are system-wide tests as per
 - Threat Model Overview
 
 # Related Projects
-The [Interledger Protocol](https://interledger.org/) (ILP), an open and secure standard that lets DFSPs settle payments with minimal counterparty risk. (That's the risk you take when someone else is holding your money.) With ILP, you can transact across different systems with no chance that someone in the middle disappears with your money. The Level One Project uses ILP with the Simple Payment Setup Protocol (SPSP) for the clearing layer. For an overview of how it works, see the [Clearing Architecture Documentation](https://github.com/LevelOneProject/Docs/tree/master/ILP).
+The [Interledger Protocol](https://interledger.org/) (ILP), an open and secure standard that lets DFSPs settle payments with minimal counterparty risk. (That's the risk you take when someone else is holding your money.) With ILP, you can transact across different systems with no chance that someone in the middle disappering with your money. The Level One Project uses ILP with the Simple Payment Setup Protocol (SPSP) for the clearing layer. For an overview of how it works, see the [Clearing Architecture Documentation](https://github.com/LevelOneProject/Docs/tree/master/ILP).
 
 **Crypto-conditions** are a fundamental data type used by the Interledger Protocol. We prepare a transfer in a ledger and hold the funds with a crypto-condition; the transfer automatically executes when the ledger sees a "fulfillment" message that matches the condition.
     - [Spec](https://github.com/interledger/rfcs/blob/master/0002-crypto-conditions/0002-crypto-conditions.md) | [Code](https://github.com/interledger/five-bells-condition)
