@@ -13,7 +13,7 @@
     - [Spec](https://github.com/interledger/js-ilp/blob/master/README.md) | [Code](https://github.com/interledger/js-ilp)
 - **ILP Connector** - A service that owns balances in two or more ILP-enabled ledgers, facilitating payments across those ledgers by receiving money in one and sending in the other.
     - [Spec](https://interledger.org/js-ilp-connector/apidoc/) | [Code](https://github.com/interledger/js-ilp-connector)
-- **ILP Ledger Adapter** - A RESTful API to a ledger that provides functionality needed for ILP payments to and from that ledger, such as transfers that are held until a crypto-condition is fulfilled. This can be built directly into a ledger, or added as a separate component. The DFSP Ledger and the Central Ledger use the same spec for their ILP Ledger Adapter.
+- **ILP Ledger Adapter** - A RESTful API to a ledger that provides functionality needed for ILP payments to and from that ledger, such as transfers that are held until a [crypto-condition](https://github.com/interledger/rfcs/blob/master/0002-crypto-conditions/0002-crypto-conditions.md) is fulfilled. This can be built directly into a ledger, or added as a separate component. The DFSP Ledger and the Central Ledger use the same spec for their ILP Ledger Adapter.
     - [Spec](https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md) | [Code (Central Ledger)](https://github.com/LevelOneProject/central-ledger/tree/master/src/api) | [Code (DFSP Ledger)](https://github.com/LevelOneProject/dfsp-ledger/tree/master/service/ledger) | [Code (Interop)](https://github.com/LevelOneProject/interop-ilp-ledger) | [Schemas](https://github.com/LevelOneProject/ilp-schemas)
 
 
