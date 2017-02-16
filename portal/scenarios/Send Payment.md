@@ -3,7 +3,7 @@ See the [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-S
 To connect to working API definitions use the [DFSP Ports guide](https://github.com/LevelOneProject/Docs/tree/master/DFSP#default-ports), [Portal Ports guide](https://github.com/LevelOneProject/Docs/blob/master/portal/Ports.md), and Central Directory Ports Guide.
 
 #Message Flow
-![Service Interactions](https://github.com/LevelOneProject/Docs/blob/master/Wiki/Demo%20Service%20Interactions.png)
+![Service Interactions](../../Wiki/Demo%20Service%20Interactions.png)
 This diagram shows the order of the calls. 
 
 Calls are made from A through D, and within each letter they increment by number. Example: D.1, D.2, D.3, etc. 
