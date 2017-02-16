@@ -1,0 +1,161 @@
+# Ansible playbook for deploying the
+# ilp-connector, ilp-spsp-client-rest, and ilp-spsp-server
+# to the L1P test integration environment
+
+# Note this must be run with the CLI param --extra-vars="docker_username=... docker_password=... docker_email=..."
+---
+- name: Add hosts
+  hosts: localhost
+  tags:
+    - client
+    - server
+    - connector
+  tasks:
+
+  - add_host:
+      name: "ec2-35-166-189-14.us-west-2.compute.amazonaws.com"
+      groups: dfsps
+      ILP_LEDGER_ADMIN_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/admin"
+      ILP_LEDGER_ADMIN_USERNAME: admin
+      ILP_LEDGER_ADMIN_PASSWORD: admin
+      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend/"
+      ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp1-testconnector"
+      ILP_CONNECTOR_PASSWORD: "dfsp1-testconnector"
+      ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp1"
+      ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp1
+      ILP_CONNECTOR_PEERS: "levelone.ist.dfsp2"
+      CURRENCY: USD
+      ILP_PREFIX: levelone.dfsp1.
+      ILP_PREFIX_CENTRAL_LEDGER: levelone.ist.
+
+  - add_host:
+      name: "ec2-35-166-236-69.us-west-2.compute.amazonaws.com"
+      groups: dfsps
+      ILP_LEDGER_ADMIN_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/admin"
+      ILP_LEDGER_ADMIN_USERNAME: admin
+      ILP_LEDGER_ADMIN_PASSWORD: admin
+      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com8088/spsp/backend/"
+      ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp2-testconnector"
+      ILP_CONNECTOR_PASSWORD: dfsp2connector
+      ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp2"
+      ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp2
+      ILP_CONNECTOR_PEERS: "levelone.ist.dfsp1"
+      CURRENCY: USD
+      ILP_PREFIX: levelone.dfsp2.
+      ILP_PREFIX_CENTRAL_LEDGER: levelone.ist.
+
+- name: Configure DFSPs with ILP components
+  hosts: dfsps
+  remote_user: ec2-user
+  tasks:
+
+  - name: Install those deps
+    become: true
+    command: "pip install docker-py"
+
+  - name: Login to Docker repository
+    tags:
+      - client
+      - server
+      - connector
+    docker_login:
+      registry: "modusbox-level1-docker.jfrog.io"
+      username: "{{ docker_username }}"
+      password: "{{ docker_password }}"
+      email: "{{ docker_email }}"
+
+  - name: Stop old SPSP client
+    tags:
+      - client
+    docker_container:
+      name: ilp-spsp-client-rest
+      state: absent
+
+  - name: Stop old SPSP server
+    tags:
+      - server
+    docker_container:
+      name: ilp-spsp-server
+      state: absent
+
+  - name: Stop old ILP connector
+    tags:
+      - connector
+    docker_container:
+      name: ilp-connector
+      state: absent
+
+  - name: Start SPSP client REST API
+    tags:
+      - client
+    docker_container:
+      name: ilp-spsp-client-rest
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:latest"
+      state: started
+      pull: yes
+      ports:
+        - "3042:3042"
+      env:
+        spspclient_port: 3042
+        spspclient_admin__account: "{{ILP_LEDGER_ADMIN_ACCOUNT}}"
+        spspclient_admin__username: "{{ILP_LEDGER_ADMIN_USERNAME}}"
+        spspclient_admin__password: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
+        DEBUG: "*"
+
+  - name: Start SPSP server
+    tags:
+      - server
+    docker_container:
+      name: ilp-spsp-server
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:latest"
+      state: started
+      pull: yes
+      ports:
+        - "3043:3043"
+      env:
+        spsp_port: 3043
+        spsp_backend: "{{ILP_SPSP_SERVER_BACKEND}}"
+        spsp_admin__account: "{{ILP_LEDGER_ADMIN_ACCOUNT}}"
+        spsp_admin__username: "{{ILP_LEDGER_ADMIN_USERNAME}}"
+        spsp_admin__password: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
+        DEBUG: "*"
+
+  - name: Start ILP connector
+    tags:
+      - connector
+    docker_container:
+      name: ilp-connector
+      image: "interledger/js-ilp-connector:v14.0.1"
+      state: started
+      pull: yes
+      env:
+        # make sure there is a space before the JSON value otherwise ansible will run it as python (?!?!?)
+        CONNECTOR_LEDGERS: >
+
+          {
+            "{{ILP_PREFIX}}": {
+              "currency": "{{CURRENCY}}",
+              "plugin": "ilp-plugin-bells",
+              "options": {
+                "account": "{{ILP_CONNECTOR_ACCOUNT}}",
+                "password": "{{ILP_CONNECTOR_PASSWORD}}"
+              }
+            },
+            "{{ILP_PREFIX_CENTRAL_LEDGER}}": {
+              "currency": "{{CURRENCY}}",
+              "plugin": "ilp-plugin-bells",
+              "options": {
+                "account": "{{ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT}}",
+                "password": "{{ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD}}"
+              }
+            }
+          }
+        CONNECTOR_PEERS: "{{ILP_CONNECTOR_PEERS}}"
+        CONNECTOR_MIN_MESSAGE_WINDOW: 1
+        CONNECTOR_MAX_HOLD_TIME: 60
+        CONNECTOR_BACKEND: one-to-one
+        CONNECTOR_FX_SPREAD: 0
+        CONNECTOR_SLIPPAGE: 0
+        CONNECTOR_LOG_LEVEL: trace
+        DEBUG: "*"
+
