@@ -69,3 +69,18 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 * merchant    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/26072010
 * dfsp2-testconnector    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/48489818
 
+## Start/Stop scripts
+
+#### Mule
+* /home/ec2-user/scripts/modusbox/stop_mule.sh
+* /home/ec2-user/scripts/modusbox/start_mule.sh
+
+#### DFSP
+* <TO BE FILLED>
+
+#### ILP/SPSP
+* <TO BE FILLED>
+
+#### IST
+* <TO BE FILLED>
+
