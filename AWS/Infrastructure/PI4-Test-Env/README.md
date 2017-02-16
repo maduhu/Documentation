@@ -51,9 +51,9 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 
 | Service | Port | URL |
 | ------- | -----| ----| 
-| central-ledger |  | [http://central-ledger-dev.us-west-2.elasticbeanstalk.com](http://central-ledger-dev.us-west-2.elasticbeanstalk.com/documentation)|
-| central-directory |  |  |
-| end-user-registry |  |  |
+| central-ledger |  | [http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/](http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/documentation)|
+| central-directory |  | [ http://central-directory-214462011.us-west-2.elb.amazonaws.com/]( http://central-directory-214462011.us-west-2.elb.amazonaws.com/documentation) |
+| end-user-registry |  |  [http://central-end-user-registry-1833170602.us-west-2.elb.amazonaws.com/](http://central-end-user-registry-1833170602.us-west-2.elb.amazonaws.com/documentation)|
 
 
 ## Test Users
