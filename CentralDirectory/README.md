@@ -4,9 +4,6 @@
 
 ![Central Directory Block Diagram](./central_directory_block_diagram.png)
 
-## Add End User Flow
-
-![Add End User sequence diagram](./central_directory_sequence_add_end_user.png)
 
 ## End User Lookup
 
