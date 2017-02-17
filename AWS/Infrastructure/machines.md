@@ -1,4 +1,4 @@
-![Physical Architecture](/AWS/Infrastructure/L1P%20diagram.png)
+![Physical Architecture](./L1P%20diagram.png)
 
 | Instance Name | Size | Region | Elastic IP | Public DNS | Private DNS |	Private IP |
 | ------------- | ---- | ------ | ---------- | ---------- | ----------- | ---------- |
