@@ -18,15 +18,15 @@
       ILP_LEDGER_ADMIN_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/admin"
       ILP_LEDGER_ADMIN_USERNAME: admin
       ILP_LEDGER_ADMIN_PASSWORD: admin
-      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend/"
+      ILP_LEDGER_PREFIX: levelone.dfsp1.
+      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend"
       ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp1-testconnector"
       ILP_CONNECTOR_PASSWORD: "dfsp1-testconnector"
       ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp1"
       ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp1
       ILP_CONNECTOR_PEERS: "levelone.ist.dfsp2"
       CURRENCY: USD
-      ILP_PREFIX: levelone.dfsp1.
-      ILP_PREFIX_CENTRAL_LEDGER: levelone.ist.
+      ILP_CENTRAL_LEDGER_PREFIX: levelone.ist.
 
   - add_host:
       name: "ec2-35-166-236-69.us-west-2.compute.amazonaws.com"
@@ -34,15 +34,15 @@
       ILP_LEDGER_ADMIN_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/admin"
       ILP_LEDGER_ADMIN_USERNAME: admin
       ILP_LEDGER_ADMIN_PASSWORD: admin
-      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com8088/spsp/backend/"
+      ILP_LEDGER_PREFIX: levelone.dfsp2.
+      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend"
       ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp2-testconnector"
       ILP_CONNECTOR_PASSWORD: dfsp2connector
       ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp2"
       ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp2
       ILP_CONNECTOR_PEERS: "levelone.ist.dfsp1"
       CURRENCY: USD
-      ILP_PREFIX: levelone.dfsp2.
-      ILP_PREFIX_CENTRAL_LEDGER: levelone.ist.
+      ILP_CENTRAL_LEDGER_PREFIX: levelone.ist.
 
 - name: Configure DFSPs with ILP components
   hosts: dfsps
@@ -51,7 +51,8 @@
 
   - name: Install those deps
     become: true
-    command: "pip install docker-py"
+    pip:
+      - name: "docker-py"
 
   - name: Login to Docker repository
     tags:
@@ -63,27 +64,6 @@
       username: "{{ docker_username }}"
       password: "{{ docker_password }}"
       email: "{{ docker_email }}"
-
-  - name: Stop old SPSP client
-    tags:
-      - client
-    docker_container:
-      name: ilp-spsp-client-rest
-      state: absent
-
-  - name: Stop old SPSP server
-    tags:
-      - server
-    docker_container:
-      name: ilp-spsp-server
-      state: absent
-
-  - name: Stop old ILP connector
-    tags:
-      - connector
-    docker_container:
-      name: ilp-connector
-      state: absent
 
   - name: Start SPSP client REST API
     tags:
@@ -97,6 +77,7 @@
         - "3042:3042"
       env:
         spspclient_port: 3042
+        spspclient_prefix: "{{ILP_LEDGER_PREFIX}}"
         spspclient_admin__account: "{{ILP_LEDGER_ADMIN_ACCOUNT}}"
         spspclient_admin__username: "{{ILP_LEDGER_ADMIN_USERNAME}}"
         spspclient_admin__password: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
@@ -115,6 +96,7 @@
       env:
         spsp_port: 3043
         spsp_backend: "{{ILP_SPSP_SERVER_BACKEND}}"
+        spsp_prefix: "{{ILP_LEDGER_PREFIX}}"
         spsp_admin__account: "{{ILP_LEDGER_ADMIN_ACCOUNT}}"
         spsp_admin__username: "{{ILP_LEDGER_ADMIN_USERNAME}}"
         spsp_admin__password: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
@@ -125,7 +107,7 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:v14.0.1"
+      image: "interledger/js-ilp-connector:latest"
       state: started
       pull: yes
       env:
@@ -133,7 +115,7 @@
         CONNECTOR_LEDGERS: >
 
           {
-            "{{ILP_PREFIX}}": {
+            "{{ILP_LEDGER_PREFIX}}": {
               "currency": "{{CURRENCY}}",
               "plugin": "ilp-plugin-bells",
               "options": {
@@ -141,7 +123,7 @@
                 "password": "{{ILP_CONNECTOR_PASSWORD}}"
               }
             },
-            "{{ILP_PREFIX_CENTRAL_LEDGER}}": {
+            "{{ILP_CENTRAL_LEDGER_PREFIX}}": {
               "currency": "{{CURRENCY}}",
               "plugin": "ilp-plugin-bells",
               "options": {
