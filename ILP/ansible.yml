@@ -50,9 +50,9 @@
   tasks:
 
   - name: Install those deps
-    become: true
     pip:
-      - name: "docker-py"
+      name: "docker-py"
+    become: true
 
   - name: Login to Docker repository
     tags:
