@@ -1,6 +1,6 @@
 ## I.  Overview  ##
 
-Current document will cover the flow of creating and approving/rejecting pending transfers using
+Current document will cover the flow of creating and paying/rejecting pending transfers using
 DFSP Over the Top API. 
 
 In real life, this flow can be seen for merchant purchase use case where a merchant sells goods to customer and both of them have mobile (smart) phones. 
@@ -10,9 +10,9 @@ From end user's perspective the use case looks like this:
 2. Merchant enters the customer identification (phone number or user number) or selects it from a list (for regular customers visiting his shop).
 3. The Merchant enters the amount that the customer has to pay and confirms the operation
 4. The system creates an 'invoice' for that amount into merchant's DFSP and send a notification to the customer that he has a pending invoice. 
-5. The customer log in his smart application and see the pending notification that he can approve or reject. He also can go to pending invoices menu where he can see a list of all the pending invoices for him.
+5. The customer log in his smart application and see the pending notification that he can pay or reject. He also can go to pending invoices menu where he can see a list of all the pending invoices for him.
 6. The customer selects an invoice that he is going to pay and the system loads all the details for the invoice, together with the fee associated with the transaction.
-7. The customer can approve or reject this pending invoice. Upon approval the customer has to authenticate the transaction (i.e in case the application is configured to use 2 factor authentication), the customer initiate the payment and the merchant gets notification that the invoice has been payed successfully.
+7. The customer can pay or reject this pending invoice. Upon paying the customer has to authenticate the transaction (i.e in case the application is configured to use 2 factor authentication), the customer initiate the payment and the merchant gets notification that the invoice has been payed successfully.
 
 
 The API exposes the DFSP functionalities for transfers processing, customer and account management, etc. to third party applications such as Android/IPhone smart application. There are additional set of APIs which are used for communication between DFSP to DFSP. Those APIs will not be analyzed in the current document.
@@ -22,13 +22,13 @@ The API exposes the DFSP functionalities for transfers processing, customer and 
   * Restful approach to API design.
   * Based on JSON, no other content types are supported.
 
-  ![](./diagrams/pendingTransactions.png)
+  ![](./diagrams/pending_transactions.png)
 
 
 ## II. Assumptions  ##
 
    * Merchant is the party sending the invoices.
-   * Client is the party who is receiving the invoices and is able to approve/reject them.
+   * Client is the party who is receiving the invoices and is able to pay/reject them.
    * The merchant and the client are in different systems.
    * The merchant and the client are logged in to their systems.
    * Security is not a part of this specification.
@@ -160,7 +160,7 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
        * `info [string] - Invoice additional information`  
 
  * **Note:** Invoice status can be one of the following:
-     * approved  
+     * paid  
      * pending  
      * rejected  
       
@@ -249,7 +249,7 @@ Client will be able to obtain a list of all the pending invoices. This API is op
 
 * **Note:** Invoice notification status can be one of the following:
 
-     * approved  
+     * paid  
      * pending  
      * rejected  
 
@@ -373,7 +373,7 @@ This API will be used by the client's application to request a payment for the i
 
 * **URL**
 
-  `/v1/invoiceNotifications/approve`
+  `/v1/invoiceNotifications/pay`
 
 * **Method:**
 
@@ -394,7 +394,7 @@ This API will be used by the client's application to request a payment for the i
       "account": "bob",
       "invoiceNotificationId": "6"
     }'
-    'http://host/v1/invoiceNotifications/approve'
+    'http://host/v1/invoiceNotifications/pay'
   ```
 
 * **Success Response:**
@@ -406,7 +406,7 @@ This API will be used by the client's application to request a payment for the i
   
 * **Note:** Invoice notification status can be one of the following:
 
-     * approved  
+     * paid  
      * pending  
      * rejected  
 
@@ -415,7 +415,7 @@ This API will be used by the client's application to request a payment for the i
   ```
     {
       "invoiceNotificationId": "3",
-      "status": "approved",
+      "status": "paid",
     }
   ```
 
@@ -447,7 +447,7 @@ This API will be used by the client's application to request a payment for the i
     }
   ``` 
 
-* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=approveInvoiceNotification" target="_blank">Try it out here</a>**
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=payInvoiceNotification" target="_blank">Try it out here</a>**
 
 
 ## VIII.  Reject Invoice  ##
@@ -490,7 +490,7 @@ Client also will be able to reject invoices. In most of the cases this API will 
 
 * **Note:** Invoice notification status can be one of the following:
 
-     * approved  
+     * paid  
      * pending  
      * rejected 
 
