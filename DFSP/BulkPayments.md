@@ -1,1 +1,1 @@
-Readme has been moved [here](https://github.com/LevelOneProject/Docs/tree/master/DFSP/BulkPayment/README.md)
+Readme has been moved [here](./BulkPayment/README.md)
