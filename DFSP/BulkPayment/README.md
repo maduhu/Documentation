@@ -35,7 +35,7 @@ The rational behind having the fees recorded as a separate line for each transac
 
 - Calculation and record of the discriminatory fees are done within the DFSP and we do not foresee any performance issues to come from that approach.
 
-- The fees msut be recorded as a separate row in the ledger
+- The fees must be recorded as a separate row in the ledger
 
 ## 5. Re-sending of funds in case a temporary error is detected
 
@@ -53,7 +53,7 @@ The L1P should have some logic for retrying bulk payments which had failed due t
 ## 6. Handling bulk payments transactions
 
 The diagram below illustrates both cases - whether the user has a mwallet account or not.
-* in case the user has an existing mwallet account the money will be atempted to be transferred to it
+* in case the user has an existing mwallet account the money will be attempted to be transferred to it
 * in the other case - the user's default DFSP will indicate that there's no mwallet account associated with the given user and therefore a temporary error will be recorded in sending DFSP's database and the user will be notified.
 
 ![](./src/bulk_payment_single_record_processing.png)
