@@ -20,9 +20,9 @@
       ILP_LEDGER_ADMIN_PASSWORD: admin
       ILP_LEDGER_PREFIX: levelone.dfsp1.
       ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend"
-      ILP_CONNECTOR: "levelone.dfsp1.dfsp1-connector"
+      ILP_CONNECTOR: "levelone.dfsp1.dfsp1-testconnector"
       ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp1-testconnector"
-      ILP_CONNECTOR_PASSWORD: "dfsp1-testconnector"
+      ILP_CONNECTOR_PASSWORD: "1234"
       ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp1"
       ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp1
       ILP_CONNECTOR_PEERS: "levelone.ist.dfsp2"
@@ -38,7 +38,7 @@
       ILP_LEDGER_PREFIX: levelone.dfsp2.
       ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend"
       ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp2-testconnector"
-      ILP_CONNECTOR_PASSWORD: dfsp2connector
+      ILP_CONNECTOR_PASSWORD: "1234"
       ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp2"
       ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp2
       ILP_CONNECTOR: "levelone.dfsp2.dfsp2-testconnector"
@@ -75,6 +75,7 @@
       image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:latest"
       state: started
       pull: yes
+      restart: yes
       ports:
         - "3042:3042"
       env:
@@ -97,6 +98,7 @@
       image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:latest"
       state: started
       pull: yes
+      restart: yes
       ports:
         - "3043:3043"
       env:
@@ -115,6 +117,7 @@
       name: ilp-connector
       image: "interledger/js-ilp-connector:latest"
       state: started
+      restart: yes
       pull: yes
       env:
         # make sure there is a space before the JSON value otherwise ansible will run it as python (?!?!?)
