@@ -58,16 +58,16 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 
 ## Test Users
 #### DFSP1    
-* bob    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/94844611
-* alice    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/25777533
-* merchant    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/40298708
-* dfsp1-testconnector    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/19541399
+* bob    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/88925537
+* alice    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/54200545
+* merchant    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/31909641
+* dfsp1-testconnector    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/91959846
     
 #### DFSP2    
-* bob    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/76596265
-* alice    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/29101346
-* merchant    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/26072010
-* dfsp2-testconnector    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/48489818
+* bob    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/97181061
+* alice    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/52602716
+* merchant    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/63858707
+* dfsp2-testconnector    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/76838531
 
 ## Start/Stop scripts
 
