@@ -20,6 +20,7 @@
       ILP_LEDGER_ADMIN_PASSWORD: admin
       ILP_LEDGER_PREFIX: levelone.dfsp1.
       ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend"
+      ILP_CLIENT_INVOICE_URL_TEMPLATE: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3043/v1/receivers/invoices/{invoiceId}"
       ILP_CONNECTOR: "levelone.dfsp1.dfsp1-testconnector"
       ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp1-testconnector"
       ILP_CONNECTOR_PASSWORD: "1234"
@@ -37,6 +38,7 @@
       ILP_LEDGER_ADMIN_PASSWORD: admin
       ILP_LEDGER_PREFIX: levelone.dfsp2.
       ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend"
+      ILP_CLIENT_INVOICE_URL_TEMPLATE: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/invoices/{invoiceId}"
       ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp2-testconnector"
       ILP_CONNECTOR_PASSWORD: "1234"
       ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp2"
@@ -84,6 +86,7 @@
         spspclient_admin__account: "{{ILP_LEDGER_ADMIN_ACCOUNT}}"
         spspclient_admin__username: "{{ILP_LEDGER_ADMIN_USERNAME}}"
         spspclient_admin__password: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
+        spspclient_invoiceUrlTemplate: "{{ILP_CLIENT_INVOICE_URL_TEMPLATE}}"
         # make sure there is a space before the JSON value otherwise ansible will run it as python (?!?!?)
         spspclient_ilp__connectors: >
 
