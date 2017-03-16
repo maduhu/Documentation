@@ -2,7 +2,7 @@
 This repository is the hub for architecture documentation, component designs, and overall information about Level One Project (L1P) software. You can find the packages and implementations in the [Level One Project GitHub organization](https://github.com/LevelOneProject).
 
 ## What is the Level One Project?
-> A level playing field for everyone by building one digital financial system in every country around the world. That’s The Level One Project.
+> A level playing field for everyone by building one digital financial system in every country around the world. That's The Level One Project.
 
 To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short. The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model for a financial system that could be implemented in any country. Now we're taking that model and making it a fully-functional prototype, with all the details in place.
 
