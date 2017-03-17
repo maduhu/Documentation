@@ -14,7 +14,7 @@ Contents:
 
 ## Component Diagram
 
-![Top Level Architecture](./"Top Level Architecture - Components and Services Hosted in Mule.png")
+![Top Level Architecture](./TopLevelArchitecture-ComponentsAndServicesHostedInMule.png)
 
 ![Overview of mule services](./Interop_projects_overview.png)
 
