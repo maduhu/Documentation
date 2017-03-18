@@ -1,7 +1,7 @@
 content_path: .
 content_static_path: ./Wiki
-template_path: templates
-template_static_path: templates/template_assets
+template_path: pdf_templates
+template_static_path: pdf_templates/template_assets
 pdf_template: template-l1p_pdf_content.html
 
 cover_page:
@@ -12,7 +12,6 @@ cover_page:
 targets:
     -   name: front
         display_name: Level One Project Overview
-
 
 pages:
     -   name: Level One Project Overview
