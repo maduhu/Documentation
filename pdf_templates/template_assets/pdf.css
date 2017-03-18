@@ -1,0 +1,177 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
+
+/** Don't add URLs following links. It decreases readability significantly.*/
+.page-template-template-dev-portal-php .main a:after, .pdf-cover a:after {
+    display: none !important;
+}
+
+.main code {
+    color: black;
+}
+
+.main .hljs {
+    background: transparent;
+}
+
+.main pre {
+  background: transparent;
+  box-decoration-break: slice;
+}
+
+/* Disable header numbering */
+.page-template-template-dev-portal.page-template-template-dev-portal-php h1:before,
+.page-template-template-dev-portal.page-template-template-dev-portal-php h2:before,
+.page-template-template-dev-portal.page-template-template-dev-portal-php h3:before,
+.page-template-template-dev-portal-php .level-1:before,
+.page-template-template-dev-portal-php .level-2:before,
+.page-template-template-dev-portal-php .level-3:before {
+   content: none !important;
+}
+
+/* Table of Contents */
+.toc-heading {
+  font-family: 'open_sansregular', sans-serif;
+  font-size: 19px;
+  color: #202020;
+}
+
+@media print {
+
+  .wrapper .main p {
+    color: #707070;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 48px;
+    color: #202020;
+    padding: 30px 0 20px 0;
+  }
+
+  h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 38px;
+    color: #202020;
+    padding: 30px 0 20px 0;
+  }
+
+  h3 {
+    font-family: 'open_sansregular', sans-serif;
+    font-size: 21px;
+    color: #202020;
+    padding-top: 20px;
+  }
+
+  a {
+    color: #27A2DB;
+  }
+
+  pre {
+    background-color: #FAFAFA !important;
+    border-radius: 3px;
+  }
+
+  ul,
+  ol {
+    color: #707070;
+    padding: 15px 0;
+  }
+
+  li {
+    padding-bottom: 5px;
+  }
+
+  /*Cover page*/
+  .cover-page {
+    background-repeat: no-repeat;
+    background-color:#fff;
+    background-size: contain;
+    height: 2500px;
+  }
+
+  .cover-page h1 {
+    position: absolute;
+    top: 23%;
+    left: 8%;
+    font-size: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    max-width: 650px;
+  }
+
+  .cover-page .date {
+    padding-left: 5px;
+    margin-top: 5%;
+    display: block;
+    color: white;
+    font-size: 21px;
+    font-family: 'open_sanslight', sans-serif;
+  }
+
+}
+
+.pdf-cover-wrapper {
+    page: pdf-cover;
+}
+.pdf-content-wrapper {
+    page: pdf-content;
+}
+
+/*Cover page full width and no page number*/
+@page pdf-cover {
+  margin: 0;
+  @bottom-right {
+    content: none;
+  }
+  @bottom-left {
+    content: none;
+  }
+}
+
+/*Page numbers */
+@page:right {
+  @bottom-right {
+    font-family: 'open_sansregular', sans-serif;
+    content: counter(page);
+    font-size: 10px;
+    color: #707070;
+  }
+}
+
+@page:left {
+  @bottom-right {
+    font-family: 'open_sansregular', sans-serif;
+    content: counter(page);
+    font-size: 10px;
+    color: #707070;
+  }
+}
+
+/*Footer copy*/
+@page pdf-content {
+  @bottom-left {
+    content: flow(footer);
+  }
+}
+
+.pdf-footer {
+  line-height: 1.1em;
+  font-family: 'open_sansregular', sans-serif;
+  font-size: 8px;
+  color: #707070;
+  flow: static(footer);
+}
+
+.trisk {
+  margin-right: 5px;
+  width: 15px;
+  height: auto;
+  vertical-align: inherit;
+  position: relative;
+  top: 1px;
+}
+
+.footer-info {
+  display: inline-block;
+}

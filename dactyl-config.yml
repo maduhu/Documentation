@@ -1,0 +1,34 @@
+content_path: .
+content_static_path: ./Wiki
+template_path: templates
+template_static_path: templates/template_assets
+pdf_template: template-l1p_pdf_content.html
+
+cover_page:
+    display_name: "Index"
+    pdf_template: template-l1p_pdf_cover.html
+    html: index.html
+
+targets:
+    -   name: front
+        display_name: Level One Project Overview
+
+
+pages:
+    -   name: Level One Project Overview
+        md: README.md
+        html: overview.html
+        category: Overview
+        targets:
+            - front
+
+    -   name: User Discovery
+        html: discovery.html
+        category: Overview
+        md: Discovery.md
+        targets:
+            - front
+
+# -------------------- Style Checker Rules ------------------------
+#word_substitutions_file: plainlanguage_words.yaml
+#phrase_substitutions_file: plainlanguage_phrases.yaml
