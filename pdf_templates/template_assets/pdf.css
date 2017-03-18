@@ -1,4 +1,19 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
+/* latin-ext */
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quattrocento Sans'), local('QuattrocentoSans'), url(https://fonts.gstatic.com/s/quattrocentosans/v9/efd6FGWWGX5Z3ztwLBrG9T48MEBspdEKklcQvcIk8pU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Quattrocento Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quattrocento Sans'), local('QuattrocentoSans'), url(https://fonts.gstatic.com/s/quattrocentosans/v9/efd6FGWWGX5Z3ztwLBrG9cZ4HySTEWshgORbPp2tk8k.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 
 /** Don't add URLs following links. It decreases readability significantly.*/
 .page-template-template-dev-portal-php .main a:after, .pdf-cover a:after {
@@ -44,21 +59,21 @@
   }
 
   h1 {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Quattrocento Sans', sans-serif;
     font-size: 48px;
     color: #202020;
     padding: 30px 0 20px 0;
   }
 
   h2 {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Quattrocento Sans', sans-serif;
     font-size: 38px;
     color: #202020;
     padding: 30px 0 20px 0;
   }
 
   h3 {
-    font-family: 'open_sansregular', sans-serif;
+    font-family: 'Quattrocento Sans', sans-serif;
     font-size: 21px;
     color: #202020;
     padding-top: 20px;
@@ -81,6 +96,10 @@
 
   li {
     padding-bottom: 5px;
+  }
+
+  img {
+    max-width: 100%;
   }
 
   /*Cover page*/
