@@ -1,7 +1,11 @@
+# dactyl_build -t all --pdf 
+#--leave_temp_files
+#put this file in the directory above Docs
 content_path: .
-content_static_path: ./Wiki
-template_path: pdf_templates
-template_static_path: pdf_templates/template_assets
+content_static_path: ./images
+temporary_files_path: .
+default_template: template-doc.html
+template_static_path: ./Docs/pdf_templates/template_assets
 pdf_template: template-l1p_pdf_content.html
 
 cover_page:
@@ -10,23 +14,344 @@ cover_page:
     html: index.html
 
 targets:
-    -   name: front
+    -   name: all
         display_name: Level One Project Overview
+        image_subs:
+            "./Wiki/Basic%20Overview.png": images/Basic%20Overview.png
+            ./microServices.png: images/microServices.png
+            ./transfer.push.create.png: images/transfer.push.create.png
+            ./transfer.bulk.create.png: images/transfer.bulk.create.png
+            ../../Wiki/Demo%20Service%20Interactions.png: images/Demo%20Service%20Interactions.png
+            ./getSenderDetails.png: images/getSenderDetails.png
+            ./createInvoice.png: images/createInvoice.png
+            ./preparePayment.png: images/preparePayment.png
+            ./executePayment.png: images/executePayment.png
+            ./central_directory_block_diagram.png: images/central_directory_block_diagram.png
+            ./central_directory_sequence_end_user_lookup.png: images/central_directory_sequence_end_user_lookup.png
+            ./central_ledger_block_diagram.png: images/central_ledger_block_diagram.png
+            ./central_ledger_sequence_transferfulfillment.png: images/central_ledger_sequence_transferfulfillment.png
+            ./central_ledger_sequence_settlement.png: images/central_ledger_sequence_settlement.png
+            ./L1P%20diagram.png: images/L1P%20diagram.png
+            ../Wiki/L1%20Portal%20Service.png: "images/L1%20Portal%20Service.png"
+            ./TopLevelArchitecture-ComponentsAndServicesHostedInMule.png: images/TopLevelArchitecture-ComponentsAndServicesHostedInMule.png
+            ./Interop_projects_overview.png: images/Interop_projects_overview.png
+            ./Demo Service Interactions.png: images/Demo Service Interactions.png
+            ./getSenderDetails.png: images/getSenderDetails.png
+            ./getInvoiceDetails.png: images/getInvoiceDetails.png
+            ./HomeScreen.png: images/HomeScreen.png
+            ./RegisterNewCustomer.PNG: images/RegisterNewCustomer.PNG
+            ./NewUserNumber.PNG: images/NewUserNumber.PNG
+            ./NewUserFirstName.PNG: images/NewUserFirstName.PNG
+            ./NewUserLastName.PNG: images/NewUserLastName.PNG
+            ./NewUserDoB.PNG: images/NewUserDoB.PNG
+            ./NewUserNatID.PNG: images/NewUserNatID.PNG
+            ./NewUserPIN.PNG: images/NewUserPIN.PNG
+            ./NewUserAccountName.PNG: images/NewUserAccountName.PNG
+            ./NewUserSuccess.PNG: images/NewUserSuccess.PNG
+            ./NewUserNewLogin.PNG: images/NewUserNewLogin.PNG
+            ./SendMoney1.JPG: images/SendMoney1.JPG
+            ./SendMoney2.JPG: images/SendMoney2.JPG
+            ./SendMoney3.JPG: images/SendMoney3.JPG
+            ./SendMoney4.JPG: images/SendMoney4.JPG
+            ./SendMoney5.JPG: images/SendMoney5.JPG
+            ./SellGoods_1.PNG: images/SellGoods_1.PNG
+            ./SellGoods_2.PNG: images/SellGoods_2.PNG
+            ./SellGoods_3.PNG: images/SellGoods_3.PNG
+            ./PendingTransaction_1.PNG: images/PendingTransaction_1.PNG
+            ./PendingTransaction_2.PNG: images/PendingTransaction_2.PNG
+            ./PendingTransaction_3.PNG: images/PendingTransaction_3.PNG
+            ./Manage_Accounts.png: images/Manage_Accounts.png
+            ./Add_Account.PNG: images/Add_Account.PNG
+            ./Primary_Account.PNG: images/Primary_Account.PNG
+            ./Select_Account.PNG: images/Select_Account.PNG
+            ./Edit_Account.PNG: images/Edit_Account.PNG
+            ./Edit_AccountName.PNG: images/Edit_AccountName.PNG
+            ./Edit_PrimaryAccount.PNG: images/Edit_PrimaryAccount.PNG
+            ./Close_Account.PNG: images/Close_Account.PNG
+            ./Account_Info.PNG: images/Account_Info.PNG
+            ./Switch_Account.PNG: images/Switch_Account.PNG
+            ./Screen_Balance.PNG: images/Screen_Balance.PNG
+            ./Ministatement.PNG: images/Ministatement.PNG
+
+
+    -   name: DFSP
+        display_name: DFSP Documentation
+
+    -   name: portal
+        display_name: Level One Project Portal Documentation
+
+    -   name: scenarios
+        display_name: Level One Project Scenario Documentation
+
+    -   name: central
+        display_name: Level One Project Central Services Documentation
+
+    -   name: infra
+        display_name: Level One Project Infrastructure Documentation
+
 
 pages:
+# /Docs
     -   name: Level One Project Overview
-        md: README.md
+        md: Docs/README.md
         html: overview.html
         category: Overview
+        template: template-l1p_pdf_cover.html
         targets:
-            - front
+            - all
 
     -   name: User Discovery
         html: discovery.html
         category: Overview
-        md: Discovery.md
+        md: Docs/Discovery.md
         targets:
-            - front
+            - all
+
+
+# Docs/portal
+# readme.md Ports.md
+    -   name: 'Portal Overview'
+        html: Portal.html
+        category: Portal
+        md: Docs/portal/readme.md
+        targets:
+            - all
+            - portal
+
+    -   name: 'Ports'
+        html: Ports.html
+        category: Portal
+        md: Docs/portal/Ports.md
+        targets:
+            - all
+            - portal
+
+    -   name: 'Portal/Interop Services'
+        html: mule.html
+        category: Portal
+        md: Docs/mule/README.md
+        targets:
+            - all
+            - portal
+
+# Docs/portal/scenarios
+# scenarios 'Send Payment.md'
+    -   name: 'Send Payment'
+        html: SendPayment.html
+        category: Scenarios
+        md: 'Docs/portal/scenarios/Send Payment.md'
+        targets:
+            - all
+            - scenarios
+
+    -   name: 'Pending Transfers'
+        html: Invoices.html
+        category: Scenarios
+        md: Docs/DFSP/PendingTransactions/README.md
+        targets:
+            - all
+            - scenarios
+
+    -   name: 'Bulk Payments'
+        html: BulkPayments.html
+        category: Scenarios
+        md: 'Docs/DFSP/BulkPayment/README.md'
+        targets:
+            - all
+            - scenarios
+
+#Docs/CentralDirectory
+# README.md central_directory_endpoints.md
+    -   name: 'Central Directory Overview'
+        html: CentralDirectory.html
+        category: 'Central Directory'
+        md: Docs/CentralDirectory/README.md
+        targets:
+            - all
+            - central
+
+    -   name: 'Central Directory Endpoints'
+        html: central_directory_endpoints.html
+        category: 'Central Directory'
+        md: Docs/CentralDirectory/central_directory_endpoints.md
+        targets:
+            - all
+            - central
+
+#Docs/CentralLedger
+# README.md central_ledger_endpoints.md
+    -   name: 'Central Ledger Overview'
+        html: central_directory.html
+        category: 'Central Ledger'
+        md: Docs/CentralLedger/README.md
+        targets:
+            - all
+            - central
+
+    -   name: 'Central Ledger Endpoints'
+        html: central_ledger_endpoints.html
+        category: 'Central Ledger'
+        md: Docs/CentralLedger/central_ledger_endpoints.md
+        targets:
+            - all
+            - central
+
+#Docs/CentralRules
+# README.md central_rules_endpoints.md
+    -   name: 'Central Rules Overview'
+        html: central_directory.html
+        category: 'Central Rules'
+        md: Docs/CentralLedger/README.md
+        targets:
+            - all
+            - central
+
+    -   name: 'Central Rules Endpoints'
+        html: central_rules_endpoints.html
+        category: 'Central Rules'
+        md: Docs/CentralRules/central_rules_endpoints.md
+        targets:
+            - all
+            - central
+
+#Docs/ELK
+# ELKSetup.md
+    -   name: 'Logging'
+        html: elk.html
+        category: Infrastructure
+        md: Docs/ELK/ELKSetup.md
+        targets:
+            - all
+            - infra
+
+#Docs/AWS/Infrastructure
+#  machines.md
+    -   name: Machines
+        html: elk.html
+        category: Infrastructure
+        md: Docs/AWS/Infrastructure/machines.md
+        targets:
+            - all
+            - infra
+
+    -   name: "Mule's Docker Image"
+        html: docker.html
+        category: Infrastructure
+        md: Docs/mule/docker.md
+        targets:
+            - all
+            - infra
+
+#Docs/AWS/Infrastructure/PI4-Test-Env
+# README.md
+    -   name: 'Test Environment'
+        html: PI4-Test-Env.html
+        category: Infrastructure
+        md: Docs/AWS/Infrastructure/PI4-Test-Env/README.md
+        targets:
+            - all
+            - infra
+
+#Docs/AWS/Infrastructure/PI4-QA-Env
+# README.md
+    -   name: 'QA Environment'
+        html: PI4-QA-Env.html
+        category: Infrastructure
+        md: Docs/AWS/Infrastructure/PI4-QA-Env/README.md
+        targets:
+            - all
+            - infra
+
+#/Docs/DFSP
+#README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
+    -   name: 'DFSP Overview'
+        html: DFSP.html
+        category: DFSP
+        md: Docs/DFSP/README.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Directory'
+        html: directory.html
+        category: DFSP
+        md: Docs/DFSP/directory.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Identity'
+        html: identity.html
+        category: DFSP
+        md: Docs/DFSP/identity.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Notifications'
+        html: notification.html
+        category: DFSP
+        md: Docs/DFSP/notification.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Rules'
+        html: rule.html
+        category: DFSP
+        md: Docs/DFSP/rule.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Subscriptions'
+        html: subscription.html
+        category: DFSP
+        md: Docs/DFSP/subscription.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Transfer'
+        html: transfer.html
+        category: DFSP
+        md: Docs/DFSP/transfer.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Account'
+        html: account.html
+        category: DFSP
+        md: Docs/DFSP/account.md
+        targets:
+            - all
+            - dfsp
+        
+    -   name: 'Development'
+        html: development.html
+        category: DFSP
+        md: Docs/DFSP/development.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'Bulk Payments'
+        html: BulkPayments.html
+        category: DFSP
+        md: Docs/DFSP/BulkPayments.md
+        targets:
+            - all
+            - dfsp
+
+    -   name: 'USSD'
+        html: USSD.html
+        category: DFSP
+        md: Docs/DFSP/USSD/README.md
+        targets:
+            - all
+            - dfsp
+
 
 # -------------------- Style Checker Rules ------------------------
 #word_substitutions_file: plainlanguage_words.yaml
