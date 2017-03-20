@@ -80,6 +80,13 @@
       restart: yes
       ports:
         - "3042:3042"
+      log_driver: syslog
+      log_options:
+        "syslog-address": "tcp://0.0.0.0:514"
+        "syslog-facility": "daemon"
+        "tag": "ilp-spsp-client-rest"
+        "labels": "ilp-spsp-client-rest"
+        "env": "ilp-spsp-client-rest"
       env:
         spspclient_port: 3042
         spspclient_prefix: "{{ILP_LEDGER_PREFIX}}"
@@ -104,6 +111,13 @@
       restart: yes
       ports:
         - "3043:3043"
+      log_driver: syslog
+      log_options:
+        "syslog-address": "tcp://0.0.0.0:514"
+        "syslog-facility": "daemon"
+        "tag": "ilp-spsp-server"
+        "labels": "ilp-spsp-server"
+        "env": "ilp-spsp-server"
       env:
         spsp_port: 3043
         spsp_backend: "{{ILP_SPSP_SERVER_BACKEND}}"
@@ -118,10 +132,17 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:latest"
+      image: "interledger/js-ilp-connector:v15.1.1"
       state: started
       restart: yes
       pull: yes
+      log_driver: syslog
+      log_options:
+        "syslog-address": "tcp://0.0.0.0:514"
+        "syslog-facility": "daemon"
+        "tag": "ilp-spsp-client-rest"
+        "labels": "ilp-connector"
+        "env": "ilp-connector"
       env:
         # make sure there is a space before the JSON value otherwise ansible will run it as python (?!?!?)
         CONNECTOR_LEDGERS: >
