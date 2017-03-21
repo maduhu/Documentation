@@ -3552,9 +3552,9 @@ else {
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Balance:" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Invoice paid!" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1860185858">Balance:</stringProp>
+              <stringProp name="-152918014">Invoice paid!</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>

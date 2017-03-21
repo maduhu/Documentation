@@ -308,7 +308,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -349,7 +349,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -389,7 +389,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -429,7 +429,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;John&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -469,8 +469,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser_${UserID1}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser-${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -509,7 +509,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1970-01-01&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -549,7 +549,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -589,8 +589,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser_${UserID1}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser-${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -629,7 +629,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -701,7 +701,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -726,7 +726,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Welcome Menu" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="22145940">Welcome John TestUser_${UserID1}</stringProp>
+              <stringProp name="-324599326">Welcome John TestUser-${UserID1}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -935,7 +935,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -975,7 +975,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1015,7 +1015,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1055,7 +1055,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;John&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1095,8 +1095,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser_${UserID2}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser-${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1135,7 +1135,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1970-01-01&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1175,7 +1175,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1215,8 +1215,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser_${UserID2}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser-${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1255,7 +1255,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1305,7 +1305,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1330,7 +1330,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Welcome Menu" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="22145971">Welcome John TestUser_${UserID2}</stringProp>
+              <stringProp name="-324599295">Welcome John TestUser-${UserID2}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1542,7 +1542,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -1583,7 +1583,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1623,7 +1623,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1699,7 +1699,7 @@ JMeterUtils.setProperty(&quot;Balance1&quot;, balance);
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1827,7 +1827,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -1868,7 +1868,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1908,7 +1908,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1983,7 +1983,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, balance);
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2107,7 +2107,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -2148,7 +2148,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2188,7 +2188,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${userNumber2}&quot;&#xd;
 }&#xd;
 </stringProp>
@@ -2214,7 +2214,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Destination Name" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1666558216">Destination name: John TestUser_${UserID2}</stringProp>
+              <stringProp name="-2013303482">Destination name: John TestUser-${UserID2}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -2229,7 +2229,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${Amount}&quot;&#xd;
 }&#xd;
 </stringProp>
@@ -2279,7 +2279,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2350,7 +2350,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2520,7 +2520,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -2561,7 +2561,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2607,7 +2607,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2675,7 +2675,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2803,7 +2803,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -2844,7 +2844,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2884,7 +2884,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2950,7 +2950,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3068,7 +3068,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -3109,7 +3109,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;2&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3149,7 +3149,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${userNumber2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3174,7 +3174,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Destination Name" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1666558216">Destination name: John TestUser_${UserID2}</stringProp>
+              <stringProp name="-2013303482">Destination name: John TestUser-${UserID2}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -3189,7 +3189,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${Amount}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3229,7 +3229,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3347,7 +3347,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -3388,7 +3388,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;3&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3413,7 +3413,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Invoice from user 1 found" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="160211606">1. Invoice from John TestUser_${UserID1}</stringProp>
+              <stringProp name="-186533660">1. Invoice from John TestUser-${UserID1}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -3428,7 +3428,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3453,7 +3453,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Pending Transaction seen" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-923514338">Pending transaction from John TestUser_${UserID1} for ${Amount} USD</stringProp>
+              <stringProp name="-1218860820">Pending transaction from John TestUser-${UserID1} for ${Amount} USD</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -3503,7 +3503,7 @@ else {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3562,7 +3562,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newSource.toString());</stringProp
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3690,7 +3690,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -3731,7 +3731,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3777,7 +3777,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3845,7 +3845,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3973,7 +3973,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -4014,7 +4014,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -4054,7 +4054,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -4120,7 +4120,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
