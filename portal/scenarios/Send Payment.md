@@ -1,6 +1,6 @@
 See the [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone) for what this scenario should accomplish.
 
-To connect to working API definitions use the [DFSP Ports guide](https://github.com/LevelOneProject/Docs/tree/master/DFSP#default-ports), [Portal Ports guide](https://github.com/LevelOneProject/Docs/blob/master/portal/Ports.md), and Central Directory Ports Guide.
+To connect to working API definitions use the [DFSP Ports guide](./DFSP#default-ports), [Portal Ports guide](./portal/Ports.md), and Central Directory Ports Guide.
 
 #Message Flow
 ![Service Interactions](../../Wiki/Demo%20Service%20Interactions.png)
@@ -15,7 +15,7 @@ The first stage of any transfer is to find out what institution can accept money
 
 [Discovery Documented](https://github.com/LevelOneProject/Docs/blob/ccf08b20affc06bde8f587446fa0abf1975f3999/Discovery.md)
 
-[Central Directory Lookup API](https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md#lookup_resource)
+[Central Directory Lookup API](./CentralDirectory/central_directory_endpoints.md#lookup_resource)
 
 [DFSP Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation) DFSP:8011/documentation
 
@@ -51,7 +51,7 @@ The [SPSP Server proxy](https://github.com/LevelOneProject/interop-spsp-backend-
     PUT: /receivers/{payee}/payments/{uuid}   
 
 ## DFSP
-For the DFSP the quoting APIs start in [The DFSP ledger service](https://github.com/LevelOneProject/Docs/tree/master/DFSP) which talk to the SPSP Client proxy.
+For the DFSP the quoting APIs start in [The DFSP ledger service](./DFSP) which talk to the SPSP Client proxy.
 
 [DSFP Ledger API Implemented](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8014/documentation#/) 
 
@@ -64,7 +64,7 @@ Before the transfer can happen, the ILP components need to subscribe to notifica
 
 There are 3 ledgers: the source DFSP, central ledger, and destination DFSP. Each must be updated during the transfer. 
 
-[SPSP Ledger Adapter subscriptions](https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md#subscribe-to-account-transfers)
+[SPSP Ledger Adapter subscriptions](./ILP/ledger-adapter.md#subscribe-to-account-transfers)
 
      Ledger: SubscribeAccountTransfers  
      ws://<host>/accounts/:name/transfers   
@@ -73,7 +73,7 @@ There are 3 ledgers: the source DFSP, central ledger, and destination DFSP. Each
 # D - Prepare and Fulfill
 The final portion begins with a message to send the money from the source DFSP to the ILP Ledger Adapter (not shown). 
 
-[ILP Client Ledger Adapter Documented](https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md)
+[ILP Client Ledger Adapter Documented](./ILP/ledger-adapter.md)
 
 [ILP Ledger Adapter APIs (Implemented)](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/ilp/ledger/v1/console/)
 
@@ -94,5 +94,4 @@ The receiving DFSP has to validate that it will accept the transfer (skipped for
 [DFSP API](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8014/documentation#/)
 
     GET: /ledger/transfers/{id}/fulfillment Get Transfer Fulfillment   
-    PUT: /ledger/transfers/{transferId}/fulfillment Execute prepared transfer   
-
+    PUT: /ledger/transfers/{transferId}/fulfillment Execute prepared transfer
