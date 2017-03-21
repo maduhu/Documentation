@@ -1,6 +1,7 @@
 #L1 Service Portal
 
 ![L1 Service Portal](../Wiki/L1%20Portal%20Service.png)
+[Note that the Setup step, "C" above, has since been removed]
 
 ## Microservices
 - **SPSP Client** - The Simple Payment Setup Protocol (SPSP) Client orchestrates the preparation and execution of a payment, calling the SPSP Server on the receiving end of the transaction for information. Rather than using the client library directly, a DFSP interfaces to it through the "ILP Butler."
