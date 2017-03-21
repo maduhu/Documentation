@@ -14,10 +14,10 @@
 - **ILP Connector** - A service that owns balances in two or more ILP-enabled ledgers, facilitating payments across those ledgers by receiving money in one and sending in the other.
     - [Spec](https://interledger.org/js-ilp-connector/apidoc/) | [Code](https://github.com/interledger/js-ilp-connector)
 - **ILP Ledger Adapter** - A RESTful API to a ledger that provides functionality needed for ILP payments to and from that ledger, such as transfers that are held until a [crypto-condition](https://github.com/interledger/rfcs/blob/master/0002-crypto-conditions/0002-crypto-conditions.md) is fulfilled. This can be built directly into a ledger, or added as a separate component. The DFSP Ledger and the Central Ledger use the same spec for their ILP Ledger Adapter.
-    - [Spec](https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md) | [Code (Central Ledger)](https://github.com/LevelOneProject/central-ledger/tree/master/src/api) | [Code (DFSP Ledger)](https://github.com/LevelOneProject/dfsp-ledger/tree/master/service/ledger) | [Code (Interop)](https://github.com/LevelOneProject/interop-ilp-ledger) | [Schemas](https://github.com/LevelOneProject/ilp-schemas)
+    - [Spec](./ILP/ledger-adapter.md) | [Code (Central Ledger)](https://github.com/LevelOneProject/central-ledger/tree/master/src/api) | [Code (DFSP Ledger)](https://github.com/LevelOneProject/dfsp-ledger/tree/master/service/ledger) | [Code (Interop)](https://github.com/LevelOneProject/interop-ilp-ledger) | [Schemas](https://github.com/LevelOneProject/ilp-schemas)
 
 
 ## External DFSP Interfaces:
-- [Ledger Adapter API](https://github.com/LevelOneProject/Docs/blob/f4de22ece6064cc94db0f8b69bad1f6aa25683d9/ILP/ledger-adapter.md)
+- [Ledger Adapter API](./ILP/ledger-adapter.md)
 - [Simple Payment Setup Protocol API](https://github.com/LevelOneProject/ilp-spsp-client-rest) 
-- [DFSP Identity Lookup](https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md)
+- [DFSP Identity Lookup](./CentralDirectory/central_directory_endpoints.md)
