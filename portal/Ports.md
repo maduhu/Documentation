@@ -1,7 +1,7 @@
 ## Links to working implementations
-This document links to the working API specifications in swagger or RAML, since machine names may change, use the current [machine reference](https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate portal server. For example, integrate-dfsp1 was ec2-35-163-231-111.us-west-2.compute.amazonaws.com when this was written.
+This document links to the working API specifications in swagger or RAML, since machine names may change, use the current [machine reference](./AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate portal server. For example, integrate-dfsp1 was ec2-35-163-231-111.us-west-2.compute.amazonaws.com when this was written.
 
-For the DFSP API links, use the [DFSP Port Guide](https://github.com/LevelOneProject/Docs/tree/master/DFSP#default-ports) to get the ports and link. Example: for the DFSP directory API, use the DFSP machine which might be ec2-35-163-231-111.us-west-2.compute.amazonaws.com, combine with the port, 8011, and the swagger link, /documentation, to get http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation.
+For the DFSP API links, use the [DFSP Port Guide](./DFSP#default-ports) to get the ports and link. Example: for the DFSP directory API, use the DFSP machine which might be ec2-35-163-231-111.us-west-2.compute.amazonaws.com, combine with the port, 8011, and the swagger link, /documentation, to get http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation.
 
 For the Portal links use the ports below with the same DFSP machine. Example: for the DFSP machine, use port 8088, and /directory/v1/console to get http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/console/.
 
@@ -44,7 +44,7 @@ DFSP Directory Gateway
 | [user/get](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/user/get) | /directory/user/get |
 | [user/add](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/user/add) | for testing only - add accounts to directory |
 
-This proxy API is based on, and should match, the [Central Directory API](https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md)
+This proxy API is based on, and should match, the [Central Directory API](./CentralDirectory/central_directory_endpoints.md)
 
 DFSP SPSP Client Proxy
 
