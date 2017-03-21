@@ -140,7 +140,7 @@
       log_options:
         "syslog-address": "tcp://0.0.0.0:514"
         "syslog-facility": "daemon"
-        "tag": "ilp-spsp-client-rest"
+        "tag": "ilp-connector"
         "labels": "ilp-connector"
         "env": "ilp-connector"
       env:
@@ -173,4 +173,3 @@
         CONNECTOR_SLIPPAGE: 0
         CONNECTOR_LOG_LEVEL: trace
         DEBUG: "*"
-
