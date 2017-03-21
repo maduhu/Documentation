@@ -152,7 +152,7 @@ The Pending Transactions use case is a buyer approving or rejecting a pending in
 
 ### 5. Manage Accounts
 
-The Manage Account USSD menu command enables users to manage their accounts, namely to add, edit, and close an account. They can also get account information.
+The Manage Account USSD menu command enables users to manage their accounts, namely to add, edit, and close an account. They can also get account information, and add or remove account holders.
 
 ![](./Manage_Accounts.png)
 
