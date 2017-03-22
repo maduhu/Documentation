@@ -522,7 +522,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ SPSP CLIENT -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [ SPSP CLIENT -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
 **(5.3) Prepare Payment**
 
@@ -535,7 +535,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER -> DFSP Ledger ](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP LEDGER ADAPTER -> DFSP Ledger ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 **(5.4) Prepare Payment**
 
@@ -548,7 +548,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER -> ILP CONNECTOR ](https://github.com/interledger/ilp-connector) ###
+###  [ILP LEDGER ADAPTER -> ILP CONNECTOR ](https://github.com/interledger/ilp-connector) ###
 
 **(5.5) Prepare Payment**
 
@@ -561,7 +561,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
+###  [ILP CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
 
 **(5.6) Prepare Payment**
 
@@ -574,7 +574,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP CONNECTOR -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [ILP CONNECTOR -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
 **(5.7) Prepare Payment**
 
@@ -587,7 +587,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER  -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP LEDGER ADAPTER  -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 **(5.8) Prepare Payment**
 
@@ -600,7 +600,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER  -> SPSP SERVER](https://github.com/LevelOneProject/ilp-spsp-server) ###
+###  [ILP LEDGER ADAPTER  -> SPSP SERVER](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
 **(5.9) Prepare Payment**
 
@@ -614,7 +614,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 	--  to be filled in
 
 
-##  [SPSP SERVER -> SPSP SERVER BACKEND](https://github.com/LevelOneProject/interop-spsp-backend-services) ###
+###  [SPSP SERVER -> SPSP SERVER BACKEND](https://github.com/LevelOneProject/interop-spsp-backend-services) ###
 
 **(5.10) Execute Payment Notify**
 
@@ -627,7 +627,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [SPSP SERVER BACKEND -> DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [SPSP SERVER BACKEND -> DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
 **(5.11) Execute Payment Notify**
 
@@ -640,7 +640,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [SPSP SERVER -> ILP-LEDGER_ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [SPSP SERVER -> ILP-LEDGER_ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
 **(5.12) Execute Payment Request**
 
@@ -653,7 +653,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP-LEDGER_ADAPTER -> DFSP LEDGER](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP-LEDGER_ADAPTER -> DFSP LEDGER](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 **(5.13) Execute Payment Request**
 
@@ -666,7 +666,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP-LEDGER_ADAPTER -> ILP-CONNECTOR](https://github.com/interledgerjs/ilp-connector) ###
+###  [ILP-LEDGER_ADAPTER -> ILP-CONNECTOR](https://github.com/interledgerjs/ilp-connector) ###
 
 **(5.14) Execute Payment Notification**
 
@@ -679,7 +679,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP-CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
+###  [ILP-CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
 
 **(5.15) Execute Payment Request**
 
@@ -692,7 +692,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP-CONNECTOR -> ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [ILP-CONNECTOR -> ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
 **(5.16) Execute Payment Request**
 
@@ -705,7 +705,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP LEDGER ADAPTER -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 **(5.17) Execute Payment Request**
 
@@ -718,7 +718,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ILP LEDGER ADAPTER -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 **(5.18) Execute Payment Notification**
 
