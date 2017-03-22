@@ -3,19 +3,21 @@ See the [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-S
 To connect to working API definitions use the [DFSP Ports guide](./DFSP#default-ports), [Portal Ports guide](./portal/Ports.md), and Central Directory Ports Guide.
 
 #Message Flow
-![Service Interactions](../../Wiki/Demo%20Service%20Interactions.png)
+![Send Payment](./Send%20Payment%20Via%20SPSP.png)
 This diagram shows the order of the calls. 
 
-Calls are made from A through D, and within each letter they increment by number. Example: D.1, D.2, D.3, etc. 
+Calls are made from A through C, and within each letter they increment by number. Example: C.1, C.2, C.3, etc. 
 
-The 3 ledgers send notifications of each transaction to all subscribers, so, for example, following D.1 there are two D.2 notifications. One goes back to the ILP client and tells it that the ledger got the message the ILP client just sent. The second more important notification goes on to the ILP Connector, which in turn calls D.3 .
+The 3 ledgers send notifications of each transaction to all subscribers, so, for example, following C.1 there are two C.2 notifications. One goes back to the ILP client and tells it that the ledger got the message the ILP client just sent. The second more important notification goes on to the ILP Connector, which in turn calls C.3 .
 
 # A - Lookup/Discovery
 The first stage of any transfer is to find out what institution can accept money for this user number. The DFSP calls the Central Directory through the DSFP Directory Gateway.
 
+![Service Interactions](./Lookup Recipient Details.png)
+
 [Discovery Documented](https://github.com/LevelOneProject/Docs/blob/ccf08b20affc06bde8f587446fa0abf1975f3999/Discovery.md)
 
-[Central Directory Lookup API](./CentralDirectory/central_directory_endpoints.md#lookup_resource)
+[Central Directory Lookup API](https://github.com/LevelOneProject/central-directory/blob/master/central-directory-documentation.md)
 
 [DFSP Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation) DFSP:8011/documentation
 
@@ -56,21 +58,9 @@ For the DFSP the quoting APIs start in [The DFSP ledger service](./DFSP) which t
 [DSFP Ledger API Implemented](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8014/documentation#/) 
 
     GET /ledger/transfers/{id} -  Get Transfer by ID  
-    PUT /ledger/transfers/{id}  - Prepare/Propose transfer
+    PUT /ledger/transfers/{id}  - Prepare/Propose transfer 
 
-
-# C - Setup
-Before the transfer can happen, the ILP components need to subscribe to notifications from the ledgers. For now this is done when the ledgers start up, however, if it was not setup, this message would make sure it was. 
-
-There are 3 ledgers: the source DFSP, central ledger, and destination DFSP. Each must be updated during the transfer. 
-
-[SPSP Ledger Adapter subscriptions](./ILP/ledger-adapter.md#subscribe-to-account-transfers)
-
-     Ledger: SubscribeAccountTransfers  
-     ws://<host>/accounts/:name/transfers   
-
-
-# D - Prepare and Fulfill
+# C - Prepare and Fulfill
 The final portion begins with a message to send the money from the source DFSP to the ILP Ledger Adapter (not shown). 
 
 [ILP Client Ledger Adapter Documented](./ILP/ledger-adapter.md)
@@ -95,3 +85,16 @@ The receiving DFSP has to validate that it will accept the transfer (skipped for
 
     GET: /ledger/transfers/{id}/fulfillment Get Transfer Fulfillment   
     PUT: /ledger/transfers/{transferId}/fulfillment Execute prepared transfer
+
+
+# Setup
+Before the transfer can happen, the ILP components need to subscribe to notifications from the ledgers. This is done when the components start up, however, if it was not setup, this message would make sure it was. 
+
+![Setup Notifications](./Setup%20Notifications.png)
+
+There are 3 ledgers: the source DFSP, central ledger, and destination DFSP. Each must be updated during the transfer. 
+
+[SPSP Ledger Adapter subscriptions](./ILP/ledger-adapter.md#subscribe-to-account-transfers)
+
+     Ledger: SubscribeAccountTransfers  
+     ws://<host>/accounts/:name/transfers  
