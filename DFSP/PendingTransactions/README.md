@@ -587,7 +587,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 	--  to be filled in
 
-##  [ILP LEDGER ADAPTER  -> DFSP LEDGER] (https://github.com/LevelOneProject/dfsp-ledger) ###
+##  [ILP LEDGER ADAPTER  -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 **(5.8) Prepare Payment**
 
