@@ -1,6 +1,6 @@
 See the [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone) for what this scenario should accomplish.
 
-To connect to working API definitions use the [DFSP Ports guide](./DFSP#default-ports), [Portal Ports guide](./portal/Ports.md), and Central Directory Ports Guide.
+To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Portal Ports guide](../Ports.md), and Central Directory Ports Guide.
 
 #Message Flow
 ![Send Payment](./Send%20Payment%20Via%20SPSP.png)
