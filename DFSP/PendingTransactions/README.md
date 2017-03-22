@@ -195,9 +195,9 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
 	}
 
-## II.  QUOTE DESTINATION  ##
+## II.  QUOTE SOURCE/DESTINATION  ##
 
-![](./quoteDestination.png)
+![](./quote.png)
 
 
 ###  [ DFSP API -> SPSP CLIENT Proxy ]() ###
