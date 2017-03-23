@@ -74,7 +74,7 @@
       - client
     docker_container:
       name: ilp-spsp-client-rest
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:latest"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v4.0.9"
       state: started
       pull: yes
       restart: yes
@@ -105,7 +105,7 @@
       - server
     docker_container:
       name: ilp-spsp-server
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:latest"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v4.1.3"
       state: started
       pull: yes
       restart: yes
