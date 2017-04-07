@@ -1,6 +1,6 @@
-# Central Ledger Docs
+# Central Ledger
 
-## Central Ledger Component Architecture
+## Component Architecture
 
 ![Central Ledger Block Diagram](./central_ledger_block_diagram.png)
 

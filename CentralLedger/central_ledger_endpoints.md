@@ -3,13 +3,13 @@
 The central ledger is a system to record transfers between DFSPs, and to calculate net positions for DFSPs and issue settlement instructions.
 
 ## Contents
-- Data Structures
+- [Data Structures](#data_structures)
 	- [Transfer Object](#transfer_object)
 	- [Account Object](#account_object)
 	- [Notification Object](#notification_object)
 	- [Metadata Object](#metadata_object)
 	- [Position Object](#position_object)
-- Endpoints
+- [Endpoints](#endpoints)
 	- [Transfer Endpoints](#transfer_endpoints)
 		- [Prepare a transfer](#prepare_transfer)
 		- [Execute a prepared transfer](#execute_transfer)
@@ -25,11 +25,14 @@ The central ledger is a system to record transfers between DFSPs, and to calcula
 		- [Settle fulfilled transfers](#settle_fulfilled_transfers)
 - [Error Information](#error_information)
 
+## Data Structures<a name="data_structures"></a>
+
+
 ### Transfer Object<a name="transfer_object"></a>
 
 A transfer represents money being moved between two DFSP accounts at the central ledger.
 
-The transfer must specify an execution_condition, in which case it executes automatically when presented with the fulfillment for the condition. (Assuming the transfer has not expired or been canceled first.) Currently, the central ledger only supports the condition type of [PREIMAGE-SHA-256](https://interledger.org/five-bells-condition/spec.html#rfc.section.4.1) and a max fulfillment length of 65535. 
+The transfer must specify an execution_condition, in which case it executes automatically when presented with the fulfillment for the condition. (Assuming the transfer has not expired or been canceled first.) Currently, the central ledger only supports the condition type of [PREIMAGE-SHA-256](https://interledger.org/five-bells-condition/spec.html#rfc.section.4.1) and a max fulfillment length of 65535.
 
 Some fields are Read-only, meaning they are set by the API and cannot be modified by clients. A transfer object can have the following fields:
 
@@ -53,7 +56,7 @@ Some fields are Read-only, meaning they are set by the API and cannot be modifie
 | credits[].authorized | Boolean | *Optional* Indicates whether the credit has been authorized by the required account holder |
 | credits[].rejected | Boolean | *Optional* Indicates whether credit has been rejected by account holder |
 | credits[].rejection_message | String | *Optional* Reason the credit was rejected |
-| execution_condition | String | The condition for executing the transfer | 
+| execution_condition | String | The condition for executing the transfer |
 | expires_at | DateTime | Time when the transfer expires. If the transfer has not executed by this time, the transfer is canceled. |
 | state | String | *Optional, Read-only* The current state of the transfer (informational only) |
 | timeline | Object | *Optional, Read-only* Timeline of the transfer's state transitions |
@@ -77,7 +80,7 @@ Some fields are Read-only, meaning they are set by the API and cannot be modifie
 
 ### Notification Object<a name="notification_object"></a>
 
-The central ledger pushes a notification object to WebSocket clients when a transfer changes state. This notification is sent at most once for each state change. 
+The central ledger pushes a notification object to WebSocket clients when a transfer changes state. This notification is sent at most once for each state change.
 
 A notification object can have the following fields:
 
@@ -115,6 +118,8 @@ A position object can have the following fields:
 | payments | String | Total non-settled amount the account has paid as string |
 | receipts | String | Total non-settled amount the account has received as string |
 | net | String | Net non-settled amount for the account as string |
+
+## Endpoints<a name="endpoints"></a>
 
 ### Transfer Endpoints<a name="transfer_endpoints"></a>
 
@@ -201,7 +206,7 @@ Content-Type: application/json
 ##### Errors (4xx)
 | Field | Description |
 | ----- | ----------- |
-| UnprocessableEntityError | The provided entity is syntactically correct, but there is a generic semantic problem with it | 
+| UnprocessableEntityError | The provided entity is syntactically correct, but there is a generic semantic problem with it |
 | UnsupportedCryptoTypeError | The crypto type specified in the condition is not supported |
 
 #### Execute a prepared transfer<a name="execute_transfer"></a>
