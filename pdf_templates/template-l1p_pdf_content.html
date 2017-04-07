@@ -35,6 +35,11 @@
             <p class="footer-info">{{ target.display_name }}</p>
         </section>
         <div class='wrapper'>
+        {% if currentpage.section_header %}
+          <div class="section-header">
+            <h1>{{ currentpage.category }}</h1>
+          </div>
+        {% endif %}
         <main class="main content" role="main">
             {{ content }}
         </main>

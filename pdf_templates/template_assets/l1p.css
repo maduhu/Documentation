@@ -1,3 +1,48 @@
+.out-of-date {
+    margin: 5px;
+    border-style: solid;
+    border-color: #e69417;
+    border-width: 2px 2px 2px 15px;
+    padding: 0;
+}
+
+.out-of-date > * {
+    margin: 5px;
+}
+
+.out-of-date > p:first-child {
+    margin: 0;
+    padding: 0;
+}
+
+.ood-header {
+    display: block;
+    color: white;
+    padding: 4px;
+    margin: 0;
+    border: 4px solid #e69417;
+    text-transform: capitalize;
+    background-color: #e69417;
+}
+
+/* Section Cover header */
+.section-header {
+  padding: .25in .25in .25in .25in;
+  background-color: #AC2641;
+  background-image: url(l1p_spiral.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 2in;
+  margin: -1in -1in 0 -1in;
+}
+
+.section-header h1 {
+    font-size: 60pt;
+    color: white;
+    margin: 0;
+    padding: .25in;
+}
+
 @media print {
 
     .l1p .cover-page {
