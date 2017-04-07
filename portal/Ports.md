@@ -1,9 +1,17 @@
 ## Links to working implementations
-This document links to the working API specifications in swagger or RAML, since machine names may change, use the current [machine reference](./AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate portal server. For example, integrate-dfsp1 was ec2-35-163-231-111.us-west-2.compute.amazonaws.com when this was written.
+This document links to the working API specifications in swagger or RAML. Since machine names may change, use the current [machine reference](./AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate portal server. For example, **integrate-dfsp1** was **ec2-35-163-231-111.us-west-2.compute.amazonaws.com** when this was written.
 
-For the DFSP API links, use the [DFSP Port Guide](./DFSP#default-ports) to get the ports and link. Example: for the DFSP directory API, use the DFSP machine which might be ec2-35-163-231-111.us-west-2.compute.amazonaws.com, combine with the port, 8011, and the swagger link, /documentation, to get http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation.
+For the DFSP API links, use the [DFSP Port Guide](./DFSP#default-ports) to get the ports and link.
 
-For the Portal links use the ports below with the same DFSP machine. Example: for the DFSP machine, use port 8088, and /directory/v1/console to get http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/console/.
+**Example**
+
+For the DFSP directory API, use the DFSP machine - which might be **ec2-35-163-231-111.us-west-2.compute.amazonaws.com** - combine with the port, **8011**, and the swagger link, **/documentation**, to get **http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation**.
+
+For the Portal links, use the ports below with the same DFSP machine.
+
+**Example**
+
+For the DFSP machine, use port **8088** and **/directory/v1/console** to get **http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/console/**.
 
 ### Service Info
 
@@ -16,14 +24,13 @@ For the Portal links use the ports below with the same DFSP machine. Example: fo
 | dfsp1-interop-ledger-adapter | 8088 |  http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/ledger |
 | dfsp1-ledger | 8014 | http://http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8014/ledger |
 | dfsp1-ilp-connector | 3044 | http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3044 |
-
 | ist-ledger | 3075 | http://:3075 |
 
 ### SSH
 
-on a mac:  `ssh -i "interop-dev1.pem" ec2-user@ec2-35-163-231-111.us-west-2.compute.amazonaws.com`
+On a mac:  `ssh -i "interop-dev1.pem" ec2-user@ec2-35-163-231-111.us-west-2.compute.amazonaws.com`
 
-on windows:  use putty, and you will need to use the .ppk file.  under the `Connection/SSH/Auth` section you will need to select this .ppk file for `Private key file for authentication`
+On windows:  use putty, and use the .ppk file.  under the `Connection/SSH/Auth` section you will need to select this .ppk file for `Private key file for authentication`
 
 ### Services
 
@@ -35,7 +42,7 @@ on windows:  use putty, and you will need to use the .ppk file.  under the `Conn
 
 ### Dev
 
-DFSP Directory Gateway
+**DFSP Directory Gateway**
 
 | path | Description |
 | ---- | ----------- |
@@ -46,7 +53,7 @@ DFSP Directory Gateway
 
 This proxy API is based on, and should match, the [Central Directory API](./CentralDirectory/central_directory_endpoints.md)
 
-DFSP SPSP Client Proxy
+**DFSP SPSP Client Proxy**
 
 | path | Description |
 | ---- | ----------- |
@@ -54,7 +61,7 @@ DFSP SPSP Client Proxy
 | [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
-ILP Ledger Adapter
+**ILP Ledger Adapter**
 
 This deployment of the ILP Ledger Adapter is connected to an instance of the five bells ledger running on interop-dev1.
 
@@ -64,7 +71,7 @@ This deployment of the ILP Ledger Adapter is connected to an instance of the fiv
 | [console](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/ledger/console/) | api demo console |
 | ... | see api documentation or console for additional functions |
 
-SPSP Server Backend
+**SPSP Server Backend**
 
 | path | Description |
 | ---- | ----------- |

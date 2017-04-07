@@ -1,16 +1,16 @@
 # Interop services overview (Mule components)
 
-The various interop service APIs act as proxies and/or providing features such as validation, authentication and data transformation where necessary. The services operate based on service specifications provided in both Open API and RAML. The services run on Mule community run time. There are four interop micro services that are mentioned below and several supporting projects.
+The various interop service APIs act as proxies and/or provide features such as validation, authentication and data transformation where necessary. The services operate based on service specifications provided in both Open API and RAML. The services run on Mule community runtime. There are four interop micro-services that are mentioned below and several supporting projects.
 
 Contents:
 
-[Component Diagram] (#component diagram)
-[User Message/Flow Diagrams] (#user message/flow diagrams)
-[Interfaces] (#interfaces)
-[Test Strategy] (#test strategy)
-[Security/Treat Model] (#Security/Threat Model)
-[Resilience Model] (#Resilience Model)
-[Monitoring/Health Model] (#Monitoring/Health Model)
+* [Component Diagram](#component diagram)
+* [User Message/Flow Diagrams](#user message/flow diagrams)
+* [Interfaces](#interfaces)
+* [Test Strategy](#test strategy)
+* [Security/Treat Model](#Security/Threat Model)
+* [Resilience Model](#Resilience Model)
+* [Monitoring/Health Model](#Monitoring/Health Model)
 
 ## Component Diagram
 
@@ -20,9 +20,9 @@ Contents:
 
 ## User Message/Flow Diagrams
 
-(This set of diagrams shows the positive or “happy” path of the user. Negative and boundary cases are described. A data flow diagram is also used for threat modeling (see below).)
+The diagrams in this section show the positive or “happy” path of the user. Negative and boundary cases are described. A data flow diagram is also used for threat modeling (see below).
 
-## Interfaces
+### Interfaces
 - **interop-dfsp-directory** - This project provides an API gateway to the IST Directory Naming Service and provides resources to - "get metadata about a directory", "get customer information by providing identifier, identifierType", "Register a DFSP" and "get identifierTypes supported by the central directory"
     - [Spec](https://github.com/LevelOneProject/interop-dfsp-directory/blob/master/README.md) | [Code](https://github.com/LevelOneProject/interop-dfsp-directory)
 - **interop-spsp-clientproxy** - This interop project fulfills the role of ilp-spsp-client proxy. This project provides an API gateway to the ilp-spsp-client Service. It supports methods to query, quoteSourceAmount, setup and payment request as specified.
@@ -44,7 +44,7 @@ Contents:
 
 ## Test Strategy
 
-Java Unit Test exist for each of the projects for unit testing. Tests are run as part of executing the Maven pom.xml as mvn clean package.
+Java Unit Tests exist for each of the projects for unit testing. Tests are run as part of executing the Maven pom.xml as mvn clean package.
 
 Along with these unit tests, additional tests can be run by using the tests present in [interop-functional-tests](https://github.com/LevelOneProject/interop-functional-tests) which include several functional and scenario tests. These include USSD tests as well as JMeter scripts that can be used for load testing and cover end-to-end scenarios.
 
