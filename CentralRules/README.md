@@ -1,6 +1,6 @@
-# Central Rules Docs
+# Central Rules 
 
-## Central Rules Component Architecture
+## Component Architecture
 
 ![Central Rules Block Diagram](./central_rules_block_diagram.png)
 

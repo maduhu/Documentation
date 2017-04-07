@@ -8,12 +8,12 @@ JDK 8 Installation
 > If not already installed JDK 8 must be installed to continue with the
 > ELK 5.X Setup.
 
-Install wget to download JDK 8 rpm:
+Install wget to download JDK 8 rpm
 -----------------------------------
 
 > \# yum -y install wget
 
-Download JDK 8 rpm:
+Download JDK 8 rpm
 -------------------
 
 > wget --no-cookies --no-check-certificate --header "Cookie:
@@ -21,22 +21,22 @@ Download JDK 8 rpm:
 > oraclelicense=accept-securebackup-cookie"
 > <http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.rpm>
 
-Check JDK 8 rpm sha256 sum:
+Check JDK 8 rpm sha256 sum
 ---------------------------
 
 > \# sha256sum jdk-8u121-linux-x64.rpm
 
-Compare JDK 8 rpm sha256 sum against:
+Compare JDK 8 rpm sha256 sum against
 -------------------------------------
 
 > [https://www.oracle.com/webfolder/s/digest/**8u121**checksum.html](https://www.oracle.com/webfolder/s/digest/8u121checksum.html)
 
-Install JDK 8 rpm:
+Install JDK 8 rpm
 ------------------
 
 > \# rpm -ivh jdk-8u121-linux-x64.rpm
 
-Set Java default:
+Set Java default
 -----------------
 
 > java –version
@@ -52,12 +52,12 @@ Set Java default:
 Elasticsearch Installation
 ==========================
 
-Import Elasticsearch PGP Key:
+Import Elasticsearch PGP Key
 -----------------------------
 
 > \# rpm --import <https://artifacts.elastic.co/GPG-KEY-elasticsearch>
 
-Create file with elasticsearch repository information:
+Create file with elasticsearch repository information
 ------------------------------------------------------
 
 > \# vi /etc/yum.repos.d/elasticsearch.repo
@@ -80,7 +80,7 @@ Create file with elasticsearch repository information:
 >
 > type=rpm-md
 
-Install elasticsearch:
+Install elasticsearch
 ----------------------
 
 > \# yum –y install elasticsearch
@@ -94,7 +94,7 @@ Configure elasticsearch
 >
 > network.host: \[\_eth0\_, \_local\_\]
 
-Start/Stop/Restart elasticsearch:
+Start/Stop/Restart elasticsearch
 ---------------------------------
 
 > sudo service elasticsearch start
@@ -103,17 +103,17 @@ Start/Stop/Restart elasticsearch:
 >
 > sudo service elasticsearch restart
 
-Make elasticsearch more verbose by removing the “-- quite \\” flag:
+Make elasticsearch more verbose by removing the “-- quite \\” flag
 -------------------------------------------------------------------
 
 > \# vi /usr/lib/system/system/elasticsearch.service
 
-Restart elasticsearch service and perform daemon reload:
+Restart elasticsearch service and perform daemon reload
 --------------------------------------------------------
 
 > sudo service elasticsearch restart
 
-Check that elasticsearch is running:
+Check that elasticsearch is running
 ------------------------------------
 
 > Install netcat if not already install for debugging purposes:
@@ -182,7 +182,7 @@ Configure Kibana
 > ip depending on ELK stack configuration, currently entire ELK stack is
 > running on the same server.
 
-Start/Stop/Restart Kibana:
+Start/Stop/Restart Kibana
 --------------------------
 
 > sudo service kibana start
@@ -191,7 +191,7 @@ Start/Stop/Restart Kibana:
 >
 > sudo service kibana restart
 
-Verify that you Kibana can be accessed from the browser:
+Verify that you Kibana can be accessed from the browser
 --------------------------------------------------------
 
 > <http://localhost:5601/app/kibana>
@@ -200,7 +200,7 @@ Verify that you Kibana can be accessed from the browser:
 > ip. If no UI is available, go to NGINX reverse proxy section to access
 > Kibana.
 
-Verify Kibana status from the browser:
+Verify Kibana status from the browser
 --------------------------------------
 
 > <http://localhost:5601/status>
@@ -216,12 +216,12 @@ Metricsbeat) are directly sending logs to Elasticsearch. Logstash can be
 used to perform processing of logs. For more information, look at
 Additional Considerations section.
 
-Install Logstash:
+Install Logstash
 -----------------
 
 > \# yum –y install logstash
 
-Start/Stop/Restart Logstash:
+Start/Stop/Restart Logstash
 ----------------------------
 
 > sudo service kibana start
@@ -264,7 +264,7 @@ Start/Stop/Restart Logstash:
 >
 > }
 
-**BEST PRACTICES: **
+**BEST PRACTICES **
 
 **-**Separate large Logstash configuration files into several smaller
 ones. Conf file path can be set to a directory. Files in directory will
@@ -276,7 +276,7 @@ alphabetical order.
 Filebeat Installation
 =====================
 
-Install Filebeat:
+Install Filebeat
 -----------------
 
 > \# yum –y install filebeat
@@ -296,11 +296,11 @@ NOTE: Use the eth0 ip where Elasticsearch is running.
 
 Configure path for Filebeat to crawl and fetch logs from:
 
-Under Filebeat prospectors section, identify paths: and for example add
+Under Filebeat prospectors section, identify paths and for example add
 
 - /var/log/mule\_logs/mule\_dfsp1/\*.log
 
-Start/Stop/Restart Filebeat:
+Start/Stop/Restart Filebeat
 ----------------------------
 
 > sudo service filebeat start
@@ -341,7 +341,7 @@ json.
 Metricbeat Installation
 =======================
 
-Install Metricbeat:
+Install Metricbeat
 -------------------
 
 > \# yum –y install metricbeat
@@ -359,7 +359,7 @@ hosts: \["http://172.31.45.32:9200"\]
 
 NOTE: Use the eth0 ip where Elasticsearch is running.
 
-Start/Stop/Restart Metricbeat:
+Start/Stop/Restart Metricbeat
 ------------------------------
 
 > sudo service metricbeat start
@@ -434,7 +434,7 @@ Access Kibana via NGINX on your browser
 Modify AWS EC2 Instance Security Group to open ports
 ====================================================
 
-Create 2 Inbound rules
+Create Two Inbound rules
 ----------------------
 
 1.  tcp for port 80 for NGINX
