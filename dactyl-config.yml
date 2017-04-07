@@ -1,12 +1,22 @@
-# dactyl_build -t all --pdf 
+# From the directory above docs:
+# (run the copy-images script first)
+# dactyl_build -t all -c Docs/dactyl-config.yml --pdf
 #--leave_temp_files
-#put this file in the directory above Docs
 content_path: .
 content_static_path: ./images
 temporary_files_path: .
-default_template: template-doc.html
+template_path: ./Docs/pdf_templates
 template_static_path: ./Docs/pdf_templates/template_assets
+default_template: template-l1p_pdf_content.html
 pdf_template: template-l1p_pdf_content.html
+
+filter_paths:
+    - ./Docs/pdf_templates/filters
+
+default_filters:
+    - out_of_date
+    - link_replacement
+    - demote_headers
 
 cover_page:
     display_name: "Index"
@@ -17,20 +27,13 @@ targets:
     -   name: all
         display_name: Level One Project Overview
         image_re_subs:
-            "[.]/(\\w+[.]png)": "images/\\1"
-            "[.]/(\\w+[.]PNG)": "images/\\1"
-            "[.]/(\\w+[.]jpg)": "images/\\1"
-            "[.]/(\\w+[.]JPG)": "images/\\1"
-            "[.]/media/(\\w+[.]jpg)": "images/\\1"
-        image_subs:
-            "./Wiki/Basic%20Overview.png": images/Basic%20Overview.png
-            ../../Wiki/Demo%20Service%20Interactions.png: images/Demo%20Service%20Interactions.png
-            ../Wiki/L1%20Portal%20Service.png: "images/L1%20Portal%20Service.png"
-            ./diagrams/pending_transactions.png: images/pending_transactions.png
-            ./L1P%20diagram.png: images/L1P%20diagram.png
-            ./TopLevelArchitecture-ComponentsAndServicesHostedInMule.png: images/TopLevelArchitecture-ComponentsAndServicesHostedInMule.png
-            ./transfer.push.create.png: images/transfer.push.create.png
-            ./transfer.bulk.create.png: images/transfer.bulk.create.png
+            "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
+        link_subs:
+            ./AWS/Infrastructure/machines.md: machines.html
+            ./DFSP: DFSP.html
+            ./portal: Portal.html
+            #CURSOR
+
 
     -   name: DFSP
         display_name: DFSP Documentation
@@ -54,6 +57,7 @@ pages:
         md: Docs/README.md
         html: overview.html
         category: Overview
+        section_header: true
         targets:
             - all
 
@@ -71,6 +75,7 @@ pages:
         html: Portal.html
         category: Portal
         md: Docs/portal/readme.md
+        section_header: true
         targets:
             - all
             - portal
@@ -98,7 +103,7 @@ pages:
         targets:
             - all
             - portal
-        
+
     -   name: 'Interop SPSP Client Proxy'
         html: interop-spsp-clientproxy.html
         category: Portal
@@ -106,7 +111,7 @@ pages:
         targets:
             - all
             - portal
-        
+
 
     -   name: 'Interledger SPSP Server Interface'
         html: ilp-spsp-server.html
@@ -123,7 +128,7 @@ pages:
         targets:
             - all
             - portal
-    
+
     -   name: 'Interop SPSP Backend'
         html: interop-ilp-ledger.html
         category: Portal
@@ -138,6 +143,7 @@ pages:
     -   name: 'Send Payment'
         html: SendPayment.html
         category: Scenarios
+        section_header: true # If we make a scenarios intro page move this line to that file
         md: 'Docs/portal/scenarios/Send Payment.md'
         targets:
             - all
@@ -172,6 +178,7 @@ pages:
     -   name: 'Central Directory Overview'
         html: CentralDirectory.html
         category: 'Central Directory'
+        section_header: true
         md: Docs/CentralDirectory/README.md
         targets:
             - all
@@ -200,12 +207,13 @@ pages:
         targets:
             - all
             - central
-        
+
 #Docs/CentralLedger
 # README.md central_ledger_endpoints.md
     -   name: 'Central Ledger Overview'
-        html: central_directory.html
+        html: central_ledger.html
         category: 'Central Ledger'
+        section_header: true
         md: Docs/CentralLedger/README.md
         targets:
             - all
@@ -265,6 +273,7 @@ pages:
     -   name: 'Logging'
         html: elk.html
         category: Infrastructure
+        section_header: true # If we add an "Infrastructure" intro, move this to there
         md: Docs/ELK/ELKSetup.md
         targets:
             - all
@@ -273,7 +282,7 @@ pages:
 #Docs/AWS/Infrastructure
 # machines.md
     -   name: Machines
-        html: elk.html
+        html: machines.html
         category: Infrastructure
         md: Docs/AWS/Infrastructure/machines.md
         targets:
@@ -315,7 +324,7 @@ pages:
         md: Docs/JMeter/README.md
         targets:
             - all
-            - infra 
+            - infra
 
     -   name: 'Scenario Tests'
         html: scenarioTests.html
@@ -323,12 +332,13 @@ pages:
         md: Docs/JMeter/scenarioTests/readme.md
         targets:
             - all
-            - infra     
+            - infra
 
 #/Docs/DFSP
 #README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
     -   name: 'DFSP Overview'
         html: DFSP.html
+        section_header: true
         category: DFSP
         md: Docs/DFSP/README.md
         targets:
@@ -398,7 +408,7 @@ pages:
         targets:
             - all
             - dfsp
-        
+
     -   name: 'Development'
         html: development.html
         category: DFSP

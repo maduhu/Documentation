@@ -34,10 +34,12 @@
     <div class="pdf-table-of-contents">
         <h1>Table of Contents</h1>
         {% for cat in categories %}
-            <p class="toc-heading">{{ cat }}</p>
+            <p class="toc-heading">
+              <a href="{{ (pages|selectattr('category', 'equalto', cat)|first).html }}">{{ cat }}</a>
+            </p>
             <ul class="pdf-toc-category">
             {% for page in pages %}
-                {% if page.category == cat and page.name != currentpage.name and page.pdf_template != "template-omit.html" %}
+                {% if page.category == cat and page.name != currentpage.name %}
                 <li><a href="{{ page.html }}">{{ page.name }}</a></li>
                 {% endif %}
             {% endfor %}
@@ -45,7 +47,7 @@
         {% endfor %}
         <ul class="pdf-toc-uncategorized">
             {% for page in pages %}
-                {% if not page.category and page.name != currentpage.name and page.pdf_template != "template-omit.html" %}
+                {% if not page.category and page.name != currentpage.name %}
                 <li><a href="{{ page.html }}">{{ page.name }}</a></li>
                 {% endif %}
             {% endfor %}
