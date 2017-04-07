@@ -565,7 +565,7 @@ HTTP/1.1 200 OK
 ["3a2a1d9e-8640-4d2d-b06c-84f2cd613207", "7e10238b-4e39-49a4-93dc-c8f73afc1717"]
 ```
 
-### Error Information<a name="error_information"></a>
+## Error Information<a name="error_information"></a>
 
 This section identifies the potential errors returned and the structure of the response.
 
