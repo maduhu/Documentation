@@ -3,3 +3,5 @@ node_modules
 .idea
 .history
 out
+__pycache__
+*.pyc
