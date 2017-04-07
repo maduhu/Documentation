@@ -13,7 +13,7 @@ The 3 ledgers send notifications of each transaction to all subscribers, so, for
 # A - Lookup/Discovery
 The first stage of any transfer is to find out what institution can accept money for this user number. The DFSP calls the Central Directory through the DSFP Directory Gateway.
 
-![Service Interactions](./Lookup Recipient Details.png)
+![Service Interactions](./Lookup%20Recipient%20Details.png)
 
 [Discovery Documented](https://github.com/LevelOneProject/Docs/blob/ccf08b20affc06bde8f587446fa0abf1975f3999/Discovery.md)
 
