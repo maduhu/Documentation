@@ -12,13 +12,14 @@
 
 
 1. The invoice will be created in the merchant's DFSP. It will be associated with an account.
-2. After the invoice is created in the merchant's DFSP a notification with the invoice reference will be send to the default client DFSP.
+2. After the invoice is created in the merchant's DFSP, a notification with the invoice reference will be send to the default client DFSP.
 3. The client DFSP will stored the reference (full URL) to the merchant's invoice.
-4. The invoice reference in the client DFSP will not be associated with any clients account thus the client can choose an account from which he is going to pay the invoice.
-5. As a consequence of the above, in case the client has accounts in more than one DFSP he will receive the invoice notification only in his default DFSP and from the USSD interface he will be able to pay the invoice only from his default DFSP
+4. The invoice reference in the client DFSP will not be associated with any client's account; thus the client can choose the account from which he is going to pay the invoice.
+5. As a consequence of the above, in case the client has accounts in more than one DFSP, he will receive the invoice notification only in his default DFSP.
+From the USSD interface he will be able to pay the invoice only from his default DFSP.
 
 
-In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoice) and '**dfsp2**' as the merchant DFSP (issuing the invoice)
+**Note:** '**dfsp1**' is referred to as client DFSP (paying the invoice) and '**dfsp2**' as the merchant DFSP (issuing the invoice).
 
 ## I.  GET SENDER DETAILS  ##
 
@@ -26,9 +27,9 @@ In the notes below I will refer to '**dfsp1**' as client DFSP (paying the invoic
 
 [DFSP USSD -> DFSP API]()
 
-**(1.1) Get payee**
+**1.1 Get payee**
 
-This method is not exposed as a DFSP Api rest route as it is not meant to be called directly from external systems
+This method is not exposed as a DFSP Api rest route as it is not meant to be called directly from external systems.
 
 *Request:*
 
@@ -222,17 +223,17 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 ###  [ SPSP CLIENT Proxy -> SPSP CLIENT ]() ###
 
 
-**(2.2)quoteDestination Method**
+**(2.2) quoteDestination Method**
 
 -- to be filled in
 
 ###  [  SPSP Client -> ILP Connector ]() ###
 
 
-**(2.4)Create Invoice Notification Method**
+** (2.4) Create Invoice Notification Method**
 
 
-This method will be used for communication between SPSP Client and ILP Connector components
+This method will be used for communication between SPSP Client and ILP Connector components.
 
 *Request:*
 
@@ -252,7 +253,7 @@ This method will be used for communication between SPSP Client and ILP Connector
 
 ### [DFSP USSD -> DFSP API]()
 
-**(3.1)Create Invoice Method**
+**(3.1) Create Invoice Method**
 
 *Request:*
 
@@ -281,7 +282,7 @@ This method will be used for communication between SPSP Client and ILP Connector
 ###  [ DFSP API -> SPSP CLIENT Proxy ]() ###
 
 
-**(3.2)Create Invoice Notification Method**
+**(3.2) Create Invoice Notification Method**
 
 
 *Request:*
@@ -307,17 +308,17 @@ This method will be used for communication between SPSP Client and ILP Connector
 ###  [ SPSP CLIENT Proxy -> SPSP CLIENT ]() ###
 
 
-**(3.3)Create Invoice Notification Method**
+**(3.3) Create Invoice Notification Method**
 
 -- to be filled in
 
 ###  [  SPSP Client -> SPSP SERVER ]() ###
 
 
-**(3.4)Create Invoice Notification Method**
+**(3.4) Create Invoice Notification Method**
 
 
-This method will be used for communication between SPSP Client and SPSP Server components
+This method will be used for communication between SPSP Client and SPSP Server components.
 
 *Request:*
 
@@ -343,14 +344,14 @@ This method will be used for communication between SPSP Client and SPSP Server c
 ###  [  SPSP SERVER -> SPSP SERVER BACKEND ]() ###
 
 
-**(3.5)Create Invoice Notification Method**
+**(3.5) Create Invoice Notification Method**
 
 -- to be filled in
 
 ###  [ SPSP Server Backend -> DFSP API ]() ###
 
 
-**(3.6)Create Invoice Notification Method**
+**(3.6) Create Invoice Notification Method**
 
 
 This method will be invoked from SPSP Server and will be used to create invoice reference the 'DFSP Logic'.
@@ -384,9 +385,9 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 ###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
 
-**(4.1)Get Invoice Details**
+**(4.1) Get Invoice Details**
 
-Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md#get-v1query)
+Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md#get-v1query).
 
 
 
@@ -422,10 +423,10 @@ The following changes will be introduced:
 
 ###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
-**(4.2)Get Invoice Details**
+**(4.2) Get Invoice Details**
 
 
-Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice)
+Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice).
 
 
 *Request:*
@@ -504,7 +505,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 	-- to be filled in
 
 
-- invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP.
+- invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP
 - submissionUrl - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
 - memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
 
@@ -730,5 +731,3 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 *Response:*
 
 	--  to be filled in
-
-

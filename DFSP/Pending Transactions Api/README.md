@@ -1,15 +1,15 @@
 ## I.  Overview  ##
 
 Current document will cover the flow of creating and paying/rejecting pending transfers using
-DFSP Over the Top API. 
+DFSP Over the Top API.
 
-In real life, this flow can be seen for merchant purchase use case where a merchant sells goods to customer and both of them have mobile (smart) phones. 
+In real life, this flow can be seen for merchant purchase use case where a merchant sells goods to customer and both of them have mobile (smart) phones.
 From end user's perspective the use case looks like this:
 
 1. Merchant log in his smart application and select 'merchant purchase' option.
 2. Merchant enters the customer identification (phone number or user number) or selects it from a list (for regular customers visiting his shop).
 3. The Merchant enters the amount that the customer has to pay and confirms the operation
-4. The system creates an 'invoice' for that amount into merchant's DFSP and send a notification to the customer that he has a pending invoice. 
+4. The system creates an 'invoice' for that amount into merchant's DFSP and send a notification to the customer that he has a pending invoice.
 5. The customer log in his smart application and see the pending notification that he can pay or reject. He also can go to pending invoices menu where he can see a list of all the pending invoices for him.
 6. The customer selects an invoice that he is going to pay and the system loads all the details for the invoice, together with the fee associated with the transaction.
 7. The customer can pay or reject this pending invoice. Upon paying the customer has to authenticate the transaction (i.e in case the application is configured to use 2 factor authentication), the customer initiate the payment and the merchant gets notification that the invoice has been payed successfully.
@@ -49,29 +49,29 @@ This API will return the information about a client (his first name, last name a
 
   `/v1/client/{userNumber}`
 
-* **Method:**
+* **Method**
 
   `GET`
 
 *  **URL Params**
    * `userNumber - The number of the user`
 
-* **Sample Call:**
+* **Sample Call**
 
   ```
     curl -X GET --header 'Accept: application/json' 'http://host/v1/client/78956562'
   ```
 
-* **Success Response:**
+* **Success Response**
 
   * **Code:** 200 <br />
-    **Content:**
+    **Content**
 
      * `firstName [string] - Client's first name`
      * `lastName [string] - Client's last name`
      * `imageUrl [string] - Link to the client's image`
 
-* **Sample Response:**
+* **Sample Response**
 
   ```
     {
@@ -80,19 +80,19 @@ This API will return the information about a client (his first name, last name a
       "imageUrl": "https://red.ilpdemo.org/api/receivers/bob?securityKey=497a2af553cc1cc6443692c6eed60ebda1a08020d287c4f5461a1e41d840d6f5"
     }
   ```
-* **Error handling:**
-  
+* **Error handling**
+
   * **Code:** 401 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "Unauthorized",
       "message": "Access is denied due to invalid credentials"
     }
   ```  
- 
+
   * **Code:** 404 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "ClientNotFound",
@@ -115,23 +115,23 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
 
   `/v1/invoices`
 
-* **Method:**
+* **Method**
 
   `POST`
 
 * **Data Params**
 
-  **Required:**
+  **Required**
 
    * `account [string] - Invoice merchant's account`
    * `amount [number] - Invoice amount`
    * `userNumber [string] - Client's user number`
 
-   **Optional:**
+   **Optional**
 
    * `info [string] - Additional invoice information`
 
-* **Sample Call:**
+* **Sample Call**
 
   ```
     curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d
@@ -144,10 +144,10 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
     'http://host/v1/invoices'
   ```
 
-* **Success Response:**
+* **Success Response**
 
   * **Code:** 200 <br />
-    **Content:**
+    **Content**
        * `invoiceId [number] - Invoice id`
        * `account [string] - Invoice merchant's account`
        * `firstName [string] - Merchant's first name`
@@ -159,12 +159,12 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
        * `userNumber [string] - Invoice client's user number`
        * `info [string] - Invoice additional information`  
 
- * **Note:** Invoice status can be one of the following:
+ * **Note** Invoice status can be one of the following:
      * paid  
      * pending  
      * rejected  
-      
-* **Sample Response:**
+
+* **Sample Response**
 
   ```
     {
@@ -180,10 +180,10 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
       "info": "Invoice from merchant for 130.34 USD"
     }
   ```
-* **Error handling:**
-  
+* **Error handling**
+
   * **Code:** 401 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "Unauthorized",
@@ -192,7 +192,7 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
   ```  
 
   * **Code:** 404 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "ClientNotFound",
@@ -201,14 +201,14 @@ This API will create an invoice in the merchant's DFSP and will send notificatio
   ```  
 
   * **Code:** 404 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "MerchantNotFound",
       "message": "Merchant account could not be found"
     }
   ```  
- 
+
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=postInvoice" target="_blank">Try it out here</a>**
 
 
@@ -225,7 +225,7 @@ Client will be able to obtain a list of all the pending invoices. This API is op
 
   `/v1/invoiceNotifications/pending/{userNumber}`
 
-* **Method:**
+* **Method*
 
   `GET`
 
@@ -233,27 +233,27 @@ Client will be able to obtain a list of all the pending invoices. This API is op
 
    * `userNumber - Client's user number`
 
-* **Sample Call:**
+* **Sample Call**
 
   ```
     curl -X GET --header 'Accept: application/json' 'http://host/v1/invoiceNotifications/pending/78956562'
   ```
 
-* **Success Response:**
+* **Success Response**
 
   * **Code:** 200 <br />
-    **Content:**
+    **Content**
        * `invoiceNotificationId [number] - Invoice notification id`
        * `status [string] - Invoice notification status`
        * `info [string] - Additional invoice notification information`  
 
-* **Note:** Invoice notification status can be one of the following:
+* **Note** Invoice notification status can be one of the following:
 
      * paid  
      * pending  
      * rejected  
 
-* **Sample Response:**
+* **Sample Response**
 
   ```
     {
@@ -267,10 +267,10 @@ Client will be able to obtain a list of all the pending invoices. This API is op
     }
   ```  
 
-* **Error handling:**
-  
+* **Error handling**
+
   * **Code:** 401 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "Unauthorized",
@@ -279,7 +279,7 @@ Client will be able to obtain a list of all the pending invoices. This API is op
   ```  
 
   * **Code:** 404 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "ClientNotFound",
@@ -303,7 +303,7 @@ This API will return to the client all the details associated with the payment f
 
   `/v1/invoicesNotifications/{invoiceNotificationId}`
 
-* **Method:**
+* **Method**
 
   `GET`
 
@@ -311,16 +311,16 @@ This API will return to the client all the details associated with the payment f
 
    * `invoiceNotificationId - Invoice notification id`
 
-* **Sample Call:**
+* **Sample Call**
 
   ```
     curl -X GET --header 'Accept: application/json' 'http://host/v1/invoiceNotifications/2'
   ```
 
-* **Success Response:**
+* **Success Response**
 
   * **Code:** 200 <br />
-    **Content:**
+    **Content**
        * `firstName [string] - Merchant's first name`
        * `lastName [string] - Merchant's last name`
        * `amount [number] - Invoice amount`
@@ -328,7 +328,7 @@ This API will return to the client all the details associated with the payment f
        * `currencySymbol [string] - Currency symbol`
        * `fee [number] - Transfer fee`
 
-* **Sample Response:**
+* **Sample Response**
 
   ```
     {
@@ -341,10 +341,10 @@ This API will return to the client all the details associated with the payment f
     }
   ```
 
-* **Error handling:**
-  
+* **Error handling**
+
   * **Code:** 401 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "Unauthorized",
@@ -353,7 +353,7 @@ This API will return to the client all the details associated with the payment f
   ```  
 
   * **Code:** 404 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "InvoiceNotificationNotFound",
@@ -375,18 +375,18 @@ This API will be used by the client's application to request a payment for the i
 
   `/v1/invoiceNotifications/pay`
 
-* **Method:**
+* **Method**
 
   `PUT`
 
 * **Data Params**
 
-  **Required:**
+  **Required**
 
    * `account [string] - Client's account`
    * `invoiceNotificationId [string] - Invoice notification id`
 
-* **Sample Call:**
+* **Sample Call**
 
   ```
     curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d
@@ -397,20 +397,20 @@ This API will be used by the client's application to request a payment for the i
     'http://host/v1/invoiceNotifications/pay'
   ```
 
-* **Success Response:**
+* **Success Response**
 
   * **Code:** 200 <br />
-    **Content:**
+    **Content**
       * `invoiceNotificationId [string] - Invoice notification id`
       * `status [string] - Invoice notification status`  
-  
-* **Note:** Invoice notification status can be one of the following:
+
+* **Note** Invoice notification status can be one of the following:
 
      * paid  
      * pending  
      * rejected  
 
-* **Sample Response:**
+* **Sample Response**
 
   ```
     {
@@ -419,10 +419,10 @@ This API will be used by the client's application to request a payment for the i
     }
   ```
 
-  * **Error handling:**
-  
+  * **Error handling**
+
   * **Code:** 400 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "InvoiceNotificationNotFound",
@@ -430,7 +430,7 @@ This API will be used by the client's application to request a payment for the i
     }
   ```  
   * **Code:** 401 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "Unauthorized",
@@ -439,13 +439,13 @@ This API will be used by the client's application to request a payment for the i
   ```  
 
   * **Code:** 500 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "InsufficientFunds",
       "message": "You do not have sufficient funds to pay the inoice"
     }
-  ``` 
+  ```
 
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=payInvoiceNotification" target="_blank">Try it out here</a>**
 
@@ -461,17 +461,17 @@ Client also will be able to reject invoices. In most of the cases this API will 
 
   `/v1/invoiceNotifications/reject`
 
-* **Method:**
+* **Method**
 
   `PUT`
 
 * **Data Params**
 
-  **Required:**
+  **Required**
 
    * `invoiceNotificationId [string] - Invoice notification id`
 
-* **Sample Call:**
+* **Sample Call**
 
   ```
     curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d
@@ -481,20 +481,20 @@ Client also will be able to reject invoices. In most of the cases this API will 
     'http://host/v1/invoiceNotifications/reject'
   ```
 
-* **Success Response:**
+* **Success Response**
 
   * **Code:** 200 <br />
-    **Content:**
+    **Content**
       * `invoiceNotificationId [string] - Invoice notification id`
       * `status [string] - Invoice notification status`
 
-* **Note:** Invoice notification status can be one of the following:
+* **Note** Invoice notification status can be one of the following:
 
      * paid  
      * pending  
-     * rejected 
+     * rejected
 
-* **Sample Response:**
+* **Sample Response**
 
   ```
     {
@@ -503,10 +503,10 @@ Client also will be able to reject invoices. In most of the cases this API will 
     }
   ```
 
- * **Error handling:**
-  
-  * **Code:** 400 <br />
-  **Content:**
+ * **Error handling**
+
+  * **Code** 400 <br />
+  **Content**
   ```
     {
       "id": "InvoiceNotificationNotFound",
@@ -514,7 +514,7 @@ Client also will be able to reject invoices. In most of the cases this API will 
     }
   ```  
   * **Code:** 401 <br />
-  **Content:**
+  **Content**
   ```
     {
       "id": "Unauthorized",
@@ -523,4 +523,3 @@ Client also will be able to reject invoices. In most of the cases this API will 
   ```  
 
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=rejectInvoiceNotification" target="_blank">Try it out here</a>**
-
