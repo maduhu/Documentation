@@ -43,6 +43,37 @@
     padding: .25in;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border-style: solid;
+    border-color: white;
+    border-width: 0 10px 1px 10px;
+    border-bottom-color: #888;
+    padding: 5px;
+}
+
+td:first-child, th:first-child {
+    border-left-width: 0;
+}
+td:last-child, th:last-child {
+    border-right-width: 0;
+}
+
+tr:last-child td {
+    border-bottom-width: 0;
+}
+
+th {
+    background-color: #73aeb5;
+    color: white;
+    font-family: 'Quattrocento Sans', sans-serif;
+    border-bottom-width: 0;
+    border-color: white;
+}
+
 @media print {
 
     .l1p .cover-page {
