@@ -73,7 +73,7 @@ GET http://central-directory/resources/?identifierType=test&identifier=1 HTTP/1.
 #### Authentication
 | Type | Description |
 | ---- | ----------- |
-| HTTP Basic | The username and password are the key and secret of a registered DFSP, ex dfsp1:dfsp1 |
+| HTTP Basic | The username and password are the key and secret of a registered DFSP; for example, dfsp1:dfsp1 |
 
 #### Query Params
 | Field | Type | Description |
@@ -162,7 +162,7 @@ GET http://central-directory/identifier-types HTTP/1.1
 #### Authentication
 | Type | Description |
 | ---- | ----------- |
-| HTTP Basic | The username and password are the key and secret of a registered DFSP, ex dfsp1:dfsp1 |
+| HTTP Basic | The username and password are the key and secret of a registered DFSP, for example, dfsp1:dfsp1 |
 
 #### Response 200 OK
 | Field | Type | Description |

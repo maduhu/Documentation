@@ -1,6 +1,6 @@
-# Central Directory Docs
+# Central Directory
 
-## Central Directory Component Architecture
+## Component Architecture
 
 ![Central Directory Block Diagram](./central_directory_block_diagram.png)
 

@@ -1,5 +1,5 @@
 
-#Bulk Payments
+# Bulk Payments
 
 -----
 
@@ -7,7 +7,7 @@
 
 In the DFSP there should be a web interface available where every user (with certain user rights) of the DFSP can login with user number and PIN and initiate a bulk payment.
 
-When initiation a bulk payment the user should be able to select an account from which the bulk payments will be send.
+When initiating a bulk payment the user should be able to select an account from which the bulk payments will be send.
 
 L1P shall support upload of the bulk file with payments from a web interface. The file format should be .csv. The fields in the file will be:
 
@@ -53,8 +53,7 @@ The L1P should have some logic for retrying bulk payments which had failed due t
 ## 6. Handling bulk payments transactions
 
 The diagram below illustrates both cases - whether the user has a mwallet account or not.
-* in case the user has an existing mwallet account the money will be attempted to be transferred to it
-* in the other case - the user's default DFSP will indicate that there's no mwallet account associated with the given user and therefore a temporary error will be recorded in sending DFSP's database and the user will be notified.
+* In case the user has an existing mwallet account the money will be attempted to be transferred to it
+* In the other case - the user's default DFSP will indicate that there's no mwallet account associated with the given user and therefore a temporary error will be recorded in sending DFSP's database and the user will be notified.
 
 ![](./src/bulk_payment_single_record_processing.png)
-
