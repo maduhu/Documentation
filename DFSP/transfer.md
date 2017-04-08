@@ -1,6 +1,7 @@
 # Transfer service API
 
-1. **transfer.push.quote** - fetch fee/rate, name and other data required before approving push transfer
+## transfer.push.quote
+Fetch fee/rate, name and other data required before approving push transfer
   * parameters
     * sourceAccountNumber - sender account
     * sourceAmount - amount to be sent
@@ -18,7 +19,9 @@
     * transfer.invalidAmount
     * transfer.invalidCurrency
     * transfer.fraudViolation
-1. **transfer.push.add** - prepare and execute a push transfer
+
+## transfer.push.add
+Prepare and execute a push transfer
   * parameters
     * sourceAccountNumber - sender account
     * sourceAmount - amount to be sent
@@ -31,7 +34,12 @@
     * receipt - transaction approval identifier, unique to sender's DFSP
   * error - all errors from quote +
     * transfer.quoteTimeout - in case fee/rate is not applicable anymore
-1. **transfer.pending.~** - methods for pending transfers
-1. **transfer.bulk.~** - methods for bulk transfers
-1. **transfer.voucher.~** - methods for vouchers
-1. **transfer.float.~** - methods for float transfers
+    
+## transfer.pending.~
+Methods for pending transfers
+## transfer.bulk.~
+Methods for bulk transfers
+## transfer.voucher.~
+Methods for vouchers
+## Transfer.float.~
+Methods for float transfers
