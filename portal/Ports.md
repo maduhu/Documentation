@@ -1,7 +1,7 @@
 ## Links to working implementations
 This document links to the working API specifications in swagger or RAML. Since machine names may change, use the current [machine reference](../AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate portal server. For example, **integrate-dfsp1** was **ec2-35-163-231-111.us-west-2.compute.amazonaws.com** when this was written.
 
-For the DFSP API links, use the [DFSP Port Guide](./DFSP#default-ports) to get the ports and link.
+For the DFSP API links, use the [DFSP Port Guide](../DFSP/README.md#default-ports) to get the ports and link.
 
 **Example**
 
