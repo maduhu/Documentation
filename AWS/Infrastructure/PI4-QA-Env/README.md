@@ -1,4 +1,4 @@
-## AWS EC2 Instance Info
+## AWS EC2 Instance Information
 
 | Property | DFSP1 | DFSP2 |
 | ----     | ----- | ----- |
@@ -10,19 +10,21 @@
 | Private DNS | ip-172-31-23-143.us-west-2.compute.internal | ip-172-31-22-112.us-west-2.compute.internal |
 | Private IPs | 172.31.23.143 | 172.31.22.112 |
 
-#### SSH
+### SSH
 
-on a mac:  
+#### Mac  
 * for dfsp1 - `ssh -i "interop-dev1.pem" ec2-user@ec2-35-163-231-111.us-west-2.compute.amazonaws.com`
 * for dfsp2 - `ssh -i "interop-dev1.pem" ec2-user@ec2-35-163-249-3.us-west-2.compute.amazonaws.com`
 
 
-on windows:  use putty, and you will need to use the .ppk file linked above.  under the `Connection/SSH/Auth` section you will need to select this .ppk file for `Private key file for authentication`
+#### Windows
+ Use putty, and you will need to use the .ppk file linked above.  
+ Under the `Connection/SSH/Auth` section you will need to select this .ppk file for `Private key file for authentication`
 
 
 ## API Info
 
-#### DFSP - Software Group
+### DFSP - Software Group
 
 | Service | Port | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------- | --------- |
@@ -30,7 +32,7 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 | dfsp-invoices | 8010 | [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8010](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8010/documentation) | [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation)  |
 
 
-#### Mule Proxy  - Modusbox
+### Mule Proxy  - Modusbox
 
 | Service | Port | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------- | --------- |
@@ -39,7 +41,7 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 | interop-ledger-adapter | 8088 |  [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/ledger](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) | [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/ledger](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) |
 | interop-spsp-backend | 8088 |  [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/open-api) | [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/open-api) |
 
-#### ILP - Ripple
+### ILP - Ripple
 
 | Service | Port | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------- | --------- |
@@ -47,23 +49,23 @@ on windows:  use putty, and you will need to use the .ppk file linked above.  un
 | ilp-spsp-server | 3043 |           |           |
 | ilp-connector | 3044 | [http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3044/v1) | [http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3044/v1) |
 
-#### IST - Dwolla
+### IST - Dwolla
 
 | Service | Port | URL |
-| ------- | -----| ----| 
+| ------- | -----| ----|
 | central-ledger |  | [http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/](http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/documentation)|
 | central-directory |  | [ http://central-directory-214462011.us-west-2.elb.amazonaws.com/]( http://central-directory-214462011.us-west-2.elb.amazonaws.com/documentation) |
 | end-user-registry |  |  [http://central-end-user-registry-1833170602.us-west-2.elb.amazonaws.com/](http://central-end-user-registry-1833170602.us-west-2.elb.amazonaws.com/documentation)|
 
 
 ## Test Users
-#### DFSP1    
+### DFSP1    
 * bob    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/88925537
 * alice    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/54200545
 * merchant    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/31909641
 * dfsp1-testconnector    http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:3043/v1/receivers/91959846
-    
-#### DFSP2    
+
+### DFSP2    
 * bob    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/97181061
 * alice    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/52602716
 * merchant    http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:3043/v1/receivers/63858707
