@@ -1,9 +1,7 @@
 
-#Bulk Payments
+# Bulk Payments
 
------
-
-## 1. Bulk payment initiation
+## Bulk payment initiation
 
 In the DFSP there should be a web interface available where every user (with certain user rights) of the DFSP can login with user number and PIN and initiate a bulk payment.
 
@@ -16,13 +14,13 @@ L1P shall support upload of the bulk file with payments from a web interface. Th
 - Client Name
 - Amount
 
-**Note:** Currently we do not have nationalID in the system, that's why we didn't put it in the file format
+**Note** Currently we do not have nationalID in the system, that's why we didn't put it in the file format
 
 **Question:** Are we going to allow sending funds by recipient address? Currently in the system identification of the recipient is done only by user number?
 
 
 
-## 2. Maker/Checker
+## Maker/Checker
 
 There should be a maker/checker concept implemented for bulk payments. Maker and Checker will be roles that can be assigned to different users. Maker role is going to upload the file with the bulk payments and checker role is going the bulk payment.
 
@@ -31,7 +29,7 @@ There should be a maker/checker concept implemented for bulk payments. Maker and
 **Question:** if we implement users/roles/permissions shall implement as well ability each user of the system to be able to add other users for (maker/checkers)?
 
 
-## 3. Bulk file verification
+## Bulk file verification
 
 All the fields in the bulk file shall be mandatory.
 
@@ -41,7 +39,7 @@ In case the user number or account address are not valid the funds will not be d
 **Question:** Do we have to validate recipient names in the bulk file against the one recorded in DFSP and reject the transaction if those do not match? All of the real lift implementations that we did so far,  do not require additional check whether the names match to the account/user in DFSP
 
 
-##4. Handling fees
+## Handling fees
 
 The discriminatory fees should be recorded in the same way as it is done for a regular transaction - different row in the ledger for each payment. There is possibility to configure different fees per different transaction type, so there could be special set of fee configured for the bulk payments.
 The rational behind having the fees recorded as a separate line for each transaction is:
@@ -56,7 +54,7 @@ The rational behind having the fees recorded as a separate line for each transac
 
 
 
-##5. Re-sending of funds in case a temporary error is detected
+## Re-sending of funds in case a temporary error is detected
 
 Upon sending bulk payments the system should detect temporary errors and retry sending of funds again to those user.
 
@@ -78,11 +76,7 @@ The L1P should enable a system administrator to manually retry or trigger distri
 
 **Question:** Do you see a reason this functionality to be a part of the operation hub?
 
-
-
-
-
-##Out-of Scope Scenarios
+## Out-of Scope Scenarios
 
 The L1P shall reject component transactions where named participants are ineligible to transact.
 
@@ -91,16 +85,15 @@ Rationale: Payments must be subject to fraud and AML/CFT checks, and blocked whe
 *Currently we don’t have such components in the system to support this scenario*
 
 
-
-##Handling bulk payments transactions
+## Handling bulk payments transactions
 
 
 Bulk payment transactions should be processed in batches, not one by one. The sender's DFSP first should query the central directory to get the default DFSP by user number for each payments in the batch.
 The central directory will also return information about the users that have a subscription to other services within a DFSP but does not have mWallet/bank account.
 
-The following changes has to be implemented:
+The following changes have to be implemented:
 
-**1.Central directory get user API.**
+** Central directory get user API**
 
 Current Request:
 
@@ -116,7 +109,7 @@ Current Response:
 - To support posting to a user number which does not have mWallet/bank account opened, we need to define another 'identifierType' e.g. phone subscribers and to be able to do a query of if. The response shouldn't be a spspServer, but a 'notificationURL'
 
 
-**2.SPSP Protocol**
+** SPSP Protocol**
 
 
 - Get Payee Details (changes in this API is needed only if we have to compare names in DFSP against names from the uploaded bulk file)
@@ -138,7 +131,8 @@ Current Response:
 
 We have to enable API to be able to query for multiple receivers
 
-- Quote Destination Amount (this API is needed only if we have to get connector fees)
+** Quote Destination Amount **
+This API is needed only if we have to get connector fees.
 
 Current Request:
 
@@ -153,7 +147,7 @@ Current Response:
 
 This API should be changed to support multiple receivers/amounts and get back the information for them
 
-- Setup/Payment
+** Setup/Payment **
 
 Current Request:
 
@@ -192,4 +186,4 @@ This API should be changed to support multiple receivers/amounts and get back th
 
 
 
-**3.ILP Protocol to support multiple payments (Ripple to advice)**
+** ILP Protocol to support multiple payments (Ripple to advice)**

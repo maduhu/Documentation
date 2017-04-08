@@ -96,7 +96,7 @@ Generated for Node.js debugging launch.json should look like the following:
 
 ## Required Extensions for VS Code
 
-In VS Code press `ctrl` + `shift` + `p` and type in the new open input field Install Extensions, or press `ctrl` + `shift` + `x` and go directly to the extensions.
+In VS Code press `ctrl` + `shift` + `p` and type in the new open input field Install Extensions, or press `ctrl` + `shift` + `x` to go directly to the extensions.
 
 ### beautify
 
@@ -136,7 +136,9 @@ This extension contributes the following variables to the Default settings of VS
 * `eslint.enable`: enabled by default
 * `eslint.options`: options to configure how eslint is started. They can be specified as valid for all projects in the User Settings (File -> Preferences -> User Settings) or only for a project in the Workspace Settings (File -> Preferences -> Workspace Settings) in which case the User Settings will be overwritten.
 
-Each project includes the module ut-tools as developmen dependency. You need to point eslint config file to the eslint settings used, here is example how:
+Each project includes the module ut-tools as developmen dependency. You need to point eslint config file to the eslint settings used.
+
+#### Example
 
 ```json
 {
