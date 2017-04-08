@@ -1,6 +1,6 @@
 # L1 Service Portal
 
-![L1 Service Portal](../Wiki/L1%20Portal%20Service.png)
+![L1 Service Portal](./PortalComponents.png)
 
 **Note** The Setup step, "C" above, has since been removed]
 

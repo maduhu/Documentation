@@ -1,4 +1,4 @@
-Contains an initial attempt at providing performance and functional tests for OSS assets.
+Contains an initial attempt at providing performance and functional tests for Level One assets.
 
 ### Setup
 

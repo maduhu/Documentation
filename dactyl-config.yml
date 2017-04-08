@@ -32,24 +32,20 @@ targets:
             ./AWS/Infrastructure/machines.md: machines.html
             ./DFSP: DFSP.html
             ./portal: Portal.html
-            #CURSOR
 
+    -  name: contributor
+       display_name: Level One Project Developer Guide
 
-    -   name: DFSP
-        display_name: DFSP Documentation
+    -  name: stakeholder
+       display_name: Level One Project Financial Provider Overview
+       image_re_subs:
+            "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
+       link_subs:
+            ./DFSP: DFSP.html
+            ./portal: Portal.html
 
-    -   name: portal
-        display_name: Level One Project Portal Documentation
-
-    -   name: scenarios
-        display_name: Level One Project Scenario Documentation
-
-    -   name: central
-        display_name: Level One Project Central Services Documentation
-
-    -   name: infra
-        display_name: Level One Project Infrastructure Documentation
-
+    -  name: regulator
+       display_name: Level One Project Compliance Guide
 
 pages:
 # /Docs
@@ -60,6 +56,9 @@ pages:
         section_header: true
         targets:
             - all
+            - contributor
+            - stakeholder
+            - regulator
 
     -   name: User Discovery
         html: discovery.html
@@ -67,7 +66,7 @@ pages:
         md: Docs/Discovery.md
         targets:
             - all
-
+            - contributor
 
 # Docs/portal
 # readme.md Ports.md
@@ -78,7 +77,7 @@ pages:
         section_header: true
         targets:
             - all
-            - portal
+            - stakeholder
 
     -   name: 'Ports'
         html: Ports.html
@@ -86,7 +85,7 @@ pages:
         md: Docs/portal/Ports.md
         targets:
             - all
-            - portal
+
 
     -   name: 'Portal/Interop Services'
         html: mule.html
@@ -94,7 +93,7 @@ pages:
         md: Docs/mule/README.md
         targets:
             - all
-            - portal
+
 
     -   name: 'Interledger SPSP Client Interface'
         html: ilp-spsp-client-rest.html
@@ -102,7 +101,7 @@ pages:
         md:  ilp-spsp-client-rest/README.md
         targets:
             - all
-            - portal
+
 
     -   name: 'Interop SPSP Client Proxy'
         html: interop-spsp-clientproxy.html
@@ -110,7 +109,7 @@ pages:
         md:  interop-spsp-clientproxy/README.md
         targets:
             - all
-            - portal
+
 
 
     -   name: 'Interledger SPSP Server Interface'
@@ -119,7 +118,7 @@ pages:
         md:  ilp-spsp-server/README.md
         targets:
             - all
-            - portal
+
 
     -   name: 'Interop Ledger'
         html: interop-ilp-ledger.html
@@ -127,7 +126,7 @@ pages:
         md:  interop-ilp-ledger/README.md
         targets:
             - all
-            - portal
+
 
     -   name: 'Interop SPSP Backend'
         html: interop-ilp-ledger.html
@@ -135,7 +134,7 @@ pages:
         md:  interop-spsp-backend-services/README.md
         targets:
             - all
-            - portal
+
 
 
 # Docs/portal/scenarios
@@ -147,7 +146,7 @@ pages:
         md: 'Docs/portal/scenarios/Send Payment.md'
         targets:
             - all
-            - scenarios
+            - stakeholder
 
     -   name: 'Pending Transfers'
         html: Invoices.html
@@ -155,7 +154,7 @@ pages:
         md: Docs/DFSP/PendingTransactions/README.md
         targets:
             - all
-            - scenarios
+            - stakeholder
 
     -   name: 'Pending Transfers API'
         html: TransferAPI.html
@@ -163,7 +162,7 @@ pages:
         md: Docs/DFSP/Pending Transactions Api/README.md
         targets:
             - all
-            - scenarios
+
 
     -   name: 'Bulk Payments'
         html: BulkPayments.html
@@ -171,7 +170,7 @@ pages:
         md: 'Docs/DFSP/BulkPayment/README.md'
         targets:
             - all
-            - scenarios
+
 
 #Docs/CentralDirectory
 # README.md central_directory_endpoints.md
@@ -182,7 +181,7 @@ pages:
         md: Docs/CentralDirectory/README.md
         targets:
             - all
-            - central
+
 
     # -   name: 'Central Directory Endpoints'
     #     html: central_directory_endpoints.html
@@ -190,7 +189,6 @@ pages:
     #     md: Docs/CentralDirectory/central_directory_endpoints.md
     #     targets:
     #         - all
-    #         - central
 
     -   name: 'Central Directory API'
         html: central_directory_API.html
@@ -198,7 +196,7 @@ pages:
         md: central-directory/central-directory-documentation.md
         targets:
             - all
-            - central
+
 
     -   name: 'Directory Gateway'
         html: interop-dfsp-directory.html
@@ -206,7 +204,7 @@ pages:
         md: interop-dfsp-directory/README.md
         targets:
             - all
-            - central
+
 
 #Docs/CentralLedger
 # README.md central_ledger_endpoints.md
@@ -217,7 +215,7 @@ pages:
         md: Docs/CentralLedger/README.md
         targets:
             - all
-            - central
+
 
     -   name: 'Central Ledger API'
         html: central_ledger_API.html
@@ -225,7 +223,7 @@ pages:
         md: central-ledger/central-ledger-documentation.md
         targets:
             - all
-            - central
+
 
     # -   name: 'Central Ledger Endpoints'
     #     html: central_ledger_endpoints.html
@@ -240,7 +238,7 @@ pages:
         md: central-ledger/execute-transfer-guide.md
         targets:
             - all
-            - central
+
 
     -   name: 'Central Ledger Setup'
         html: central_ledger_Setup.html
@@ -248,7 +246,7 @@ pages:
         md: central-ledger/LevelOneOnboarding.md
         targets:
             - all
-            - central
+
 
 #Docs/CentralRules
 # README.md central_rules_endpoints.md
@@ -258,7 +256,7 @@ pages:
         md: Docs/CentralLedger/README.md
         targets:
             - all
-            - central
+
 
     -   name: 'Central Rules Endpoints'
         html: central_rules_endpoints.html
@@ -266,7 +264,7 @@ pages:
         md: Docs/CentralRules/central_rules_endpoints.md
         targets:
             - all
-            - central
+
 
 #Docs/ELK
 # ELKSetup.md
@@ -277,7 +275,7 @@ pages:
         md: Docs/ELK/ELKSetup.md
         targets:
             - all
-            - infra
+
 
 #Docs/AWS/Infrastructure
 # machines.md
@@ -287,7 +285,7 @@ pages:
         md: Docs/AWS/Infrastructure/machines.md
         targets:
             - all
-            - infra
+
 
     -   name: "Mule's Docker Image"
         html: docker.html
@@ -295,7 +293,7 @@ pages:
         md: Docs/mule/docker.md
         targets:
             - all
-            - infra
+
 
 #Docs/AWS/Infrastructure/PI4-Test-Env
 # README.md
@@ -305,7 +303,7 @@ pages:
         md: Docs/AWS/Infrastructure/PI4-Test-Env/README.md
         targets:
             - all
-            - infra
+
 
 #Docs/AWS/Infrastructure/PI4-QA-Env
 # README.md
@@ -315,7 +313,7 @@ pages:
         md: Docs/AWS/Infrastructure/PI4-QA-Env/README.md
         targets:
             - all
-            - infra
+
 
 #Docs/JMeter
     -   name: 'Integration Tests'
@@ -324,7 +322,7 @@ pages:
         md: Docs/JMeter/README.md
         targets:
             - all
-            - infra
+
 
     -   name: 'Scenario Tests'
         html: scenarioTests.html
@@ -332,7 +330,7 @@ pages:
         md: Docs/JMeter/scenarioTests/readme.md
         targets:
             - all
-            - infra
+
 
 #/Docs/DFSP
 #README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
@@ -343,7 +341,7 @@ pages:
         md: Docs/DFSP/README.md
         targets:
             - all
-            - dfsp
+            - stakeholder
 
     -   name: 'Directory'
         html: directory.html
@@ -351,7 +349,7 @@ pages:
         md: Docs/DFSP/directory.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Identity'
         html: identity.html
@@ -359,7 +357,7 @@ pages:
         md: Docs/DFSP/identity.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Notifications'
         html: notification.html
@@ -367,7 +365,7 @@ pages:
         md: Docs/DFSP/notification.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Rules'
         html: rule.html
@@ -375,7 +373,7 @@ pages:
         md: Docs/DFSP/rule.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Subscriptions'
         html: subscription.html
@@ -383,7 +381,7 @@ pages:
         md: Docs/DFSP/subscription.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Transfer'
         html: transfer.html
@@ -391,7 +389,7 @@ pages:
         md: Docs/DFSP/transfer.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Account'
         html: account.html
@@ -399,7 +397,7 @@ pages:
         md: Docs/DFSP/account.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'ManageAccoutHolders'
         html: ManageAccoutHolders.html
@@ -407,7 +405,7 @@ pages:
         md: Docs/DFSP/ManageAcccoutHolders/ReadMe.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Development'
         html: development.html
@@ -415,7 +413,7 @@ pages:
         md: Docs/DFSP/development.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'Bulk Payments'
         html: BulkPayments.html
@@ -423,7 +421,7 @@ pages:
         md: Docs/DFSP/BulkPayments.md
         targets:
             - all
-            - dfsp
+
 
     -   name: 'USSD'
         html: USSD.html
@@ -431,7 +429,7 @@ pages:
         md: Docs/DFSP/USSD/README.md
         targets:
             - all
-            - dfsp
+
 
 
 # -------------------- Style Checker Rules ------------------------
