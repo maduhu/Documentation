@@ -19,7 +19,7 @@ See [ILP Ledger Adapter API](./ledger-adapter.md)
 
 ## ILP/SPSP Client REST API
 
-See [ILP/SPSP Client REST API](./ilp-spsp-client-rest-api.md)
+See [SPSP Client REST API](https://github.com/LevelOneProject/ilp-spsp-client-rest)
 
 ## ILP Component Architecture
 
