@@ -34,6 +34,7 @@ The portal service connects a DFSP to other other DFSPs and the central services
 
 ### Central Services
 The central services are a collection of separate services that help the DFSPs perform operations on the network.
+
 - The [Central Directory Service](./CentralDirectory) finds which DFSP handles a user's accounts.
 - The [Central Ledger Service](./CentralLedger) handles clearing and settlement.
 - The [Central Rules Service](./CentralRules) sets policy across the system.
@@ -48,6 +49,7 @@ The individual services listed above can't easily describe how key scenarios wor
 
 ## System-wide Testing
 Individual services have their own tests, but there are system-wide tests as per the [testing strategy](https://github.com/LevelOneProject/Docs/wiki/Manual-and-automated-testing-strategy).
+
 - [End-to-end functional testing](https://github.com/LevelOneProject/interop-functional-tests)
 - [Performance testing](./JMeter)
 - Resilience testing
