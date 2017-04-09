@@ -19,9 +19,9 @@ The first stage of any transfer is to find out what institution can accept money
 
 [Central Directory Lookup API](https://github.com/LevelOneProject/central-directory/blob/master/central-directory-documentation.md)
 
-[DFSP Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8011/documentation) DFSP:8011/documentation
+[DFSP Implementation](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8011/documentation) DFSP:8011/documentation
 
-[Portal Proxy API Implementation](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) DFSP:8081/directory/v1/console/
+[Portal Proxy API Implementation](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) DFSP:8081/directory/v1/console/
 
     Post :user/get
     Post: user/add # Expect to change
@@ -34,7 +34,7 @@ The [query](https://github.com/LevelOneProject/ilp-spsp-client-rest#get-v1query)
 ## SPSP Client Proxy
 The [Interop Client Proxy](https://github.com/LevelOneProject/interop-spsp-clientproxy) is a pass through to the [SPSP client rest API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md)
 
-[SPSP Client Proxy Implemented](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/spsp/client/v1/console/) DFSP:
+[SPSP Client Proxy Implemented](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/spsp/client/v1/console/) DFSP:
 
     GET:  /query - get the information about the account based on customer URI
     GET:  /quoteDestinationAmount - get the fee for the connectors
@@ -47,7 +47,7 @@ The [Interop Client Proxy](https://github.com/LevelOneProject/interop-spsp-clien
 ## SPSP Server
 The [SPSP Server proxy](https://github.com/LevelOneProject/interop-spsp-backend-services) is a pass through to the [SPSP Server API](https://github.com/LevelOneProject/ilp-spsp-server)
 
-[SPSP API Implemented](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/spsp/backend/v1/console/)
+[SPSP API Implemented](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/spsp/backend/v1/console/)
 
     GET: /receivers/{payee}   
     PUT: /receivers/{payee}/payments/{uuid}   
@@ -55,7 +55,7 @@ The [SPSP Server proxy](https://github.com/LevelOneProject/interop-spsp-backend-
 ## DFSP
 For the DFSP the quoting APIs start in [The DFSP ledger service](./DFSP) which talk to the SPSP Client proxy.
 
-[DSFP Ledger API Implemented](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8014/documentation#/)
+[DSFP Ledger API Implemented](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8014/documentation#/)
 
     GET /ledger/transfers/{id} -  Get Transfer by ID  
     PUT /ledger/transfers/{id}  - Prepare/Propose transfer
@@ -65,7 +65,7 @@ The final portion begins with a message to send the money from the source DFSP t
 
 [ILP Client Ledger Adapter Documented](./ILP/ledger-adapter.md)
 
-[ILP Ledger Adapter APIs (Implemented)](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8081/ilp/ledger/v1/console/)
+[ILP Ledger Adapter APIs (Implemented)](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/ilp/ledger/v1/console/)
 
     GET: /   
     GET: /accounts   
@@ -81,7 +81,7 @@ The final portion begins with a message to send the money from the source DFSP t
 The receiving DFSP has to validate that it will accept the transfer (skipped for now) and fulfill it.
 ## DFSP
 
-[DFSP API](http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8014/documentation#/)
+[DFSP API](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8014/documentation#/)
 
     GET: /ledger/transfers/{id}/fulfillment Get Transfer Fulfillment   
     PUT: /ledger/transfers/{transferId}/fulfillment Execute prepared transfer

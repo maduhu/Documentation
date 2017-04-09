@@ -12,6 +12,8 @@ cp Docs/CentralDirectory/*.png ./images
 cp Docs/CentralLedger/*.png ./images
 cp Docs/CentralRules/*.png ./images
 cp Docs/portal/scenarios/*.png ./images
+cp Docs/portal/*.png ./images
 cp Docs/AWS/Infrastructure/*.png ./images
 cp Docs/mule/*.png ./images
 cp Docs/JMeter/media/*.jpg ./images
+cp Docs/ILP/*.png ./images

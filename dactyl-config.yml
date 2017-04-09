@@ -30,8 +30,24 @@ targets:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
         link_subs:
             ./AWS/Infrastructure/machines.md: machines.html
-            ./DFSP: DFSP.html
+            ./portal/scenarios/Send%20Payment.md: SendPayment.html
             ./portal: Portal.html
+            ./DFSP/PendingTransactions/README.md: Invoices.html
+            ./DFSP/BulkPayment/README.md: BulkPayments.html
+            ../../DFSP#default-ports: DFSP.html#default-ports
+            ./DFSP: DFSP.html
+            ./ILP/ledger-adapter.md: ledger-adapter.html
+            ./ILP: ILP.html
+            ../CentralDirectory/central_directory_endpoints.md: CentralDirectory.html
+            ./CentralDirectory: CentralDirectory.html
+            ./CentralLedger: central_ledger.html
+            ./CentralRules: central_rules.html
+            ./JMeter: IntegrationTests.html
+            ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
+            ./ledger-adapter.md: ledger-adapter.html
+            ../Ports.md: ports.html
+  #      link_re_subs:
+  #          "[./\\w]*/([\\w%.-]+[.]md)": "\\1.html"
 
     -  name: contributor
        display_name: Level One Project Developer Guide
@@ -41,8 +57,24 @@ targets:
        image_re_subs:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
        link_subs:
-            ./DFSP: DFSP.html
+            ./AWS/Infrastructure/machines.md: https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md         
+            ./portal/scenarios/Send%20Payment.md: SendPayment.html
             ./portal: Portal.html
+            ./DFSP/PendingTransactions/README.md: Invoices.html
+            ./DFSP/BulkPayment/README.md: BulkPayments.html
+            ../../DFSP#default-ports: DFSP.html#default-ports
+            ./DFSP: DFSP.html
+            ./ILP/ledger-adapter.md: https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md
+            ./ILP: ILP.html
+            ../CentralDirectory/central_directory_endpoints.md: https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md
+            ./CentralDirectory: https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory
+            ./CentralLedger: https://github.com/LevelOneProject/Docs/tree/master/CentralLedger
+            ./CentralRules: https://github.com/LevelOneProject/Docs/blob/master/CentralRules            
+            ./JMeter: https://github.com/LevelOneProject/Docs/blob/master/JMeter
+            ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
+            ./ledger-adapter.md: https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md
+            ../Ports.md: https://github.com/LevelOneProject/Docs/blob/master/portal/Ports.md
+
 
     -  name: regulator
        display_name: Level One Project Compliance Guide
@@ -74,6 +106,24 @@ pages:
         html: Portal.html
         category: Portal
         md: Docs/portal/readme.md
+        section_header: true
+        targets:
+            - all
+            - stakeholder
+
+    -   name: 'Clearing Architecture'
+        html: ClearingArchitecture.html
+        category: Portal
+        md: 'Docs/ILP/Clearing Architecture.md'
+        section_header: true
+        targets:
+            - all
+            - stakeholder
+
+    -   name: 'Portal Interledger Components and Flow'
+        html: ILP.html
+        category: Portal
+        md: Docs/ILP/README.md
         section_header: true
         targets:
             - all
@@ -127,6 +177,14 @@ pages:
         targets:
             - all
 
+    -   name: 'Ledger Adapter'
+        html: ledger-adapter.html
+        category: Portal
+        md:  Docs/ILP/ledger-adapter.md
+        targets:
+            - all
+            
+
 
     -   name: 'Interop SPSP Backend'
         html: interop-ilp-ledger.html
@@ -170,7 +228,7 @@ pages:
         md: 'Docs/DFSP/BulkPayment/README.md'
         targets:
             - all
-
+            - stakeholder
 
 #Docs/CentralDirectory
 # README.md central_directory_endpoints.md
@@ -251,7 +309,7 @@ pages:
 #Docs/CentralRules
 # README.md central_rules_endpoints.md
     -   name: 'Central Rules Overview'
-        html: central_directory.html
+        html: central_rules.html
         category: 'Central Rules'
         md: Docs/CentralLedger/README.md
         targets:
@@ -284,7 +342,7 @@ pages:
         category: Infrastructure
         md: Docs/AWS/Infrastructure/machines.md
         targets:
-            - all
+            - all            
 
 
     -   name: "Mule's Docker Image"
