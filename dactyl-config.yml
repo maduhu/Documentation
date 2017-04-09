@@ -25,7 +25,7 @@ cover_page:
 
 targets:
     -   name: all
-        display_name: Level One Project Overview
+        display_name: Level One Project Full Documentation
         image_re_subs:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
         link_subs:
