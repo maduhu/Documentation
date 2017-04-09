@@ -22,4 +22,4 @@
 ## External DFSP Interfaces
 - [Ledger Adapter API](./ILP/ledger-adapter.md)
 - [Simple Payment Setup Protocol API](https://github.com/LevelOneProject/ilp-spsp-client-rest)
-- [DFSP Identity Lookup](./CentralDirectory/central_directory_endpoints.md)
+- [DFSP Identity Lookup](../CentralDirectory/central_directory_endpoints.md)
