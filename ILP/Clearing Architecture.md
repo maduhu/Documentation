@@ -15,7 +15,7 @@ In context of the overall project architecture, the clearing architecture is hig
 
 ### Clearing Architecture Summary
 
-![L1P Clearing Architecture Diagram](https://github.com/LevelOneProject/Docs/blob/master/Wiki/L1P_Settlement_Architecture.png)
+![L1P Clearing Architecture Diagram](../portal/scenarios/Send%20Payment%20Via%20SPSP.png)
 
 In short, the proposed clearing architecture for the Level One Project is:
 
@@ -32,8 +32,6 @@ In short, the proposed clearing architecture for the Level One Project is:
 
 
 ## Detailed Information
-
-![L1P Clearing Architecture Diagram](https://github.com/LevelOneProject/Docs/blob/master/Wiki/L1P_Settlement_Architecture.png)
 
 The components are summarized as follows:
 
