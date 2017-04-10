@@ -1,5 +1,16 @@
 # Overview
 
+## Contents:
+
+- [Component Diagram](#component-diagram)
+- [Flow Diagrams](#flow-diagrams)
+- [Default Ports](#default-ports)
+- [Development Environment Setup](#development-environment-setup)
+- [Test Strategy](#test-strategy)
+- [Security/Threat Model](#security-threat-model)
+- [Resilience Model](#resilience-model)
+- [Monitoring/Health Model](#monitoring-health-model)
+
 ## DFSP microservices
 
 DFSP functionality includes the following services:
@@ -16,17 +27,6 @@ DFSP functionality includes the following services:
 - **[dfsp-account](account.md)** - methods that affect ledger accounts, like creating new ones or relations between account and other data like NFC, biometric, float, phone, signatories, etc.
 - **[dfsp-admin](admin.md)** - web interface for DFSP.
 - **[dfsp-mock](mock.md)** - mocking of external to DFSP services.
-
-## Contents:
-
-- [Component Diagram](#component-diagram)
-- [Flow Diagrams](#flow-diagrams)
-- [Default Ports](#default-ports)
-- [Development Environment Setup](#development-environment-setup)
-- [Test Strategy](#test-strategy)
-- [Security/Threat Model](#security-threat-model)
-- [Resilience Model](#resilience-model)
-- [Monitoring/Health Model](#monitoring-health-model)
 
 ## Component Diagram
 
