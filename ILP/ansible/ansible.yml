@@ -1,59 +1,15 @@
 # Ansible playbook for deploying the
 # ilp-connector, ilp-spsp-client-rest, and ilp-spsp-server
-# to the L1P test integration environment
 
 # Note this must be run with the CLI param --extra-vars="docker_username=... docker_password=... docker_email=..."
----
-- name: Add hosts
-  hosts: localhost
-  tags:
-    - client
-    - server
-    - connector
-  tasks:
 
-  - add_host:
-      name: "ec2-35-166-189-14.us-west-2.compute.amazonaws.com"
-      groups: dfsps
-      ILP_LEDGER_ADMIN_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/admin"
-      ILP_LEDGER_ADMIN_USERNAME: admin
-      ILP_LEDGER_ADMIN_PASSWORD: admin
-      ILP_LEDGER_PREFIX: levelone.dfsp1.
-      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend"
-      ILP_CLIENT_INVOICE_URL_TEMPLATE: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3043/v1/receivers/invoices/{invoiceId}"
-      ILP_CONNECTOR: "levelone.dfsp1.dfsp1-testconnector"
-      ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp1-testconnector"
-      ILP_CONNECTOR_PASSWORD: "1234"
-      ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp1"
-      ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp1
-      ILP_CONNECTOR_PEERS: "levelone.ist.dfsp2"
-      CURRENCY: USD
-      ILP_CENTRAL_LEDGER_PREFIX: levelone.ist.
-
-  - add_host:
-      name: "ec2-35-166-236-69.us-west-2.compute.amazonaws.com"
-      groups: dfsps
-      ILP_LEDGER_ADMIN_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/admin"
-      ILP_LEDGER_ADMIN_USERNAME: admin
-      ILP_LEDGER_ADMIN_PASSWORD: admin
-      ILP_LEDGER_PREFIX: levelone.dfsp2.
-      ILP_SPSP_SERVER_BACKEND: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend"
-      ILP_CLIENT_INVOICE_URL_TEMPLATE: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/invoices/{invoiceId}"
-      ILP_CONNECTOR_ACCOUNT: "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/dfsp2-testconnector"
-      ILP_CONNECTOR_PASSWORD: "1234"
-      ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/accounts/dfsp2"
-      ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: dfsp2
-      ILP_CONNECTOR: "levelone.dfsp2.dfsp2-testconnector"
-      ILP_CONNECTOR_PEERS: "levelone.ist.dfsp1"
-      CURRENCY: USD
-      ILP_CENTRAL_LEDGER_PREFIX: levelone.ist.
-
+# This must also be run with the CLI param --inventory-file=... where that points to either the hosts or hosts-qa file
 - name: Configure DFSPs with ILP components
   hosts: dfsps
   remote_user: ec2-user
   tasks:
 
-  - name: Install those deps
+  - name: Install docker-py
     pip:
       name: "docker-py"
     become: true

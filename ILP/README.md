@@ -3,15 +3,19 @@
 
 ## Running the ILP/SPSP components
 
-[Ansible](https://docs.ansible.com/ansible/playbooks.html) is used for deploying the [`ilp-connector`](https://github.com/interledgerjs/ilp-connector), [`ilp-spsp-client-rest`](https://github.com/LevelOneProject/ilp-spsp-client-rest), and [`ilp-spsp-server`](https://github.com/LevelOneProject/ilp-spsp-server). The [Ansible Playbook](./ansible.yml) can be run with the command:
+[Ansible](https://docs.ansible.com/ansible/playbooks.html) is used for deploying the [`ilp-connector`](https://github.com/interledgerjs/ilp-connector), [`ilp-spsp-client-rest`](https://github.com/LevelOneProject/ilp-spsp-client-rest), and [`ilp-spsp-server`](https://github.com/LevelOneProject/ilp-spsp-server). The [Ansible Playbook](./ansible/ansible.yml) can be run with the command:
 
 ```sh
-ansible-playbook -v --extra-vars="docker_username=<FILL ME IN> docker_password=<FILL ME IN> docker_email=<FILL ME IN>" ansible.yml
+ansible-playbook -v --extra-vars="docker_username=<FILL ME IN> docker_password=<FILL ME IN> docker_email=<FILL ME IN>" --inventory-file=hosts-test ansible.yml
 ```
+
+This command should be run from the [ansible](./ansible) directory in this repository.
 
 Ansible will use the SSH keys found in your normal SSH directory to log in to the servers.
 
 The Docker credentials are those used for the private registry (modusbox-level1-docker.jfrog.io).
+
+The Inventory File should either be the [hosts-test](./ansible/hosts-test) or [hosts-qa](./ansible/hosts-qa) depending on whether you want to deploy the components to the L1P Test or QA environment.
 
 ## ILP Ledger Adapter API
 
