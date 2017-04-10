@@ -1,6 +1,6 @@
-# DFSP
+# Overview
 
-## Microservices component diagram
+## DFSP microservices
 
 DFSP functionality includes the following services:
 
@@ -17,8 +17,32 @@ DFSP functionality includes the following services:
 - **[dfsp-admin](admin.md)** - web interface for DFSP.
 - **[dfsp-mock](mock.md)** - mocking of external to DFSP services.
 
+## Contents:
 
-## Default ports
+- [Component Diagram](#component-diagram)
+- [Flow Diagrams](#flow-diagrams)
+- [Default Ports](#default-ports)
+- [Development Environment Setup](#development-environment-setup)
+- [Test Strategy](#test-strategy)
+- [Security/Threat Model](#security-threat-model)
+- [Resilience Model](#resilience-model)
+- [Monitoring/Health Model](#monitoring-health-model)
+
+## Component Diagram
+
+![microservices component diagram](./microServices.png)
+
+## Flow Diagrams
+
+### Push Transfer Sequence Diagram
+
+![Push transfer sequence diagram](./transfer.push.create.png)
+
+### Bulk Transfer Sequence Diagram
+
+![Bulk transfer sequence diagram](./transfer.bulk.create.png)
+
+## Default Ports
 
 Each service has some default ports in the development environment. Below you can find these defaults for each project. For latest machine DNS names, check the [machines list](https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md).
 
@@ -38,18 +62,14 @@ Each service has some default ports in the development environment. Below you ca
 | [dfsp-admin](https://github.com/LevelOneProject/dfsp-admin)                   | 30020            | 8020             |
 | [dfsp-mock](https://github.com/LevelOneProject/dfsp-mock)                     |                  | 8021             |
 
-## Development environment setup
+## Development Environment Setup
 
 See [Development environment setup](development.md)
 
-## Component diagram
+## Test Strategy
 
-![microservices component diagram](./microServices.png)
+## Security/Thread Model
 
-## Push transfer sequence diagram
+## Resilience Model
 
-![Push transfer sequence diagram](./transfer.push.create.png)
-
-## Bulk transfer sequence diagram
-
-![Bulk transfer sequence diagram](./transfer.bulk.create.png)
+## Monitoring/Health Model
