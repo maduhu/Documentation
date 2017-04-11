@@ -1,6 +1,7 @@
 [dfsps]
-dfsp1 ansible_host="ec2-35-163-231-111.us-west-2.compute.amazonaws.com" ansible_user="ec2-user"
-dfsp2 ansible_host="ec2-35-163-249-3.us-west-2.compute.amazonaws.com" ansible_user="ec2-user"
+dfsp1 ansible_host="ec2-35-163-231-111.us-west-2.compute.amazonaws.com" ansible_user="ec2-user" peer_name="dfsp2"
+dfsp2 ansible_host="ec2-35-163-249-3.us-west-2.compute.amazonaws.com" ansible_user="ec2-user" peer_name="dfsp1"
 
 [dfsps:vars]
 ist_url="http://central-ledger-1139971789.us-west-2.elb.amazonaws.com"
+l1p_env="qa"
