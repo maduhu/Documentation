@@ -143,14 +143,20 @@
           }
         CONNECTOR_ROUTES: >
 
-          [
-            {
-              "targetPrefix": "",
-              "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
-              "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
-            }
-          ]
-        CONNECTOR_ROUTE_BROADCAST_ENABLED: 1
+          [{
+            "targetPrefix": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.",
+            "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}"
+            "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ inventory_hostname }}"
+          }, {
+            "targetPrefix": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
+            "connectorLedger": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}."
+            "connectorAccount": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}-testconnector"
+          }, {
+            "targetPrefix": "{{ ilp_address_neighborhood }}.{{ peer_name }}.",
+            "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
+            "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
+          }]
+        CONNECTOR_ROUTE_BROADCAST_ENABLED: 0
         CONNECTOR_PEERS: "{{ILP_CONNECTOR_PEERS}}"
         CONNECTOR_ROUTE_EXPIRY: 6000000000
         CONNECTOR_ROUTE_CLEANUP_INTERVAL: 6000000
@@ -161,3 +167,4 @@
         CONNECTOR_SLIPPAGE: 0
         CONNECTOR_LOG_LEVEL: trace
         DEBUG: "*"
+
