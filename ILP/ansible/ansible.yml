@@ -141,7 +141,19 @@
               }
             }
           }
+        CONNECTOR_ROUTES: >
+
+          [
+            {
+              "targetPrefix": "",
+              "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
+              "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
+            }
+          ] 
+        CONNECTOR_ROUTE_BROADCAST_ENABLED: 0
         CONNECTOR_PEERS: "{{ILP_CONNECTOR_PEERS}}"
+        CONNECTOR_ROUTE_EXPIRY: 6000000000
+        CONNECTOR_ROUTE_CLEANUP_INTERVAL: 6000000
         CONNECTOR_MIN_MESSAGE_WINDOW: 1
         CONNECTOR_MAX_HOLD_TIME: 60
         CONNECTOR_BACKEND: one-to-one
