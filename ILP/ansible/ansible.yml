@@ -8,7 +8,7 @@
   hosts: dfsps
   vars:
     base_url: "http://{{ hostvars[inventory_hostname].ansible_host }}"
-    ilp_address_neighborhood: "test.levelone-{{ l1p_env }}"
+    ilp_address_neighborhood: "levelone"
     ILP_LEDGER_ADMIN_ACCOUNT: "{{ base_url }}:8088/ilp/ledger/v1/accounts/admin"
     ILP_LEDGER_ADMIN_USERNAME: admin
     ILP_LEDGER_ADMIN_PASSWORD: admin
@@ -50,10 +50,10 @@
       - client
     docker_container:
       name: ilp-spsp-client-rest
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v4.0.9"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v4.0.10"
       state: started
       pull: yes
-      restart: yes
+      recreate: yes
       ports:
         - "3042:3042"
       log_driver: syslog
@@ -81,10 +81,10 @@
       - server
     docker_container:
       name: ilp-spsp-server
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v4.1.3"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v4.1.4"
       state: started
       pull: yes
-      restart: yes
+      recreate: yes
       ports:
         - "3043:3043"
       log_driver: syslog
@@ -110,7 +110,7 @@
       name: ilp-connector
       image: "interledger/js-ilp-connector:v15.1.1"
       state: started
-      restart: yes
+      recreate: yes
       pull: yes
       log_driver: syslog
       log_options:
@@ -141,7 +141,19 @@
               }
             }
           }
+        CONNECTOR_ROUTES: >
+
+          [
+            {
+              "targetPrefix": "",
+              "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
+              "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
+            }
+          ] 
+        CONNECTOR_ROUTE_BROADCAST_ENABLED: 0
         CONNECTOR_PEERS: "{{ILP_CONNECTOR_PEERS}}"
+        CONNECTOR_ROUTE_EXPIRY: 6000000000
+        CONNECTOR_ROUTE_CLEANUP_INTERVAL: 6000000
         CONNECTOR_MIN_MESSAGE_WINDOW: 1
         CONNECTOR_MAX_HOLD_TIME: 60
         CONNECTOR_BACKEND: one-to-one
