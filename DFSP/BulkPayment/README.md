@@ -3,7 +3,7 @@
 
 -----
 
-## 1. Bulk payment initiation
+## Bulk Payment Initiation
 
 In the DFSP there should be a web interface available where every user (with certain user rights) of the DFSP can login with user number and PIN and initiate a bulk payment.
 
@@ -18,17 +18,17 @@ L1P shall support upload of the bulk file with payments from a web interface. Th
 - National id
 - Amount
 
-## 2. Maker/Checker
+## Maker/Checker
 
 There should be a maker/checker concept implemented for bulk payments. Maker and Checker will be roles that can be assigned to different users. Maker role is going to upload the file with the bulk payments and checker role is going to initiate the bulk payments.
 
-## 3. Bulk file verification
+## Bulk File Verification
 
 All the fields in the bulk file shall be mandatory.
 
 In case the user number or phone number are not valid the funds will not be disbursed to this user.
 
-## 4. Handling fees
+## Handling Fees
 
 The discriminatory fees should be recorded in the same way as it is done for a regular transaction - different row in the ledger for each payment. There is possibility to configure different fees per different transaction type, so there could be special set of fee configured for the bulk payments.
 The rational behind having the fees recorded as a separate line for each transaction is:
@@ -37,7 +37,7 @@ The rational behind having the fees recorded as a separate line for each transac
 
 - The fees must be recorded as a separate row in the ledger
 
-## 5. Re-sending of funds in case a temporary error is detected
+## Re-sending of Funds in Case a Temporary Error is Detected
 
 Upon sending bulk payments the system should detect temporary errors and retry sending of funds again to those user.
 
@@ -50,7 +50,7 @@ When initiating a bulk payment the system shall allow entering of the end date/t
 The L1P should have some logic for retrying bulk payments which had failed due to temporary errors.
 
 
-## 6. Handling bulk payments transactions
+## Handling Bulk Payments Transactions
 
 The diagram below illustrates both cases - whether the user has a mwallet account or not.
 * In case the user has an existing mwallet account the money will be attempted to be transferred to it
