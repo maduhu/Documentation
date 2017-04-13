@@ -492,3 +492,145 @@ This API will return all the details associated with the invoice by given invoic
   ```  
 
 * **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=invoiceInfo" target="_blank">Try it out here</a>**
+
+
+## VIII.  Get Invoice Fees  ##
+
+This API will return the fees associated with the invoice by invoiceUrl, payer identifier and payer account.
+
+### API Description
+
+----
+
+
+* **URL**
+
+  `/v1/invoiceFees/{invoiceUrl}/{identifier}/{account}`
+
+* **Method**
+
+  `GET`
+
+*  **URL Params**
+
+   * `invoiceUrl - Invoice url`
+   * `identifier - Payer identifier`
+   * `invoiceUrl - Payer account number`
+
+* **Sample Call**
+
+  ```
+    curl -X GET --header 'Accept: application/json' 'http://host/v1/invoiceFees/http%3A%2F%2Fec2-35-166-236-69.us-west-2.compute.amazonaws.com%3A3043%2Fv1%2Freceivers%2Finvoices%2F1/11768930/bob'
+  ```
+
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `fee [number] - Local fee`
+       * `connectorFee [string] - Connector's fee`
+
+* **Sample Response**
+
+  ```
+    {
+      "fee": 0.23,
+      "connectorFee": 1.00,
+    }
+  ```
+
+* **Error handling**
+
+  * **Code:** 404 <br />
+  **Content**
+  ```
+    {
+      "id": "InvoiceNotFound",
+      "message": "Invoice with such invoiceUrl could not be found"
+    }
+  ```
+
+    * **Code:** 404 <br />
+  **Content**
+  ```
+    {
+      "id": "ClientNotFound",
+      "message": "Client account could not be found"
+    }
+
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=getInvoiceFees" target="_blank">Try it out here</a>**
+
+## IX.  Pay Invoice  ##
+
+This API will be used by the client's application to request a payment for the invoice. For invoices from type 'standard' and 'pending' upon successful payment, 
+merchant's DFSP will mark the invoice as paid and the merchants application should get an invoice payment notification (outside the scope of the current document).
+For invoices from type 'product' in the merchant's DFSP will be posted payment but invoice will remain 'pending' since it should be reused after this payment from other clients.
+
+
+### API Description
+----
+
+
+* **URL**
+
+  `/v1/invoice/pay`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Required**
+
+   * `invoiceUrl [string] - Invoice URL`
+   * `identifier [number] - Payer identifier`
+   * `account [string] - Payer account`
+
+* **Sample Call**
+
+  ```
+    curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d
+    '{
+      "invoiceUrl": "http://host/receivers/invoices/1",
+      "identifier": "17500419",
+      "account": "bob"
+    }' 'http://host/v1/invoice/pay'
+  ```
+
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `invoiceId [string] - Invoice id`
+       * `status [string] - The new invoice status`
+
+* **Sample Response**
+
+  ```
+    {
+        "invoiceId": "55",
+        "status": "paid",
+    }
+  ```
+* **Error handling**
+
+  * **Code:** 401 <br />
+  **Content**
+  ```
+    {
+      "id": "InvoiceNotFound",
+      "message": "Invoice with such invoiceUrl could not be found"
+    }
+  ```
+
+   * **Code:** 404 <br />
+  **Content**
+  ```
+    {
+      "id": "ClientNotFound",
+      "message": "Client account could not be found"
+    }
+
+
+* **<a href="http://ec2-35-163-249-3.us-west-2.compute.amazonaws.com:8010/documentation?tags=pendingInvoiceAdd" target="_blank">Try it out here</a>**
