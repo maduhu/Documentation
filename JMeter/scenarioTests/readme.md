@@ -2,14 +2,7 @@
 
 ### Setup
 
-You will need [Apache JMeter 3.X](http://jmeter.apache.org/download_jmeter.cgi) to load these files.
-
-1.  Download the appropriate archive for your operating system and expand it.
-2.   Download [jmeter-plugin-manager](https://jmeter-plugins.org/get/) and place it in the `lib/ext` folder under the path you extracted jmeter
-3.  Navigate to the `/bin` folder under the path you extracted jmeter
-4.  Start JMeter by executing `jmeter.bat` or `jmeter.sh` depending on your OS
-5.  Navigate to Options Menu -> Plugin Manager -> Available Plugins (middle tab)
-6.  Select `JMeter Plugins JSON` and then click `Apply Changes and Restart JMeter`
+See [Jmeter setup here](../README.md#setup)
 
 ### Test Configuration
 
