@@ -81,7 +81,7 @@
 * <TO BE FILLED>
 
 #### ILP/SPSP
-* <TO BE FILLED>
+* See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
 
 #### IST
 * <TO BE FILLED>
