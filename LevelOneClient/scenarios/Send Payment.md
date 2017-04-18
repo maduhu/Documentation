@@ -1,6 +1,6 @@
 See [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone) for what this scenario should accomplish.
 
-To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Portal Ports guide](../Ports.md), and Central Directory Ports Guide.
+To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Level One Client Ports guide](../Ports.md), and Central Directory Ports Guide.
 
 #Message Flow
 ![Send Payment](./Send%20Payment%20Via%20SPSP.png)
@@ -21,7 +21,7 @@ The first stage of any transfer is to find out what institution can accept money
 
 [DFSP Implementation](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8011/documentation) DFSP:8011/documentation
 
-[Portal Proxy API Implementation](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) DFSP:8081/directory/v1/console/
+[Level One Client Proxy API Implementation](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/directory/v1/console/) DFSP:8081/directory/v1/console/
 
     Post :user/get
     Post: user/add # Expect to change

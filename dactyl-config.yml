@@ -30,8 +30,8 @@ targets:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
         link_subs:
             ./AWS/Infrastructure/machines.md: machines.html
-            ./portal/scenarios/Send%20Payment.md: SendPayment.html
-            ./portal: Portal.html
+            ./LevelOneClient/scenarios/Send%20Payment.md: SendPayment.html
+            ./LevelOneClient: LevelOneClient.html
             ./DFSP/PendingTransactions/README.md: Invoices.html
             ./DFSP/BulkPayment/README.md: BulkPayments.html
             ../../DFSP#default-ports: DFSP.html#default-ports
@@ -58,8 +58,8 @@ targets:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
        link_subs:
             ./AWS/Infrastructure/machines.md: https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md         
-            ./portal/scenarios/Send%20Payment.md: SendPayment.html
-            ./portal: Portal.html
+            ./LevelOneClient/scenarios/Send%20Payment.md: SendPayment.html
+            ./LevelOneClient: LevelOneClient.html
             ./DFSP/PendingTransactions/README.md: Invoices.html
             ./DFSP/BulkPayment/README.md: BulkPayments.html
             ../../DFSP#default-ports: DFSP.html#default-ports
@@ -73,7 +73,7 @@ targets:
             ./JMeter: https://github.com/LevelOneProject/Docs/blob/master/JMeter
             ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
             ./ledger-adapter.md: https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md
-            ../Ports.md: https://github.com/LevelOneProject/Docs/blob/master/portal/Ports.md
+            ../Ports.md: https://github.com/LevelOneProject/Docs/blob/master/LevelOneClient/Ports.md
 
 
     -  name: regulator
@@ -100,12 +100,12 @@ pages:
             - all
             - contributor
 
-# Docs/portal
+# Docs/LevelOneClient
 # readme.md Ports.md
-    -   name: 'Portal Overview'
-        html: Portal.html
-        category: Portal
-        md: Docs/portal/readme.md
+    -   name: 'Level One Client Overview'
+        html: LevelOneClient.html
+        category: 'Level One Client'
+        md: Docs/LevelOneClient/readme.md
         section_header: true
         targets:
             - all
@@ -113,16 +113,16 @@ pages:
 
     -   name: 'Clearing Architecture'
         html: ClearingArchitecture.html
-        category: Portal
+        category: 'Level One Client'
         md: 'Docs/ILP/Clearing Architecture.md'
         section_header: true
         targets:
             - all
             - stakeholder
 
-    -   name: 'Portal Interledger Components and Flow'
+    -   name: 'Level One Client Interledger Components and Flow'
         html: ILP.html
-        category: Portal
+        category: 'Level One Client'
         md: Docs/ILP/README.md
         section_header: true
         targets:
@@ -131,15 +131,15 @@ pages:
 
     -   name: 'Ports'
         html: Ports.html
-        category: Portal
-        md: Docs/portal/Ports.md
+        category: 'Level One Client'
+        md: Docs/LevelOneClient/Ports.md
         targets:
             - all
 
 
-    -   name: 'Portal/Interop Services'
+    -   name: 'Level One Client Interop Services'
         html: mule.html
-        category: Portal
+        category: 'Level One Client'
         md: Docs/mule/README.md
         targets:
             - all
@@ -147,7 +147,7 @@ pages:
 
     -   name: 'Interledger SPSP Client Interface'
         html: ilp-spsp-client-rest.html
-        category: Portal
+        category: 'Level One Client'
         md:  ilp-spsp-client-rest/README.md
         targets:
             - all
@@ -155,7 +155,7 @@ pages:
 
     -   name: 'Interop SPSP Client Proxy'
         html: interop-spsp-clientproxy.html
-        category: Portal
+        category: 'Level One Client'
         md:  interop-spsp-clientproxy/README.md
         targets:
             - all
@@ -164,7 +164,7 @@ pages:
 
     -   name: 'Interledger SPSP Server Interface'
         html: ilp-spsp-server.html
-        category: Portal
+        category: 'Level One Client'
         md:  ilp-spsp-server/README.md
         targets:
             - all
@@ -172,14 +172,14 @@ pages:
 
     -   name: 'Interop Ledger'
         html: interop-ilp-ledger.html
-        category: Portal
+        category: 'Level One Client'
         md:  interop-ilp-ledger/README.md
         targets:
             - all
 
     -   name: 'Ledger Adapter'
         html: ledger-adapter.html
-        category: Portal
+        category: 'Level One Client'
         md:  Docs/ILP/ledger-adapter.md
         targets:
             - all
@@ -188,20 +188,20 @@ pages:
 
     -   name: 'Interop SPSP Backend'
         html: interop-ilp-ledger.html
-        category: Portal
+        category: 'Level One Client'
         md:  interop-spsp-backend-services/README.md
         targets:
             - all
 
 
 
-# Docs/portal/scenarios
+# Docs/LevelOneClient/scenarios
 # scenarios 'Send Payment.md'
     -   name: 'Send Payment'
         html: SendPayment.html
         category: Scenarios
         section_header: true # If we make a scenarios intro page move this line to that file
-        md: 'Docs/portal/scenarios/Send Payment.md'
+        md: 'Docs/LevelOneClient/scenarios/Send Payment.md'
         targets:
             - all
             - stakeholder
@@ -248,13 +248,19 @@ pages:
     #     targets:
     #         - all
 
-    -   name: 'Central Directory API'
-        html: central_directory_API.html
+    -   name: 'User Retrieval Guide'
+        html: UserRetrievalGuide.html
         category: 'Central Directory'
-        md: central-directory/central-directory-documentation.md
+        md: central-directory/UserRetrievalGuide.md
         targets:
             - all
 
+    -   name: 'Central Directory API'
+        html: central_directory_API.html
+        category: 'Central Directory'
+        md: central-directory/API.md
+        targets:
+            - all
 
     -   name: 'Directory Gateway'
         html: interop-dfsp-directory.html
@@ -278,7 +284,7 @@ pages:
     -   name: 'Central Ledger API'
         html: central_ledger_API.html
         category: 'Central Ledger'
-        md: central-ledger/central-ledger-documentation.md
+        md: central-ledger/API.md
         targets:
             - all
 
@@ -293,7 +299,7 @@ pages:
     -   name: 'Execute transfer guide'
         html: execute-transfer-guide.html
         category: 'Central Ledger'
-        md: central-ledger/execute-transfer-guide.md
+        md: central-ledger/TransferGuide.md
         targets:
             - all
 

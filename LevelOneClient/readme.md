@@ -1,6 +1,6 @@
-# L1 Service Portal
+# L1 Service Level One Client
 
-![L1 Service Portal](./PortalComponents.png)
+![Level One Client](./LevelOneClientComponents.png)
 
 **Note** The Setup step, "C" above, has since been removed]
 

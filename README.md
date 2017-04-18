@@ -1,5 +1,5 @@
 # Level One Project Documentation
-This repository is the hub for architecture documentation, component designs, and overall information about Level One Project (L1P) software. You can find the packages and implementations in the [Level One Project GitHub organization](https://github.com/LevelOneProject).
+"The Docs repo documents the architecture, component design, message flow, and overview of the Level One Project (L1P) software. The details of source, APIs, and implementation are located in other repos of the [Level One Project GitHub organization](https://github.com/LevelOneProject).
 
 ## What is the Level One Project?
 > A level playing field for everyone by building one digital financial system in every country around the world. That's The Level One Project.
@@ -20,17 +20,17 @@ The basic idea behind the L1P model is that we need to connect multiple Digital 
 
 - A set of central services provides a hub through which money can flow from one DFSP to each other. This is similar to how money moves through a central bank or clearing house in developed countries. Besides a central ledger, central services can provide identity lookup, fraud management, and other such rules.
 - A standard set of interfaces a DFSP can implement to connect to the system, and example code that shows how to use the system. A DFSP that wants to connect up can adapt our example code or implement the standard interfaces into their own software. The goal is for it to be as straightforward as possible for a DFSP to connect to the interoperable network.
-- Complete working open-source implementations of both sides of the interfaces - an example DFSP that can send and receive payments and the portals that an existing DFSP could host to connect to the the network.
+- Complete working open-source implementations of both sides of the interfaces - an example DFSP that can send and receive payments and the client that an existing DFSP could host to connect to the network.
 
 ### DFSP Service
 The DFSP code is an example implementation of a mobile money provider. Customers connect to it from their mobile feature phones (via USSD) and it allows them to create accounts, send money, and receive money.  USSD (Unstructured Supplementary Service Data) is a Global System for Mobile (GSM) communication technology that is used to send text between a mobile phone and an application program in the network.
 
 [DFSP Documentation](./DFSP)
 
-### Level One Portal Service
-The portal service connects a DFSP to other other DFSPs and the central services. It has a few simple interfaces to connect to a DFSP for account holder lookup, payment setup, and ledger operations. The portal can be hosted locally by the DFSP or in a remote data center such as Amazon.
+### Level One Client Service
+The client service connects a DFSP to other other DFSPs and the central services. It has a few simple interfaces to connect to a DFSP for account holder lookup, payment setup, and ledger operations. The level one client can be hosted locally by the DFSP or in a remote data center such as Amazon.
 
-[Level One Portal Documentation](./portal)
+[Level One Client Documentation](./LevelOneClient)
 
 ### Central Services
 The central services are a collection of separate services that help the DFSPs perform operations on the network.
@@ -43,7 +43,7 @@ The central services are a collection of separate services that help the DFSPs p
 ## End-to-End Scenarios
 The individual services listed above can't easily describe how key scenarios work across the system. For each of the [Level One Scenarios](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios) we provide a technical walk through.
 
-1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone),  [walkthrough](./portal/scenarios/Send%20Payment.md)
+1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone),  [walkthrough](./LevelOneClient/scenarios/Send%20Payment.md)
 2. Invoices [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
 3. Bulk Payment [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#bulk-payments), [message flow](./DFSP/BulkPayment/README.md)
 

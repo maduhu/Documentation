@@ -1,5 +1,5 @@
 ## Links to working implementations
-This document links to the working API specifications in swagger or RAML. Since machine names may change, use the current [machine reference](../AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate portal server. For example, **integrate-dfsp1** was **ec2-35-163-231-111.us-west-2.compute.amazonaws.com** when this was written.
+This document links to the working API specifications in swagger or RAML. Since machine names may change, use the current [machine reference](../AWS/Infrastructure/machines.md) to get the DNS name or IP address of the appropriate Level One Client server. For example, **integrate-dfsp1** was **ec2-35-163-231-111.us-west-2.compute.amazonaws.com** when this was written.
 
 For the DFSP API links, use the [DFSP Port Guide](../DFSP/README.md#default-ports) to get the ports and link.
 
@@ -7,7 +7,7 @@ For the DFSP API links, use the [DFSP Port Guide](../DFSP/README.md#default-port
 
 For the DFSP directory API, use the DFSP machine - which might be **ec2-35-163-231-111.us-west-2.compute.amazonaws.com** - combine with the port, **8088** and **/directory/v1/console** to get **http://ec2-35-163-231-111.us-west-2.compute.amazonaws.com:8088/directory/v1/console/**.
 
-For the Portal links, use the ports below with the same DFSP machine.
+For the Level One Client links, use the ports below with the same DFSP machine.
 
 ### Service Info
 
