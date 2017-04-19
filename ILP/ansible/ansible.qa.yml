@@ -50,7 +50,7 @@
       - client
     docker_container:
       name: ilp-spsp-client-rest
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v5.0.4"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v4.0.10"
       state: started
       pull: yes
       recreate: yes
@@ -81,7 +81,7 @@
       - server
     docker_container:
       name: ilp-spsp-server
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v5.0.3"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v4.1.4"
       state: started
       pull: yes
       recreate: yes
@@ -108,7 +108,7 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:v17.0.1"
+      image: "michielbdejong/ilp-connector:bs-backport-config-routes"
       state: started
       recreate: yes
       pull: yes
