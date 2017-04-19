@@ -50,7 +50,7 @@
       - client
     docker_container:
       name: ilp-spsp-client-rest
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v4.0.10"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v5.0.0"
       state: started
       pull: yes
       recreate: yes
@@ -81,7 +81,7 @@
       - server
     docker_container:
       name: ilp-spsp-server
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v4.1.4"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-server:v5.0.0"
       state: started
       pull: yes
       recreate: yes
@@ -149,8 +149,8 @@
               "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
               "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
             }
-          ] 
-        CONNECTOR_ROUTE_BROADCAST_ENABLED: 0
+          ]
+        CONNECTOR_ROUTE_BROADCAST_ENABLED: 1
         CONNECTOR_PEERS: "{{ILP_CONNECTOR_PEERS}}"
         CONNECTOR_ROUTE_EXPIRY: 6000000000
         CONNECTOR_ROUTE_CLEANUP_INTERVAL: 6000000
