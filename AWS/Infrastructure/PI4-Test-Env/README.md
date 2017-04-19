@@ -5,7 +5,7 @@
 | Instance Name | integrate-test-dfsp1 | integrate-test-dfsp2 |
 | Instance ID | i-03e931e01532a6287 | i-0193fad0b1cd06e7b |
 | Public DNS | ec2-52-32-130-4.us-west-2.compute.amazonaws.com | ec2-35-166-236-69.us-west-2.compute.amazonaws.com |
-| Public IP | 35.166.189.14 | 35.166.236.69 |
+| Public IP | 52.32.130.4 | 35.166.236.69 |
 | Instance type | m4.large | m4.large |
 | Private DNS | ip-172-31-35-189.us-west-2.compute.internal | ip-172-31-45-167.us-west-2.compute.internal |
 | Private IPs | 172.31.35.189 | 172.31.45.167 |
