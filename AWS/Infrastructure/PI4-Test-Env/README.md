@@ -4,7 +4,7 @@
 | ----     | ----- | ----- |
 | Instance Name | integrate-test-dfsp1 | integrate-test-dfsp2 |
 | Instance ID | i-03e931e01532a6287 | i-0193fad0b1cd06e7b |
-| Public DNS | ec2-35-166-189-14.us-west-2.compute.amazonaws.com | ec2-35-166-236-69.us-west-2.compute.amazonaws.com |
+| Public DNS | ec2-52-32-130-4.us-west-2.compute.amazonaws.com | ec2-35-166-236-69.us-west-2.compute.amazonaws.com |
 | Public IP | 35.166.189.14 | 35.166.236.69 |
 | Instance type | m4.large | m4.large |
 | Private DNS | ip-172-31-35-189.us-west-2.compute.internal | ip-172-31-45-167.us-west-2.compute.internal |
@@ -13,7 +13,7 @@
 ## SSH
 
 ### Mac
-* for dfsp1 - `ssh -i "interop-dev1.pem" ec2-user@ec2-35-166-189-14.us-west-2.compute.amazonaws.com`
+* for dfsp1 - `ssh -i "interop-dev1.pem" ec2-user@ec2-52-32-130-4.us-west-2.compute.amazonaws.com`
 * for dfsp2 - `ssh -i "interop-dev1.pem" ec2-user@ec2-35-166-236-69.us-west-2.compute.amazonaws.com`
 
 ### Windows
@@ -26,18 +26,18 @@
 
 | Service | Port | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------- | --------- |
-| dfsp-ledger | 8014 | [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8014/ledger](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8014/documentation) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8014/ledger](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8014/documentation)  |
-| dfsp-invoices | 8010 | [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8010](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8010/documentation) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8010](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8010/documentation)  |
+| dfsp-ledger | 8014 | [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8014/ledger](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8014/documentation) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8014/ledger](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8014/documentation)  |
+| dfsp-invoices | 8010 | [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8010](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8010/documentation) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8010](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8010/documentation)  |
 
 
 ### Mule Proxy  - Modusbox
 
 | Service | Port | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------- | --------- |
-| interop-directory-gateway | 8088 |  [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/directory/v1/open-api/) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/directory/v1/open-api/) |
-| interop-spsp-client-proxy | 8088 |  [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/open-api) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/open-api) |
-| interop-ledger-adapter | 8088 |  [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ledger](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ledger](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) |
-| interop-spsp-backend | 8088 |  [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/open-api) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/open-api) |
+| interop-directory-gateway | 8088 |  [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/directory/v1/open-api/) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/directory/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/directory/v1/open-api/) |
+| interop-spsp-client-proxy | 8088 |  [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/open-api) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/client/v1/open-api) |
+| interop-ledger-adapter | 8088 |  [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/ledger](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ledger](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) |
+| interop-spsp-backend | 8088 |  [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/open-api) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/spsp/backend/v1/open-api) |
 
 ### ILP - Ripple
 
@@ -45,7 +45,7 @@
 | ------- | -----| --------- | --------- |
 | ilp-spsp-client-rest | 3042 |           |           |
 | ilp-spsp-server | 3043 |           |           |
-| ilp-connector | 3044 | [http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3044/v1) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3044/v1) |
+| ilp-connector | 3044 | [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3044/v1) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3044/v1) |
 
 ### IST - Dwolla
 
@@ -58,10 +58,10 @@
 
 ## Test Users
 ### DFSP1    
-* bob    http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3043/v1/receivers/17500419
-* alice    http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3043/v1/receivers/48607986
-* merchant    http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3043/v1/receivers/11597861
-* dfsp1-testconnector    http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:3043/v1/receivers/29290645
+* bob    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/17500419
+* alice    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/48607986
+* merchant    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/11597861
+* dfsp1-testconnector    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/29290645
 
 ### DFSP2    
 * bob    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/33859321
