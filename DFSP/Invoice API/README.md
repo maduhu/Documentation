@@ -5,6 +5,13 @@ Current document will cover the flow of the following use cases:
  - Creation and payment of a pending invoice, not associated with a payer;
  - Support for merchant push payment initiated by the customer;
 
+ **API Principles**
+
+  * Restful approach to API design.
+  * Based on JSON, no other content types are supported.
+
+  ![](./diagrams/InvoiceApi.png)
+
 ## II. Assumptions  ##
 
    * Standard type invoice is previously used (old) invoice type.
