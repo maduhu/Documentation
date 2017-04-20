@@ -108,7 +108,7 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:v15.1.1"
+      image: "interledger/js-ilp-connector:v17.0.1"
       state: started
       recreate: yes
       pull: yes
