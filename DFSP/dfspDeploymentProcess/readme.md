@@ -22,7 +22,7 @@
    * With package manager  
    
     ```bash  
-    apt-get install  
+    apt-get install ansible 
     ```
  
    * With python <span style="color:blue">*pip*</span> installer  
