@@ -1,0 +1,58 @@
+- name: Get AWS PASS from Ansible host and prepare target machines
+  hosts: dfsp-all
+  gather_facts: false
+  roles:
+    - common
+  tags:
+    - always
+
+- name: Stop SG Services
+  hosts: dfsp-all
+  gather_facts: false
+  roles:
+    - {role: stop_service, service_name: postgres, tags: postgres}
+    - {role: stop_service, service_name: dfsp-admin, tags: ['postgres', 'restart', 'dfsp-admin']}
+    - {role: stop_service, service_name: dfsp-api, tags: ['postgres', 'restart', 'dfsp-api']}
+    - {role: stop_service, service_name: dfsp-transfer, tags: ['postgres', 'restart', 'dfsp-transfer']}
+    - {role: stop_service, service_name: dfsp-directory, tags: ['postgres', 'restart', 'dfsp-directory']}
+    - {role: stop_service, service_name: dfsp-subscription, tags: ['postgres', 'restart', 'dfsp-subscription']}
+    - {role: stop_service, service_name: dfsp-account, tags: ['postgres', 'restart', 'dfsp-account']}
+    - {role: stop_service, service_name: dfsp-ledger, tags: ['postgres', 'restart', 'dfsp-ledger']}
+    - {role: stop_service, service_name: dfsp-identity, tags: ['postgres', 'restart', 'dfsp-identity']}
+    - {role: stop_service, service_name: dfsp-rule, tags: ['postgres', 'restart', 'dfsp-rule']}
+    - {role: stop_service, service_name: dfsp-ussd, tags: ['postgres', 'restart', 'dfsp-ussd']}
+
+
+- name: Deploy SG Services
+  hosts: dfsp-all
+  gather_facts: false
+  roles:
+      - {role: deploy_service, service_name: postgres, tags: postgres}
+      - {role: deploy_service, service_name: dfsp-admin, tags: dfsp-admin}
+      - {role: deploy_service, service_name: dfsp-api, tags: dfsp-api}
+      - {role: deploy_service, service_name: dfsp-transfer, tags: dfsp-transfer}
+      - {role: deploy_service, service_name: dfsp-directory, tags: dfsp-directory}
+      - {role: deploy_service, service_name: dfsp-subscription, tags: dfsp-subscription}
+      - {role: deploy_service, service_name: dfsp-account, tags: dfsp-account}
+      - {role: deploy_service, service_name: dfsp-ledger, tags: dfsp-ledger}
+      - {role: deploy_service, service_name: dfsp-identity, tags: dfsp-identity}
+      - {role: deploy_service, service_name: dfsp-rule, tags: dfsp-rule}
+      - {role: deploy_service, service_name: dfsp-ussd, tags: dfsp-ussd}
+
+
+- name: Start SG Services
+  hosts: dfsp-all
+  gather_facts: false
+  roles:
+    - {role: start_service, service_name: postgres, tags: postgres}
+    - {role: start_service, service_name: dfsp-admin, tags: ['postgres', 'restart', 'dfsp-admin']}
+    - {role: start_service, service_name: dfsp-transfer, tags: ['postgres', 'restart', 'dfsp-transfer']}
+    - {role: start_service, service_name: dfsp-directory, tags: ['postgres', 'restart', 'dfsp-directory']}
+    - {role: start_service, service_name: dfsp-subscription, tags: ['postgres', 'restart', 'dfsp-subscription']}
+    - {role: start_service, service_name: dfsp-account, tags: ['postgres', 'restart', 'dfsp-account']}
+    - {role: start_service, service_name: dfsp-ledger, tags: ['postgres', 'restart', 'dfsp-ledger']}
+    - {role: start_service, service_name: dfsp-identity, tags: ['postgres', 'restart', 'dfsp-identity']}
+    - {role: start_service, service_name: dfsp-rule, tags: ['postgres', 'restart', 'dfsp-rule']}
+    - {role: start_service, service_name: dfsp-ussd, tags: ['postgres', 'restart', 'dfsp-ussd']}
+    - {role: start_service, service_name: dfsp-api, tags: ['postgres', 'restart', 'dfsp-api']}
+

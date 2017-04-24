@@ -1,0 +1,42 @@
+---
+# tasks file for deploy_service
+- name: "Update SG docker images -> {{ service_name }}"
+  docker_image:
+    name: "886403637725.dkr.ecr.us-west-2.amazonaws.com/leveloneproject/{{ service_name }}:{{ dfsp[service_name]['version'] }}"
+#    tag: "{{ dfsp[service_name]['version'] }}"
+    state: present
+    force: true
+    rm: true
+  when: service_name != 'postgres'
+
+
+- name: "Deploying non SG service ->postgress"
+  docker_container:
+    name: "{{ service_name }}"
+    image: "{{ service_name }}:{{ dfsp[service_name]['version'] }}"
+    ports: "{{ dfsp[service_name]['ports'] }}"
+    env: "{{ dfsp[service_name]['env'] }}"
+    networks:
+      - name: SGNET
+    recreate: true
+    restart_retries: 4
+    state: present
+  when: service_name == 'postgres'
+
+- name: "Deploying SG service -> {{ service_name }}"
+  docker_container:
+    name: "{{ service_name }}"
+    image: "886403637725.dkr.ecr.us-west-2.amazonaws.com/leveloneproject/{{ service_name }}:{{ dfsp[service_name]['version'] }}"
+    networks:
+      - name: SGNET
+    state: present
+    ports: "{{ dfsp[service_name]['ports'] }}"
+    env: "{{ dfsp[service_name]['env'] }}"
+    log_driver: syslog
+    log_options:
+      syslog-address: tcp://0.0.0.0:514
+      syslog-facility: daemon
+      env: "{{ service_name }}"
+      labels: "{{ service_name }}"
+      tag: "{{ service_name }}"
+  when: service_name != 'postgres'

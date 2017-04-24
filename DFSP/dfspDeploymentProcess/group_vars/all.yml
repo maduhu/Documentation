@@ -1,0 +1,136 @@
+---
+# defaults file for sg_service
+dfsp:
+  postgres:
+    version: "9.5.4"
+    env:
+      POSTGRES_PASSWORD: dfsppass
+      POSTGRES_USER: dfspadmin
+    ports:
+      - "5432:5432"
+  dfsp-admin:
+    version: "{{ admin_version|default('latest') }}"
+    env:
+      ut_dfsp_admin_uat_api__url: http://dfsp-api:8010
+      ut_dfsp_admin_uat_identity__url: http://dfsp-identity:8012
+      UT_ENV: uat
+    ports:
+      - "80:8020"
+      - "30020:30020"
+      - "8020:8020"
+    validation_url: http://{{ inventory_hostname }}:8020/documentation
+  dfsp-api:
+    version: "{{ api_version|default('latest') }}"
+    env:
+      ut_dfsp_api_dev_account__url: http://dfsp-account:8009
+      ut_dfsp_api_dev_bulk__url: http://dfsp-transfer:8018
+      ut_dfsp_api_dev_cluster: "{{ cluster }}"
+      ut_dfsp_api_dev_directory__url: http://dfsp-directory:8011
+      ut_dfsp_api_dev_identity__url: http://dfsp-identity:8012
+      ut_dfsp_api_dev_ledger__url: http://dfsp-ledger:8014
+      ut_dfsp_api_dev_notification__url: http://dfsp-notification:8015
+      ut_dfsp_api_dev_rule__url: http://dfsp-rule:8016
+      ut_dfsp_api_dev_subscription__url: http://dfsp-subscription:8017
+      ut_dfsp_api_dev_transfer__url: http://dfsp-transfer:8018
+      ut_dfsp_api_dev_spsp__url: http://{{ inventory_hostname }}:8088/spsp/client/v1
+      ut_dfsp_api_dev_ist__url: http://{{ inventory_hostname }}:8088/directory/v1
+    ports:
+      - "8010:8010"
+      - "30010:30010"
+    validation_url: http://{{ inventory_hostname }}:8010/documentation
+  dfsp-transfer:
+    version: "{{ transfer_version|default('latest') }}"
+    env:
+      ut_dfsp_transfer_dev_db__create__password: dfsppass
+      ut_dfsp_transfer_dev_db__create__user: dfspadmin
+      ut_dfsp_transfer_dev_db__db__database: dfsp-transfer
+      ut_dfsp_transfer_dev_db__db__password: dfsppass
+      ut_dfsp_transfer_dev_db__db__user: dfsp.transfer
+    ports:
+      - "8018:8018"
+      - "30018:30018"
+    validation_url: http://{{ inventory_hostname }}:8018/documentation
+  dfsp-directory:
+    version: "{{ directory_version|default('latest') }}"
+    env:
+      ut_dfsp_directory_dev_db__create__password: dfsppass
+      ut_dfsp_directory_dev_db__create__user: dfspadmin
+      ut_dfsp_directory_dev_db__db__database: dfsp-directory
+      ut_dfsp_directory_dev_db__db__password: dfsppass
+      ut_dfsp_directory_dev_db__db__user: dfsp-directory
+    ports:
+      - "8011:8011"
+      - "30011:30011"
+    validation_url: http://{{ inventory_hostname }}:8011/documentation
+  dfsp-subscription:
+    version: "{{ subscription_version|default('latest') }}"
+    env:
+      ut_dfsp_subscription_dev_db__create__password: dfsppass
+      ut_dfsp_subscription_dev_db__create__user: dfspadmin
+      ut_dfsp_subscription_dev_db__db__database: dfsp-subscription
+      ut_dfsp_subscription_dev_db__db__password: dfsppass
+      ut_dfsp_subscription_dev_db__db__user: dfsp.subscription
+    ports:
+      - "8017:8017"
+      - "30017:30017"
+    validation_url: http://{{ inventory_hostname }}:8017/documentation
+  dfsp-account:
+    version: "{{ account_version|default('latest') }}"
+    env:
+      ut_dfsp_account_dev_db__create__password: dfsppass
+      ut_dfsp_account_dev_db__create__user: dfspadmin
+      ut_dfsp_account_dev_db__db__database: dfsp-account
+      ut_dfsp_account_dev_db__db__password: dfsppass
+      ut_dfsp_account_dev_db__db__user: dfsp.account
+    ports:
+      - "8009:8009"
+      - "30009:30009"
+    validation_url: http://{{ inventory_hostname }}:8009/documentation
+  dfsp-ledger:
+    version: "{{ ledger_version|default('latest') }}"
+    env:
+      ut_dfsp_ledger_dev_db__create__password: dfsppass
+      ut_dfsp_ledger_dev_db__create__user: dfspadmin
+      ut_dfsp_ledger_dev_db__db__database: dfsp-ledger
+      ut_dfsp_ledger_dev_db__db__password: dfsppass
+      ut_dfsp_ledger_dev_db__db__user: dfsp.ledger
+      ut_dfsp_ledger_dev_httpserver__baseUrl: http://{{ inventory_hostname }}:8014/ledger
+    ports:
+      - "8014:8014"
+      - "30014:30014"
+    validation_url: http://{{ inventory_hostname }}:8014/documentation
+  dfsp-identity:
+    version: "{{ identity_version|default('latest') }}"
+    env:
+      ut_dfsp_identity_dev_api__url: http://dfsp-api:8010
+      ut_dfsp_identity_dev_db__create__password: dfsppass
+      ut_dfsp_identity_dev_db__create__user: dfspadmin
+      ut_dfsp_identity_dev_db__db__database: dfsp-identity
+      ut_dfsp_identity_dev_db__db__password: dfsppass
+      ut_dfsp_identity_dev_db__db__user: dfsp.identity
+    ports:
+      - "8012:8012"
+      - "30012:30012"
+    validation_url: http://{{ inventory_hostname }}:8012/documentation
+  dfsp-rule:
+    version: "{{ rule_version|default('latest') }}"
+    env:
+      ut_dfsp_rule_dev_db__create__password: dfsppass
+      ut_dfsp_rule_dev_db__create__user: dfspadmin
+      ut_dfsp_rule_dev_db__db__database: dfsp-rule
+      ut_dfsp_rule_dev_db__db__password: dfsppass
+      ut_dfsp_rule_dev_db__db__user: dfsp.rule
+    ports:
+      - "8016:8016"
+      - "30016:30016"
+    validation_url: http://{{ inventory_hostname }}:8016/documentation
+  dfsp-ussd:
+    version: "{{ ussd_version|default('latest') }}"
+    env:
+      ut_dfsp_ussd_dev_api__url: http://dfsp-api:8010
+      ut_dfsp_ussd_dev_identity__url: http://dfsp-identity:8012
+    ports:
+      - "8019:8019"
+      - "30019:30019"
+      - "8080:8080"
+    validation_url: http://{{ inventory_hostname }}:8019/documentation

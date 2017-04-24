@@ -1,0 +1,24 @@
+---
+# tasks file for common
+- name: Get ECR password
+  connection: local
+  shell: "aws ecr get-login"
+  register: aws_out
+
+- name: Install docker-py
+  pip:
+    name: docker-py
+    state: latest
+  become: true
+
+- name: Docker login to ESR
+  docker_login:
+     registry: 886403637725.dkr.ecr.us-west-2.amazonaws.com
+     username: AWS
+     password: "{{ aws_out.stdout|regex_findall('-p (.*?) ',ignorecase=true,multiline=true)|join }}"
+     reauthorize: yes
+
+- name: Create a SG network
+  docker_network:
+    name: SGNET
+    state: present
