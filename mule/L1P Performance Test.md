@@ -15,10 +15,10 @@ A New AWS EC2 Instances will be created for the performance tests. As an Initial
 
 #### Applications
 
-DFSP - Version ?
-Interop - Version ?
-ILP - Version ?
-IST - Version ?
+* DFSP - Version ?
+* Interop - Version ?
+* ILP - Version ?
+* IST - Version ?
 
 The List of applications/Services required for performing the performance tests can be referenced under the following link
 
