@@ -78,7 +78,7 @@
 * /home/ec2-user/scripts/modusbox/start_mule.sh
 
 #### DFSP
-* <TO BE FILLED>
+* See [DFSP deployment process](https://github.com/LevelOneProject/Docs/tree/master/DFSP/dfspDeploymentProcess)
 
 #### ILP/SPSP
 * See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
