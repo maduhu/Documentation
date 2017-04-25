@@ -129,13 +129,6 @@ pages:
             - all
             - stakeholder
 
-    -   name: 'Ports'
-        html: Ports.html
-        category: 'Level One Client'
-        md: Docs/LevelOneClient/Ports.md
-        targets:
-            - all
-
 
     -   name: 'Level One Client Interop Services'
         html: mule.html
@@ -494,7 +487,13 @@ pages:
         targets:
             - all
 
-
+    -   name: 'Terminology'
+        html: terminology.html
+        category: Appendix
+        md: Docs/terminology.md
+        targets:
+            - all
+            - stakeholder
 
 # -------------------- Style Checker Rules ------------------------
 #word_substitutions_file: plainlanguage_words.yaml
