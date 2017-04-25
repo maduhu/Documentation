@@ -1,7 +1,6 @@
-## I.  Overview  ##
+## Pending Transactions using the Over the Top API  ##
 
-Current document will cover the flow of creating and paying/rejecting pending transfers using
-DFSP Over the Top API.
+Creating and paying or rejecting pending transfers using the DFSP Over the Top API.
 
 In real life, this flow can be seen for merchant purchase use case where a merchant sells goods to customer and both of them have mobile (smart) phones.
 From end user's perspective the use case looks like this:
