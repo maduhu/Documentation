@@ -1,5 +1,7 @@
 
-# Bulk Payments
+# Scenario - Bulk Payments
+
+See [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#bulk-payments)
 
 ## Bulk payment initiation
 

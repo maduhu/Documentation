@@ -1,4 +1,5 @@
-## AWS EC2 Instance Information
+## Test Environment - AWS EC2 Instance Information
+The test environment is used for development and new or possibly breaking changes.
 
 | Property | DFSP1 | DFSP2 |
 | ----     | ----- | ----- |

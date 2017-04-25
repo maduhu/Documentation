@@ -1,4 +1,5 @@
-## AWS EC2 Instance Information
+## QA Environment - AWS EC2 Instance Information
+The QA environment is used for testing and demos. It is more stable than the test environment and may be a few versions older. 
 
 | Property | DFSP1 | DFSP2 |
 | ----     | ----- | ----- |

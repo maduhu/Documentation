@@ -1,4 +1,4 @@
-**V1.0**
+# Logging Setup
 
 Steps to perform ELK 5.X Stack Installation in AWS EC2 Instance RHEL
 
