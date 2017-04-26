@@ -351,6 +351,13 @@ pages:
         targets:
             - all
 
+    -   name: "Configuring High Availability Proxy"
+        html: HAProxy.html
+        category: Infrastructure
+        md: Docs/mule/Configuring HAProxy.md
+        targets:
+            - all        
+  
 
 #Docs/AWS/Infrastructure/PI4-Test-Env
 # README.md
@@ -388,6 +395,14 @@ pages:
         targets:
             - all
 
+
+    -   name: 'Performance Tests'
+        html: PerformanceTests.html
+        category: Infrastructure
+        md: Docs/mule/L1P Performance Test.md 
+        targets:
+            - all
+   
 
 #/Docs/DFSP
 #README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
