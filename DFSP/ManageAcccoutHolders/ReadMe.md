@@ -10,7 +10,6 @@ Signatory account holders will have full rights over the account and can do push
 
 Non-signatory account will have the option to check the balance, check mini statement and sell goods.
 
-**Question:** Shall we keep the same process for user registration, where user number is generated in the center? If yes, we need to introduce the phone number as user identifier as well.
 
 ## Process for Adding an Account Holder
 
@@ -26,7 +25,6 @@ When a new account holder is added to an account the identification of the user 
 
 - The new account holder does have an existing number and is registered within the DFSP. In this case the system will ask whether the new account holder will be a signatory or a non-signatory. The system will add the new account holder and his primary account will not be changed.
 
-**Question:** Please confirm the process described above is correct
 
 The following diagram shows the process business flow.
 
@@ -41,7 +39,6 @@ The process starts when the new DFSP user dials the USSD menu. The DFSP will rec
 
 - The user already has a user number but is not registered within the current DFSP. In this case the system will display his name and ask the user to create his new PIN. Then the system will display a confirmation message. In this case the default DFSP of the user will not be changed.
 
-**Question:** shall we keep get the information about the first name, last name and DOB of the user from the central directory or shall we ask the user or shall we get from the existing user's DFSP
 
 - The user does not have a user number. In this case DFSP will ask the user to enter his name, them will query the central directory and request a new user number to be created and finally the system will ask the user to create his new PIN.
 
@@ -79,7 +76,6 @@ As a security measure the default DFSP could be changed only from the default DF
 
 The process for changing the default DFSP will start by displaying all available DFSPs that the user has accounts. The user could select a DFSP the he would like to be a default one and confirm the operation via PIN. The DFSP will update the central directory with this change.
 
-**Question:** Shall we keep the information about all DFSPs linked to a user number in the central directory?
 
 ## Changed and new APIs in the Central Directory
 
