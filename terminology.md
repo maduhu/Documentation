@@ -2,8 +2,8 @@
 "The terminolgy documents the preferred terms and definitions for the Level One Project.
 
 ## Terminology
-|	Term		Alternative and Related Terms	|	L1P Definition
-|	------------------------------------	|	------------------------------------	|	------------------------------------
+| Term	|	Alternative and Related Terms	|	L1P Definition
+|	---------------------------------	|	------------------------------------	|	------------------------------------
 |	Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
 |	Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in the different FSPs. 
 |	Account Number	|	Account ID	|	 A unique number representing an account. There can be multiple accounts for each end user.
