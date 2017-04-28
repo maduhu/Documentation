@@ -25,4 +25,7 @@ From the root directory run the dactyl build command for the document. For examp
 To generate just the stakeholder overview run:
 > dactyl_build -t stakeholder -c Docs/ExportDocs/dactyl-config.yml --pdf
 
+## Build Info
+Dactyl first converts all the md files to HTML. In that process it can apply common css styles and cover pages which are in the pdf_templates directory. Prince is then used by Dactyl to convert the HTML files to PDF. The --leave_temp_files parameter can be very useful for debugging if you want to see the intermediate HTML.
+
 The files are written to the "out" directory under the root.

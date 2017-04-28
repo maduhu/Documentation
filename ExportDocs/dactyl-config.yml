@@ -325,7 +325,7 @@ pages:
 
 #Docs/ELK
 # ELKSetup.md
-    -   name: 'Logging'
+    -   name: 'Setup Logging Infrastructure'
         html: elk.html
         category: Infrastructure
         section_header: true # If we add an "Infrastructure" intro, move this to there
@@ -333,6 +333,19 @@ pages:
         targets:
             - all
 
+    -   name: 'Logging Standards'
+        html: elk.html
+        category: Infrastructure
+        md: Docs/mule/logging-guidelines.md
+        targets:
+            - all
+
+    -   name: 'Forensic Logging Setup'
+        html: ForensicSetup.html
+        category: Infrastructure
+        md: forensic-logging-sidecar/SidecarGuide.md
+        targets:
+            - all
 
 #Docs/AWS/Infrastructure
 # machines.md
@@ -502,13 +515,22 @@ pages:
         targets:
             - all
 
+# -------------------- Appendix ------------------------
     -   name: 'Terminology'
         html: terminology.html
+        section_header: true
         category: Appendix
         md: Docs/terminology.md
         targets:
             - all
             - stakeholder
+
+    -   name: 'Scenario Descriptions'
+        html: Scenarios.html
+        category: Appendix
+        md: Docs/scenarios.md
+        targets:
+            - all
 
     -   name: 'Exporting These Documents'
         html: ExportDocs.html
