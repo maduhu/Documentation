@@ -1,0 +1,28 @@
+# Exporting the Documentation
+In the Level One Project, the source for the documentation are markdown files stored in GitHub. We use use a tool called [Dactyl](https://github.com/ripple/dactyl) to convert files to from markdown (md) format to PDF format. The PDF format is the exported format we use to share offline documentation. 
+Overview and cross-repo documentation is in the Docs repository. Other repositories have detailed information about their contents. 
+
+## Setup
+See [Dactyl setup](https://github.com/ripple/dactyl) to setup the tool. Dactyl has dependencies on Python and on a command line tool Prince to do part of that conversion.
+
+> git pull # the latest for all relevant repositories
+
+All the repositories should be in the same root directory. 
+
+Because building the documentation requires md files from multiple repos, the latest files from all the repos mentioned in the dactyl-config file need to be obtained. These currently include Docs, ilp-spsp-client-rest, ilp-spsp-server, interop-ilp-ledger, interop-spsp-clientproxy, interop-spsp-backend-services, interop-dfsp-directory, central-directory, and central-ledger but may expand later.
+
+## Build Process
+
+### Copy the image files
+Images that are going to be included in the documentation need to be copied to a images directory. Run the script CopyImages.sh from the root directory (the one above docs)
+
+> Docs/ExportDocs/CopyImages.sh
+
+### Run Dactyl
+From the root directory run the dactyl build command for the document. For example, to generate a full set of documents run:
+> dactyl_build -t all -c Docs/ExportDocs/dactyl-config.yml --pdf
+
+To generate just the stakeholder overview run:
+> dactyl_build -t stakeholder -c Docs/ExportDocs/dactyl-config.yml --pdf
+
+The files are written to the "out" directory under the root.
