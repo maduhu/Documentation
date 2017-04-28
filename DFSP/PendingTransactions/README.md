@@ -206,18 +206,23 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 **2.1 quoteDestination Method**
 
+200 OK
 
 *Request:*
 
-	POST http://dfsp1.spsp-client/quoteDestination/
+	GET http://dfsp1.spsp-client/quoteDestinationAmount/
+
 	{
-  		-- to be filled in
+		"receiver": "http://ilp-spsp-server:3043/v1/receivers/16023825",
+		"destinationAmount": "10"
 	}
 
 
 *Response:*
 
-	-- to be filled in
+	{
+		"sourceAmount": "10"
+	}
 
 
 ###  [ SPSP CLIENT Proxy -> SPSP CLIENT ]() ###
@@ -497,17 +502,38 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+	PUT  http://dfsp1.spsp-client-proxy/spsp/client/v1/payments/{traceId}
+
+		{
+			"sourceIdentifier": "65144444",
+			"sourceAccount": "http://dfsp1-ledger/ledger/accounts/bob",
+			"receiver": "http://ilp-spsp-server/v1/receivers/92806391",
+			"destinationAmount": "17",
+			"currency": "USD",
+			"fee": 0,
+			"memo": {
+				"fee": 0,
+				"transferCode": "p2p",
+				"debitName": "bob dylan",
+				"creditName": "alice cooper"
+			}
+		}
 
 
 *Response:*
 
-	-- to be filled in
+	200 OK
 
-
-- invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP
-- submissionUrl - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
+	{
+		"receiver": "http://ilp-spsp-server/v1/receivers/92806391",
+		"sourceAccount": "http://spsp/ilp/ledger/v1/accounts/bob",
+		"destinationAmount": "17.00",
+		"memo": "{\"fee\":0,\"transferCode\":\"p2p\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\",\"debitIdentifier\":\"65144444\"}",
+		"sourceIdentifier": "65144444",
+		"sourceAmount": "17.00",
+		"fulfillment": "hi8Rtk8WiOQkwv5bpeXrSoRj41bPXR8c3hfn5i_6zyQ",
+		"status": "executed"
+	}
 
 
 ###  [ SPSP CLIENT PROXY -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
@@ -543,11 +569,52 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+	{
+		"uuid": "6a4c78f4-cc2f-488f-b04d-26b71c92962a",
+		"debitAccount": "bob",
+		"debitMemo": {},
+		"creditAccount": "dfsp1-testconnector",
+		"creditMemo": {
+			"ilp": "AYIBfwAAAAAAAAakNmxldmVsb25lLmRmc3AyLmFsaWNlLndvdTdOb0w2LUhFUVl6WkJoZ3NHNnZOLTRCd2piaEJ6d4IBPFBTSy8xLjAKTm9uY2U6IHRUTU9MMEZZZzRkc3dsTjFMU0ZUS3cKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA2YTRjNzhmNC1jYzJmLTQ4OGYtYjA0ZC0yNmI3MWM5Mjk2MmEKCkNvbnRlbnQtTGVuZ3RoOiAxMzEKQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uClNlbmRlci1JZGVudGlmaWVyOiA2NTE0NDQ0NAoKIntcImZlZVwiOjAsXCJ0cmFuc2ZlckNvZGVcIjpcInAycFwiLFwiZGViaXROYW1lXCI6XCJib2IgZHlsYW5cIixcImNyZWRpdE5hbWVcIjpcImFsaWNlIGNvb3BlclwiLFwiZGViaXRJZGVudGlmaWVyXCI6XCI2NTE0NDQ0NFwifSIA",
+			"ilp_decrypted": {
+				"fee": 0,
+				"transferCode": "p2p",
+				"debitName": "bob dylan",
+				"creditName": "alice cooper",
+				"debitIdentifier": "65144444"
+			}
+		},
+		"amount": 17,
+		"executionCondition": "ni:///sha-256;sbawjV8idAMItrwviBMq4zMOkuo_lRLNMm1KPPVFM2A?fpt=preimage-sha-256&cost=32",
+		"authorized": true,
+		"expiresAt": "2017-04-28T11:23:11.779Z"
+	}
 
 *Response:*
 
-	--  to be filled in
+	200 OK
+
+	{
+		"id": "http://spsp/ledger/transfers/6a4c78f4-cc2f-488f-b04d-26b71c92962a",
+		"ledger": "http://spsp/ledger",
+		"debits": [{
+			"account": "http://spsp/ledger/accounts/bob",
+			"memo": {},
+			"amount": "17.00",
+			"authorized": true
+		}],
+		"credits": [{
+			"account": "http://spsp/ledger/accounts/dfsp1-testconnector",
+			"memo": {
+				"ilp": "AYIBfwAAAAAAAAakNmxldmVsb25lLmRmc3AyLmFsaWNlLndvdTdOb0w2LUhFUVl6WkJoZ3NHNnZOLTRCd2piaEJ6d4IBPFBTSy8xLjAKTm9uY2U6IHRUTU9MMEZZZzRkc3dsTjFMU0ZUS3cKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA2YTRjNzhmNC1jYzJmLTQ4OGYtYjA0ZC0yNmI3MWM5Mjk2MmEKCkNvbnRlbnQtTGVuZ3RoOiAxMzEKQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uClNlbmRlci1JZGVudGlmaWVyOiA2NTE0NDQ0NAoKIntcImZlZVwiOjAsXCJ0cmFuc2ZlckNvZGVcIjpcInAycFwiLFwiZGViaXROYW1lXCI6XCJib2IgZHlsYW5cIixcImNyZWRpdE5hbWVcIjpcImFsaWNlIGNvb3BlclwiLFwiZGViaXRJZGVudGlmaWVyXCI6XCI2NTE0NDQ0NFwifSIA"
+			},
+			"amount": "17.00"
+		}],
+		"execution_condition": "ni:///sha-256;sbawjV8idAMItrwviBMq4zMOkuo_lRLNMm1KPPVFM2A?fpt=preimage-sha-256&cost=32",
+		"cancellation_condition": null,
+		"state": "prepared",
+		"expires_at": "2017-04-28T11:23:11.779Z"
+	}
 
 ###  [ILP LEDGER ADAPTER -> ILP CONNECTOR ](https://github.com/interledger/ilp-connector) ###
 
@@ -595,11 +662,67 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+	PUT http://dfsp=ledger/ledger/transfers/{traceId}
+	{
+		"uuid": "2527962e-5bbd-460e-8945-154a34f17dba",
+		"debitAccount": "bob",
+		"debitMemo": {},
+		"creditAccount": "dfsp1-testconnector",
+		"creditMemo": {
+			"ilp_header": {
+				"account": "levelone.dfsp2.alice.~psk.UZVSWwsy6ww.MFsvYpK_6SY5BpNLznWs8g.2527962e-5bbd-460e-8945-154a34f17dba",
+				"amount": "2.00",
+				"data": {
+					"data": {
+						"memo": "{\"fee\":0,\"transferCode\":\"p2p\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
+						"senderIdentifier": "00427080"
+					},
+					"expires_at": "2017-04-25T17:32:48.384Z"
+				}
+			}
+		},
+		"amount": 2,
+		"executionCondition": "ni:///sha-256;C2EmAmpD_dylQ8iiI4S-afyvxINo-TRomDJI5tgc-0Y?fpt=preimage-sha-256&cost=32",
+		"authorized": true,
+		"expiresAt": "2017-04-25T17:32:48.384Z"
+	}
 
 *Response:*
 
-	--  to be filled in
+	200 OK
+
+	 {
+		"id": "http://spsp/ledger/transfers/2527962e-5bbd-460e-8945-154a34f17dba",
+		"ledger": "http://spsp/ledger",
+		"debits": [{
+			"account": "http://spsp/ledger/accounts/bob",
+			"memo": {},
+			"amount": "2.00",
+			"authorized": true
+		}],
+		"credits": [{
+			"account": "http://spsp/ledger/accounts/dfsp1-testconnector",
+			"memo": {
+				"ilp_header": {
+					"account": "levelone.dfsp2.alice.~psk.UZVSWwsy6ww.MFsvYpK_6SY5BpNLznWs8g.2527962e-5bbd-460e-8945-154a34f17dba",
+					"amount": "2.00",
+					"data": {
+						"data": {
+							"memo": "{\"fee\":0,\"transferCode\":\"p2p\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
+							"senderIdentifier": "00427080"
+						},
+						"expires_at": "2017-04-25T17:32:48.384Z"
+					}
+				}
+			},
+			"amount": "2.00"
+		}],
+		"execution_condition": "ni:///sha-256;C2EmAmpD_dylQ8iiI4S-afyvxINo-TRomDJI5tgc-0Y?fpt=preimage-sha-256&cost=32",
+		"cancellation_condition": null,
+		"state": "prepared",
+		"expires_at": "2017-04-25T17:32:48.384Z"
+ }
+
 
 ###  [ILP LEDGER ADAPTER  -> SPSP SERVER](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
@@ -635,11 +758,21 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+	PUT http://dfsp-api/receivers/invoices/{invoiceId}/payments/{paymentid}
+
+	{
+		"destinationAmount": "1200",
+		"memo": "\"{\\\"fee\\\":0,\\\"transferCode\\\":\\\"invoice\\\",\\\"debitName\\\":\\\"alice cooper\\\",\\\"creditName\\\":\\\"mer chant\\\",\\\"debitIdentifier\\\":\\\"92806391\\\"}\"",
+		"status": "proposed",
+		"transferId": "883bb6ba-f425-4bad-80d0-8588f0c192de",
+		"invoiceId": "16",
+		"paymentid": "ce8dfee1-f6be-4b89-a44b-06fbd941e0b2"
+  }
 
 *Response:*
 
-	--  to be filled in
+	200 OK {}
+
 
 ###  [SPSP SERVER -> ILP-LEDGER_ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
@@ -661,11 +794,22 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+	PUT http://dfsp-ledger/ledger/transfers/{transferId}/fulfillment
+
+	{
+		"transferId": "6a4c78f4-cc2f-488f-b04d-26b71c92962a",
+		"fulfillment": "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k",
+		"condition": "ni:///sha-256;sbawjV8idAMItrwviBMq4zMOkuo_lRLNMm1KPPVFM2A?fpt=preimage-sha-256&cost=32"
+	}
 
 *Response:*
 
-	--  to be filled in
+	Returns transfer fulfillment.
+
+	200 OK
+
+	"oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k"
+
 
 ###  [ILP-LEDGER_ADAPTER -> ILP-CONNECTOR](https://github.com/interledgerjs/ilp-connector) ###
 
@@ -713,11 +857,21 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+	PUT http://dfsp-ledger/ledger/transfers/{transferId}/fulfillment
+
+	{
+		"transferId": "6a4c78f4-cc2f-488f-b04d-26b71c92962a",
+		"fulfillment": "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k",
+		"condition": "ni:///sha-256;sbawjV8idAMItrwviBMq4zMOkuo_lRLNMm1KPPVFM2A?fpt=preimage-sha-256&cost=32"
+	}
 
 *Response:*
 
-	--  to be filled in
+	Returns transfer fulfillment.
+
+	200 OK
+
+	"oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k"
 
 ###  [ILP LEDGER ADAPTER -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
