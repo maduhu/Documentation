@@ -33,16 +33,16 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	{
-		"identifier": "78956562"
-	}
+    {
+        "identifier": "78956562"
+    }
 
 *Response:*
-	200 OK
+    200 OK
 
-	{
-		"spspReceiver": "http://dfsp2-spsp-server:3043/v1"
-	}
+    {
+        "spspReceiver": "http://dfsp2-spsp-server:3043/v1"
+    }
 
 - spspReceiver - the base url of sender's spsp server
 
@@ -52,22 +52,22 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	GET http://central-directory/resources?identifier=78956562&identifierType=eur
+    GET http://central-directory/resources?identifier=78956562&identifierType=eur
 
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-		"spspReceiver": "http://dfsp2-spsp-server:3043/v1",
-		"type": "payee",
-		"name": "bob",
-		"account": "levelone.dfsp2.bob",
-		"currencyCode": "USD",
-		"currencySymbol": "$",
-		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
-	}
+    {
+        "spspReceiver": "http://dfsp2-spsp-server:3043/v1",
+        "type": "payee",
+        "name": "bob",
+        "account": "levelone.dfsp2.bob",
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+    }
 
 
 - spspReceiver - the base url of sender's spsp server
@@ -78,22 +78,22 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	GET http://central-directory/resources?identifier=78956562&identifierType=eur
+    GET http://central-directory/resources?identifier=78956562&identifierType=eur
 
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-		"spspReceiver": "http://dfsp2-spsp-server:3043/v1",
-		"type": "payee",
-		"name": "bob",
-		"account": "levelone.dfsp2.bob",
-		"currencyCode": "USD",
-		"currencySymbol": "$",
-		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
-	}
+    {
+        "spspReceiver": "http://dfsp2-spsp-server:3043/v1",
+        "type": "payee",
+        "name": "bob",
+        "account": "levelone.dfsp2.bob",
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+    }
 
 
 - spspReceiver - the base url of sender's spsp server
@@ -111,20 +111,20 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2-spsp-server:3043/v1/receivers/78956562
+    GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2-spsp-server:3043/v1/receivers/78956562
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-		"type": "payee",
-		"name": "bob",
-		"account": "levelone.dfsp2.bob",
-		"currencyCode": "USD",
-		"currencySymbol": "$",
-		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
-	}
+    {
+        "type": "payee",
+        "name": "bob",
+        "account": "levelone.dfsp2.bob",
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+    }
 
 [SPSP Client Proxy -> SPSP Client]()
 
@@ -132,20 +132,20 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2-spsp-server:3043/v1/receivers/78956562
+    GET http://dfsp1.spsp-client-proxy/spsp.client/v1/query?receiver=http://dfsp2-spsp-server:3043/v1/receivers/78956562
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-		"type": "payee",
-		"name": "bob",
-		"account": "levelone.dfsp2.bob",
-		"currencyCode": "USD",
-		"currencySymbol": "$",
-		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
-	}
+    {
+        "type": "payee",
+        "name": "bob",
+        "account": "levelone.dfsp2.bob",
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+    }
 
 [SPSP Client -> SPSP Server]()
 
@@ -153,20 +153,20 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	GET http://dfsp2-spsp-server:3043/v1/receivers/78956562
+    GET http://dfsp2-spsp-server:3043/v1/receivers/78956562
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-		"type": "payee",
-		"name": "bob",
-		"account": "levelone.dfsp2.bob",
-		"currencyCode": "USD",
-		"currencySymbol": "$",
-		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
-	}
+    {
+        "type": "payee",
+        "name": "bob",
+        "account": "levelone.dfsp2.bob",
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+    }
 
 
 [SPSP Server -> SPSP Server Backend]()
@@ -181,20 +181,20 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 *Request:*
 
-	GET http://dfsp2-api:8010/v1/receivers/78956562
+    GET http://dfsp2-api:8010/v1/receivers/78956562
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-		"type": "payee",
-		"name": "bob",
-		"account": "levelone.dfsp2.bob",
-		"currencyCode": "USD",
-		"currencySymbol": "$",
-		"imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
-	}
+    {
+        "type": "payee",
+        "name": "bob",
+        "account": "levelone.dfsp2.bob",
+        "currencyCode": "USD",
+        "currencySymbol": "$",
+        "imageUrl": "https://red.ilpdemo.org/api/receivers/bob/profile_pic.jpg"
+    }
 
 ## II.  Quote Source/Destination  ##
 
@@ -206,18 +206,23 @@ This method is not exposed as a DFSP Api rest route as it is not meant to be cal
 
 **2.1 quoteDestination Method**
 
+200 OK
 
 *Request:*
 
-	POST http://dfsp1.spsp-client/quoteDestination/
-	{
-  		-- to be filled in
-	}
+    GET http://dfsp1.spsp-client/quoteDestinationAmount/
+
+    {
+        "receiver": "http://ilp-spsp-server:3043/v1/receivers/16023825",
+        "destinationAmount": "10"
+    }
 
 
 *Response:*
 
-	-- to be filled in
+    {
+        "sourceAmount": "10"
+    }
 
 
 ###  [ SPSP CLIENT Proxy -> SPSP CLIENT ]() ###
@@ -238,13 +243,13 @@ This method will be used for communication between SPSP Client and ILP Connector
 *Request:*
 
 
-	-- to be filled in
+    -- to be filled in
 
 
 *Response:*
 
 
-	-- to be filled in
+    -- to be filled in
 
 
 ## III.  Invoice Creation  ##
@@ -257,8 +262,8 @@ This method will be used for communication between SPSP Client and ILP Connector
 
 *Request:*
 
-	POST http://dfsp-api/merchantInvoice
-	{
+    POST http://dfsp-api/merchantInvoice
+    {
       account: 'merchant.account',
       name: 'Merchant name',
       currencyCode: 'USD',
@@ -272,7 +277,7 @@ This method will be used for communication between SPSP Client and ILP Connector
 
 *Response:*
 
-	201 Created
+    201 Created
 
 - account - merchant's ledger account. e.g. http://dfsp-ledger/ledger/accounts/merchant
 - userNumber - client's user number. e.g. '26547070'
@@ -287,18 +292,18 @@ This method will be used for communication between SPSP Client and ILP Connector
 
 *Request:*
 
-	POST http://dfsp2.spsp-client/invoices/
-	{
-  		"invoiceId":"12345",
-  		"submissionUrl": "dfsp1.spsp-server/v1/invoices",
-		"senderIdentifier": "client.user.number",
-  		"memo":"Invoice from merchant for 100 USD"
-	}
+    POST http://dfsp2.spsp-client/invoices/
+    {
+          "invoiceId":"12345",
+          "submissionUrl": "dfsp1.spsp-server/v1/invoices",
+        "senderIdentifier": "client.user.number",
+          "memo":"Invoice from merchant for 100 USD"
+    }
 
 
 *Response:*
 
-	201 Created
+    201 Created
 
 
 - invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP.
@@ -323,18 +328,18 @@ This method will be used for communication between SPSP Client and SPSP Server c
 *Request:*
 
 
-	POST http://dfsp1.spsp-server/receiver/invoice/
-	{
-  		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-		"senderIdentifier": "client.user.number",
-  		"memo":"Invoice from merchant for 100 USD"
-	}
+    POST http://dfsp1.spsp-server/receiver/invoice/
+    {
+          "invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
+        "senderIdentifier": "client.user.number",
+          "memo":"Invoice from merchant for 100 USD"
+    }
 
 
 *Response:*
 
 
-	201 Created
+    201 Created
 
 
 - invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP.
@@ -359,18 +364,18 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 *Request:*
 
-	POST http://dfsp1.dfsp-api/receiver/invoice/
+    POST http://dfsp1.dfsp-api/receiver/invoice/
 
-	{
-		"invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
-		"senderIdentifier": "client.user.number",
-  		"memo":"Bolagi Shop $5.00"
-	}
+    {
+        "invoiceUrl":"http://dfsp2.spsp-server/invoice/12345",
+        "senderIdentifier": "client.user.number",
+          "memo":"Bolagi Shop $5.00"
+    }
 
 *Response:*
 
 
-	201 Created
+    201 Created
 
 
 - invoiceUrl - full URL to the invoice which is generated and stored in the merchant's DFSP.
@@ -395,23 +400,23 @@ Get Invoice details will be done by using the already defined method [GET /v1/qu
 
 
 
-	GET http://dfsp1.spsp-clinet/invoice?invoiceUrl=http://dfsp2.spsp-server/invoice/12345
+    GET http://dfsp1.spsp-clinet/invoice?invoiceUrl=http://dfsp2.spsp-server/invoice/12345
 
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-	  "account": "dfsp2.bob.dylan.account",
-	  "name":"Bob Dylan",
-	  "currencyCode": "USD",
-	  "currencySymbol": "$",
-	  "amount": "10.40",
-	  "fee":"2.4",
-	  "status": "unpaid",
-	  "invoiceInfo": "https://www.example.com/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
-	}
+    {
+      "account": "dfsp2.bob.dylan.account",
+      "name":"Bob Dylan",
+      "currencyCode": "USD",
+      "currencySymbol": "$",
+      "amount": "10.40",
+      "fee":"2.4",
+      "status": "unpaid",
+      "invoiceInfo": "https://www.example.com/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+    }
 
 
 The following changes will be introduced:
@@ -432,22 +437,22 @@ Get Invoice details in SPSP server will be done by using the already defined met
 *Request:*
 
 
-	GET http://dfsp2.spsp-server/invoice/12345
+    GET http://dfsp2.spsp-server/invoice/12345
 
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-	  "account": "dfsp2.bob.dylan.account",
-	  "name":"Bob Dylan",
-	  "currencyCode": "USD",
-	  "currencySymbol": "$",
-	  "amount": "10.40",
-	  "status": "unpaid",
-	  "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
-	}
+    {
+      "account": "dfsp2.bob.dylan.account",
+      "name":"Bob Dylan",
+      "currencyCode": "USD",
+      "currencySymbol": "$",
+      "amount": "10.40",
+      "status": "unpaid",
+      "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+    }
 
 The following changes will be introduced:
 
@@ -466,22 +471,22 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	GET http://dfsp2.dfsp-api/invoice/12345
+    GET http://dfsp2.dfsp-api/invoice/12345
 
 
 *Response:*
 
-	200 OK
+    200 OK
 
-	{
-	  "account": "dfsp2.bob_dylan.account",
-	  "name":"Bob Dylan",
-	  "currencyCode": "USD",
-	  "currencySymbol": "$",
-	  "amount": "10.40",
-	  "status": "unpaid",
-	  "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
-	}
+    {
+      "account": "dfsp2.bob_dylan.account",
+      "name":"Bob Dylan",
+      "currencyCode": "USD",
+      "currencySymbol": "$",
+      "amount": "10.40",
+      "status": "unpaid",
+      "invoiceInfo": "https://merchant-website.example/gp/your-account/order-details?ie=UTF8&orderID=111-7777777-1111111"
+    }
 
 
 
@@ -497,17 +502,38 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    PUT  http://dfsp1.spsp-client-proxy/spsp/client/v1/payments/{uuid}
+
+        {
+            "sourceIdentifier": "65144444",
+            "sourceAccount": "http://dfsp1-ledger/ledger/accounts/bob",
+            "receiver": "http://ilp-spsp-server/v1/receivers/92806391",
+            "destinationAmount": "17",
+            "currency": "USD",
+            "fee": 0,
+            "memo": {
+                "fee": 0,
+                "transferCode": "invoice",
+                "debitName": "bob dylan",
+                "creditName": "alice cooper"
+            }
+        }
 
 
 *Response:*
 
-	-- to be filled in
+    200 OK
 
-
-- invoiceId - Id of the invoice that has been generated and stored in the merchant's DFSP
-- submissionUrl - URL to client DFSP. Since this message is send from DFSP-Transfer service to SPSP Client Proxy Service, the receiver service has to know which targer SPSP server to contact. This information should be stored in the central directory and can be mapped from a user number.
-- memo - field that is going to be displayed on the USSD menu under the 'pending transaction section
+    {
+        "receiver": "http://ilp-spsp-server/v1/receivers/92806391",
+        "sourceAccount": "http://spsp/ilp/ledger/v1/accounts/bob",
+        "destinationAmount": "17.00",
+        "memo": "{\"fee\":0,\"transferCode\":\"invoice\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\",\"debitIdentifier\":\"65144444\"}",
+        "sourceIdentifier": "65144444",
+        "sourceAmount": "17.00",
+        "fulfillment": "hi8Rtk8WiOQkwv5bpeXrSoRj41bPXR8c3hfn5i_6zyQ",
+        "status": "executed"
+    }
 
 
 ###  [ SPSP CLIENT PROXY -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
@@ -517,11 +543,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ SPSP CLIENT -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
@@ -530,24 +556,74 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP LEDGER ADAPTER -> DFSP Ledger ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
 **5.4 Prepare Payment**
 
+PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
 *Request:*
 
-	-- to be filled in
+    {
+        "id": "78311ff6-377e-4f18-8ad2-a919d4b735b1",
+        "ledger": "http://spsp-server-backend/ilp/ledger/v1",
+        "debits": [
+        {
+            "account": "http://spsp-server-backend/ilp/ledger/v1/accounts/dfsp1-testconnector",
+            "amount": 10,
+            "authorized": true,
+            "memo": {
+            "source_transfer_ledger": "levelone.ist.",
+            "source_transfer_id": "7df88b8a-971e-4c95-8402-35196f16855a",
+            "source_transfer_amount": "1000"
+            }
+        }
+        ],
+        "credits": [
+        {
+            "account": "http://spsp-server-backend/ilp/ledger/v1/accounts/PerfTest3",
+            "amount": 10,
+            "memo": {
+            "ilp": "AYIBhgAAAAAAAAPoOmxldmVsb25lLmRmc3AxLlBlcmZUZXN0My5OdWlsRldUajNOOEs2dU0zRUprM25iZFdiX01LQkpwa1GCAT9QU0svMS4wCk5vbmNlOiBremE3cjlzaVFxLVpVQjJfaVphUTNBCkVuY3J5cHRpb246IG5vbmUKUGF5bWVudC1JZDogN2ZmZWMwNDMtYjA4Mi00OTExLWI0YjktNDhjYTczYzdiZjQzCgpDb250ZW50LUxlbmd0aDogMTM0CkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbgpTZW5kZXItSWRlbnRpZmllcjogMjk5OTk4MDEKCiJ7XCJmZWVcIjowLFwidHJhbnNmZXJDb2RlXCI6XCJwMnBcIixcImRlYml0TmFtZVwiOlwiRGF2aWQgV2FybmVyXCIsXCJjcmVkaXROYW1lXCI6XCJUZWRkeSBEdW5jYW5cIixcImRlYml0SWRlbnRpZmllclwiOlwiMjk5OTk4MDFcIn0iAA"
+            }
+        }
+        ],
+        "execution_condition": "ni:///sha-256;ajsbKuxey2ZYhT9LUzUcz1ccczwIhoYfgrGbfuzy-NA?fpt=preimage-sha-256&cost=32",
+        "expires_at": "2017-04-28T15:42:55.294Z"
+      }
 
 *Response:*
 
-	--  to be filled in
+    200 OK
+
+    {
+        "id": "f251d2b2-d619-4c22-adaa-d0cc1c585999",
+        "ledger": "http://spsp-server-backend/ilp/ledger/v1",
+        "debits": [
+        {
+            "account": "http://spsp-server-backend/ilp/ledger/v1/accounts/bob",
+            "amount": 11,
+            "authorized": true
+        }
+        ],
+        "credits": [
+        {
+            "account": "http://spsp-server-backend/ilp/ledger/v1/accounts/dfsp2-testconnector",
+            "amount": 11,
+            "memo": {
+            "ilp": "AYIBgQAAAAAAAARMNGxldmVsb25lLmRmc3AxLm1lci5UQzFROHVYUllOOFpSNnJxc29yQXo0VExCWEEwdGFxSGeCAUBQU0svMS4wCk5vbmNlOiBrQVJ5eEdmdkpIeWVEWG92RVBEanB3CkVuY3J5cHRpb246IG5vbmUKUGF5bWVudC1JZDogZjI1MWQyYjItZDYxOS00YzIyLWFkYWEtZDBjYzFjNTg1OTk5CgpDb250ZW50LUxlbmd0aDogMTM1CkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbgpTZW5kZXItSWRlbnRpZmllcjogOTI4MDYzOTEKCiJ7XCJmZWVcIjowLFwidHJhbnNmZXJDb2RlXCI6XCJpbnZvaWNlXCIsXCJkZWJpdE5hbWVcIjpcImFsaWNlIGNvb3BlclwiLFwiY3JlZGl0TmFtZVwiOlwibWVyIGNoYW50XCIsXCJkZWJpdElkZW50aWZpZXJcIjpcIjkyODA2MzkxXCJ9IgA"
+            }
+        }
+        ],
+        "execution_condition": "ni:///sha-256;xQxWWKWXGw7JaYI62rZ5uu3mXLAnjf2yJbrtC3Xv4Sk?fpt=preimage-sha-256&cost=32",
+        "expires_at": "2017-04-28T15:55:16.421Z"
+      }
 
 ###  [ILP LEDGER ADAPTER -> ILP CONNECTOR ](https://github.com/interledger/ilp-connector) ###
 
@@ -556,11 +632,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
 
@@ -569,11 +645,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP CONNECTOR -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
@@ -582,11 +658,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP LEDGER ADAPTER  -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
@@ -595,11 +671,67 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    PUT http://dfsp-ledger/ledger/transfers/{uuid}
+    {
+        "uuid": "2527962e-5bbd-460e-8945-154a34f17dba",
+        "debitAccount": "bob",
+        "debitMemo": {},
+        "creditAccount": "dfsp1-testconnector",
+        "creditMemo": {
+            "ilp_header": {
+                "account": "levelone.dfsp2.alice.~psk.UZVSWwsy6ww.MFsvYpK_6SY5BpNLznWs8g.2527962e-5bbd-460e-8945-154a34f17dba",
+                "amount": "2.00",
+                "data": {
+                    "data": {
+                        "memo": "{\"fee\":0,\"transferCode\":\"invoice\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
+                        "senderIdentifier": "00427080"
+                    },
+                    "expires_at": "2017-04-25T17:32:48.384Z"
+                }
+            }
+        },
+        "amount": 2,
+        "executionCondition": "ni:///sha-256;C2EmAmpD_dylQ8iiI4S-afyvxINo-TRomDJI5tgc-0Y?fpt=preimage-sha-256&cost=32",
+        "authorized": true,
+        "expiresAt": "2017-04-25T17:32:48.384Z"
+    }
 
 *Response:*
 
-	--  to be filled in
+    200 OK
+
+     {
+        "id": "http://spsp/ledger/transfers/2527962e-5bbd-460e-8945-154a34f17dba",
+        "ledger": "http://spsp/ledger",
+        "debits": [{
+            "account": "http://spsp/ledger/accounts/bob",
+            "memo": {},
+            "amount": "2.00",
+            "authorized": true
+        }],
+        "credits": [{
+            "account": "http://spsp/ledger/accounts/dfsp1-testconnector",
+            "memo": {
+                "ilp_header": {
+                    "account": "levelone.dfsp2.alice.~psk.UZVSWwsy6ww.MFsvYpK_6SY5BpNLznWs8g.2527962e-5bbd-460e-8945-154a34f17dba",
+                    "amount": "2.00",
+                    "data": {
+                        "data": {
+                            "memo": "{\"fee\":0,\"transferCode\":\"invoice\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
+                            "senderIdentifier": "00427080"
+                        },
+                        "expires_at": "2017-04-25T17:32:48.384Z"
+                    }
+                }
+            },
+            "amount": "2.00"
+        }],
+        "execution_condition": "ni:///sha-256;C2EmAmpD_dylQ8iiI4S-afyvxINo-TRomDJI5tgc-0Y?fpt=preimage-sha-256&cost=32",
+        "cancellation_condition": null,
+        "state": "prepared",
+        "expires_at": "2017-04-25T17:32:48.384Z"
+ }
+
 
 ###  [ILP LEDGER ADAPTER  -> SPSP SERVER](https://github.com/LevelOneProject/ilp-spsp-server) ###
 
@@ -608,11 +740,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 
 ###  [SPSP SERVER -> SPSP SERVER BACKEND](https://github.com/LevelOneProject/interop-spsp-backend-services) ###
@@ -622,11 +754,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [SPSP SERVER BACKEND -> DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
 
@@ -635,11 +767,21 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    PUT http://dfsp-api/receivers/invoices/{invoiceId}/payments/{paymentid}
+
+    {
+        "destinationAmount": "1200",
+        "memo": "\"{\\\"fee\\\":0,\\\"transferCode\\\":\\\"invoice\\\",\\\"debitName\\\":\\\"alice cooper\\\",\\\"creditName\\\":\\\"mer chant\\\",\\\"debitIdentifier\\\":\\\"92806391\\\"}\"",
+        "status": "proposed",
+        "transferId": "883bb6ba-f425-4bad-80d0-8588f0c192de",
+        "invoiceId": "16",
+        "paymentid": "ce8dfee1-f6be-4b89-a44b-06fbd941e0b2"
+  }
 
 *Response:*
 
-	--  to be filled in
+    200 OK {}
+
 
 ###  [SPSP SERVER -> ILP-LEDGER_ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
@@ -648,11 +790,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP-LEDGER_ADAPTER -> DFSP LEDGER](https://github.com/LevelOneProject/dfsp-ledger) ###
 
@@ -661,11 +803,22 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    PUT http://dfsp-ledger/ledger/transfers/{transferId}/fulfillment
+
+    {
+        "transferId": "6a4c78f4-cc2f-488f-b04d-26b71c92962a",
+        "fulfillment": "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k",
+        "condition": "ni:///sha-256;sbawjV8idAMItrwviBMq4zMOkuo_lRLNMm1KPPVFM2A?fpt=preimage-sha-256&cost=32"
+    }
 
 *Response:*
 
-	--  to be filled in
+    Returns transfer fulfillment.
+
+    200 OK
+
+    "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k"
+
 
 ###  [ILP-LEDGER_ADAPTER -> ILP-CONNECTOR](https://github.com/interledgerjs/ilp-connector) ###
 
@@ -674,11 +827,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP-CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
 
@@ -687,11 +840,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP-CONNECTOR -> ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) ###
 
@@ -700,11 +853,11 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
 
 ###  [ILP LEDGER ADAPTER -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
 
@@ -713,11 +866,21 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    PUT http://dfsp-ledger/ledger/transfers/{transferId}/fulfillment
+
+    {
+        "transferId": "6a4c78f4-cc2f-488f-b04d-26b71c92962a",
+        "fulfillment": "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k",
+        "condition": "ni:///sha-256;sbawjV8idAMItrwviBMq4zMOkuo_lRLNMm1KPPVFM2A?fpt=preimage-sha-256&cost=32"
+    }
 
 *Response:*
 
-	--  to be filled in
+    Returns transfer fulfillment.
+
+    200 OK
+
+    "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k"
 
 ###  [ILP LEDGER ADAPTER -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
 
@@ -726,8 +889,8 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	-- to be filled in
+    -- to be filled in
 
 *Response:*
 
-	--  to be filled in
+    --  to be filled in
