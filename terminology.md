@@ -200,5 +200,4 @@ and/or regulated service provider (including a non-bank) which can be used to ma
 |	Voucher	|		|	A token that entitles the holder to a discount or that may be exchanged for goods or services.
 |	Wallet	|		|	Repository of funds for an account.
 |	Whitelist	|		|	A list or register of entities (registered users) that are being provided a particular privilege, service, mobility, access or recognition, especially those that were initially blacklisted. Entities on the list will be accepted, approved and/or recognized. Whitelisting is the reverse of blacklisting, the practice of identifying entities that are denied, unrecognized, or ostracized. Where entities are registered users (or user accounts, if granularity allows) and services are informational (e.g. balance check), transactional (e.g. debit/credit) payments services or lifecycle (e.g. registration, closure) services. 
-|	'x'-initiated	|		|	"
-Used when referring to the side that initiated a transaction, e.g. agent-initiated cash-out vs. user-initiated cash-out"
+|	'x'-initiated	|		|	Used when referring to the side that initiated a transaction, e.g. agent-initiated cash-out vs. user-initiated cash-out"
