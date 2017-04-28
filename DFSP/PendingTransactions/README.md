@@ -502,7 +502,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	PUT  http://dfsp1.spsp-client-proxy/spsp/client/v1/payments/{traceId}
+	PUT  http://dfsp1.spsp-client-proxy/spsp/client/v1/payments/{uuid}
 
 		{
 			"sourceIdentifier": "65144444",
@@ -513,7 +513,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 			"fee": 0,
 			"memo": {
 				"fee": 0,
-				"transferCode": "p2p",
+				"transferCode": "invoice",
 				"debitName": "bob dylan",
 				"creditName": "alice cooper"
 			}
@@ -528,7 +528,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 		"receiver": "http://ilp-spsp-server/v1/receivers/92806391",
 		"sourceAccount": "http://spsp/ilp/ledger/v1/accounts/bob",
 		"destinationAmount": "17.00",
-		"memo": "{\"fee\":0,\"transferCode\":\"p2p\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\",\"debitIdentifier\":\"65144444\"}",
+		"memo": "{\"fee\":0,\"transferCode\":\"invoice\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\",\"debitIdentifier\":\"65144444\"}",
 		"sourceIdentifier": "65144444",
 		"sourceAmount": "17.00",
 		"fulfillment": "hi8Rtk8WiOQkwv5bpeXrSoRj41bPXR8c3hfn5i_6zyQ",
@@ -566,6 +566,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 **5.4 Prepare Payment**
 
+PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
 *Request:*
 
@@ -578,7 +579,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 			"ilp": "AYIBfwAAAAAAAAakNmxldmVsb25lLmRmc3AyLmFsaWNlLndvdTdOb0w2LUhFUVl6WkJoZ3NHNnZOLTRCd2piaEJ6d4IBPFBTSy8xLjAKTm9uY2U6IHRUTU9MMEZZZzRkc3dsTjFMU0ZUS3cKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA2YTRjNzhmNC1jYzJmLTQ4OGYtYjA0ZC0yNmI3MWM5Mjk2MmEKCkNvbnRlbnQtTGVuZ3RoOiAxMzEKQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uClNlbmRlci1JZGVudGlmaWVyOiA2NTE0NDQ0NAoKIntcImZlZVwiOjAsXCJ0cmFuc2ZlckNvZGVcIjpcInAycFwiLFwiZGViaXROYW1lXCI6XCJib2IgZHlsYW5cIixcImNyZWRpdE5hbWVcIjpcImFsaWNlIGNvb3BlclwiLFwiZGViaXRJZGVudGlmaWVyXCI6XCI2NTE0NDQ0NFwifSIA",
 			"ilp_decrypted": {
 				"fee": 0,
-				"transferCode": "p2p",
+				"transferCode": "invoice",
 				"debitName": "bob dylan",
 				"creditName": "alice cooper",
 				"debitIdentifier": "65144444"
@@ -662,7 +663,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
 *Request:*
 
-	PUT http://dfsp=ledger/ledger/transfers/{traceId}
+	PUT http://dfsp-ledger/ledger/transfers/{uuid}
 	{
 		"uuid": "2527962e-5bbd-460e-8945-154a34f17dba",
 		"debitAccount": "bob",
@@ -674,7 +675,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 				"amount": "2.00",
 				"data": {
 					"data": {
-						"memo": "{\"fee\":0,\"transferCode\":\"p2p\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
+						"memo": "{\"fee\":0,\"transferCode\":\"invoice\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
 						"senderIdentifier": "00427080"
 					},
 					"expires_at": "2017-04-25T17:32:48.384Z"
@@ -708,7 +709,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 					"amount": "2.00",
 					"data": {
 						"data": {
-							"memo": "{\"fee\":0,\"transferCode\":\"p2p\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
+							"memo": "{\"fee\":0,\"transferCode\":\"invoice\",\"debitName\":\"bob dylan\",\"creditName\":\"alice cooper\"}",
 							"senderIdentifier": "00427080"
 						},
 						"expires_at": "2017-04-25T17:32:48.384Z"
