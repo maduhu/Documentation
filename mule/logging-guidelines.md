@@ -1,6 +1,6 @@
 # L1P Service Logging
 
-##Introduction
+## Introduction
 This document provides L1P service logging guidelines in order to provide end-end traceability of interactions, aid in troubleshooting and publish metrics to the backend
 
 ### Desired Goals
@@ -9,32 +9,32 @@ This document provides L1P service logging guidelines in order to provide end-en
 * Debuggging
 * Metrics for a particular transaction
 
-##### General:
+#### General:
 All logs statement must begin with **ISO8601 compliant timestamp**.  The timestamp must have millisecond resolution.  It should be follwed by a log level.  Available logs levels are 
 **ERROR, WARN, INFO, DEBUG**  For example
 ```
 2017-04-28T17:16:20.561Z INFO ilp-routing:routing-tables debug bumping route ledgerA: levelone.dfsp1.  ledgerB:   nextHop: levelone.ist.dfsp2
 ```
-##### 1. End-to-end Traceability:  
+#### 1. End-to-end Traceability:  
 To provide end-to-end traceability of Level One payment related interactions, L1P components shall include **L1p-Trace-Id** in all log statements where available.  The following
 snippet must be included in all of the log lines: `L1p-Trace-Id=<current_trace_id>` For a given unit of work, related interactions between services,
 the L1p-Trace-Id is required to be unique.  It is recommended that UUID be used for uniqueness requirement.  This would allow to quickly retrieve
 all logging for a given L1p-Trace-Id.    
  
-##### 2. Rest Service Calls:  
+#### 2. Rest Service Calls:  
 All Rest Service calls must include **L1p-Trace-Id** as a header HTTP Header.  The value of this header must be set to *Payment ID* for all payment interactions.
 For all non-payment interaction the originating DFSP must generate and use an UUID for the value of the header.  In the case where the **L1p-Trace-Id** is not present
 as a header, an error needs to be logged with context about the call with the missing header.  The service must set the **L1p-Trace-Id** header with appropriate value 
 whether the current interaction is during the course of processing a payment or not.
 
-##### 3. Web Socket Notifications:  
+#### 3. Web Socket Notifications:  
 [To Be Filled based on information from Ripple.]
 
-##### 4. Addtional Context in Logs
+#### 4. Addtional Context in Logs
 It is recommended to log other identifiers that can help retrieve logs statement across multiple layers in the Level One stack. 
 Some examples are Transfer Id, User ID (USSD id, email, login name), AppName, and AccountId etc.  `Relevant-Id=<id_value>`
   
-##### 5. Metrics Logging
+#### 5. Metrics Logging
 Logs can be used to publish metrics to metrics service.  There are 2 types of metrics that are supported.  The details about supported
 metrics are available here.  **link**  The snippet below shows the systax for publishing metrics:
   
