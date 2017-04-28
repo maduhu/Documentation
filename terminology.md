@@ -2,10 +2,10 @@
 "The terminolgy documents the preferred terms and definitions for the Level One Project.
 
 ## Terminology
-| Term | Alternative and Related Terms | L1P Definition
-| ------------------------------------	|	------------------------------------	|	------------------------------------
-| Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
-| Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in the different FSPs. 
+|	Term		Alternative and Related Terms	|	L1P Definition
+|	------------------------------------	|	------------------------------------	|	------------------------------------
+|	Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
+|	Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in the different FSPs. 
 |	Account Number	|	Account ID	|	 A unique number representing an account. There can be multiple accounts for each end user.
 |	Active User	|		|	A term used by many providers in describing how many of their account holders are frequent users of their service.
 |	Addressing	|	Directories,  Aliasing	|	The use of necessary information (account number, phone number, etc.) for a paying user to direct payment to a receiving user.
@@ -23,21 +23,21 @@ National law defines whether an agent outlet may remain exclusive to one provide
 |	Bank	|	Savings Bank, Credit Union, Payments Bank	|	A charted financial system within a country that has the ability to accept deposits and make and receive payments into those accounts.
 |	Bank Accounts and Transaction Services	|	Mobile Banking, Remote Banking, Digital Banking	|	A transaction account held at a bank. This account may be accessible by a mobile phone, in which case it is sometimes referred to as "mobile banking".
 |	Bank-Led Model	|	Bank-Centric  Model	|	A reference to a system in which banks are the primary providers of digital financial services to end users. National law may require this.
-|	Basic Phone	|		|	
+|	Basic Phone	|		|	Minimum device required for DFS
 |	Bilateral Net Settlement System 	|		|	 A settlement system in which participants’ bilateral net settlement positions are settled between every bilateral combination of participants.
 |	Bilateral Netting 	|		|	 An arrangement between two parties to net their bilateral obligations. The obligations covered by the arrangement may arise from financial contracts, transfers or both.
 |	Bill Payment	|	C2B, Utility payments, school payments	|	Making a payment for a recurring service, either in person ("face to face") or remotely.
 |	Biometric  Authentication	|		|	The use of a physical characteristic of a person (fingerprint, IRIS, etc.) to authenticate that person.
 |	Biometric  Authentication	|		|	The use of a physical characteristic of a person (fingerprint, IRIS, etc.) to authenticate that person.
-|	Blacklist	|		|	
+|	Blacklist	|		|	A list or register of entities (registered users) that are being denied/blocked from a particular privilege, service, mobility, access or recognition. Entities on the list will NOT be accepted, approved and/or recognized. It is the practice of identifying entities that are denied, unrecognized, or ostracized. Where entities are registered users (or user accounts, if granularity allows) and services are informational (e.g. balance check), transactional (e.g. debit/credit) payments services or lifecycle (e.g. registration, closure) services. 
 |	Blockchain	|	Digital currency, cryptocurrency, distributed ledger technology	|	The technology underlying bitcoin and other cryptocurrencies—a shared digital ledger, or a continually updated list of all transactions.
 |	Borrowing	|		|	Borrowing money to finance a short term or long term need
 |	Bulk Payer  	|		|	 An organization (or rarely, an individual), that needs to pay to many users at once.
 |	Bulk Payments	|	G2C, B2C , G2P, social transfers	|	Making and receiving payments from a government to a consumer: benefits, cash transfers, salaries, pensions, etc.
 |	Bulk Payments Services	|		|	A service which allows a government agency or an enterprise to make payments to a large number of payees - typically consumers but can be businesses as well.
-|	Bulk upload service	|		|	
+|	Bulk upload service	|		|	A service allowing the import of multiple transactions per session, most often via a bulk data transfer file which is used to initiate payments. Example: salary payment file. 
 |	Bundling	|	Packaging, Tying	|	A business model in which a provider which groups a collection of services into one product which an end user agrees to buy or use.
-|	Business	|		|	
+|	Business	|		|	Entity such as a public limited or limited company or corporation that uses mobile money as a service, e.g. taking bill payments, making bill payments and disbursing salaries
 |	Cash Management	|	Agent Liquidity Management	|	Management of cash balances at an agent.
 |	Cash-In	|		|	Receiving eMoney credit in exchange for physical cash - typically done at an agent.
 |	Cash-Out	|		|	Receiving physical cash in exchange for a debit to an eMoney account - typically done at an agent.
@@ -48,14 +48,14 @@ National law defines whether an agent outlet may remain exclusive to one provide
 |	Closed-Loop	|		|	A payment system used by a single provider, or a very tightly constrained group of providers.
 |	Combatting Terrorist Financing	|	CFT (Counter Financing of Terrorism)	|	Initiatives to detect and stop the use of financial systems to transfer funds to terrorist organizations or people.
 |	Commission	|		|	An incentive payment made, typically to an agent or other intermediary who acts on behalf of a DFS provider. Provides an incentive for agent.
-|	Commit	|		|	
+|	Commit	|		|	Commit means that the electronic funds that were earlier reserved are now moved to the final state of the financial transaction. The financial transaction is completed. The electronic funds are no longer locked for usage. 
 |	Counterparty	|	Payee, payer, borrower, lender	|	The other side of a payment or credit transaction. A payee is the counterparty to a payer, and vice-versa.
-|	Coupon	|		|	
+|	Coupon	|		|	A token that entitles the holder to a discount or that may be exchanged for goods or services
 |	Credit History	|	Credit bureaus, credit files	|	A set of records kept for an end user reflecting their use of credit, including borrowing and repayment.
 |	Credit Risk Management	|		|	Tools to manage the risk that a borrower or counterparty will fail to meet its obligations in accordance with agreed terms.
 |	Credit Scoring	|		|	A process which creates a numerical score reflecting credit worthiness.
 |	Cross Border Trade Finance Services	|		|	Services which enable one business to sell or buy to businesses or individuals in other countries; may include management of payments transactions, data handling, and financing.
-|	Cross-FX Transfer	|		|	
+|	Cross-FX Transfer	|		|	Transfer involving multiple currencies including a foreign exchange calculation
 |	Customer Database Management	|		|	The practices that providers do to manage customer data: this may be enabled by the payment platform the provider is using.
 |	Data Protection	|	PCI-DSS	|	The practices that enterprises do to protect end user data. "PCI-DSS" is a card industry standard for this.
 |	Deposit Guarantee System	|	Deposit Insurance	|	A fund that insures the deposits of account holders at a provider; often a government function used specifically for bank accounts.
@@ -74,7 +74,7 @@ Supply Chain Solutions                                                   Service
 |	Encryption	|	Decryption	|	The process of encoding a message so that it can be read only by the sender and the intended recipient.
 |	End User	|	Consumer, Customer, Merchant, Biller	|	The customer of a digital financial services provider: the customer may be a consumer, a merchant, a government, or another form of enterprise.
 |	Escrow	|	Funds Isolation, Funds Safeguarding, Custodian Account, Trust Account.	|	A means of holding funds for the benefit of another party. eMoney Issuers are usually required by law to hold the value of end users' eMoney accounts at a bank, typically in a Trust Account. This accomplishes the goals of funds isolation and funds safeguarding.
-|	External Account	|		|	
+|	External Account	|		|	An account hosted outside the FSP, regularly accessible by an external provider interface API. 
 |	FATF	|		|	The Financial Action Task Force is an intergovernmental organization to combat money laundering and to act on terrorism financing.
 |	Feature Phone	|		|	A mobile telephone without significant computational capabilities.
 |	Fees	|		|	The payments assessed by a provider to their end user. This may either be a fixed fee, a percent-of-value fee, or a mixture. A Merchant Discount Fee is a fee charged by a Merchant Services Provider to a merchant for payments acceptance. Payments systems or schemes, as well as processors, also charge fees to their customer (typically the provider.)
@@ -84,7 +84,7 @@ Supply Chain Solutions                                                   Service
 |	Float	|		|	This term can mean a variety of different things. In banking, float is created when one party's account is debited or credited at a different time than the counterparty to the transaction. eMoney, as an obligation of a non-bank provider, is sometimes referred to as float.
 |	Fraud	|	Fraud Management, Fraud Detection, Fraud Prevention	|	Criminal use of digital financial services to take funds from another individual or business, or to damage that party in some other way.
 |	Fraud Risk Management	|	Also know as fraud risk management service (FRMS)	|	Tools to manage providers' risks, and at times user's risks (e.g. for merchants or governments) in providing and/or using DFS services.
-|	FX	|		|	
+|	FX	|		|	Foreign Exchange.
 |	Government Payments Acceptance Services	|		|	Services which enable governments to collect taxes and fees from individuals and businesses.
 |	HCE	|		|	A communication technology that enables payment data to be safely stored without using the Secure Element in the phone.
 |	Identity	|	National Identity, Financial Identity, Digital Identity	|	A credential of some sort that identifies an end user. National identities are issued by national governments. In some countries a financial identity is issued by financial service providers.
@@ -94,7 +94,7 @@ Supply Chain Solutions                                                   Service
 |	Interchange	|	Swipe Fee, Merchand Discount Fee	|	A structure within some payments schemes which requires one provider to pay the other provider a fee on certain transactions. Typically used in card schemes to effect payment of a fee from a merchant to a consumer's card issuing bank.
 |	International  Remittance	|	P2P; Remote Cross-border Transfer of Value, Cross-Border  Remittance	|	Making and receiving payments to another person in another country.
 |	Interoperability	|	Interconnectivity	|	When payment systems are interoperable, they allow two or more proprietary platforms or even different products to interact seamlessly. The result is the ability to exchange payments transactions between and among providers. This can be done by providers participating in a scheme, or by a variety of bilateral or multilateral arrangements. Both technical and business rules issues need to be resolved for interoperability to work.
-|	Interoperability settlement bank 	|		|	
+|	Interoperability settlement bank 	|		|	Entity that facilitates the exchange of funds between the FSPs. The settlement bank is one of the main entities involved in any inter-FSP transactions.
 |	Investment  Products	|		|	A variety of products which allow end users to put funds into investments other than a savings account.
 |	Irrevocable	|	Non-Repudiation	|	A transaction that cannot be "called back" by the payer; an irrevocable payment, once received by a payee, cannot be taken back by the payer.
 |	IST 	|		|	 Interoperability service for transfer
@@ -103,7 +103,7 @@ Supply Chain Solutions                                                   Service
 |	Liability	|	Agent Liability, Issuer Liability, Acquirer Liability	|	A legal obligation of one party to another; required by either national law, payment scheme rules, or specific agreements by providers. Some scheme rules transfer liabilities for a transaction from one provider to another under certain conditions.
 |	Liquidity	|	Agent liquidity	|	The availability of liquid assets to support an obligation. Banks and non-bank providers need liquidity to meet their obligations. Agents need liquidity to meet cash-out transactions by consumers and small merchants.
 |	Loans	|	Microfinance, P2P Lending, Factoring, Cash Advances, Credit, Overdraft, Facility	|	Means by which end users can borrow money.
-|	M2C	|		|	
+|	M2C	|		|	Merchant to Customer or Consumer.
 |	mCommerce	|	eCommerce	|	Refers to buying or selling in a remote fashion: by phone or tablet (mCommerce) or by computer  (eCommerce)
 |	Merchant	|	Payments Acceptor	|	An enterprise which sells goods or services and receives payments for such goods or services.
 |	Merchant  Acquisition	|	Onboarding	|	The process of enabling a merchant for the receipt of electronic payments.
@@ -122,48 +122,47 @@ Supply Chain Solutions                                                   Service
 |	Netting 	|		|	 The offsetting of obligations between or among participants in the settlement arrangement, thereby reducing the number and value of payments or deliveries needed to settle a set of transactions.
 |	Non Bank-Led Model	|	MNO-Led Model	|	A reference to a system in which non-banks are the providers of digital financial services to end users. Non-banks typically need to meet criteria established by national law and enforced by regulators.
 |	Non-Bank	|	Payments Institution, Alternative Lender	|	An entity that is not a chartered bank, but which is providing financial services to end users. The requirements of non-banks to do this, and the limitations of what they can do, are specified by national law.
-|	Nostro Account	|		|	
-|	Notification	|		|	
+|	Nostro Account	|		|	From the Payer's perspective: Payer FSP funds/accounts held/hosted at Payee FSP
+|	Notification	|		|	Notice to payer or payee regarding the status of a transfer.
 |	Off-Us Payments	|	Off-net payments	|	Payments made in a multiple-participant system or scheme, where the payer's provider is a different entity as the payee's provider.
 |	On-Us Payments	|	On-net payments	|	Payments made in a multiple-participant system or scheme, where the payer's provider is the same entity as the payee's provider.
 |	Open-Loop	|		|	A payment system or scheme designed for multiple providers to participate in. Payment system rules or national law may restrict participation to certain classees of providers.
 |	Operations Risk Management	|		|	Tools to manage providers' risks in operating a DFS system.
-|	Organization	|		|	
+|	Organization	|		|	Non-business An entity such as a business, charity or government department that uses mobile money as a service, e.g. taking bill payments, making bill payments and disbursing salaries
 |	Over The Counter Services	|	OTC, Mobile to Cash	|	Services provided by agents when one end party does not have an eMoney account: the (remote) payer may pay the eMoney to the agent's account, who then pays cash to the non- account holding payee.
 |	Participant	|		|	A provider who is a member of a payment scheme, and subject to that scheme's rules.
-|	Partner Bank	|		|	
+|	Partner Bank	|		|	Financial institution supporting the FSP and giving it access to the local banking ecosystem.
 |	Payee	|	Receiver	|	The receipient of funds in a payment transaction.
-|	Payee FSP	|		|	
+|	Payee FSP	|		|	Payer's financial service providers.
 |	Payer	|	Sender	|	The payer of funds in a payment transaction.
-|	Payer FSP	|		|	
-|	Paying Bills	|	C2B	|	0
+|	Payer FSP	|		|	Payee's financial service providers.
 |	Paying for Purchases	|	C2B - Consumer to Business	|	Making payments from a consumer to a business: the business is the "payment acceptor" or merchant.
 |	Payment System	|	Payment Network, Money Transfer System	|	Encompasses all payment-related activities, processes, mechanisms, infrastructure, institutions and users in a country or a broader region (eg a common economic area).
 |	Payment System Operator	|	Mobile Money Operator, Payment Service Provider	|	The entity that operates a payment system or scheme.
-|	Peer Mobile Money Platform	|		|	
-|	PEP	|		|	
+|	Peer FSP Mobile Money Platform	|		|	The counterparty Mobile Money Provider's Platform financial service provider.
+|	PEP	|		|	Politically Exposed Person. Someone who has been entrusted with a prominent public function. A PEP generally presents a higher risk for potential involvement in bribery and corruption by virtue of their position and the influence that they may hold (e.g. 'senior foreign political figure', 'senior political figure', foreign official', etc.).  
 |	Phone Number 	|		|	 Non identifying number associated with one or more end users as contact information for the end user. These numbers use the E.164 standard. Phone numbers are not required as a user number, though they can be used that way if a government or DFSP insists.
 |	Platform	|	Payment Platform, Payment Platform Provider	|	A term used to describe the software or service used by a provider, a scheme, or a switch to manage end user accounts and to send and receive payment transactions.
 |	Point of Sale Device	|	Terminal, Acceptance Device, POS, mPOS	|	Any device meant specifically for managing the receipt of electronic payments.
 |	Posting	|	Clearing	|	The act of the provider of entering a debit or credit entry into the end user's account record.
-|	Prefunding	|		|	
+|	Prefunding	|		|	The process of adding funds to Vostro/Nostro accounts.
 |	Prepaid Cards	|		|	eMoney product for general purpose use where the record of funds is stored on the payment card (on magnetic stripe or the embedded integrated circuit chip) or a central computer system, and which can be drawn down through specific payment instructions to be issued from the bearer’s payment card.
 |	Processor	|	Gateway	|	An enterprise that manages, on an out-sourced basis, various functions for a digital financial services provider. These functions may include transaction management, customer database management, and risk management. Processors may also do functions on behalf of payments systems, schemes, or switches.
-|	Promotion	|		|	
+|	Promotion	|		|	FSP marketing initiative offering the user a transaction/service fee discount on goods or services. May be implemented through the use of a coupon.
 |	Provider	|	Financial Service Provider, Payment Service Provider, Digital Financial Services Provider	|	The entity that provides a digital financial service to an end user (either a consumer, a business, or a government.) In a closed-loop payment system, the Payment System Operator is also the provider. In an open-loop payment system, the providers are the banks or non-banks which participate in that system.
 |	Pull Payments	|		|	A payment type which is initiated by the payee: typically a merchant or payment acceptor, whose provider "pulls" the funds out of the payer's account at the payer's provider.
 |	Push Payments	|		|	A payment type which is initiated by the payer, who instructs their provider to debit their account and "push" the funds to the receiving payee at the payee's provider.
 |	Quoting 	|		|	The process a DFSP uses to ask for the fees and ILP packet from the destination
-|	Reconcilation	|		|	
+|	Reconcilation	|		|	Cross FSP Reconciliation is the process of ensuring that two sets of records, usually the balances of two accounts, are in agreement between FSPs. Reconciliation is used to ensure that the money leaving an account matches the actual money transferred. This is done by making sure the balances match at the end of a particular accounting period.
 |	Recourse	|		|	Rights given to an end user by law, private operating rules, or specific agreements by providers, allowing end users the ability to do certain things (sometimes revoking a transaction) in certain circumstances.
-|	Refund	|		|	
+|	Refund	|		|	A repayment of a sum of money.
 |	Registration	|	Enrollment, Agent Registration	|	The process of opening a provider account. Separate processes are used for consumers, merchants agents, etc.
 |	Regulator	|		|	A governmental organization given power through national law to set and enforce standards and practices. Central Banks, Finance and Treasury Departments, Telecommunications Regulators, and Consumer Protection Authorities are all regulators involved in digital financial services.
-|	Reservation	|		|	
-|	Reversal	|		|	
+|	Reservation	|		|	Part of a 2-phase transfer operation in which the funds to be transferred are 'segregated' (i.e. made unusable) for a predetermined duration, commonly governed by a timeout period, to any other transfer attempts.
+|	Reversal	|		|	The process of reversing a completed transfer.
 |	Risk Management	|	Fraud  Management	|	The practices that enterprises do to understand, detect, prevent, and manage various types of risks. Risk management occurs at providers, at payments systems and schemes, at processors, and at many merchants or payments acceptors.
 |	Risk-based  Approach	|		|	A regulatory and/or business management approach that creates different levels of obligation based on the risk of the underlying transaction or customer.
-|	Rollback	|		|	
+|	Rollback	|		|	The process of reversing a completed transfer.
 |	RTGS 	|	OSS L1P	|	 Real time gross settlement
 |	Rules	|		|	The private operating rules of a payments scheme, which bind the direct participants (either providers, in an open-loop system, or end users, in a closed-loop system).
 |	Saving and Investing	|		|	Keeping funds for future needs and financial return
@@ -181,7 +180,7 @@ Supply Chain Solutions                                                   Service
 |	Storing Funds	|	Account, Wallet	|	Keeping funds in secure electronic format. May be a bank account or an eMoney account.
 |	Super Agent	|	Master agent	|	In some countries, agents are managed by Super Agents or Master Agents who are responsible for the actions of their agents to the provider.
 |	Supplier Payment	|	B2B - Business to Business, B2G - Business to Government	|	Making a payment from one business to another for supplies, etc: may be in-person or remote, domestic or cross border. Includes cross-border trade.
-|	SVA (Stored Value Account)	|		|	
+|	SVA (Stored Value Account)	|		|	Accounts in which funds are kept in a secure, electronice format.
 |	Switch	|		|	An entity which receives transactions from one provider and routes those transactions on to another provider. A switch may be owned or hired by a scheme, or be hired by individual providers. A switch will connect to a settlement system for inter-participant settlement.
 |	Systemic Risk	|		|	In payments systems, the risk of collapse of an entire financial system or entire market, as opposed to risk associated with any one individual provider or end user.
 |	Tax Payment	|	C2G, B2G	|	Making a payment from a consumer to a government, for taxes, fees, etc.
