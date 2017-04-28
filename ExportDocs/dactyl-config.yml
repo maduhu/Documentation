@@ -1,17 +1,17 @@
 # From the directory above docs:
 # (run the copy-images script first)
-# dactyl_build -t all -c Docs/dactyl-config.yml --pdf
+# dactyl_build -t all -c Docs/ExportDocs/dactyl-config.yml --pdf
 #--leave_temp_files
 content_path: .
 content_static_path: ./images
 temporary_files_path: .
-template_path: ./Docs/pdf_templates
-template_static_path: ./Docs/pdf_templates/template_assets
+template_path: ./Docs/ExportDocs/pdf_templates
+template_static_path: ./Docs/ExportDocs/pdf_templates/template_assets
 default_template: template-l1p_pdf_content.html
 pdf_template: template-l1p_pdf_content.html
 
 filter_paths:
-    - ./Docs/pdf_templates/filters
+    - ./Docs/ExportDocs/pdf_templates/filters
 
 default_filters:
     - out_of_date
@@ -509,6 +509,14 @@ pages:
         targets:
             - all
             - stakeholder
+
+    -   name: 'Exporting These Documents'
+        html: ExportDocs.html
+        category: Appendix
+        md: Docs/ExportDocs/README.md
+        targets:
+            - all
+
 
 # -------------------- Style Checker Rules ------------------------
 #word_substitutions_file: plainlanguage_words.yaml
