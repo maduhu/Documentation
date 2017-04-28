@@ -531,6 +531,7 @@ pages:
         md: Docs/scenarios.md
         targets:
             - all
+            - stakeholder
 
     -   name: 'Exporting These Documents'
         html: ExportDocs.html

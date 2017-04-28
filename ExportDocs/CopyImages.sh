@@ -4,6 +4,7 @@ cp Docs/DFSP/*.png ./images
 cp Docs/DFSP/PendingTransactions/*.png ./images
 cp Docs/DFSP/BulkPayment/src/*.png ./images
 cp Docs/DFSP/USSD/*.PNG ./images
+cp Docs/DFSP/USSD/*.png ./images
 cp Docs/DFSP/USSD/*.JPG ./images
 cp "Docs/DFSP/Pending Transactions Api/diagrams"/*.png ./images
 cp Docs/DFSP/ManageAcccoutHolders/*.jpg ./images

@@ -43,9 +43,9 @@ The central services are a collection of separate services that help the DFSPs p
 ## End-to-End Scenarios
 The individual services listed above can't easily describe how key scenarios work across the system. For each of the [Level One Scenarios](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios) we provide a technical walk through.
 
-1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#send-money-to-anyone),  [walkthrough](./LevelOneClient/scenarios/Send%20Payment.md)
-2. Invoices [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
-3. Bulk Payment [scenario](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#bulk-payments), [message flow](./DFSP/BulkPayment/README.md)
+1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone),  [walkthrough](./LevelOneClient/scenarios/Send%20Payment.md)
+2. Invoices [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
+3. Bulk Payment [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#bulk-payments), [message flow](./DFSP/BulkPayment/README.md)
 
 ## System-wide Testing
 Individual services have their own tests, but there are system-wide tests as per the [testing strategy](https://github.com/LevelOneProject/Docs/wiki/Manual-and-automated-testing-strategy).
