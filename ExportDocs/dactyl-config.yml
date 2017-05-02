@@ -533,6 +533,14 @@ pages:
             - all
             - stakeholder
 
+    -   name: 'Tools and Process Decisions'
+        html: Decisions.html
+        category: Appendix
+        md: Docs/decisions.md
+        targets:
+            - all
+            - stakeholder
+
     -   name: 'Exporting These Documents'
         html: ExportDocs.html
         category: Appendix
