@@ -50,6 +50,7 @@ The individual services listed above can't easily describe how key scenarios wor
 ## System-wide Testing
 Individual services have their own tests, but there are system-wide tests as per the [testing strategy](https://github.com/LevelOneProject/Docs/wiki/Manual-and-automated-testing-strategy).
 
+- [Scenario testing](https://github.com/LevelOneProject/Docs/blob/master/JMeter/scenarioTests/readme.md)
 - [End-to-end functional testing](https://github.com/LevelOneProject/interop-functional-tests)
 - [Performance testing](./JMeter)
 - Resilience testing
