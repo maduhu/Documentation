@@ -1,4 +1,5 @@
 cp Docs/Wiki/*.png ./images
+cp Docs/Wiki/*.PNG ./images
 cp Docs/DFSP/*.png ./images
 cp Docs/DFSP/*.png ./images
 cp Docs/DFSP/PendingTransactions/*.png ./images
@@ -18,3 +19,5 @@ cp Docs/AWS/Infrastructure/*.png ./images
 cp Docs/mule/*.png ./images
 cp Docs/JMeter/media/*.jpg ./images
 cp Docs/ILP/*.png ./images
+cp Docs/mule/Repository/*.png ./images
+cp Docs/mule/CircleCI/*.png ./images
