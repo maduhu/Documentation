@@ -86,7 +86,7 @@ Then the last lines are git commands that merges the version number changes back
 
 Login into CircleCI and go to https://circleci.com/dashboard. There is a menu on your left, click on the third option ("Add Projects")
 
-![Add Projects](AddProjects.png)
+![Add Projects](./AddProjects.png)
 
 In the following screen you should choose the project you want to add from the list, clicking on the button on its right. In case there is no button on the project and you get a "Contact repo admin" message, you need to ask for administrative privileges in order to continue adding it. In case the project is already configured then the button is "Follow Repo", in which case the following steps were already done.
 
@@ -117,17 +117,17 @@ In case the project wasn't configured before, you need to add the environment va
 
 In order to add the variables go to the settings page of the project by clicking on the gear button next to the project title.
 
-![Project Settings](ProjectSettings.png)
+![Project Settings](./ProjectSettings.png)
 
 On the left side of the screen there is a submenu, click on the menu item called "Environment Variables" which is below the title "Build Settings". Once in there, you need to add the variables: JFROG_USERNAME, JFROG_PASSWORD, GITHUB_USER and GITHUB_TOKEN. In case you dont know the right values please contact someone from modusbox team.
 
-![Environment Variables](EnvironmentVariables.png)
+![Environment Variables](./EnvironmentVariables.png)
 
 ### Setting Slack Chat Notifications ###
 
 On the left side of the screen now click on the "Chat Notifications" submenu. In there you should paste this url: https://hooks.slack.com/services/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
 
-![Chat Notifications](ChatNotifications.png)
+![Chat Notifications](./ChatNotifications.png)
 
 Click on Test and check that the Slack Channel #interop has a new notification "Hello from CircleCI". If this worked, then click on save.
 
