@@ -3,7 +3,7 @@
 
 This document describes a proposal for REST Api which to be used for fetching/adding/removing blacklisted identifiers within the scope of a given DFSP
 
-***1. Get all blacklisted identifiers***
+***1. Get all blacklisted identifiers or a list of such by type***
 
   *Get all blacklisted identifiers or a list of such by type*
 
@@ -23,7 +23,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 
 * **URL Params:**
 
-  None
+  identifierType [optional]
 
 * **Data Params:**
 
@@ -64,7 +64,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
     ```
     {
       "statusCode": 401,
-      "error": "invalid credentials"
+      "error": "Invalid credentials"
     }
     ```
 
@@ -140,7 +140,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
     ```
     {
       "statusCode": 401,
-      "error": "invalid credentials"
+      "error": "Invalid credentials"
     }
     ```
 
@@ -227,7 +227,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
     ```
     {
       "statusCode": 401,
-      "error": "invalid credentials"
+      "error": "Invalid credentials"
     }
     ```
 
