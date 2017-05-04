@@ -178,7 +178,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 
 * **Method:**
 
-  `PUT`
+  `DELETE`
 
 * **URL Params:**
 
@@ -234,7 +234,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 * **Sample Call:**
 
   ```curl
-    curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
+    curl -X DELETE --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
     '[
         {
             "identifier": "123456789",
