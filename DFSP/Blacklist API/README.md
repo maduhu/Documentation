@@ -38,6 +38,10 @@ This document describes a proposal for REST Api which to be used for fetching/ad
           {
               "identifier": "123456789",
               "identifierType": "eur"
+          },
+          {
+              "identifier": "345678910",
+              "identifierType": "eur"
           }
       ]
     ```
@@ -77,7 +81,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 
 * **URL**
 
-  /blacklist
+  /v1/blacklist
 
 * **Headers**
 
@@ -99,6 +103,10 @@ This document describes a proposal for REST Api which to be used for fetching/ad
     [
         {
             "identifier": "123456789",
+            "identifierType": "eur"
+        },
+        {
+            "identifier": "345678910",
             "identifierType": "eur"
         }
     ]
@@ -144,6 +152,10 @@ This document describes a proposal for REST Api which to be used for fetching/ad
         {
             "identifier": "123456789",
             "identifierType": "eur"
+        },
+        {
+            "identifier": "345678910",
+            "identifierType": "eur"
         }
     ]'
     'http://host:port/v1/blacklist'
@@ -155,7 +167,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 
 * **URL**
 
-  /blacklist
+  /v1/blacklist
 
 * **Headers**
 
@@ -178,6 +190,10 @@ This document describes a proposal for REST Api which to be used for fetching/ad
     [
         {
             "identifier": "123456789",
+            "identifierType": "eur"
+        },
+        {
+            "identifier": "345678910",
             "identifierType": "eur"
         }
     ]
@@ -222,6 +238,10 @@ This document describes a proposal for REST Api which to be used for fetching/ad
     '[
         {
             "identifier": "123456789",
+            "identifierType": "eur"
+        },
+        {
+            "identifier": "345678910",
             "identifierType": "eur"
         }
     ]'
