@@ -1,3 +1,5 @@
+#!/bin/bash
+mkdir -p ./images
 cp Docs/Wiki/*.png ./images
 cp Docs/DFSP/*.png ./images
 cp Docs/DFSP/*.png ./images
