@@ -1,11 +1,11 @@
 **Blacklist API**
 ----
 
-This document describes a proposal for REST Api which to be used for fetching/adding/removing blacklisted identifiers within the scope of a given DFSP
+This document describes a proposal for REST Api which to be used for fetching a list of users which are blacklisted by a given DFSP
 
-***1. Get all blacklisted identifiers***
+***1. Get all blacklisted users***
 
-  *Get all blacklisted identifiers*
+  *Get all blacklisted users*
 
 * **URL**
 
