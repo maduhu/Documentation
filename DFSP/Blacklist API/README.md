@@ -40,7 +40,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
               "identifierType": "eur",
               "firstName": "Bob",
               "lastName": "Dylan",
-              "dob": "1999-12-10"
+              "dob": "1999-12-10",
               "nationalId": "123456789"
           },
           {
@@ -48,7 +48,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
               "identifierType": "eur",
               "firstName": "Alice",
               "lastName": "Cooper",
-              "dob": "1989-03-22"
+              "dob": "1989-03-22",
               "nationalId": "987654321"
           }
       ]
