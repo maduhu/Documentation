@@ -3,9 +3,9 @@
 
 This document describes a proposal for REST Api which to be used for fetching/adding/removing blacklisted identifiers within the scope of a given DFSP
 
-***1. Get all blacklisted identifiers or a list of such by type***
+***1. Get all blacklisted identifiers***
 
-  *Get all blacklisted identifiers or a list of such by type*
+  *Get all blacklisted identifiers*
 
 * **URL**
 
@@ -23,7 +23,7 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 
 * **URL Params:**
 
-  identifierType [optional]
+  None
 
 * **Data Params:**
 
@@ -37,11 +37,19 @@ This document describes a proposal for REST Api which to be used for fetching/ad
       [
           {
               "identifier": "123456789",
-              "identifierType": "eur"
+              "identifierType": "eur",
+              "firstName": "Bob",
+              "lastName": "Dylan",
+              "dob": "1999-12-10"
+              "nationalId": "123456789"
           },
           {
-              "identifier": "345678910",
-              "identifierType": "eur"
+              "identifier": "321321321",
+              "identifierType": "eur",
+              "firstName": "Alice",
+              "lastName": "Cooper",
+              "dob": "1989-03-22"
+              "nationalId": "987654321"
           }
       ]
     ```
@@ -71,179 +79,5 @@ This document describes a proposal for REST Api which to be used for fetching/ad
 * **Sample Call:**
 
   ```curl
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' 'http://host:port/v1/blacklist?identifierType=eur'
-  ```
-
-
-***2. Mark identifiers as blacklisted***
-
-  *Mark identifiers as blacklisted*
-
-* **URL**
-
-  /v1/blacklist
-
-* **Headers**
-
-  * Content-Type: application/json
-  * Accept: application/json
-  * Authorization: Basic dGVzdDoxMjM=
-
-* **Method:**
-
-  `POST`
-
-* **URL Params:**
-
-  None
-
-* **Data Params:**
-
-  ```json
-    [
-        {
-            "identifier": "123456789",
-            "identifierType": "eur"
-        },
-        {
-            "identifier": "345678910",
-            "identifierType": "eur"
-        }
-    ]
-  ```
-
-* **Success Response:**
-
-  * **Code:** 200 OK<br />
-    **Content:**
-    ```json
-      {
-          "success": true
-      }
-    ```
-
-* **Error Response:**
-
-  * **Code:** 404 (Not Found)<br />
-    **Content:**
-    ```json
-    {
-      "statusCode":404,
-      "error":"Not Found"
-    }
-    ```
-
-  OR
-
-  * **Code:** 401 (Unauthorized) <br />
-    **Content:**
-    ```
-    {
-      "statusCode": 401,
-      "error": "Invalid credentials"
-    }
-    ```
-
-* **Sample Call:**
-
-  ```curl
-    curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
-    '[
-        {
-            "identifier": "123456789",
-            "identifierType": "eur"
-        },
-        {
-            "identifier": "345678910",
-            "identifierType": "eur"
-        }
-    ]'
-    'http://host:port/v1/blacklist'
-  ```
-
-***3. Remove identifiers from the blacklist***
-
-  *Remove identifiers from the blacklist*
-
-* **URL**
-
-  /v1/blacklist
-
-* **Headers**
-
-  * Content-Type: application/json
-  * Accept: application/json
-  * Authorization: Basic dGVzdDoxMjM=
-
-
-* **Method:**
-
-  `DELETE`
-
-* **URL Params:**
-
-  None
-
-* **Data Params:**
-
-  ```json
-    [
-        {
-            "identifier": "123456789",
-            "identifierType": "eur"
-        },
-        {
-            "identifier": "345678910",
-            "identifierType": "eur"
-        }
-    ]
-  ```
-
-* **Success Response:**
-
-  * **Code:** 200 OK<br />
-    **Content:**
-    ```json
-      {
-          "success": true
-      }
-    ```
-
-* **Error Response:**
-
-  * **Code:** 404 (Not Found)<br />
-    **Content:**
-    ```json
-    {
-      "statusCode":404,
-      "error":"Not Found"
-    }
-    ```
-
-  OR
-
-  * **Code:** 401 (Unauthorized) <br />
-    **Content:**
-    ```
-    {
-      "statusCode": 401,
-      "error": "Invalid credentials"
-    }
-    ```
-
-* **Sample Call:**
-
-  ```curl
-    curl -X DELETE --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
-    '[
-        {
-            "identifier": "123456789",
-            "identifierType": "eur"
-        },
-        {
-            "identifier": "345678910",
-            "identifierType": "eur"
-        }
-    ]'
-    'http://host:port/v1/blacklist'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' 'http://host:port/v1/blacklist'
   ```
