@@ -17,6 +17,7 @@ default_filters:
     - out_of_date
     - link_replacement
     - demote_headers
+    - wikilinks
 
 cover_page:
     display_name: "Index"
@@ -57,7 +58,7 @@ targets:
        image_re_subs:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
        link_subs:
-            ./AWS/Infrastructure/machines.md: https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md         
+            ./AWS/Infrastructure/machines.md: https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md
             ./LevelOneClient/scenarios/Send%20Payment.md: SendPayment.html
             ./LevelOneClient: LevelOneClient.html
             ./DFSP/PendingTransactions/README.md: Invoices.html
@@ -69,7 +70,7 @@ targets:
             ../CentralDirectory/central_directory_endpoints.md: https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md
             ./CentralDirectory: https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory
             ./CentralLedger: https://github.com/LevelOneProject/Docs/tree/master/CentralLedger
-            ./CentralRules: https://github.com/LevelOneProject/Docs/blob/master/CentralRules            
+            ./CentralRules: https://github.com/LevelOneProject/Docs/blob/master/CentralRules
             ./JMeter: https://github.com/LevelOneProject/Docs/blob/master/JMeter
             ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
             ./ledger-adapter.md: https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md
@@ -176,7 +177,7 @@ pages:
         md:  Docs/ILP/ledger-adapter.md
         targets:
             - all
-            
+
 
 
     -   name: 'Interop SPSP Backend'
@@ -354,7 +355,7 @@ pages:
         category: Infrastructure
         md: Docs/AWS/Infrastructure/machines.md
         targets:
-            - all            
+            - all
 
 
     -   name: "Mule's Docker Image"
@@ -369,8 +370,8 @@ pages:
         category: Infrastructure
         md: Docs/mule/Configuring HAProxy.md
         targets:
-            - all        
-  
+            - all
+
 
 #Docs/AWS/Infrastructure/PI4-Test-Env
 # README.md
@@ -412,10 +413,10 @@ pages:
     -   name: 'Performance Tests'
         html: PerformanceTests.html
         category: Infrastructure
-        md: Docs/mule/L1P Performance Test.md 
+        md: Docs/mule/L1P Performance Test.md
         targets:
             - all
-   
+
 
 #/Docs/DFSP
 #README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
@@ -514,6 +515,29 @@ pages:
         md: Docs/DFSP/USSD/README.md
         targets:
             - all
+
+# ------- Wiki
+    -   md: Docs.wiki/Home.md
+        html: Home.html
+        section_header: true
+        category: L1P Developer Documentation
+        targets:
+            - all
+            - dev
+
+    -   md: Docs.wiki/Onboarding-Developers.md
+        html: Onboarding-Developers.html
+        category: L1P Developer Documentation
+        targets:
+            - all
+            - dev
+
+    -   md: Docs.wiki/Accessing-the-Test-Environment.md
+        html: Accessing-the-Test-Environment.html
+        category: L1P Developer Documentation
+        targets:
+            - all
+            - dev
 
 # -------------------- Appendix ------------------------
     -   name: 'Terminology'

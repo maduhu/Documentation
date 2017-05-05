@@ -1,3 +1,5 @@
+#!/bin/bash
+mkdir -p ./images
 cp Docs/Wiki/*.png ./images
 cp Docs/Wiki/*.PNG ./images
 cp Docs/DFSP/*.png ./images
@@ -19,5 +21,8 @@ cp Docs/AWS/Infrastructure/*.png ./images
 cp Docs/mule/*.png ./images
 cp Docs/JMeter/media/*.jpg ./images
 cp Docs/ILP/*.png ./images
+<<<<<<< HEAD
 cp Docs/mule/Repository/*.png ./images
 cp Docs/mule/CircleCI/*.png ./images
+=======
+>>>>>>> e1c2e7841d969519bf040e38aba020773be17f37

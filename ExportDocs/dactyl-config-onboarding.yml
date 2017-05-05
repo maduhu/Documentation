@@ -58,8 +58,8 @@ targets:
             ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
             ./ledger-adapter.md: ledger-adapter.html
             ../Ports.md: ports.html
-  #      link_re_subs:
-  #          "[./\\w]*/([\\w%.-]+[.]md)": "\\1.html"
+        link_re_subs:
+            "\\[\\[([\\w]*)\\]\\]": "./\\1.html"
 
    
 pages:

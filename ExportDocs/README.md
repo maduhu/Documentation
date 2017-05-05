@@ -1,15 +1,28 @@
 # Exporting the Documentation
-In the Level One Project, the source for the documentation are markdown files stored in GitHub. We use use a tool called [Dactyl](https://github.com/ripple/dactyl) to convert files to from markdown (md) format to PDF format. The PDF format is the exported format we use to share offline documentation. 
-Overview and cross-repo documentation is in the Docs repository. Other repositories have detailed information about their contents. 
+In the Level One Project, the source for the documentation are markdown files stored in GitHub. We use use a tool called [Dactyl](https://github.com/ripple/dactyl) to convert files to from markdown (md) format to PDF format. The PDF format is the exported format we use to share offline documentation.
+Overview and cross-repo documentation is in the Docs repository. Other repositories have detailed information about their contents.
 
 ## Setup
 See [Dactyl setup](https://github.com/ripple/dactyl) to setup the tool. Dactyl has dependencies on Python and on a command line tool Prince to do part of that conversion.
 
 > git pull # the latest for all relevant repositories
 
-All the repositories should be in the same root directory. 
+All the repositories should be in the same root directory.
 
-Because building the documentation requires md files from multiple repos, the latest files from all the repos mentioned in the dactyl-config file need to be obtained. These currently include Docs, ilp-spsp-client-rest, ilp-spsp-server, interop-ilp-ledger, interop-spsp-clientproxy, interop-spsp-backend-services, interop-dfsp-directory, central-directory, and central-ledger but may expand later.
+Because building the documentation requires md files from multiple repos, the latest files from all the repos mentioned in the dactyl-config file need to be obtained. The list of required repos may change, but currently includes all of the following:
+
+    central-directory
+    central-ledger
+    Docs
+    Docs.wiki
+    forensic-logging-sidecar
+    ilp-spsp-client-rest
+    ilp-spsp-server
+    interop-ilp-ledger
+    interop-spsp-backend-services
+    interop-spsp-clientproxy
+    interop-dfsp-directory
+    
 
 ## Build Process
 
