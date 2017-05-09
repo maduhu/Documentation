@@ -50,7 +50,7 @@
       - client
     docker_container:
       name: ilp-spsp-client-rest
-      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v5.0.3"
+      image: "modusbox-level1-docker.jfrog.io/ilp-spsp-client-rest:v5.0.4"
       state: started
       pull: yes
       recreate: yes
