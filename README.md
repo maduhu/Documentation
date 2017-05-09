@@ -7,7 +7,7 @@
 To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short. The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model for a financial system that could be implemented in any country. Now we're taking that model and making it a fully-functional prototype, with all the details in place.
 
 For more Level One information see the [Level One Project site](https://leveloneproject.org/).
-New developers see [Onboarding](https://github.com/LevelOneProject/Docs/wiki/Onboarding).
+New developers see [the wiki](https://github.com/LevelOneProject/Docs/wiki) for contribution guidance.
 
 ## Level One Services
 The following architecture diagram shows Level One services:
