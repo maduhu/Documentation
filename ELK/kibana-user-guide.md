@@ -44,7 +44,7 @@ with username/password kibanaadmin/l1p.
 
 #### How to monitor logs?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToMonitorLogs.png)
+![alt text](./images/howToMonitorLogs.png)
 
 Follow the following steps:
 
@@ -57,28 +57,28 @@ Follow the following steps:
 
 #### How to set time range?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToSetTimeRange.png)
+![alt text](./images/howToSetTimeRange.png)
 
 By default, Kibana will show you logs for the last 15 min. To set the time range from the Discover Kibana page click on the area where with the “Time picker” icon on the top right corner. This will expand the “Time Range” control panel down containing three different modes to set the time range; “Quick”, “Relative” and “Absolute” as shown in screenshots below.
 
 
 #### How to enable auto refresh of search results?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToEnableAutoRefresh.png)
+![alt text](./images/howToEnableAutoRefresh.png)
 
 Search results can be set to auto refresh, so your search results and visualizations do not contain stale data. Optionally, you can manually refresh results by clicking “Refresh”. The Auto-refresh can be enabled by clicking the “Time picker” icon, clicking the “Auto-refresh” link and then set it to on and specify the refresh rate.
 
 
 #### How change to which indices you are searching?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToChangeIndices.png)
+![alt text](./images/howToChangeIndices.png)
 
 When you submit a search request, the indices that match the currently-selected index pattern are searched. The current index pattern is shown below the toolbar. To change which indices you are searching, click the index pattern and select a different index pattern. NOTE: By default, only 1 index pattern is shown, you must click the arrow to expand the index section to show you the different indexes available.
 
 
 #### How to add/remove fields from Kibana’s Discover window to monitor logs?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToAddRemoveFieldsFromKibanaDiscover.png)
+![alt text](./images/howToAddRemoveFieldsFromKibanaDiscover.png)
 
 Navigate to the Kibana Discover page and hover over the field you would like to add/remove from the search results table and click the add/remove button.
 
@@ -92,14 +92,14 @@ L1p-Trace-Id=d349c18b-e4ea-4913-b2f8-0b9dcd2f2293
 
 #### How to monitor transaction duration between l1p_components?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToMonitorTransactionDuration.png)
+![alt text](./images/howToMonitorTransactionDuration.png)
 
 A Kibana Visualization on top of the custom l1p_index was created for this purpose and can be accessed by navigating to Kibana Visualize page and selecting the “Transaction Details” link. NOTE: Once the trace id is contained at all component and services logs this table will correctly display the durations. 
 
 
 #### How to save a search, how to open a saved search and how to manage saved searches?
 
-![alt text](https://github.com/LevelOneProject/Docs/blob/master/ELK/images/howToSaveASearch.png)
+![alt text](./images/howToSaveASearch.png)
 
 Kibana allows you to save a search criteria. From the Kibana Discover page just hit the “Save” link on the top right hand corner just before the “Time Picker” icon to save your search. To access your saved search, hit the “Open” link. To delete or edit your save search hit the “Open” link and then the “Manage Saved Searches” link.
 
