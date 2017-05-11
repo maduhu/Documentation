@@ -1,6 +1,12 @@
 # Quote API
 
-This document aims to propose an approach for reserving quotes between DFSP participants within the L1P network.
+This document proposes an approach for propagading, reserving and applying fees for the payee. It tries to cover all gaps in 'retail' fees between the current state of the system and the requirement document created by Leseley-Ann @ https://www.dropbox.com/s/ixnch73wc34cz4l/Interoperability%20Fee%20Scenarios.docx?dl=0. 
+Currenlty the DFSPs are capable for calculating and applying fees both for incoming and outgoing transfers based on amount, transaction type and other criterias. The gap that we have identified is that the payer cannot get the information about the fee that is going to be paid by the payee. The document below describes how to handle that gap. In brief the proposal is:
+
+1. Extend getSourceAmount and getDestinationAmount SPSP APIs to get addtional paramteres (tranaction type, destination account, etc.)
+2. Those APIs will be integrated with the DFSP-API which will provide the fee information per transaction
+3. Besides the transaction information the payee DFSP will 'reserve' the quote and retun unique identification of the quote reservation
+
 
 ## I. Communication flow
 
