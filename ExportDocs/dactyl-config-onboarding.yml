@@ -17,6 +17,7 @@ default_filters:
     - out_of_date
     - link_replacement
     - demote_headers
+    - wikilinks
 
 cover_page:
     display_name: "Index"
@@ -58,8 +59,8 @@ targets:
             ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
             ./ledger-adapter.md: ledger-adapter.html
             ../Ports.md: ports.html
-        link_re_subs:
-            "\\[\\[([\\w]*)\\]\\]": "./\\1.html"
+       # link_re_subs:
+       #     "\\[\\[([\\w]*)\\]\\]": "./\\1.html"
 
    
 pages:
@@ -317,6 +318,13 @@ pages:
         category: Debugging
         md: Docs/mule/logging-guidelines.md
         section_header: true
+        targets:
+            - all
+
+    -   name: 'Kibana user guide'
+        html: kibana-user-guide.html
+        category: Infrastructure
+        md: Docs/ELK/kibana-user-guide.md
         targets:
             - all
 

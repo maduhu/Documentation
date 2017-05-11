@@ -334,8 +334,15 @@ pages:
         targets:
             - all
 
+    -   name: 'Kibana user guide'
+        html: kibana-user-guide.html
+        category: Infrastructure
+        md: Docs/ELK/kibana-user-guide.md
+        targets:
+            - all
+
     -   name: 'Logging Standards'
-        html: elk.html
+        html: logging.html
         category: Infrastructure
         md: Docs/mule/logging-guidelines.md
         targets:
