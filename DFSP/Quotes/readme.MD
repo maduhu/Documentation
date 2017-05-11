@@ -4,7 +4,7 @@ This document proposes an approach for propagading, reserving and applying fees 
 Currenlty the DFSPs are capable for calculating and applying fees both for incoming and outgoing transfers based on amount, transaction type and other criterias. The gap that we have identified is that the payer cannot get the information about the fee that is going to be paid by the payee. The document below describes how to handle that gap. In brief the proposal is:
 
 1. Extend getSourceAmount and getDestinationAmount SPSP APIs to get addtional paramteres (tranaction type, destination account, etc.)
-2. Those APIs will be integrated with the DFSP-API which will provide the fee information per transaction
+2. Those APIs will be integrated with the DFSP-API which will provide for each transaction the fee information for the payee, so there will be only one fee engine per DFSP. 
 3. Besides the transaction information the payee DFSP will 'reserve' the quote and retun unique identification of the quote reservation
 
 
