@@ -10,7 +10,7 @@
 |	Active User	|		|	A term used by many providers in describing how many of their account holders are frequent users of their service.
 |	Addressing	|	Directories,  Aliasing	|	The use of necessary information (account number, phone number, etc.) for a paying user to direct payment to a receiving user.
 |	Agent	|	Agent till, Agent outlet	|	An entity authorized by the provider to handle various functions such as customer enrollment, cash-in and cash-out using an agent till
-|	Agent Outlet	|	Access point	|	"A physical location that carries one or more agent tills, enabling it to perform enrollment, cash-in and cash-out transactions for customers on behalf of one or more providers.
+|	Agent Outlet	|	Access point	|	A physical location that carries one or more agent tills, enabling it to perform enrollment, cash-in and cash-out transactions for customers on behalf of one or more providers.
 National law defines whether an agent outlet may remain exclusive to one provider. Agent outlets may have other businesses and support functions."
 |	Agent Till	|	Registered agent	|	An agent till is a provider-issued registered “line”, either a special SIM card or a POS machine, used to perform enrollment, cash-in and cash-out transactions for clients. National law dictates which financial service providers can issue agent tills.
 |	Aggregator	|	Merchant  Aggregator	|	A specialized form of a merchant services provider, who typically handles payments transactions for a large number of small merchants. Scheme rules often specify what aggregators are allowed to do.
