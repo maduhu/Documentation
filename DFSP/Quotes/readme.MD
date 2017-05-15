@@ -35,7 +35,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     {
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -49,9 +49,9 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "amount": "13.75",
+          "destinationAmount": "13.75",
           "expires": "2017-05-11T11:30:03.561Z",
-          "uuid": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
       }
     ```
 
@@ -62,7 +62,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     '{
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -101,7 +101,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     {
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -116,9 +116,9 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "amount": "13.75",
+          "destinationAmount": "13.75",
           "expires": "2017-05-11T11:30:03.561Z",
-          "uuid": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
       }
     ```
 
@@ -129,7 +129,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     '{
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -168,7 +168,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     {
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -182,9 +182,9 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "amount": "13.75",
+          "destinationAmount": "13.75",
           "expires": "2017-05-11T11:30:03.561Z",
-          "uuid": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
       }
     ```
 
@@ -195,7 +195,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     '{
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -229,7 +229,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     {
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -243,9 +243,9 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "amount": "13.75",
+          "destinationAmount": "13.75",
           "expires": "2017-05-11T11:30:03.561Z",
-          "uuid": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
       }
     ```
 
@@ -256,7 +256,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     '{
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -290,7 +290,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     {
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -304,9 +304,9 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "amount": "13.75",
+          "destinationAmount": "13.75",
           "expires": "2017-05-11T11:30:03.561Z",
-          "uuid": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
       }
     ```
 
@@ -317,7 +317,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     '{
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -333,7 +333,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     {
         "currencyCode": "USD",
         "currencySymbol": "$",
-        "amount": "12.50",
+        "sourceAmount": "12.50",
         "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/bob",
         "identifier": "30754016",
         "identifierType": "eur",
@@ -341,26 +341,26 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     }
     ```
 
-* The receiver DFSP should generate a unique Id `uuid` and expiration date `expires` and should persist those values along with the request parameters and the calculated amount before returning the following request to the spsp-server:
+* The receiver DFSP should generate a unique Id `paymentId` and expiration date `expires` and should persist those values along with the request parameters and the calculated amount before returning the following request to the spsp-server:
     ```json
       {
-          "amount": "13.75",
+          "destinationAmount": "13.75",
           "expires": "2017-05-11T11:30:03.561Z",
-          "uuid": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1"
       }
     ```
-* The generated `uuid` should be used by the sender DFSP as a payment ID when executing a transfer.
-* The actual fee amount is the difference between the amount that has been passed and the amount that has been returned.
+* The generated `paymentId` should be used by the sender DFSP when executing a transfer.
+* The actual fee amount is the difference between the amount that has been passed(sourceAmount) and the amount that has been returned(destinationAmount).
 
 ## III. Error cases
 
 The receiver DFSP should throw an error in either of the following cases:
 
-* It receives a transfer request with uuid which is not associated with a locally reserved quote.
-* It receives a transfer request with uuid associated with an already expired quote.
-* It receives a transfer request with correct uuid but different parameters than those associated with the already reserved quote (amount, currency, receiver account, transfer type, etc...)
+* It receives a transfer request with paymentId which is not associated with a locally reserved quote.
+* It receives a transfer request with paymentId associated with an already expired quote.
+* It receives a transfer request with correct paymentId but different parameters than those associated with the already reserved quote (amount, currency, receiver account, transfer type, etc...)
 
 ## IV. Notes
 
 * The same exact flow described in (I.) can be used for `/v1/quoteDestinationAmount` where the initial amount should include the fee amount.
-* Additional method `(GET /v1/quote/{uuid})` could be implemented in case there's a need for already reserved quotes to be obtainable.
+* Additional method `(GET /v1/quote/{paymentId})` could be implemented in case there's a need for already reserved quotes to be obtainable.
