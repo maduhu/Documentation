@@ -36,8 +36,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -94,8 +93,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -148,8 +146,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -207,8 +204,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -261,8 +257,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -319,8 +314,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -368,8 +362,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -426,8 +419,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -475,8 +467,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -533,8 +524,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
@@ -564,8 +554,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
         "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
-          "identifierType": "eur",
-          "account": "http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:8088/ilp/ledger/v1/accounts/alice"
+          "identifierType": "eur"
         },
         "payee": {
           "identifier": "30754016",
