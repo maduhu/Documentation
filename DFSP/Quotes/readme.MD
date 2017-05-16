@@ -48,12 +48,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }
     ```
 
@@ -68,18 +66,14 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "9.25",
             "currency": "USD"
           },
-          "payeeFee": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
-          "payeeCommission": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
+          "payeeFee": {
+            "amount": "1",
+            "currency": "USD"
+          },
+          "payeeCommission": {
+            "amount": "1",
+            "currency": "USD"
+          },
           "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
           "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
       }
@@ -105,12 +99,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }'
     'http://spsp-client-proxy/v1/quotes'
   ```
@@ -158,12 +150,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ],
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        },
         "submissionUrl": "http://spsp-server/v1/quotes"
     }
     ```
@@ -179,18 +169,14 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "9.25",
             "currency": "USD"
           },
-          "payeeFee": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
-          "payeeCommission": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
+          "payeeFee": {
+            "amount": "1",
+            "currency": "USD"
+          },
+          "payeeCommission": {
+            "amount": "1",
+            "currency": "USD"
+          },
           "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
           "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
       }
@@ -216,12 +202,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ],
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        },
         "submissionUrl": "http://spsp-server/v1/quotes"
     }'
     'http://spsp-client/v1/quotes'
@@ -269,12 +253,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }
     ```
 
@@ -289,18 +271,14 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "9.25",
             "currency": "USD"
           },
-          "payeeFee": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
-          "payeeCommission": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
+          "payeeFee": {
+            "amount": "1",
+            "currency": "USD"
+          },
+          "payeeCommission": {
+            "amount": "1",
+            "currency": "USD"
+          },
           "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
           "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
       }
@@ -326,12 +304,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }'
     'http://spsp-server/v1/quotes'
   ```
@@ -374,12 +350,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }
     ```
 
@@ -394,18 +368,14 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "9.25",
             "currency": "USD"
           },
-          "payeeFee": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
-          "payeeCommission": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
+          "payeeFee": {
+            "amount": "1",
+            "currency": "USD"
+          },
+          "payeeCommission":{
+            "amount": "1",
+            "currency": "USD"
+          },
           "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
           "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
       }
@@ -431,12 +401,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }'
     'http://spsp-server-backend/v1/quotes'
   ```
@@ -479,12 +447,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }
     ```
 
@@ -499,18 +465,14 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "9.25",
             "currency": "USD"
           },
-          "payeeFee": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
-          "payeeCommission": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
+          "payeeFee": {
+            "amount": "1",
+            "currency": "USD"
+          },
+          "payeeCommission": {
+            "amount": "1",
+            "currency": "USD"
+          },
           "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
           "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
       }
@@ -536,12 +498,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }'
     'http://dfsp-api/v1/quotes'
   ```
@@ -566,12 +526,10 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "amount": "10",
           "currency": "USD"
         },
-        "fees": [
-          {
-            "amount": "0.25",
-            "currency": "USD"
-          }
-        ]
+        "fees": {
+          "amount": "0.25",
+          "currency": "USD"
+        }
     }
     ```
 
@@ -583,18 +541,14 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "9.25",
             "currency": "USD"
           },
-          "payeeFee": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ],
-          "payeeCommission": [
-            {
-              "amount": "1",
-              "currency": "USD"
-            }
-          ]
+          "payeeFee": {
+            "amount": "1",
+            "currency": "USD"
+          },
+          "payeeCommission": {
+            "amount": "1",
+            "currency": "USD"
+          }
       }
     ```
 * The generated `transferId` should be used by the Payer DFSP when executing the transfer.
