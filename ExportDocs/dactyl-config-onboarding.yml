@@ -1,0 +1,352 @@
+# From the directory above docs:
+# (run the copy-images script first)
+# dactyl_build -t all -c Docs/ExportDocs/dactyl-config-onboarding.yml --pdf
+#--leave_temp_files
+content_path: .
+content_static_path: ./images
+temporary_files_path: .
+template_path: ./Docs/ExportDocs/pdf_templates
+template_static_path: ./Docs/ExportDocs/pdf_templates/template_assets
+default_template: template-l1p_pdf_content.html
+pdf_template: template-l1p_pdf_content.html
+
+filter_paths:
+    - ./Docs/ExportDocs/pdf_templates/filters
+
+default_filters:
+    - out_of_date
+    - link_replacement
+    - demote_headers
+    - wikilinks
+
+cover_page:
+    display_name: "Index"
+    pdf_template: template-l1p_pdf_cover.html
+    html: index.html
+
+targets:
+    -   name: all
+        display_name: Level One Project Developer Onboarding
+        image_re_subs:
+            "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
+        image_subs:
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/PuttyConnection.PNG: images/PuttyConnection.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/PuttyConfig.png: images/PuttyConfig.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/Test%20Pyramid.png: images/Test%20Pyramid.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/Microservice%20testing.png: images/Microservice%20testing.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/Tracking%20requirements%20to%20results.png: images/Tracking%20requirements%20to%20results.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/Glory%20of%20Rest.png: images/Glory%20of%20Rest.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/mergebtn.png: images/mergebtn.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/CreateBranch.png: images/CreateBranch.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/CompareNPull.png: images/CompareNPull.PNG
+            https://github.com/LevelOneProject/Docs/blob/master/Wiki/ConfirmNSquash.png: images/ConfirmNSquash.PNG
+
+        link_subs:
+            ./AWS/Infrastructure/machines.md: machines.html
+            ./LevelOneClient/scenarios/Send%20Payment.md: SendPayment.html
+            ./LevelOneClient: LevelOneClient.html
+            ./DFSP/PendingTransactions/README.md: Invoices.html
+            ./DFSP/BulkPayment/README.md: BulkPayments.html
+            ../../DFSP#default-ports: DFSP.html#default-ports
+            ./DFSP: DFSP.html
+            ./ILP/ledger-adapter.md: ledger-adapter.html
+            ./ILP: ILP.html
+            ../CentralDirectory/central_directory_endpoints.md: CentralDirectory.html
+            ./CentralDirectory: CentralDirectory.html
+            ./CentralLedger: central_ledger.html
+            ./CentralRules: central_rules.html
+            ./JMeter: IntegrationTests.html
+            ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
+            ./ledger-adapter.md: ledger-adapter.html
+            ../Ports.md: ports.html
+       # link_re_subs:
+       #     "\\[\\[([\\w]*)\\]\\]": "./\\1.html"
+
+   
+pages:
+# overview
+    -   name: 'Onboarding Overview'
+        md: Docs.wiki/Home.md
+        html: Home.html
+        category: Onboarding
+        section_header: true
+        targets:
+            - all
+
+    -   name: 'Onboarding Developers'
+        md: Docs.wiki/Onboarding-Developers.md
+        html: Onboarding-Developers.html
+        category: Onboarding
+        targets:
+            - all
+
+# documentation
+    -   name: 'Structure of the Documentation'
+        html: Structure-of-the-Documentation.html
+        category: 'Structure of the Documentation'
+        md: Docs.wiki/Structure-of-the-Documentation.md
+        section_header: true
+        targets:
+            - all
+
+    -   name: 'Documentation and Template Standards'
+        html: L1P-Documentation-and-Template-Standards.html
+        category: 'Structure of the Documentation'
+        md: Docs.wiki/L1P-Documentation-and-Template-Standards.md
+        targets:
+            - all
+
+    -   name: 'Architecture Documentation Guidelines'
+        html: Architecture-Documentation-Guidelines.html
+        category: 'Structure of the Documentation'
+        md: Docs.wiki/Architecture-Documentation-Guidelines.md
+        targets:
+            - all
+
+    -   name: 'Documentation Style Guide'
+        html: Documentation-Style-Guide.html
+        category: 'Structure of the Documentation'
+        md: Docs.wiki/Documentation-Style-Guide.md
+        targets:
+            - all
+
+    -   name: 'README Template'
+        html: README-Template.html
+        category: 'Structure of the Documentation'
+        md: Docs.wiki/README-Template.md
+        targets:
+            - all
+
+# test environments
+    -   name: 'Accessing the Test Environment'
+        html: Accessing-the-Test-Environment.html
+        category: 'Accessing the Test Environment'
+        md: Docs.wiki/Accessing-the-Test-Environment.md
+        section_header: true
+        targets:
+            - all
+
+    -   name: 'Accessing AWS instances'
+        html: Accessing-AWS-instances.html
+        category: 'Accessing the Test Environment'
+        md: Docs.wiki/Accessing-AWS-instances.md
+        targets:
+            - all 
+
+    -   name: Machines
+        html: machines.html
+        category: 'Accessing the Test Environment'
+        md: Docs/AWS/Infrastructure/machines.md
+        targets:
+            - all    
+
+    -   name: 'Test Environment'
+        html: PI4-Test-Env.html
+        category: 'Accessing the Test Environment'
+        md: Docs/AWS/Infrastructure/PI4-Test-Env/README.md
+        targets:
+            - all
+
+    -   name: 'QA Environment'
+        html: PI4-QA-Env.html
+        category: 'Accessing the Test Environment'
+        md: Docs/AWS/Infrastructure/PI4-QA-Env/README.md
+        targets:
+            - all
+
+
+# local test environment
+
+# USSD
+    -   name: 'USSD Simulator User Guide'
+        html: USSD.html
+        category: Testing
+        md: Docs/DFSP/USSD/README.md
+        section_header: true
+        targets:
+            - all
+
+# local test environment
+    -   name: 'Creating a local test environment'
+        html: USSD.html
+        category: Local Test Envirnment
+        md: interop-devops/README.md
+        section_header: true
+        targets:
+            - all
+
+#Testing
+    -   name: 'Testing strategy'
+        html: Testing-strategy.html
+        category: Testing
+        md: Docs.wiki/Testing-strategy.md
+        section_header: true
+        targets:
+            - all
+
+    -   name: 'Integration Tests'
+        html: IntegrationTests.html
+        category: Testing
+        md: Docs/JMeter/README.md
+        targets:
+            - all
+
+    -   name: 'Scenario Tests'
+        html: scenarioTests.html
+        category: Testing
+        md: Docs/JMeter/scenarioTests/readme.md
+        targets:
+            - all
+
+    -   name: 'Performance Tests'
+        html: PerformanceTests.html
+        category: Testing
+        md: Docs/mule/L1P Performance Test.md 
+        targets:
+            - all
+
+# SDLC
+    -   name: 'Software Development Process Management'
+        html: Software-Development-Process.html
+        category: Software Development Process
+        md: Docs.wiki/Software-Development-Process.md
+        targets:
+            - all
+
+    -   name: 'Program Increments and Milestones'
+        html: Program-Increments-and-Milestones.html
+        category: Software Development Process
+        md: Docs.wiki/Program-Increments-and-Milestones.md
+        targets:
+            - all
+
+    -   name: 'Scenarios and Epics'
+        html: Scenarios-and-Epics.html
+        category: Software Development Process
+        md: Docs.wiki/Scenarios-and-Epics.md
+        targets:
+            - all
+
+    -   name: 'User Story Pipeline'
+        html: Pipeline.html
+        category: Software Development Process
+        md: Docs.wiki/Pipeline.md
+        targets:
+            - all
+
+    -   name: 'GitHub Labels'
+        html: GitHub-Labels.html
+        category: Software Development Process
+        md: Docs.wiki/GitHub-Labels.md
+        targets:
+            - all
+
+    -   name: 'Estimates'
+        html: Estimates.html
+        category: Software Development Process
+        md: Docs.wiki/Estimates.md
+        targets:
+            - all
+
+# Writing code
+    -   name: 'Writing Code'
+        html: Writing-Code.html
+        category: Writing code
+        md: Docs.wiki/Writing-Code.md
+        targets:
+            - all
+
+    -   name: 'Pragmatic REST Guidelines'
+        html: Pragmatic-REST-Guidelines.html
+        category: Writing code
+        md: Docs.wiki/Pragmatic-REST-Guidelines.md
+        targets:
+            - all
+
+    -   name: 'Branching Strategy'
+        html: Branching-Strategy.html
+        category: Writing code
+        md: Docs.wiki/Branching-Strategy.md
+        targets:
+            - all
+
+    -   name: 'Creating a new Repository'
+        html: NewRepository.html
+        category: Writing code
+        md: Docs/mule/Repository/NewRepository.md
+        targets:
+            - all
+
+    -   name: 'Build and Publish NodeJS'
+        html: Build-and-Publish-NodeJS.html
+        category: Writing code
+        md: Docs.wiki/Build-and-Publish-NodeJS.md
+        targets:
+            - all
+
+    -   name: 'CircleCI'
+        html: CircleCI.html
+        category: Writing code
+        md: Docs/mule/CircleCI/CircleCI.md
+        targets:
+            - all
+
+    -   name: 'Code Quality Metrics'
+        html: Code-Quality-Metrics.html
+        category: Writing code
+        md: Docs.wiki/Code-Quality-Metrics.md
+        targets:
+            - all
+
+    -   name: 'Collecting and viewing code coverage'
+        html: Collecting-and-viewing-code-coverage.html
+        category: Writing code
+        md: Docs.wiki/Collecting-and-viewing-code-coverage.md
+        targets:
+            - all
+
+    -   name: 'Code  Style Guidelines'
+        html: Code-Style.html
+        category: Writing code
+        md: Docs.wiki/Code-Style.md
+        targets:
+            - all
+
+# Debugging
+    -   name: 'Logging Standards'
+        html: elk.html
+        category: Debugging
+        md: Docs/mule/logging-guidelines.md
+        section_header: true
+        targets:
+            - all
+
+    -   name: 'Kibana user guide'
+        html: kibana-user-guide.html
+        category: Infrastructure
+        md: Docs/ELK/kibana-user-guide.md
+        targets:
+            - all
+
+# -------------------- Appendix ------------------------
+    -   name: 'Terminology'
+        html: terminology.html
+        category: Appendix
+        md: Docs/terminology.md
+        section_header: true
+        targets:
+            - all
+            - stakeholder
+
+  
+    -   name: 'Tools and Process Decisions'
+        html: Decisions.html
+        category: Appendix
+        md: Docs/decisions.md
+        targets:
+            - all
+            - stakeholder
+
+# -------------------- Style Checker Rules ------------------------
+#word_substitutions_file: plainlanguage_words.yaml
+#phrase_substitutions_file: plainlanguage_phrases.yaml
