@@ -89,7 +89,7 @@
           </elementProp>
           <elementProp name="sendInvoiceCsvPathTest" elementType="Argument">
             <stringProp name="Argument.name">sendInvoiceCsvPathTest</stringProp>
-            <stringProp name="Argument.value">SendInvoiceMerchants.csv</stringProp>
+            <stringProp name="Argument.value">/Users/priceb/Development/Workspaces/AnypointStudio/GatesOSS/Docs/JMeter/Performance Tests/SendInvoiceMerchants.csv</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -116,7 +116,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">4</stringProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1486058892000</longProp>
         <longProp name="ThreadGroup.end_time">1486058892000</longProp>
@@ -161,35 +161,17 @@
             </elementProp>
             <elementProp name="dfsp_host_var" elementType="Argument">
               <stringProp name="Argument.name">dfsp_host_var</stringProp>
-              <stringProp name="Argument.value">${dfsp1_test}</stringProp>
+              <stringProp name="Argument.value"></stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="initial dfsp_host_var to set the correct dfsp endpoint" enabled="true">
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">print(&quot;senderDFSP = &quot; + vars.get(&quot;senderDFSP&quot;));
-dfsp=vars.get(&quot;senderDFSP&quot;);
-
-
-if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
-	print(&quot;just set the host to dfsp1&quot;);
-	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1}&quot;);
-} else {
-	print(&quot;just set the host to dfsp2&quot;);
-	vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2}&quot;);
-}
-</stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
         <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Configure for DFSP1" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp1}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -215,8 +197,8 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
-          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -255,8 +237,8 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
-          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -295,8 +277,8 @@ if (vars.get(&quot;senderDFSP&quot;).equals(&quot;dfsp1&quot;)) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
-          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.proxyHost">${UserID1}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -356,8 +338,8 @@ JMeterUtils.setProperty(&quot;Balance_1&quot;, Balance_1);</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
-          <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -382,13 +364,6 @@ JMeterUtils.setProperty(&quot;Balance_1&quot;, Balance_1);</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="set dfsp_host_var to dfsp2" enabled="false">
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2_test}&quot;);</stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Receiver - step 5" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -404,7 +379,7 @@ JMeterUtils.setProperty(&quot;Balance_1&quot;, Balance_1);</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -444,7 +419,7 @@ JMeterUtils.setProperty(&quot;Balance_1&quot;, Balance_1);</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -484,7 +459,7 @@ JMeterUtils.setProperty(&quot;Balance_1&quot;, Balance_1);</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -544,7 +519,7 @@ JMeterUtils.setProperty(&quot;Balance_2&quot;, Balance_2);</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -570,14 +545,7 @@ JMeterUtils.setProperty(&quot;Balance_2&quot;, Balance_2);</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="set dfsp_host_var to dfsp2" enabled="false">
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp1_test}&quot;);</stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Sender - step 9 (start)" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Sender - step 9" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -618,7 +586,7 @@ JMeterUtils.setProperty(&quot;Balance_2&quot;, Balance_2);</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Send Money - Sender - step 10" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1. Send Money - Sender - step 10" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -812,7 +780,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - step 14 (end)" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - step 14" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -852,7 +820,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Sender - step 15" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Sender - step 15" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -893,7 +861,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check Balance - Sender - step 16" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check Balance - Sender - step 16" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -933,7 +901,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter PIN - Sender - step 17" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Enter PIN - Sender - step 17" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -984,7 +952,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
             <stringProp name="Sample.scope">all</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Check Expected Balance" enabled="true">
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="Check Expected Balance" enabled="false">
             <stringProp name="BeanShellAssertion.query">int var1 = Integer.parseInt(vars.get(&quot;Balance_1&quot;));
 int var2 = Integer.parseInt(vars.get(&quot;New_Balance_1&quot;));
 int amt = Integer.parseInt(vars.get(&quot;Amount&quot;));
@@ -1000,7 +968,7 @@ if (Failure) {
           </BeanShellAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - Sender - step 18" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Return Home - Sender - step 18" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1040,13 +1008,6 @@ if (Failure) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="set dfsp_host_var to dfsp2" enabled="false">
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">vars.put(&quot;dfsp_host_var&quot;, &quot;${dfsp2_test}&quot;);</stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connect to existing acount - Receiver - step 19" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1062,7 +1023,7 @@ if (Failure) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -1102,7 +1063,7 @@ if (Failure) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -1142,7 +1103,7 @@ if (Failure) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -1208,7 +1169,7 @@ if (Failure) {
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">${dfsp_host_var}</stringProp>
+          <stringProp name="HTTPSampler.domain">${dfsp2}</stringProp>
           <stringProp name="HTTPSampler.port">${ussdPort}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
