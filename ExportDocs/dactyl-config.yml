@@ -30,7 +30,7 @@ targets:
         image_re_subs:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
         link_subs:
-            ./AWS/Infrastructure/machines.md: machines.html
+            ./AWS/Infrastructure/machines.md: https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md
             ./LevelOneClient/scenarios/Send%20Payment.md: SendPayment.html
             ./LevelOneClient: LevelOneClient.html
             ./DFSP/PendingTransactions/README.md: Invoices.html
@@ -101,100 +101,19 @@ pages:
             - all
             - contributor
 
-# Docs/LevelOneClient
-# readme.md Ports.md
-    -   name: 'Level One Client Overview'
-        html: LevelOneClient.html
-        category: 'Level One Client'
-        md: Docs/LevelOneClient/readme.md
+# scenarios 
+    -   name: 'Scenario Descriptions'
+        html: Scenarios.html
+        category: Scenarios
+        md: Docs/scenarios.md
         section_header: true
         targets:
             - all
             - stakeholder
 
-    -   name: 'Clearing Architecture'
-        html: ClearingArchitecture.html
-        category: 'Level One Client'
-        md: 'Docs/ILP/Clearing Architecture.md'
-        section_header: true
-        targets:
-            - all
-            - stakeholder
-
-    -   name: 'Level One Client Interledger Components and Flow'
-        html: ILP.html
-        category: 'Level One Client'
-        md: Docs/ILP/README.md
-        section_header: true
-        targets:
-            - all
-            - stakeholder
-
-
-    -   name: 'Level One Client Interop Services'
-        html: mule.html
-        category: 'Level One Client'
-        md: Docs/mule/README.md
-        targets:
-            - all
-
-
-    -   name: 'Interledger SPSP Client Interface'
-        html: ilp-spsp-client-rest.html
-        category: 'Level One Client'
-        md:  ilp-spsp-client-rest/README.md
-        targets:
-            - all
-
-
-    -   name: 'Interop SPSP Client Proxy'
-        html: interop-spsp-clientproxy.html
-        category: 'Level One Client'
-        md:  interop-spsp-clientproxy/README.md
-        targets:
-            - all
-
-
-
-    -   name: 'Interledger SPSP Server Interface'
-        html: ilp-spsp-server.html
-        category: 'Level One Client'
-        md:  ilp-spsp-server/README.md
-        targets:
-            - all
-
-
-    -   name: 'Interop Ledger'
-        html: interop-ilp-ledger.html
-        category: 'Level One Client'
-        md:  interop-ilp-ledger/README.md
-        targets:
-            - all
-
-    -   name: 'Ledger Adapter'
-        html: ledger-adapter.html
-        category: 'Level One Client'
-        md:  Docs/ILP/ledger-adapter.md
-        targets:
-            - all
-
-
-
-    -   name: 'Interop SPSP Backend'
-        html: interop-ilp-ledger.html
-        category: 'Level One Client'
-        md:  interop-spsp-backend-services/README.md
-        targets:
-            - all
-
-
-
-# Docs/LevelOneClient/scenarios
-# scenarios 'Send Payment.md'
     -   name: 'Send Payment'
         html: SendPayment.html
         category: Scenarios
-        section_header: true # If we make a scenarios intro page move this line to that file
         md: 'Docs/LevelOneClient/scenarios/Send Payment.md'
         targets:
             - all
@@ -215,7 +134,6 @@ pages:
         targets:
             - all
 
-
     -   name: 'Bulk Payments'
         html: BulkPayments.html
         category: Scenarios
@@ -224,9 +142,84 @@ pages:
             - all
             - stakeholder
 
+# Docs/LevelOneClient
+    -   name: 'Level One Client Overview'
+        html: LevelOneClient.html
+        category: 'Level One Client'
+        md: Docs/LevelOneClient/readme.md
+        section_header: true
+        targets:
+            - all
+            - stakeholder
+
+    -   name: 'Clearing Architecture'
+        html: ClearingArchitecture.html
+        category: 'Level One Client'
+        md: 'Docs/ILP/Clearing Architecture.md'
+        targets:
+            - all
+            - stakeholder
+
+    -   name: 'Interledger Components and Flow'
+        html: ILP.html
+        category: 'Level One Client'
+        md: Docs/ILP/README.md
+        targets:
+            - all
+            - stakeholder
+
+    -   name: 'Interledger SPSP Client Proxy Interface'
+        html: ilp-spsp-client-rest.html
+        category: 'Level One Client'
+        md:  ilp-spsp-client-rest/README.md
+        targets:
+            - all
+
+    -   name: 'Interledger SPSP Server Interface'
+        html: ilp-spsp-server.html
+        category: 'Level One Client'
+        md:  ilp-spsp-server/README.md
+        targets:
+            - all
+
+    -   name: 'Ledger Adapter'
+        html: ledger-adapter.html
+        category: 'Level One Client'
+        md:  Docs/ILP/ledger-adapter.md
+        targets:
+            - all
+
+    -   name: 'Interop Services'
+        html: mule.html
+        category: 'Level One Client'
+        md: Docs/mule/README.md
+        targets:
+            - all
+
+    -   name: 'Interop SPSP Client Proxy'
+        html: interop-spsp-clientproxy.html
+        category: 'Level One Client'
+        md:  interop-spsp-clientproxy/README.md
+        targets:
+            - all
+
+    -   name: 'Interop Ledger'
+        html: interop-ilp-ledger.html
+        category: 'Level One Client'
+        md:  interop-ilp-ledger/README.md
+        targets:
+            - all
+
+    -   name: 'Interop SPSP Backend Services'
+        html: interop-ilp-ledger.html
+        category: 'Level One Client'
+        md:  interop-spsp-backend-services/README.md
+        targets:
+            - all
+
 #Docs/CentralDirectory
 # README.md central_directory_endpoints.md
-    -   name: 'Central Directory Overview'
+    -   name: 'Central Directory'
         html: CentralDirectory.html
         category: 'Central Directory'
         section_header: true
@@ -266,7 +259,7 @@ pages:
 
 #Docs/CentralLedger
 # README.md central_ledger_endpoints.md
-    -   name: 'Central Ledger Overview'
+    -   name: 'Central Ledger'
         html: central_ledger.html
         category: 'Central Ledger'
         section_header: true
@@ -290,7 +283,7 @@ pages:
     #     targets:
     #         - all
     #         - central
-    -   name: 'Execute transfer guide'
+    -   name: 'Working with transfers'
         html: execute-transfer-guide.html
         category: 'Central Ledger'
         md: central-ledger/TransferGuide.md
@@ -308,10 +301,10 @@ pages:
 
 #Docs/CentralRules
 # README.md central_rules_endpoints.md
-    -   name: 'Central Rules Overview'
+    -   name: 'Central Rules'
         html: central_rules.html
         category: 'Central Rules'
-        md: Docs/CentralLedger/README.md
+        md: Docs/CentralRules/README.md
         targets:
             - all
 
@@ -326,7 +319,7 @@ pages:
 
 #Docs/ELK
 # ELKSetup.md
-    -   name: 'Setup Logging Infrastructure'
+    -   name: 'Setup Logging'
         html: elk.html
         category: Infrastructure
         section_header: true # If we add an "Infrastructure" intro, move this to there
@@ -334,14 +327,14 @@ pages:
         targets:
             - all
 
-    -   name: 'Kibana user guide'
+    -   name: 'Using Kibana'
         html: kibana-user-guide.html
         category: Infrastructure
         md: Docs/ELK/kibana-user-guide.md
         targets:
             - all
 
-    -   name: 'Logging Standards'
+    -   name: 'Using Logging'
         html: logging.html
         category: Infrastructure
         md: Docs/mule/logging-guidelines.md
@@ -356,14 +349,6 @@ pages:
             - all
 
 #Docs/AWS/Infrastructure
-# machines.md
-    -   name: Machines
-        html: machines.html
-        category: Infrastructure
-        md: Docs/AWS/Infrastructure/machines.md
-        targets:
-            - all
-
 
     -   name: "Mule's Docker Image"
         html: docker.html
@@ -427,7 +412,7 @@ pages:
 
 #/Docs/DFSP
 #README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
-    -   name: 'DFSP Overview'
+    -   name: 'DFSP'
         html: DFSP.html
         section_header: true
         category: DFSP
@@ -492,7 +477,7 @@ pages:
             - all
 
 
-    -   name: 'ManageAccoutHolders'
+    -   name: 'Manage Account Holders'
         html: ManageAccoutHolders.html
         category: DFSP
         md: Docs/DFSP/ManageAcccoutHolders/ReadMe.md
@@ -500,7 +485,7 @@ pages:
             - all
 
 
-    -   name: 'Development'
+    -   name: 'Setting up the Development Environment'
         html: development.html
         category: DFSP
         md: Docs/DFSP/development.md
@@ -523,43 +508,12 @@ pages:
         targets:
             - all
 
-# ------- Wiki
-    -   md: Docs.wiki/Home.md
-        html: Home.html
-        section_header: true
-        category: L1P Developer Documentation
-        targets:
-            - all
-            - dev
-
-    -   md: Docs.wiki/Onboarding-Developers.md
-        html: Onboarding-Developers.html
-        category: L1P Developer Documentation
-        targets:
-            - all
-            - dev
-
-    -   md: Docs.wiki/Accessing-the-Test-Environment.md
-        html: Accessing-the-Test-Environment.html
-        category: L1P Developer Documentation
-        targets:
-            - all
-            - dev
-
 # -------------------- Appendix ------------------------
     -   name: 'Terminology'
         html: terminology.html
         section_header: true
         category: Appendix
         md: Docs/terminology.md
-        targets:
-            - all
-            - stakeholder
-
-    -   name: 'Scenario Descriptions'
-        html: Scenarios.html
-        category: Appendix
-        md: Docs/scenarios.md
         targets:
             - all
             - stakeholder
@@ -572,7 +526,7 @@ pages:
             - all
             - stakeholder
 
-    -   name: 'Exporting These Documents'
+    -   name: 'Exporting the Documents'
         html: ExportDocs.html
         category: Appendix
         md: Docs/ExportDocs/README.md
