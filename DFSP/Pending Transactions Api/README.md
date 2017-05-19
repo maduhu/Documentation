@@ -1,4 +1,4 @@
-## Pending Transactions using the Over the Top API  ##
+## Pending Transfers API  ##
 
 Creating and paying or rejecting pending transfers using the DFSP Over the Top API.
 
