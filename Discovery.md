@@ -1,4 +1,4 @@
-# Discovery
+# User Discovery
 
 In order for a sender to make a payment to a receiver they must "discover" some things about the receiver, such
 as their ILP address and the currency of their account.
