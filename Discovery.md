@@ -102,7 +102,7 @@ The logical steps for a sending DFSP are:
 4. Resolve URI to URL using discovery service
 5. Initiate SPSP at resolved URL
 
-## Level One Project
+## Design Considerations
 
 The Level One Project has some specific design constraints and assumptions which drive the design of this implementation. The project
 favors the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs. While this means it is not
