@@ -1,4 +1,4 @@
-# Interledger Docs
+# Interledger Components and Flow
 > This folder includes the documentation for the Interledger components
 
 ## Running the ILP/SPSP components
