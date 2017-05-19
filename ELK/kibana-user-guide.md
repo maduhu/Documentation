@@ -1,4 +1,4 @@
-## Kibana User Guide
+## Using Kibana
 
 How to use Kibana, its dashboards and query language for L1P tracing and debugging purposes.
 
