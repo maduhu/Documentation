@@ -1,4 +1,4 @@
-## Configuring Load Balancer for Mulesoft APIs ##
+## Configuring High Availability Proxy ##
 
 ### Introduction
 
