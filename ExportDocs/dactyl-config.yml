@@ -526,6 +526,14 @@ pages:
             - all
             - stakeholder
 
+    -   name: 'Resilience Modeling and Anaylysis'
+        html: RMA.html
+        category: Appendix
+        md: Docs/rma.md
+        targets:
+            - all
+            - stakeholder
+
     -   name: 'Exporting the Documents'
         html: ExportDocs.html
         category: Appendix

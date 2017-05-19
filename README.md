@@ -53,8 +53,8 @@ Individual services have their own tests, but there are system-wide tests as per
 - [Scenario testing](https://github.com/LevelOneProject/Docs/blob/master/JMeter/scenarioTests/readme.md)
 - [End-to-end functional testing](https://github.com/LevelOneProject/interop-functional-tests)
 - [Performance testing](./JMeter)
-- Resilience testing
-- Threat Model Overview
+- [Resilience Modeling and Anaylysis (RMA)](./RMD.md)
+- Threat Modeling
 
 ## Related Projects
 The [Interledger Protocol Suite](https://interledger.org/) (ILP) is an open and secure standard that lets DFSPs settle payments with minimal counterparty risk. (That's the risk you take when someone else is holding your money.) With ILP, you can transact across different systems with no chance that someone in the middle disappears with your money. The Level One Project uses the Interledger Protocol Suite for the clearing layer. For an overview of how it works, see the [Clearing Architecture Documentation](./ILP).
