@@ -1,4 +1,4 @@
-# L1 Service - Level One Client
+# Level One Client
 The client service connects a DFSP to other other DFSPs and the central services. It has a few simple interfaces to connect to a DFSP for account holder lookup, payment setup, and ledger operations. The client hosts and manages the interledger protocol stack so that the DFSP doesn't need to handle Interledger directly.
 
 ![Level One Client](./LevelOneClientComponents.png)
