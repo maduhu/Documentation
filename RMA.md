@@ -210,18 +210,15 @@ states within it. Example:
 ```
 if (broken for more than 5 minutes) alert operator
 
-If (broken for more than 2 minutes) then raise event and run Ansible
-playbook to redeploy service
+If (broken for more than 2 minutes) then raise event and run Ansible playbook to redeploy service
 
 If (broken) then raise event and run Ansible playbook to restart service
 
 if (slow and \# of services &gt; N) then alert operator
 
-if (slow) then raise event and run playbook to add additional
-microservice
+if (slow) then raise event and run playbook to add additional microservice
 
-if (working and more than 1 service and a service is idle) then run
-playbook to scale down services
+if (working and more than 1 service and a service is idle) then run playbook to scale down services
 ```
 
 Describing the actions like this makes it easy to automate the responses
@@ -277,8 +274,8 @@ monitoring service.
 **Mitigations**
 
 ```
--   If the service has been down for N + M minutes alert an operator
--   Else, restart the service using an ansible playbook
+    If the service has been down for N + M minutes alert an operator
+    Else, restart the service using an ansible playbook
 ```
 
 Additional failover processes may be deployed in production. Restarting
