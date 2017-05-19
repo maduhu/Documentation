@@ -341,7 +341,7 @@ pages:
         targets:
             - all
 
-    -   name: 'Forensic Logging Setup'
+    -   name: 'Forensic Logging'
         html: ForensicSetup.html
         category: Infrastructure
         md: forensic-logging-sidecar/SidecarGuide.md
@@ -484,22 +484,12 @@ pages:
         targets:
             - all
 
-
     -   name: 'Setting up the Development Environment'
         html: development.html
         category: DFSP
         md: Docs/DFSP/development.md
         targets:
             - all
-
-
-    -   name: 'Bulk Payments'
-        html: BulkPayments.html
-        category: DFSP
-        md: Docs/DFSP/BulkPayments.md
-        targets:
-            - all
-
 
     -   name: 'USSD'
         html: USSD.html
