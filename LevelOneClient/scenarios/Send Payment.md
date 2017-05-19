@@ -1,4 +1,4 @@
-# Scenario - Send Payment
+# Send Payment
 See [Scenario definition](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone) for what this scenario should accomplish.
 
 To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Level One Client Ports guide](../Ports.md), and Central Directory Ports Guide.
