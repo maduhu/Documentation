@@ -1,4 +1,4 @@
-# L1P Service Logging
+# Using Logging
 
 ## Introduction
 This document provides L1P service logging guidelines in order to provide end-end traceability of interactions, aid in troubleshooting and publish metrics to the backend

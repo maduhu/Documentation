@@ -1,5 +1,4 @@
-# USSD Simulator User Guide
-
+# USSD 
 
 ----------
 

@@ -1,4 +1,4 @@
-# Level One Project Documentation
+# Level One Project Overivew
 "The Docs repo documents the architecture, component design, message flow, and overview of the Level One Project (L1P) software. The details of source, APIs, and implementation are located in other repos of the [Level One Project GitHub organization](https://github.com/LevelOneProject).
 
 ## What is the Level One Project?

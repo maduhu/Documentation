@@ -1,4 +1,4 @@
-# Interop services overview (Mule components)
+# Interop Services
 
 The various interop service APIs act as proxies and/or provide features such as validation, authentication and data transformation where necessary. The services operate based on service specifications provided in both Open API and RAML. The services run on Mule community runtime. There are four interop micro-services that are mentioned below and several supporting projects.
 

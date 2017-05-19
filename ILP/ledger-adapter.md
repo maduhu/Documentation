@@ -1,4 +1,4 @@
-# ILP Ledger Adapter API
+# Ledger Adapter
 
 The ILP Ledger Adapter API is a RESTful API served by a ledger adapter, or directly by a ledger. ILP Client applications use the ILP Ledger Adapter API to conduct business in a ledger.
 

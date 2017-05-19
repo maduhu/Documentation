@@ -1,7 +1,7 @@
 
 
 
-# Scenario - Pending Transaction
+# Pending Transaction
 
 See [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#buy-goods---pending-transactions)
 

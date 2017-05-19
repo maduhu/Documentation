@@ -1,7 +1,7 @@
-# Level One Project Terminolgy
+# Terminolgy
 "The terminolgy documents the preferred terms and definitions for the Level One Project.
 
-## Terminology
+## Details
 | Term	|	Alternative and Related Terms	|	L1P Definition
 |	---------------------------------	|	------------------------------------	|	------------------------------------
 |	Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
