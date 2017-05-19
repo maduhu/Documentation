@@ -1,4 +1,4 @@
-# Central Rules
+# Central Rules Endpoints
 
 The Central Rules API handles enforcing whether a transfer to an End User is permitted.
 
