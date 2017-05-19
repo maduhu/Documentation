@@ -1,10 +1,8 @@
-# Level One Project Clearing Architecture
-
-## Introduction
+# Clearing Architecture
 
 The Interledger Protocol suite (ILP) is the standard by which the clearing layer of the Level One Project will be built. For some components, the Level One Project will use the Interledger reference implementations. Some other components expose APIs that are part of the Interledger protocol suite.
 
-### Interledger Summary
+## Interledger Summary
 
 Interledger is a suite of protocols and standards for coordinating multiple _book transfers_ that each occur within a single ledger, to facilitate an overall _payment_ that crosses ledgers. The overall means of conducting the transfers is similar to how cross-ledger payments occur today, except that ILP uses cryptography to provide stronger guarantees about where system failures can occur. It also allows the execution of all the transfers to be automated, which lets them be near-simultaneous. By providing a _ledger_ that is compatible with ILP, a Digital Financial Services Provider (DFSP) can ensure compatibility with other DFSPs who do the same.
 
