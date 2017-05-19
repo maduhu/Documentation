@@ -1,6 +1,6 @@
-# From the directory above docs:
-# (run the copy-images script first)
-# dactyl_build -t all -c Docs/ExportDocs/dactyl-config.yml --pdf
+# Usage: Run these two commands from the directory above Docs:
+#   ./Docs/ExportDocs/CopyImages.sh
+#   dactyl_build -t all -c Docs/ExportDocs/dactyl-config.yml --pdf
 #--leave_temp_files
 content_path: .
 content_static_path: ./images
@@ -143,7 +143,7 @@ pages:
             - stakeholder
 
 # Docs/LevelOneClient
-    -   name: 'Level One Client Overview'
+    -   name: 'Level One Client'
         html: LevelOneClient.html
         category: 'Level One Client'
         md: Docs/LevelOneClient/readme.md
