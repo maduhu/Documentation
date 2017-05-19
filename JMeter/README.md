@@ -1,4 +1,4 @@
-# JMeter for load and scenario testing
+# Integration Tests
 
 Contains an initial attempt at providing performance and functional tests for Level One assets.
 
