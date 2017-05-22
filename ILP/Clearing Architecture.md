@@ -159,4 +159,4 @@ Crypto-Conditions are a message type used in the Interledger Protocol to provide
 
 There are many types of Crypto-Conditions, but the Simple Payment Services Protocol (SPSP) only uses the PREIMAGE-SHA-256 type of Crypto-Condition.
 
-Specification: <https://github.com/interledger/rfcs/tree/master/0002-crypto-conditions>
+Specification: <https://github.com/rfcs/crypto-conditions/>
