@@ -65,14 +65,6 @@ targets:
    
 pages:
 # overview
-    -   name: 'Onboarding Overview'
-        md: Docs.wiki/Home.md
-        html: Home.html
-        category: Onboarding
-        section_header: true
-        targets:
-            - all
-
     -   name: 'Onboarding Developers'
         md: Docs.wiki/Onboarding-Developers.md
         html: Onboarding-Developers.html
