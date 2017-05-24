@@ -4,7 +4,7 @@ See [Scenario definition](https://github.com/LevelOneProject/Docs/blob/master/sc
 To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Level One Client Ports guide](../Ports.md), and Central Directory Ports Guide.
 
 ## Message Flow and Overview
-![Send Payment](./Send%20Payment%20Via%20SPSP.png)
+![Send Payment](./PaymentFlow.png)
 This diagram shows the order of the calls.
 
 Calls are made from A through C, and within each letter they increment by number. Example: C.1, C.2, C.3, etc.
