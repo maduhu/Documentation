@@ -39,6 +39,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -74,8 +75,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
-          "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
+          "ipr": "c29tZSBpcHIgaGVyZQ=="
       }
     ```
 
@@ -90,6 +90,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -141,6 +142,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -177,8 +179,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
-          "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
+          "ipr": "c29tZSBpcHIgaGVyZQ=="
       }
     ```
 
@@ -193,6 +194,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -244,6 +246,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -279,8 +282,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
-          "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
+          "ipr": "c29tZSBpcHIgaGVyZQ=="
       }
     ```
 
@@ -295,6 +297,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -341,6 +344,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -376,8 +380,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
-          "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
+          "ipr": "c29tZSBpcHIgaGVyZQ=="
       }
     ```
 
@@ -392,6 +395,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -438,6 +442,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -473,8 +478,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ilpPacket": "AYGxAAAAAAAAAGQLZXhhbXBsZS5ib2KBmlBTSy8xLjAKTm9uY2U6IHFBdHg1Nk9PUXFyM192dEpvX1JoWkEKRW5jcnlwdGlvbjogbm9uZQpQYXltZW50LUlkOiA1NjM4YmJhYi03ZjJlLTQ4NDAtYWI4Ny1lZjBjMDAxZGFjMGIKCkV4cGlyZXMtQXQ6IDIwMTctMDQtMTFUMTA6MjQ6MTguNzQxWgoKaGVsbG8gd29ybGQA",
-          "condition": "ni:///sha-256;47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU?fpt=preimage-sha-256&cost=0"
+          "ipr": "c29tZSBpcHIgaGVyZQ=="
       }
     ```
 
@@ -489,6 +493,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
@@ -517,6 +522,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifierType": "eur"
         },
         "payee": {
+          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
         },
