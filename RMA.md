@@ -29,7 +29,7 @@ and recovery (MTTD and MTTR). By reducing time to detection and time to
 recovery (the red area below), availability (the green area) is
 maximized.
 
-![Availability](./wiki/Availability.png)
+![Availability](./Wiki/Availability.png)
 
 Figure - Availability from MTTF, MTTD, and MTTR
 
