@@ -214,7 +214,7 @@ If (broken for more than 2 minutes) then raise event and run Ansible playbook to
 
 If (broken) then raise event and run Ansible playbook to restart service
 
-if (slow and \# of services &gt; N) then alert operator
+if (slow and # of services > N) then alert operator
 
 if (slow) then raise event and run playbook to add additional microservice
 
