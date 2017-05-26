@@ -1,5 +1,7 @@
 # Identity Service API
 
+-----
+
 Identity Service is used for managing identity related data, like sessions, images, PINs, etc. This service contains information about all the available actions and
 wich roles can perform them.
 

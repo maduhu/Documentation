@@ -1,5 +1,7 @@
 # Account service API
 
+-----
+
 This service contains information about relations between users and their accounts. Accounts contain information for the following things:
  - Which account is default for a given user;
  - If particular account is signatory for a given user;

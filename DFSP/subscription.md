@@ -1,5 +1,7 @@
 # Subscription service API
 
+-----
+
 This service is used for mapping between the users and phone numbers. It is supporting the following endpoints:
 
 ### Add subscription ###

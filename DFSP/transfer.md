@@ -1,5 +1,7 @@
 # Transfer service API
 
+-----
+
 This service contains information about transfers, invoices and invoice notifications. It is used to hold the following data: 
  - Invoices when they are created by merchants;
  - Invoice notifications when they are sent from merchant's DFSP to the client's DFSP;
