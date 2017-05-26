@@ -4,7 +4,7 @@
 
 This service contains information about relations between users and their accounts. Accounts contain information for the following things:
  - Which account is default for a given user;
- - If particular account is signatory for a given user;
+ - If particular user is signatory for a given account;
 Account service also manage user roles and their permissions. Each registered user has assigned role in the system and this role has predefined permissions about allowed actions.
 
 Roles can be one of the following: 
