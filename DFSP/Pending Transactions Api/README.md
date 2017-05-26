@@ -1,4 +1,8 @@
-## Pending Transfers API  ##
+# Pending Transfers API
+
+-----
+
+## I. Summary  ##
 
 Creating and paying or rejecting pending transfers using the DFSP Over the Top API.
 
