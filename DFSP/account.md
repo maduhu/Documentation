@@ -25,7 +25,7 @@ For the current moment permissions are set to the roles as follow:
  - Customer: p2p, ministatement, balanceCheck; 
  - Merchant: p2p, ministatement, balanceCheck, invoice;
 
-## Account service has exposed the following endpoints: ##
+## Account service has exposed the following **private** API calls: ##
 
 ### Add actor to a given account ###
 

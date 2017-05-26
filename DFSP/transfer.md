@@ -22,7 +22,7 @@ Invoice statuses are as follow:
  * rejected - Invoice has been rejected by customer;
  * cancelled - Invoice has been cancelled by merchant;
 
-## Transfer service has exposed the following endpoints in two spaces - `[bulk]` and `[transfer]`: ##
+## Transfer service has exposed the following **private** API calls in two spaces - `[bulk]` and `[transfer]`: ##
 
 ### Add batch ###
 

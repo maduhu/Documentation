@@ -38,7 +38,7 @@ Actions are defined as follow:
  * rule.rule.edit - Rule edit;
  * ledger.account.fetch - Fetch accounts;
 
-## Identity service has exposed the following endpoints: ##
+## Identity service has exposed the following **private** API calls: ##
 
 ### Login action ###
 

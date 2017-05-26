@@ -2,7 +2,7 @@
 
 -----
 
-This service is used for mapping between the users and phone numbers. It is supporting the following endpoints:
+This service is used for mapping between the users and phone numbers. It is supporting the following **private** API calls:
 
 ### Add subscription ###
 
