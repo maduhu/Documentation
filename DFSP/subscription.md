@@ -1,12 +1,76 @@
 # Subscription service API
-1. **subscription.user.add** - add user to a subscription
-1. **subscription.user.get** - get user data from subscription
-1. **subscription.user.edit** - modify user details of a subscription
-1. **subscription.user.remove** - remove user from a subscription
-1. **subscription.phone.add** - add phone to a subscription
-1. **subscription.phone.get** - get single phone data
-1. **subscription.phone.edit** - update subscription phone data
-1. **subscription.phone.remove** - remove phone from subscription
-1. **subscription.contacts.add** - add contact details to address book
-1. **subscription.contacts.remove** - remove contact from address book
-1. **subscription.contacts.fetch** - list contacts from address book
+
+This service is used for mapping between the users and phone numbers. It is supporting the following endpoints:
+
+### Add subscription ###
+
+* **URL**
+
+  `/rpc/subscription/subscription/add`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Required**
+
+   * `actorId [string] - Actor id`
+   * `phoneNumber [string] - Phone number`
+ 
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `subscriptionId [number] - Subscription id`
+       * `actorId [string] - Actor id`
+       * `phoneNumber [string] - Phone number`
+
+
+### Get subscription ###
+
+* **URL**
+
+  `/rpc/subscription/subscription/get`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Optional**
+
+   * `actorId [string] - Actor id`
+   * `phoneNumber [string] - Phone number`
+ 
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `actorId [string] - Actor id`
+       * `phoneNumber [string] - Phone number`
+
+
+### Remove subscription ###
+
+* **URL**
+
+  `/rpc/subscription/subscription/remove`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Optional**
+
+   * `subscriptionId [number] - Subscription id`
+ 
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `subscriptionId [number] - Subscription id`
