@@ -53,13 +53,13 @@
       recreate: yes
       ports:
         - "3045:3045"
-      #log_driver: syslog
-      #log_options:
-        #"syslog-address": "tcp://0.0.0.0:514"
-        #"syslog-facility": "daemon"
-        #"tag": "ilp-service"
-        #"labels": "ilp-service"
-        #"env": "ilp-service"
+      log_driver: syslog
+      log_options:
+        "syslog-address": "tcp://0.0.0.0:514"
+        "syslog-facility": "daemon"
+        "tag": "ilp-service"
+        "labels": "ilp-service"
+        "env": "ilp-service"
       env:
         ILP_SERVICE_PORT: 3045
         ILP_SERVICE_ILP_PREFIX: "{{ ILP_LEDGER_PREFIX }}"
@@ -113,12 +113,12 @@
 
           [{
             "targetPrefix": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.",
-            "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}"
+            "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
             "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ inventory_hostname }}"
           }, {
             "targetPrefix": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
-            "connectorLedger": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}."
-            "connectorAccount": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}-testconnector"
+            "connectorLedger": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.",
+            "connectorAccount": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.{{ inventory_hostname }}-testconnector"
           }, {
             "targetPrefix": "{{ ilp_address_neighborhood }}.{{ peer_name }}.",
             "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
