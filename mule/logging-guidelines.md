@@ -40,13 +40,13 @@ metrics are available [here](https://github.com/LevelOneProject/interop-metrics-
   
   1. Counter
     ```
-    ... L1P_METRIC_COUNTER:[environment.application-instanceid.counter.name] ...
+    ... L1P_METRIC_COUNTER:[counter-namespace.name] ...
     ```
     where L1P_METRIC_COUNTER is a keyword followed by a colon and the desired metric name* is within [ ].  This would increment the 
     counter identified by metric name by 1.
   1. Timer
     ```
-    ... L1P_METRIC_TIMER:[environment.application-instanceid.timer.name][50] ...
+    ... L1P_METRIC_TIMER:[timer-namespace.name][50] ...
     ```
     where L1P_METRIC_TIMER is a keyword followed by a colon, the desired metric name* is within [ ] and timed value in millisenconds with [ ].  
     This would add the time value in milliseconds to timer identified by metric name*.
