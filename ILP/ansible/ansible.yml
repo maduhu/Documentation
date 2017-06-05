@@ -112,15 +112,7 @@
         CONNECTOR_ROUTES: >
 
           [{
-            "targetPrefix": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.",
-            "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
-            "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ inventory_hostname }}"
-          }, {
-            "targetPrefix": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
-            "connectorLedger": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.",
-            "connectorAccount": "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.{{ inventory_hostname }}-testconnector"
-          }, {
-            "targetPrefix": "{{ ilp_address_neighborhood }}.{{ peer_name }}.",
+            "targetPrefix": "",
             "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
             "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
           }]
