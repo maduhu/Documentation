@@ -103,6 +103,32 @@
         spsp_admin__password: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
         DEBUG: "*"
 
+  - name: Start ILP service
+    tags:
+      - service
+    docker_container:
+      name: ilp-service
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v0.2.0"
+      state: started
+      pull: yes
+      recreate: yes
+      ports:
+        - "3044:4000"
+      log_driver: syslog
+      log_options:
+        "syslog-address": "tcp://0.0.0.0:514"
+        "syslog-facility": "daemon"
+        "tag": "ilp-spsp-server"
+        "labels": "ilp-spsp-server"
+        "env": "ilp-spsp-server"
+      env:
+        ILP_SERVICE_BACKEND_URL: "{{ILP_SPSP_SERVER_BACKEND}}"
+        ILP_SERVICE_PREFIX: "{{ILP_LEDGER_PREFIX}}"
+        ILP_SERVICE_ADMIN_ACCOUNT: "{{ILP_LEDGER_ADMIN_ACCOUNT}}"
+        ILP_SERVICE_ADMIN_USERNAME: "{{ILP_LEDGER_ADMIN_USERNAME}}"
+        ILP_SERVICE_ADMIN_PASSWORD: "{{ILP_LEDGER_ADMIN_PASSWORD}}"
+        DEBUG: "*"
+
   - name: Start ILP connector
     tags:
       - connector
