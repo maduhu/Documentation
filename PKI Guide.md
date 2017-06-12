@@ -146,9 +146,11 @@ central_ledger.pem
 
 ### Key Suggestions
 During the certificate signing requests, we suggest you avoid using small keys. The minium requirement is shown in the following table:
-| Signature Key |     RSA     |      ECC      |
-| ------------- | ----------- | ------------- |
-|    AES-256    |    >=2048   | PCurves >= 256|
+
+
+| Signature Key | RSA | ECC |
+| ------------- | --- | --- |
+| AES-256 | >=2048 | PCurves >= 256 |
 
 ### Integrating the certificates with service
 Once the certificates have been created, you will need to integrate them with your service. We will use central-ledger as an example here.
@@ -167,8 +169,8 @@ var fs = require('fs')
 .
 .
 const tls = {
-  key: fs.readFileSync('./src/ssl/central-ledger-key.pem'),
-  cert: fs.readFileSync('./src/ssl/central-ledger-cert.pem')
+  key: fs.readFileSync('./src/ssl/central_ledger-key.pem'),
+  cert: fs.readFileSync('./src/ssl/central_ledger.pem')
 }
 const server = new Hapi.Server()
 server.connection({
@@ -188,9 +190,9 @@ var https = require('https')
 .
 .
 var options = { 
-    key: fs.readFileSync('server-key.pem'), 
-    cert: fs.readFileSync('server-crt.pem'), 
-    ca: fs.readFileSync('ca-cert.pem'), 
+    key: fs.readFileSync('central_ledger-key.pem'), 
+    cert: fs.readFileSync('central_ledger.pem'), 
+    ca: fs.readFileSync('ca.pem'), 
 }
 
 https.createServer(options, function (req, res) { 
@@ -210,7 +212,7 @@ var options = {
     port: 3000, 
     path: '/', 
     method: 'GET', 
-    ca: fs.readFileSync('ca-cert.pem') 
+    ca: fs.readFileSync('ca.pem') 
 }
 
 var req = https.request(options, function(res) { 
