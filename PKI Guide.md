@@ -2,20 +2,20 @@
 ***
 
 ## Introduction
-In this guide, we will introduce some features of CloudFlare PKI -- [cfssl.](#https://github.com/cloudflare/cfssl)
+In this guide, we will introduce some features of CloudFlare PKI -- [cfssl](https://github.com/cloudflare/cfssl)
 * [**Install cfssl**](#install-cfssl)
 * [**CA Config**](#ca-config)
 * [**Client Config**](#client-config)
-* [**Key Suggestions**](#key-recommendations)
+* [**Key Suggestions**](#key-suggestions)
 * [**Integrating the Certificates with Service**](#integrating-the-certificates-with-service)
 ***
 
 ### Install cfssl
-To install cfssl tool, please follow the instructions in [cfssl.](#https://github.com/cloudflare/cfssl)
+To install the cfssl tool, please follow the instructions for Cloudflare's [cfssl](https://github.com/cloudflare/cfssl)
 
 ### CA Config
 #### Initialize a certificate authority
-First, you need to configure the certificate signing request (csr), named ```ca.json```. For the key algorithm, rsa and ecdsa are supported by cfssl, but you need to avoid using small-size key.
+First, you need to configure the certificate signing request (csr), which we've named ```ca.json```. For the key algorithm, rsa and ecdsa are supported by cfssl, but you need to avoid using a small sized key.
 ```
 {
   "hosts": [
@@ -37,7 +37,7 @@ First, you need to configure the certificate signing request (csr), named ```ca.
   ]
 }
  ```
- Then you need to generate cert and related private key for the CA.
+ Then you need to generate a cert and the related private key for the CA.
  ```
  cfssl gencert -initca ca.json | cfssljson -bare ca -
  ```
@@ -48,10 +48,10 @@ ca.csr
 ca.pem
 ```
 * ```ca.pem``` is your cert.
-* ```ca-key.pem``` is your related private key, so you need to keep it safe. It will allow you to sign any cert.
+* ```ca-key.pem``` is your related private key, which should be stored in a safe spot. It will allow you to sign any cert.
 
 #### Run a CA server
-To run a CA server, you need the ```ca-key.pem, ca.pem``` from the first step, and a config file ```config_ca.json``` for the server.
+To run a CA server, you need the ```ca-key.pem``` and ```ca.pem``` files from the first step, and a config file, ```config_ca.json```, for the server.
 ```
 {
    "signing": {
@@ -75,9 +75,9 @@ To run a CA server, you need the ```ca-key.pem, ca.pem``` from the first step, a
    }
  }
  ```
- * ```auth_key``` is the token used for authenticate the client's CSR.
+ * ```auth_key``` is the token used to authenticate the client's CSR.
  * ```expiry``` is the valid time period for the cert. A year is around 8760 hours.
- * ```name_whitelist``` is the regular expression for the domain name can be signed by the CA.
+ * ```name_whitelist``` is the regular expression for the domain names that can be signed by the CA.
 To run the server:
 ```
 cfssl serve -ca=ca.pem -ca-key=ca-key.pem -config=config_ca.json -port=6666
@@ -85,7 +85,7 @@ cfssl serve -ca=ca.pem -ca-key=ca-key.pem -config=config_ca.json -port=6666
 The default IP and port number is: 127.0.0.1:8888.
 
 ### Client Config
-To generate a certificate for the client, you will need a config file -- ```config_clients.json ``` for cfssl;
+To generate a certificate for the client, you will need a config file -- ```config_clients.json ``` for cfssl.
 ```
 {
     "auth_keys" : {
@@ -131,7 +131,7 @@ You will also need another config file -- ```central_ledger.json``` for the serv
  }
  ```
  * The domain name in ```hosts``` must match the whitelist in ```config_ca.json```.
- * You should avoid using small size key in ```key```.
+ * You should avoid using a small sized key in ```key```.
 To generate a certificate for the service:
 ```
 cfssl gencert -config=config_clients.json central_ledger.json | cfssljson -bare central_ledger
@@ -145,7 +145,7 @@ central_ledger.pem
 ``` central_ledger.pem``` will be your service's cert, and ```central_ledger-key.pem``` will be your private key.
 
 ### Key Suggestions
-During the certificate signing requests, we suggest to avoid using small keys. The minium requirement is as the following table:
+During the certificate signing requests, we suggest you avoid using small keys. The minium requirement is shown in the following table:
 | Signature Key |     RSA     |      ECC      |
 | ------------- | ----------- | ------------- |
 |    AES-256    |    >=2048   | PCurves >= 256|
@@ -154,8 +154,8 @@ During the certificate signing requests, we suggest to avoid using small keys. T
 Once the certificates have been created, you will need to integrate them with your service. We will use central-ledger as an example here.
 
 #### Server
-On the server side, you'll want to set it up so that every incoming request is checked against the cert. In the projects so far, our team has used Hapi, but it's just as simple just using Node libraries.
-Both methods are shown to make the process as easy as possible.
+On the server side, you'll want to set it up so that every incoming request is checked against the cert. In the projects so far, our team has used Hapi, but it's just as simple when using Node libraries.
+Both methods are shown to make the process as straightforward as possible.
 
 ##### Setting up with Hapi
 On the server side, we simply added the key and cert to a tls object. When the server connection is initialized, the tls object is added as an option.
