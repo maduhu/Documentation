@@ -47,7 +47,7 @@
       - service
     docker_container:
       name: ilp-service
-      image: "modusbox-level1-docker.jfrog.io/ilp-service:latest"
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v0.2.1"
       state: started
       pull: yes
       recreate: yes
