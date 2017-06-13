@@ -1,24 +1,24 @@
 # Level One Project Overivew
-"The Docs repo documents the architecture, component design, message flow, and overview of the Level One Project (L1P) software. The details of source, APIs, and implementation are located in other repos of the [Level One Project GitHub organization](https://github.com/LevelOneProject).
+The "Docs" repo documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repos in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
 
 ## What is the Level One Project?
 > A level playing field for everyone by building one digital financial system in every country around the world. That's The Level One Project.
 
-To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short. The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model for a financial system that could be implemented in any country. Now we're taking that model and making it a fully-functional prototype, with all the details in place.
+To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short. The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model and prototype for a financial system that could be implemented in any country. This code takes that a step further by implementing a strong reliable messaging using the [Interledger](http://interledger.org) protocol as well as a functioning central hub that financial providers can connect to facilitate common settlement and regulatory compliance. 
 
-For more Level One information see the [Level One Project site](https://leveloneproject.org/).
+For more information on the Level One Project, see the [Level One Project site](https://leveloneproject.org/).
 New developers see [the wiki](https://github.com/LevelOneProject/Docs/wiki) for contribution guidance.
 
 ## Level One Services
-The following architecture diagram shows Level One services:
+The following architecture diagram shows the Level One services:
 
 ![Level One Services](./Wiki/Basic%20Overview.png)
 
-See [here](./AWS/Infrastructure/machines.md) for [physical architecture and machines topology](./AWS/Infrastructure/machines.md).
+See the [physical machines](./AWS/Infrastructure/machines.md) for info on the test and demo implementations in AWS.
 
-The basic idea behind the L1P model is that we need to connect multiple Digital Financial Services Providers (DFSPs) together into a competitive but interoperable network. We don't want a single monopoly power in control of all payments in a country, or a system that shuts out new players. It also doesn't help if there are too many isolated subnetworks. Our model solves this problem with several key elements:
+The basic idea behind the L1P model is that we need to connect multiple Digital Financial Services Providers (DFSPs) together into a competitive and interoperable network in order to provide that most opportunity for poor people to get access to financial services with low or no fees. We don't want a single monopoly power in control of all payments in a country, or a system that shuts out new players. It also doesn't help if there are too many isolated subnetworks. Our model solves this problem with several key elements:
 
-- A set of central services provides a hub through which money can flow from one DFSP to each other. This is similar to how money moves through a central bank or clearing house in developed countries. Besides a central ledger, central services can provide identity lookup, fraud management, and other such rules.
+- A set of central services provides a hub through which money can flow from one DFSP to each other. This is similar to how money moves through a central bank or clearing house in developed countries. Besides a central ledger, central services can provide identity lookup, fraud management, and enforce scheme rules.
 - A standard set of interfaces a DFSP can implement to connect to the system, and example code that shows how to use the system. A DFSP that wants to connect up can adapt our example code or implement the standard interfaces into their own software. The goal is for it to be as straightforward as possible for a DFSP to connect to the interoperable network.
 - Complete working open-source implementations of both sides of the interfaces - an example DFSP that can send and receive payments and the client that an existing DFSP could host to connect to the network.
 
@@ -38,7 +38,7 @@ The central services are a collection of separate services that help the DFSPs p
 - The [Central Directory Service](./CentralDirectory) finds which DFSP handles a user's accounts.
 - The [Central Ledger Service](./CentralLedger) handles clearing and settlement.
 - The [Central Rules Service](./CentralRules) sets policy across the system.
-- The **Fraud service** aids DFPS in identifying suspicious behavior.
+- The [Fraud service](https://github.com/LevelOneProject/central-fraud-sharing) aids DFPS in identifying suspicious behavior.
 
 ## End-to-End Scenarios
 The individual services listed above can't easily describe how key scenarios work across the system. For each of the [Level One Scenarios](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios) we provide a technical walk through.

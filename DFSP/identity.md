@@ -1,37 +1,164 @@
 # Identity Service API
 
-Identity Service methods for managing identity related data, like sessions, images, PINs, etc.
+-----
 
-1. **identity.credential.check** - checks credentials and optionally creates a session, returning session id. Credentials can contain one or multiple factors of identification.
-	* parameters
-    	* user - unique identification of the user
-    	* password - password of the user
-	* result
-    	* session - unique session identification
-	* errors
-    	* identify.invalidCredention - user or password are invalid
-    	* identify.passwordExpired - the password is expired
-    	*
-1. **identity.credential.add** - add user and password credentials
-	* parameters
-    	* user - unique identification of the user
-    	* password - password of the user
-	* result
-    	*
-	* errors
-    	* identify.invalidUser - user is invalid
-    	* identify.duplicatedUser - user already exists in the service
-    	* identify.passwordPolicy - the password does not meet the criteria of the password policy
- 1. **identity.credential.remove** - remove user from the identity service
-	* parameters
-    	* user - unique identification of the user
-	* result
-    	*
-	* errors
-    	* identify.invalidUser - user is invalid or non-existing
+Identity Service is used for managing identity related data, like sessions, images, PINs, etc. This service contains information about all the available actions and
+wich roles can perform them.
 
-1. **identity.password.edit** - changes user password
-1. **identity.session.remove** - ends sessions
+Roles can be one of the following:
 
-1. **identity.image.~** - methods for images associated with a user
-1. **identity.fingerprint.~** - methods for bio-metric fingerprints
+ * common - Default roles;
+ * maker - Batch payment maker role;
+ * checker - Batch payment checker role;
+
+Actions are defined as follow:
+
+ * bulk.batch.add - Create new batch;
+ * bulk.batch.edit - Edit batch;
+ * bulk.batch.fetch - Fetch batches by criteria;
+ * bulk.batch.get - Get batch details;
+ * bulk.batch.reject - Reject batch;
+ * bulk.batch.disable - Disable batch;
+ * bulk.batch.pay - Pay batch;
+ * bulk.batch.check - Check batch;
+ * bulk.batch.ready - Mark batch as ready;
+ * bulk.batch.delete - Mark batch as deleted;
+ * bulk.batch.process - Process batch;
+ * bulk.payment.check - Check payment details;
+ * bulk.payment.disable - Disable payment;
+ * bulk.payment.edit - Edit payment;
+ * bulk.payment.fetch - Fetch payments;
+ * bulk.payment.add - Create payment;
+ * bulk.paymentStatus.fetch - Fetch list with payment statuses;
+ * bulk.batchStatus.fetch - Fetch list with batch statuse;
+ * core.transaltion.fetch - Translation fetch;
+ * rule.rule.fetch - Rule fetch;
+ * rule.item.fetch - Item fetch;
+ * rule.rule.add - Rule add;
+ * rule.rule.edit - Rule edit;
+ * ledger.account.fetch - Fetch accounts;
+
+## Identity service has exposed the following **private** API calls: ##
+
+### Login action ###
+
+* **URL**
+
+  `/login`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Required**
+
+   * `actorId [string] - Actor id`
+   * `username [string] - Username`
+   * `password [string] - Login password`
+   * `sessionId [string] - Generated session id`
+
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `identity.check [json] - json containing following fields`
+         - `actorId [string] - Actor id`
+         - `sessionId [string] - Session id`
+       * `permission.get [json] - json containing following fields`
+         - `actionId [string]- action id`
+         - `objectId [string] - object id`
+         - `description [string] - action description`
+       * `language [json] - json with user language`
+       * `localisation [json] - json with the following fields`
+         - `dateFormat [string] - Date format`
+         - `numberFormat [string] - Number format`
+       * `roles [json] - json containing user roles`
+       * `screenHeader [string] - Screen header`
+
+
+### Identity add ###
+
+* **URL**
+
+  `/rpc/identity/add`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Required**
+
+   * `actorId [string] - Actor id`
+   * `type [string] - Type`
+   * `identifier [string] - User identifier`
+   * `algorithm [string] - Used algorithm`
+   * `params [string] - Input params`
+   * `value [string] - Input value`
+   * `roles [string array] - Array of role names`
+
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `actor [json] - json containing following fields`
+         - `actorId [string] - Actor id`
+
+
+### Identity close session ###
+
+* **URL**
+
+  `/rpc/identity/closeSession`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Required**
+
+   * `actorId [string] - Actor id`
+   * `sessionId [string] - Generated session id`
+  
+
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `data [json] - json containing empty array`
+
+
+### Identity get ###
+
+* **URL**
+
+  `/rpc/identity/get`
+
+* **Method**
+
+  `POST`
+
+* **Data Params**
+
+  **Required**
+
+   * `username [string] - Username`
+   * `actorId [string] - Actor id`
+   * `type [string] - Type: password/ussd`
+  
+* **Success Response**
+
+  * **Code:** 200 <br />
+    **Content**
+       * `hashParams [json] - json containing following fields`
+            - `params [string] - params`
+            - `algorithm [string] - algorithm`
+            - `actorId [string] - Actor id`
+            - `type [string] - Type: password/ussd`
+       * `roles [json] - json containing all assigned roles for this actorId`
+         

@@ -29,7 +29,7 @@ and recovery (MTTD and MTTR). By reducing time to detection and time to
 recovery (the red area below), availability (the green area) is
 maximized.
 
-![Availability](./wiki/Availability.png)
+![Availability](./Wiki/Availability.png)
 
 Figure - Availability from MTTF, MTTD, and MTTR
 
@@ -214,7 +214,7 @@ If (broken for more than 2 minutes) then raise event and run Ansible playbook to
 
 If (broken) then raise event and run Ansible playbook to restart service
 
-if (slow and \# of services &gt; N) then alert operator
+if (slow and # of services > N) then alert operator
 
 if (slow) then raise event and run playbook to add additional microservice
 
