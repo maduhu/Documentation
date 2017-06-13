@@ -28,7 +28,7 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 ### DFSP - Software Group
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
-| ------- | -----| --------- | --------- |
+| ------- | -----| --------| --------- | --------- |
 | dfsp-ledger | 8014 | |  |   |
 | dfsp-invoices | 8010 | |  |   |
 
@@ -36,7 +36,7 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 ### Mule Proxy  - Modusbox
 
 | Service | Port | Version   | DFSP1 URL | DFSP2 URL |
-| ------- | -----| --------- | --------- |
+| ------- | -----| ----------| --------- | --------- |
 | interop-directory-gateway | 8088 |  |  |  |
 | interop-spsp-client-proxy | 8088 |  |  |  |
 | interop-ledger-adapter | 8088 |  |  | |
@@ -45,7 +45,7 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 ### ILP - Ripple
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
-| ------- | -----| --------- | --------- |
+| ------- | -----| --------| --------- | --------- |
 | ilp-spsp-client-rest | 3042 |  |         |           |
 | ilp-spsp-server | 3043 |  |         |           |
 | ilp-connector | 3044 | |  |  |
@@ -53,7 +53,7 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 ### IST - Dwolla
 
 | Service | Port | Version | URL |
-| ------- | -----| |-------| ----|
+| ------- | -----| --------| ----|
 | central-ledger |  | | |
 | central-directory |  | | |
 | end-user-registry |  | | |
