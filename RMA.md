@@ -372,21 +372,23 @@ return that. The model here follows the example above
 ### Level One Project Specific Health Modeling
 
 The Level One Project has two specific potential faults that need to be
-addressed.
+addressed that could cause a participating DFSP to lose money. These are 
+overloaded ledgers and dropped messages.
 
 #### Ledger overloaded
 
-Payer sends \$100. Payee DFSP agrees and starts fulfilment. Payer ledger is
-overload and doesn't resolve the transfer in time, however, it's been
-fulfilled by the payee DFSP and the center. Payer DFSP losses \$100 during
-settlement. A similar problem happens if the central ledger doesn't
-resolve the transfer. Then the payee DFSP can be out the \$100 during
-settlement.
+Example: Payer sends \$100. Payee DFSP agrees and starts fulfilment. 
+The payer ledger is overload and doesn't resolve the transfer in time, 
+however, it's been fulfilled by the payee DFSP and the center. 
+Payer DFSP losses \$100 during settlement. A similar problem happens 
+if the central ledger doesn't resolve the transfer. 
+Then the payee DFSP can be out the \$100 during settlement.
 
 **Detection**
 
 Track remaining time on all transfers. If a transfer is not reported 
-before the timeout window, it's delinquent and needs to be checked on.
+before the timeout window (either fulfilled or cancelled), 
+it's delinquent and needs to be checked on.
 
 **Mitigation**
 
