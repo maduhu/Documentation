@@ -376,44 +376,53 @@ addressed.
 
 #### Ledger overloaded
 
-Payer sends \$100. Payee agrees and starts fulfilment. Payer ledger is
+Payer sends \$100. Payee DFSP agrees and starts fulfilment. Payer ledger is
 overload and doesn't resolve the transfer in time, however, it's been
-fulfilled by the receiver and the center. Payer DFSP losses \$100 during
+fulfilled by the payee DFSP and the center. Payer DFSP losses \$100 during
 settlement. A similar problem happens if the central ledger doesn't
-resolve the transfer. Then the receiver can be out the \$100 during
+resolve the transfer. Then the payee DFSP can be out the \$100 during
 settlement.
 
 **Detection**
 
-Track remaining time on all transfers
+Track remaining time on all transfers. If a transfer is not reported 
+before the timeout window, it's delinquent and needs to be checked on.
 
 **Mitigation**
 
-1)  Ledger handles fulfillments before new transfers
+1) Ledgers handle fulfillments before new transfers
+2) Query on timeout: If payer DFSP hasn't explicitly heard a "fullfil" or "cancel" message at the end 
+of a transfer timeout, it queries the center to get the current status of the transfer. 
+The payee DSFP can check the status at anytime, such as before a settlement window or 
+on restart of it's services after a failure.
 
-Queues
-
-New Server/Load balancing
-
-Ledger optimizations (like partitioning)
+This solution treats the central ledger as the source of truth.
 
 **Fault Injection**
 
-take down the ledger adapter
+take down the payee ledger adapter
 
 #### Messages dropped
 
 As with the ledger overload problem, if the ledger notifications are
-missed or dropped the payer or payee ledger can lose money.
+missed or dropped the payer or payee ledger can lose money. 
 
 **Detection**
+Payee detects when no message is received within the timeout
+Payer detects when no ACKnowledge is recieved during fulfillment
+
 
 **Mitigation**
-
-Retries (w/idempotent writes)
-
-Queues
+1) Query on timeout: The payer DFSP can resolve this with the same mechanism as an overloaded ledger. 
+2) Wait for ACK: The payee DFSP would lose money if it fullfils a transfer, but doesn't deliver
+the notification of it to the central ledger. To mitigate this, the payee DFSP doesn't 
+notify the payee until it recieves an ACKnowledge from the central ledger. The payee DFSP
+can choose to check on a transfer status with the center, but it is not recommended to do
+this for every transfer. 
+3) Retries (w/idempotent writes): the ILP-Connector may retry fulfillment messages automatically (opt-in) if 
+there's no response. For this to work properly, the ledgers must implement idempotent writes on the
+transfer ID.
 
 **Fault Injection**
 
-Cut one of the network connections
+Cut one of the network connections between the payee and the central ledger.

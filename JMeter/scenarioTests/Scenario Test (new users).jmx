@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="dfsp1" elementType="Argument">
             <stringProp name="Argument.name">dfsp1</stringProp>
-            <stringProp name="Argument.value">ec2-35-163-231-111.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-52-32-130-4.us-west-2.compute.amazonaws.com </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="dfsp2" elementType="Argument">
             <stringProp name="Argument.name">dfsp2</stringProp>
-            <stringProp name="Argument.value">ec2-35-163-231-111.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-35-166-236-69.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ussdPort" elementType="Argument">
@@ -334,7 +334,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Open Account" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-378202214">1. Open account</stringProp>
+              <stringProp name="1286451066">1. Open Account</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -694,7 +694,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Account created" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-633388394">Account created !</stringProp>
+              <stringProp name="-297526548">Account created!</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1000,7 +1000,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Open Account" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-378202214">1. Open account</stringProp>
+              <stringProp name="1286451066">1. Open Account</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1360,7 +1360,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Account created" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-633388394">Account created !</stringProp>
+              <stringProp name="-297526548">Account created!</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
