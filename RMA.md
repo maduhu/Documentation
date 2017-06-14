@@ -1,7 +1,5 @@
 # Resilience Modeling and Analysis
 
-Background
-==========
 
 [Wikipedia](https://en.wikipedia.org/wiki/Failure_analysis): "Failure
 mode and effects analysis (FMEA) . . . was one of the first systematic
@@ -19,8 +17,7 @@ possible service failures. Once identified, there are standard
 mitigation and testing patterns can be applied to resolve each failure.
 This process is used to prevent major failures and reduce downtime.
 
-What RMA is
-===========
+# What RMA is
 
 Resilience modeling assumes that there will be failures in a system. It
 doesn't focus on increasing reliability, which is measured below as mean
@@ -48,8 +45,7 @@ acronym like STRIDE we use DIAL:
 -   **A** - failure of Authorization or Authentication
 -   **L** - Latency; slow or no response, flooding, deadlocks, metering, timeouts
 
-Standard Resilience Patterns
-============================
+# Standard Microservice Resilience Patterns
 
 Because the Level One Project follows a microservices architecture there
 are a group of standard potential failures that all such services have.
@@ -60,8 +56,8 @@ detection, mitigation, and testing.
 When we apply DIAL to microservices, we find several standard patterns
 for failure.
 
-Failure Pattern \#1 - Low Resources
------------------------------------
+## Failure Pattern \#1 - Low Resources
+
 
 A low resource condition is common to all software. It has the advantage
 that you can often detect and correct the problem before the failure
@@ -96,23 +92,21 @@ For each microservice we create a table. Here's an example:
   **Network**   | &lt;80% network, capacity 5-minute average   |80 to 95%, 5-minute average   |&gt; 95%
 
 In the Level One Project, we make use of the ELK stack and Metricbeats
-for gathering system data. This makes it available to any number of
+for gathering system data. This makes the data available to any number of
 alerting systems.
 
 **Mitigation**
 
 Graceful degradation: system continues to function, but some
 functionality may temporarily stop. As an example, in our case, new
-money transfer requests might be rejected while the services processes
-existing work.
+money transfer prepare requests might be slow or rejected while the services processes existing fulfillment work.
 
 **Fault Injections**
 
 There are many standard tools to fill disk space, allocate large amounts
 of memory, hog CPU cycles, and throttle the network.
 
-Failure Pattern \#2 - Service is down
--------------------------------------
+## Failure Pattern \#2 - Service is down
 
 Example Failures:
 
@@ -158,10 +152,10 @@ been down for a threshold amount of time.
 
 Stop the service
 
-Failure Pattern \#3 - Health Modeling
--------------------------------------
+## Failure Pattern \#3 - Health Modeling
 
-### Health Model Definition
+
+### What is Health Modeling?
 
 [Health
 modeling](https://msdn.microsoft.com/en-us/library/ms954618.aspx?f=255&MSPPError=-2147217396)
@@ -185,7 +179,7 @@ health checks. Ex: The transition from Working to Broken might be
 "health check doesn't return 200".
 
 In a simple model like this one, where the severity of the problems can
-be stack ranked, it's easier to model the system as a chain of
+be stack ranked, it's easy  to model the system as a chain of
 responsibility pattern:
 
 ```
@@ -224,7 +218,7 @@ if (working and more than 1 service and a service is idle) then run playbook to 
 Describing the actions like this makes it easy to automate the responses
 and understand what should happen when problems occur.
 
-### A General Microservice Health Model
+# A General Microservice Health Model
 
 An advantage of microservices is that every microservice has the same
 kinds of possible states and transitions. A general health model can
@@ -369,56 +363,60 @@ return that. The model here follows the example above
 
 -   Use a tool to load the processor
 
-### Level One Project Specific Health Modeling
+# Level One Project Specific Health Modeling
 
-The Level One Project has two specific potential faults that need to be
+The Level One Project has two additional potential faults that need to be
 addressed that could cause a participating DFSP to lose money. These are 
-overloaded ledgers and dropped messages.
+*overloaded ledgers* and *dropped messages*.
 
-#### Ledger overloaded
+## Overloaded Ledger 
 
 Example: Payer sends \$100. Payee DFSP agrees and starts fulfilment. 
 The payer ledger is overload and doesn't resolve the transfer in time, 
 however, it's been fulfilled by the payee DFSP and the center. 
-Payer DFSP losses \$100 during settlement. A similar problem happens 
-if the central ledger doesn't resolve the transfer. 
-Then the payee DFSP can be out the \$100 during settlement.
+Payer DFSP losses \$100 during settlement. 
+
+A similar problem happens if the central ledger doesn't resolve the transfer. Then the payee DFSP can be out the \$100 during settlement.
 
 **Detection**
 
 Track remaining time on all transfers. If a transfer is not reported 
-before the timeout window (either fulfilled or cancelled), 
+before the timeout window (either fulfilled, rejected, or cancelled), then
 it's delinquent and needs to be checked on.
 
 **Mitigation**
 
-1) Ledgers handle fulfillments before new transfers
-2) Query on timeout: If payer DFSP hasn't explicitly heard a "fullfil" or "cancel" message at the end 
+1) Thread priority: Ledgers handle fulfillments before preparing new transfers.
+2) Query on timeout: If payer DFSP hasn't explicitly heard a "fullfil", "reject", or "cancel" message at the end 
 of a transfer timeout, it queries the center to get the current status of the transfer. 
 The payee DSFP can check the status at anytime, such as before a settlement window or 
 on restart of it's services after a failure.
 
-This solution treats the central ledger as the source of truth.
+Extending this pattern: This solution treats the central ledger as the source of truth. It can be extended to multiple 
+hubs where the transfer goes through many hops before getting to the final destination. This works following
+an eventual consistency model the same as above but with multiple central hubs. Each central hub acts exactly
+the same way and uses the same transfer ID for the transfer. At the end of a timeout, 
+if any participant doesn't know the status, they check and retry the next participant up the chain. 
+Whenever and participant changes a ledger they send status both up and back down the chain. 
+On the downside, they should get a corresponding change notification. If that doesn't happen they retry. 
 
 **Fault Injection**
 
-take down the payee ledger adapter
+Take down the payee ledger adapter
 
-#### Messages dropped
-
+## Messages dropped
 As with the ledger overload problem, if the ledger notifications are
 missed or dropped the payer or payee ledger can lose money. 
 
 **Detection**
-Payee detects when no message is received within the timeout
-Payer detects when no ACKnowledge is recieved during fulfillment
-
+1. Payer DFSP detects when no message is received within the timeout
+2. Payee DFSP doesn't recieve an ACKnowledge and fulfillment notification from the central ledger.
 
 **Mitigation**
 1) Query on timeout: The payer DFSP can resolve this with the same mechanism as an overloaded ledger. 
-2) Wait for ACK: The payee DFSP would lose money if it fullfils a transfer, but doesn't deliver
+2) Wait for Notify Fulfillment message: The payee DFSP would lose money if it fullfils a transfer, but doesn't deliver
 the notification of it to the central ledger. To mitigate this, the payee DFSP doesn't 
-notify the payee until it recieves an ACKnowledge from the central ledger. The payee DFSP
+notify the payee or hand any money out until it recieves an fulfillment notification from the central ledger. The payee DFSP
 can choose to check on a transfer status with the center, but it is not recommended to do
 this for every transfer. 
 3) Retries (w/idempotent writes): the ILP-Connector may retry fulfillment messages automatically (opt-in) if 
@@ -427,4 +425,4 @@ transfer ID.
 
 **Fault Injection**
 
-Cut one of the network connections between the payee and the central ledger.
+Drop/block the fulfillment notifications
