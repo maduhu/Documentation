@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="dfsp1" elementType="Argument">
             <stringProp name="Argument.name">dfsp1</stringProp>
-            <stringProp name="Argument.value">ec2-35-163-231-111.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-52-32-130-4.us-west-2.compute.amazonaws.com </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="dfsp2" elementType="Argument">
             <stringProp name="Argument.name">dfsp2</stringProp>
-            <stringProp name="Argument.value">ec2-35-163-231-111.us-west-2.compute.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">ec2-35-166-236-69.us-west-2.compute.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ussdPort" elementType="Argument">
@@ -30,17 +30,6 @@
           <elementProp name="ledgerPort" elementType="Argument">
             <stringProp name="Argument.name">ledgerPort</stringProp>
             <stringProp name="Argument.value">3000</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="userNumber1" elementType="Argument">
-            <stringProp name="Argument.name">userNumber1</stringProp>
-            <stringProp name="Argument.value">34780139</stringProp>
-            <stringProp name="Argument.desc">User numbers are returned by central directory</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="userNumber2" elementType="Argument">
-            <stringProp name="Argument.name">userNumber2</stringProp>
-            <stringProp name="Argument.value">49363127</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="UserID1" elementType="Argument">
@@ -126,7 +115,11 @@
 String ID1 = vars.get(&quot;UserID1&quot;);
 String ID2 = vars.get(&quot;UserID2&quot;);
 JMeterUtils.setProperty(&quot;ID1&quot;, ID1);
-JMeterUtils.setProperty(&quot;ID2&quot;, ID2);</stringProp>
+JMeterUtils.setProperty(&quot;ID2&quot;, ID2);
+String Dest1 = vars.get(&quot;userNumber1&quot;);
+JMeterUtils.setProperty(&quot;userNumber1&quot;,Dest1);
+String Dest2 = vars.get(&quot;userNumber2&quot;);
+JMeterUtils.setProperty(&quot;userNumber2&quot;,Dest2);</stringProp>
       </BeanShellPreProcessor>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Generate Users IDs" enabled="true">
@@ -173,7 +166,7 @@ JMeterUtils.setProperty(&quot;ID1&quot;, ID1);
 JMeterUtils.setProperty(&quot;ID2&quot;, ID2);</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
           <boolProp name="displayJMeterProperties">true</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
@@ -308,7 +301,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -334,7 +327,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Open Account" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-378202214">1. Open account</stringProp>
+              <stringProp name="1286451066">1. Open Account</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -349,7 +342,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -389,7 +382,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -429,7 +422,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;John&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -469,8 +462,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser-${UserID1}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser_${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -509,7 +502,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1970-01-01&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -549,7 +542,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -589,8 +582,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser-${UserID1}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser_${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -612,7 +605,47 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds 1. to skip user number" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds: Choose role" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2080194395">Choose role:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add User1: Choose Role (merchant)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
+    &quot;message&quot;: &quot;2&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds PIN:" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="1115801037">Enter PIN:</stringProp>
             </collectionProp>
@@ -629,7 +662,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -652,9 +685,9 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds 1. to skip user number" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Account created" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-633388394">Account created !</stringProp>
+              <stringProp name="-297526548">Account created!</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -690,7 +723,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
             <stringProp name="RegexExtractor.template">$1$</stringProp>
             <stringProp name="RegexExtractor.default"></stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
-            <stringProp name="Scope.variable">UserNumber</stringProp>
+            <stringProp name="Scope.variable"></stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
@@ -701,7 +734,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -726,7 +759,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Welcome Menu" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-324599326">Welcome John TestUser-${UserID1}</stringProp>
+              <stringProp name="22145940">Welcome John TestUser_${UserID1}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -763,6 +796,16 @@ p.close();f.close();</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Set IDs globally" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+String ID1 = vars.get(&quot;userNumber1&quot;);
+JMeterUtils.setProperty(&quot;userNumber1&quot;, ID1);
+</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
           <boolProp name="displayJMeterProperties">true</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
@@ -935,7 +978,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -960,7 +1003,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Open Account" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-378202214">1. Open account</stringProp>
+              <stringProp name="1286451066">1. Open Account</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -975,7 +1018,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1015,7 +1058,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1055,7 +1098,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;John&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1095,8 +1138,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser-${UserID2}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser_${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1135,7 +1178,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1970-01-01&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1175,7 +1218,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1215,8 +1258,8 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
-    &quot;message&quot;: &quot;TestUser-${UserID2}&quot;&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;message&quot;: &quot;TestUser_${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -1238,7 +1281,47 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds 1. to skip user number" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Choose role:" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2080194395">Choose role:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add User2: Choose Role (merchant)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;message&quot;: &quot;2&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Enter PIN:" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="1115801037">Enter PIN:</stringProp>
             </collectionProp>
@@ -1255,7 +1338,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1278,9 +1361,9 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds 1. to skip user number" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds Account created" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-633388394">Account created !</stringProp>
+              <stringProp name="-297526548">Account created!</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1305,7 +1388,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1330,7 +1413,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Responds with Welcome Menu" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-324599295">Welcome John TestUser-${UserID2}</stringProp>
+              <stringProp name="22145971">Welcome John TestUser_${UserID2}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -1366,6 +1449,22 @@ p.close();f.close();</stringProp>
           </BeanShellPostProcessor>
           <hashTree/>
         </hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Set IDs globally" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+String ID1 = vars.get(&quot;userNumber2&quot;);
+JMeterUtils.setProperty(&quot;userNumber2&quot;, ID1);
+</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
@@ -1542,7 +1641,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -1583,7 +1682,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1623,7 +1722,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1699,7 +1798,7 @@ JMeterUtils.setProperty(&quot;Balance1&quot;, balance);
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1827,7 +1926,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -1868,7 +1967,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1908,7 +2007,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1983,7 +2082,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, balance);
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2082,7 +2181,9 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, balance);
 String ID1 = JMeterUtils.getProperty(&quot;ID1&quot;);
 vars.put(&quot;UserID1&quot;,ID1);
 String ID2 = JMeterUtils.getProperty(&quot;ID2&quot;);
-vars.put(&quot;UserID2&quot;,ID2);</stringProp>
+vars.put(&quot;UserID2&quot;,ID2);
+String Dest2 = JMeterUtils.getProperty(&quot;userNumber2&quot;);
+vars.put(&quot;userNumber2&quot;,Dest2);</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
         <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Configure for DFSP1" enabled="true">
@@ -2107,7 +2208,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -2148,7 +2249,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2188,7 +2289,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${userNumber2}&quot;&#xd;
 }&#xd;
 </stringProp>
@@ -2214,7 +2315,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Destination Name" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-2013303482">Destination name: John TestUser-${UserID2}</stringProp>
+              <stringProp name="-1666558216">Destination name: John TestUser_${UserID2}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -2229,7 +2330,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${Amount}&quot;&#xd;
 }&#xd;
 </stringProp>
@@ -2279,7 +2380,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2350,7 +2451,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newDest.toString());
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2520,7 +2621,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -2561,7 +2662,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2607,7 +2708,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2675,7 +2776,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2803,7 +2904,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -2844,7 +2945,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2884,7 +2985,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -2950,7 +3051,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3043,7 +3144,9 @@ if (Failure) {
 String ID1 = JMeterUtils.getProperty(&quot;ID1&quot;);
 vars.put(&quot;UserID1&quot;,ID1);
 String ID2 = JMeterUtils.getProperty(&quot;ID2&quot;);
-vars.put(&quot;UserID2&quot;,ID2);</stringProp>
+vars.put(&quot;UserID2&quot;,ID2);
+String Dest2 = JMeterUtils.getProperty(&quot;userNumber2&quot;);
+vars.put(&quot;userNumber2&quot;,Dest2);</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
         <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Configure for DFSP1" enabled="true">
@@ -3068,7 +3171,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -3109,7 +3212,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;2&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3149,7 +3252,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${userNumber2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3174,7 +3277,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check Destination Name" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-2013303482">Destination name: John TestUser-${UserID2}</stringProp>
+              <stringProp name="-1666558216">Destination name: John TestUser_${UserID2}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -3189,7 +3292,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${Amount}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3229,7 +3332,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3347,7 +3450,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -3388,7 +3491,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;3&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3411,9 +3514,49 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Invoice from user 1 found" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Choose incoming or outgoing" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-186533660">1. Invoice from John TestUser-${UserID1}</stringProp>
+              <stringProp name="-1878399773">Choose:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Approve Invoice: 1. Incoming Transactions" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
+    &quot;message&quot;: &quot;1&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ussd</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Choose incoming or outgoing" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="160211606">1. Invoice from John TestUser_${UserID1}</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -3428,7 +3571,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3453,7 +3596,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Pending Transaction seen" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1218860820">Pending transaction from John TestUser-${UserID1} for ${Amount} USD</stringProp>
+              <stringProp name="-923514338">Pending transaction from John TestUser_${UserID1} for ${Amount} USD</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
@@ -3503,7 +3646,7 @@ else {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3562,7 +3705,7 @@ JMeterUtils.setProperty(&quot;Balance2&quot;, newSource.toString());</stringProp
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3690,7 +3833,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -3731,7 +3874,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3777,7 +3920,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID1}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3845,7 +3988,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID1}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID1}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -3973,7 +4116,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;*123#&quot;,&#xd;
     &quot;newSession&quot;: &quot;true&quot;&#xd;
 }</stringProp>
@@ -4014,7 +4157,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;6&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -4054,7 +4197,7 @@ vars.put(&quot;UserID2&quot;,ID2);</stringProp>
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;${UserID2}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -4120,7 +4263,7 @@ if (Failure) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;phone&quot;: &quot;TestUser-${UserID2}&quot;,&#xd;
+    &quot;phone&quot;: &quot;TestUser_${UserID2}&quot;,&#xd;
     &quot;message&quot;: &quot;0&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -4205,6 +4348,21 @@ if (Failure) {
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="GetGlobalIDs" enabled="true">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="script">import org.apache.jmeter.util.JMeterUtils;
+String ID1 = JMeterUtils.getProperty(&quot;ID1&quot;);
+vars.put(&quot;UserID1&quot;,ID1);
+String ID2 = JMeterUtils.getProperty(&quot;ID2&quot;);
+vars.put(&quot;UserID2&quot;,ID2);
+String Dest1 = JMeterUtils.getProperty(&quot;userNumber1&quot;);
+vars.put(&quot;userNumber1&quot;,Dest1);
+String Dest2 = JMeterUtils.getProperty(&quot;userNumber2&quot;);
+vars.put(&quot;userNumber2&quot;,Dest2);</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
           <boolProp name="displayJMeterProperties">true</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>

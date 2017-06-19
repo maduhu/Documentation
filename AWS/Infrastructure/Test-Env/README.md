@@ -52,9 +52,8 @@ The test environment is used for development and new or possibly breaking change
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------| --------- | --------- |
-| ilp-spsp-client-rest | 3042 |           |           ||
-| ilp-spsp-server | 3043 |           |           ||
-| ilp-connector | 3044 | | [http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3044/v1) | [http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3044/v1](http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3044/v1) |
+| ilp-connector | 3044 | 17.0.1 | N/A | N/A |
+| ilp-service | 3045 | 0.3.1 | [ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3045] | [ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3045] |
 
 ### IST - Dwolla
 
@@ -66,13 +65,13 @@ The test environment is used for development and new or possibly breaking change
 
 
 ## Test Users
-### DFSP1    
+### DFSP1
 * bob    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/17500419
 * alice    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/48607986
 * merchant    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/11597861
 * dfsp1-testconnector    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/29290645
 
-### DFSP2    
+### DFSP2
 * bob    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/33859321
 * alice    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/66422611
 * merchant    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/99826154

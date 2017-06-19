@@ -315,7 +315,13 @@ pages:
         md: Docs/CentralRules/central_rules_endpoints.md
         targets:
             - all
-
+#Fraud
+    -   name: 'Central Fraud Sharing API Documentation'
+        html: central_fraud_api.html
+        category: 'Central Fraud'
+        md: central-fraud-sharing/API.md
+        targets:
+            - all
 
 #Docs/ELK
 # ELKSetup.md

@@ -1,4 +1,6 @@
 # Level One Project Overivew
+The Level One Project is about financial inclusion for everyone.  Today more than 2 billion adults do not have a bank account or access to a formal financial institution.  The Level One Project is aimed at changing this denominator by making banking accessible by everyone via a standard flip phone.  Our project is aimed at building a national digital financial solution that is open to everyone.  Specifically, any person in any location with a phone can open a back account, send money, receive money or get paid for services.  This open system will help the poorest people in the most remote locations to ensure a safe and reliable solution.  
+
 The "Docs" repo documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repos in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
 
 ## What is the Level One Project?

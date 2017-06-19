@@ -47,7 +47,7 @@
       - service
     docker_container:
       name: ilp-service
-      image: "modusbox-level1-docker.jfrog.io/ilp-service:v0.2.1"
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v0.3.1"
       state: started
       pull: yes
       recreate: yes
@@ -67,6 +67,8 @@
         ILP_SERVICE_LEDGER_ADMIN_ACCOUNT: "{{ ILP_LEDGER_ADMIN_ACCOUNT }}"
         ILP_SERVICE_LEDGER_ADMIN_USERNAME: "{{ ILP_LEDGER_ADMIN_USERNAME }}"
         ILP_SERVICE_LEDGER_ADMIN_PASSWORD: "{{ ILP_LEDGER_ADMIN_PASSWORD }}"
+        ILP_SERVICE_CENTRAL_CONNECTOR_ACCOUNT: "{{ ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT }}"
+        ILP_SERVICE_CENTRAL_CONNECTOR_PASSWORD: "{{ inventory_hostname }}"
         ILP_SERVICE_CONNECTOR_ACCOUNT: "{{ ILP_CONNECTOR_ACCOUNT }}"
         ILP_SERVICE_BACKEND: "{{ ILP_SPSP_SERVER_BACKEND }}"
         DEBUG: "*"
