@@ -26,7 +26,7 @@ and recovery (MTTD and MTTR). By reducing time to detection and time to
 recovery (the red area below), availability (the green area) is
 maximized.
 
-![Availability](./Wiki/Availability.png)
+![Availability](../Wiki/Availability.png)
 
 Figure - Availability from MTTF, MTTD, and MTTR
 
@@ -173,7 +173,7 @@ A very simple health model might have three states: broken, slow, and
 working. The most general form of this model is a finite state model or
 petri net showing the three states and all possible transitions between
 them:
-![](./wiki/BasicHealthModel.png)
+![Basic Health Model](../Wiki/BasicHealthModel.png)
 where the transitions are typically events that come from log events or
 health checks. Ex: The transition from Working to Broken might be
 "health check doesn't return 200".
