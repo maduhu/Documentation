@@ -8,7 +8,7 @@ temporary_files_path: .
 template_path: ./Docs/ExportDocs/pdf_templates
 template_static_path: ./Docs/ExportDocs/pdf_templates/template_assets
 default_template: template-l1p_pdf_content.html
-pdf_template: template-l1p_pdf_content.html
+default_pdf_template: template-l1p_pdf_content.html
 
 filter_paths:
     - ./Docs/ExportDocs/pdf_templates/filters
@@ -65,6 +65,14 @@ targets:
    
 pages:
 # overview
+    -   name: 'Contribution Guide'
+        html: Contributionguide.html
+        category: Onboarding
+        md: Docs/contribute.md
+        section_header: true
+        targets:
+            - all
+
     -   name: 'Onboarding Developers'
         md: Docs.wiki/Onboarding-Developers.md
         html: Onboarding-Developers.html
@@ -133,16 +141,16 @@ pages:
             - all    
 
     -   name: 'Test Environment'
-        html: PI4-Test-Env.html
+        html: Test-Env.html
         category: 'Accessing the Test Environment'
-        md: Docs/AWS/Infrastructure/PI4-Test-Env/README.md
+        md: Docs/AWS/Infrastructure/Test-Env/README.md
         targets:
             - all
 
-    -   name: 'QA Environment'
-        html: PI4-QA-Env.html
-        category: 'Accessing the Test Environment'
-        md: Docs/AWS/Infrastructure/PI4-QA-Env/README.md
+    -   name: 'Demo Environment'
+        html: Customer-Demo-Env.html
+        category: Infrastructure
+        md: Docs/AWS/Infrastructure/Customer-Demo-Env/README.md
         targets:
             - all
 
@@ -176,17 +184,74 @@ pages:
         targets:
             - all
 
-    -   name: 'Integration Tests'
-        html: IntegrationTests.html
+    -   name: 'Use Case Tests'
+        html: UseCaseTests.html
         category: Testing
-        md: Docs/JMeter/README.md
+        md: Docs/test/README.md
         targets:
             - all
 
-    -   name: 'Scenario Tests'
-        html: scenarioTests.html
+    -   name: 'Account Management Tests'
+        html: AccountManagementTests.html
         category: Testing
-        md: Docs/JMeter/scenarioTests/readme.md
+        md: 'Docs/test/account management tests.md'
+        targets:
+            - all
+
+    -   name: 'Customer Management Tests'
+        html: CustomerManagementTests.html
+        category: Testing
+        md: 'Docs/test/customer management tests.md'
+        targets:
+            - all
+
+    -   name: 'DFSP Management Tests'
+        html: DFSPManagementTests.html
+        category: Testing
+        md: 'Docs/test/dfsp management tests.md'
+        targets:
+            - all
+
+    -   name: 'Fees Tests'
+        html: FeesTests.html
+        category: Testing
+        md: 'Docs/test/fees tests.md'
+        targets:
+            - all
+
+    -   name: 'Pending Transaction Tests'
+        html: PendingTransactionTests.html
+        category: Testing
+        md: 'Docs/test/pending transaction tests.md'
+        targets:
+            - all
+
+    -   name: 'Send Money Tests'
+        html: SendMoneyTests.html
+        category: Testing
+        md: 'Docs/test/send money tests.md'
+        targets:
+            - all
+
+    -   name: 'Scenario Automation'
+        html: scenarioAutomation.html
+        category: Testing
+        md: Docs/test/end-to-end/readme.md
+        targets:
+            - all
+
+    -   name: 'Integration Automation'
+        html: IntegrationAutomation.html
+        category: Testing
+        md: Docs/test/ilp-integration/README.md
+        targets:
+            - all
+
+
+    -   name: 'Performance Automation'
+        html: PerformanceAutomation.html
+        category: Testing
+        md: Docs/mule/L1P Performance Test.md
         targets:
             - all
 
@@ -196,6 +261,14 @@ pages:
         md: Docs/mule/L1P Performance Test.md 
         targets:
             - all
+
+    -   name: 'Resilience Modeling and Anaylysis'
+        html: RMA.html
+        category: Appendix
+        md: Docs/test/rma.md
+        targets:
+            - all
+            - stakeholder
 
 # SDLC
     -   name: 'Software Development Process Management'
@@ -328,16 +401,27 @@ pages:
         section_header: true
         targets:
             - all
-            - stakeholder
 
-  
     -   name: 'Tools and Process Decisions'
         html: Decisions.html
         category: Appendix
         md: Docs/decisions.md
         targets:
             - all
-            - stakeholder
+
+    -   name: 'FAQ'
+        html: FAQ.html
+        category: Appendix
+        md: Docs.wiki/FAQ.md
+        targets:
+            - all
+
+    -   name: 'Roadmap'
+        html: Roadmap.html
+        category: Appendix
+        md: Docs.wiki/Roadmap.md
+        targets:
+            - all      
 
 # -------------------- Style Checker Rules ------------------------
 #word_substitutions_file: plainlanguage_words.yaml

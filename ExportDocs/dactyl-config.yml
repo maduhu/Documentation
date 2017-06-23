@@ -8,7 +8,7 @@ temporary_files_path: .
 template_path: ./Docs/ExportDocs/pdf_templates
 template_static_path: ./Docs/ExportDocs/pdf_templates/template_assets
 default_template: template-l1p_pdf_content.html
-pdf_template: template-l1p_pdf_content.html
+default_pdf_template: template-l1p_pdf_content.html
 
 filter_paths:
     - ./Docs/ExportDocs/pdf_templates/filters
@@ -347,12 +347,13 @@ pages:
         targets:
             - all
 
-    -   name: 'Forensic Logging'
-        html: ForensicSetup.html
+    -   name: 'Forensic Logging Sidecar Guide'
+        html: SidecarGuide.html
         category: Infrastructure
-        md: forensic-logging-sidecar/SidecarGuide.md
+        md: sidecar-poc/SidecarGuide.md
         targets:
             - all
+
 
 #Docs/AWS/Infrastructure
 
@@ -370,51 +371,102 @@ pages:
         targets:
             - all
 
-
-#Docs/AWS/Infrastructure/PI4-Test-Env
-# README.md
     -   name: 'Test Environment'
-        html: PI4-Test-Env.html
+        html: Test-Env.html
         category: Infrastructure
-        md: Docs/AWS/Infrastructure/PI4-Test-Env/README.md
+        md: Docs/AWS/Infrastructure/Test-Env/README.md
+        targets:
+            - all
+
+    -   name: 'Demo Environment'
+        html: Customer-Demo-Env.html
+        category: Infrastructure
+        md: Docs/AWS/Infrastructure/Customer-Demo-Env/README.md
         targets:
             - all
 
 
-#Docs/AWS/Infrastructure/PI4-QA-Env
-# README.md
-    -   name: 'QA Environment'
-        html: PI4-QA-Env.html
-        category: Infrastructure
-        md: Docs/AWS/Infrastructure/PI4-QA-Env/README.md
+#testing
+
+    -   name: 'Use Case Tests'
+        html: UseCaseTests.html
+        category: Testing
+        section_header: true 
+        md: Docs/test/README.md
+        targets:
+            - all
+
+    -   name: 'Account Management Tests'
+        html: AccountManagementTests.html
+        category: Testing
+        md: 'Docs/test/account management tests.md'
+        targets:
+            - all
+
+    -   name: 'Customer Management Tests'
+        html: CustomerManagementTests.html
+        category: Testing
+        md: 'Docs/test/customer management tests.md'
+        targets:
+            - all
+
+    -   name: 'DFSP Management Tests'
+        html: DFSPManagementTests.html
+        category: Testing
+        md: 'Docs/test/dfsp management tests.md'
+        targets:
+            - all
+
+    -   name: 'Fees Tests'
+        html: FeesTests.html
+        category: Testing
+        md: 'Docs/test/fees tests.md'
+        targets:
+            - all
+
+    -   name: 'Pending Transaction Tests'
+        html: PendingTransactionTests.html
+        category: Testing
+        md: 'Docs/test/pending transaction tests.md'
+        targets:
+            - all
+
+    -   name: 'Send Money Tests'
+        html: SendMoneyTests.html
+        category: Testing
+        md: 'Docs/test/send money tests.md'
+        targets:
+            - all
+
+    -   name: 'Scenario Automation'
+        html: scenarioAutomation.html
+        category: Testing
+        md: Docs/test/end-to-end/readme.md
+        targets:
+            - all
+
+    -   name: 'Integration Automation'
+        html: IntegrationAutomation.html
+        category: Testing
+        md: Docs/test/ilp-integration/README.md
         targets:
             - all
 
 
-#Docs/JMeter
-    -   name: 'Integration Tests'
-        html: IntegrationTests.html
-        category: Infrastructure
-        md: Docs/JMeter/README.md
-        targets:
-            - all
-
-
-    -   name: 'Scenario Tests'
-        html: scenarioTests.html
-        category: Infrastructure
-        md: Docs/JMeter/scenarioTests/readme.md
-        targets:
-            - all
-
-
-    -   name: 'Performance Tests'
-        html: PerformanceTests.html
-        category: Infrastructure
+    -   name: 'Performance Automation'
+        html: PerformanceAutomation.html
+        category: Testing
         md: Docs/mule/L1P Performance Test.md
         targets:
             - all
 
+    -   name: 'Resilience Modeling and Anaylysis'
+        html: RMA.html
+        category: Appendix
+        md: Docs/test/rma.md
+        targets:
+            - all
+            - stakeholder
 
 #/Docs/DFSP
 #README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
@@ -434,14 +486,12 @@ pages:
         targets:
             - all
 
-
     -   name: 'Identity'
         html: identity.html
         category: DFSP
         md: Docs/DFSP/identity.md
         targets:
             - all
-
 
     -   name: 'Notifications'
         html: notification.html
@@ -450,14 +500,12 @@ pages:
         targets:
             - all
 
-
     -   name: 'Rules'
         html: rule.html
         category: DFSP
         md: Docs/DFSP/rule.md
         targets:
             - all
-
 
     -   name: 'Subscriptions'
         html: subscription.html
@@ -466,7 +514,6 @@ pages:
         targets:
             - all
 
-
     -   name: 'Transfer'
         html: transfer.html
         category: DFSP
@@ -474,14 +521,12 @@ pages:
         targets:
             - all
 
-
     -   name: 'Account'
         html: account.html
         category: DFSP
         md: Docs/DFSP/account.md
         targets:
             - all
-
 
     -   name: 'Manage Account Holders'
         html: ManageAccoutHolders.html
@@ -518,14 +563,6 @@ pages:
         html: Decisions.html
         category: Appendix
         md: Docs/decisions.md
-        targets:
-            - all
-            - stakeholder
-
-    -   name: 'Resilience Modeling and Anaylysis'
-        html: RMA.html
-        category: Appendix
-        md: Docs/rma.md
         targets:
             - all
             - stakeholder
