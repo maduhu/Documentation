@@ -15,8 +15,8 @@ _Interledger provides a standard for linking disparate payment networks to one a
     - [Cryptographic Proof](#cryptographic-proof)
     - [Foward Holds, Backwards Execution](#forward-holds-backwards-execution)
 - [Protocol Layers](#protocol-layers)
-- [Security](#security)
 - [Addresses and Routing](#addresses-and-routing)
+    - [Prefix-Based Routing](#prefix-based-routing)
 - [Data Formats](#data-formats)
 - TODO: Software Components?
 
@@ -26,6 +26,7 @@ Short answer: Interledger's features and capabilities closely align with the Lev
 
 Long answer: TODO, including content from `Clearing Architecture.md`
 
+L1P PRINCIPLES
     - Push payments
     - Supports central clearing ledger(s) per region
     - Fee transparency(?)
@@ -83,13 +84,12 @@ TODO: additional discussion of the W diagram
 
 ### Application Layer
 
-The Application Layer coordinates and prepares transfers. User-facing applications implement protocols from this layer to prepare payments with one another. The Level One Project uses [SPSP v2][] as an application layer protocol. In SPSP, the sender and receiver each have a client application, which communicate directly via HTTPS, to plan a payment before preparing it in the transport layer.
+The Application Layer coordinates and prepares transfers. User-facing applications implement protocols from this layer to prepare payments with one another. In the Level One Project, the Scheme Adapter (TODO: link) implements a custom a application layer protocol using IPR as the Transport layer. In the L1P's custom protocol, the two DFSP's communicate directly via HTTPS to plan a payment before preparing it.
 
-[SPSP v2]: https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md
 
 ### Transport Layer
 
-The Transport Layer defines how payments are identified and how to generate the cryptographic conditions for the transfers in the payment. The Level One Project uses the Interledger Payment Request (IPR) format. For the data included in this layer, the Level One Project uses the format defined by the Interledger Pre-Shared Key (PSK) specification, which resembles HTTP headers, although L1P does not use the PSK protocol itself.
+The Transport Layer defines how payments are identified and how to generate the cryptographic conditions for the transfers in the payment. The Level One Project uses the Interledger Payment Request (IPR) format. For the data included in this layer, the Level One Project uses the format defined by the Interledger Pre-Shared Key (PSK) specification, which resembles HTTP headers, although L1P does not use the PSK protocol itself. L1P does not encrypt the data.
 
 Key pieces of data that are defined in this level are:
 
@@ -124,17 +124,32 @@ Each Connector must know how to use the API of the ledgers to which it is connec
 
 [Five Bells Ledger API]: TODO: proper IL-RFC link for this
 
-## Security
-
-TODO
 
 ## Addresses and Routing
 
-Within the Interledger Protocol (ILP) layer, connectors route payments according to their internal routing tables. The destination of a given ILP payment is determined by its ILP Address, a hierarchical string of alphanumeric identifiers analogous to an IP address.
+Within the Interledger Protocol (ILP) layer, connectors route payments according to their internal routing tables. The destination of a given ILP payment is determined by its ILP Address, a hierarchical string of alphanumeric identifiers analogous to an IP address. For example, all payments to addresses starting with `private.l1p.ZZZ.dfsp1.` are routed to the connector operated by DFSP 1.
 
-In the Level One Project, connectors use static routing tables to determine where to route payments. For example, all payments to addresses starting with `private.l1p.demo-instance.blue-dfsp.` are routed to the connector operated by Blue DFSP. (TODO: maybe change the example address)
+Currently, Level One Project participants are not meant to be reachable by the general public, so they use the `private.` prefix.
+
+The details of routing are not specified in the protocol, but the connectors used by the Level One Project follow simple longest-prefix rules with static routing tables.
 
 ILP Addresses are specified by [IL-RFC-15: ILP Addresses](https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md).
+
+
+### Address Allocation
+
+Each DFSP needs a unique address prefix. The following guidelines establish
+
+1. A standard prefix, `private.l1p.`
+2. A country or location prefix. In most cases, this can be an [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) code. The code `ZZZ` represents demo instances. If there is any doubt, the operator of the IST chooses which code to use.
+3. A unique identifier for the DFSP. The DFSP should suggest a code, and the operator of the IST should confirm that the code is not already in use by another DFSP in the same instance (that is, with the same country/location prefix). Valid characters for the DFSP's segment identifier are alphabetic (A-Z, upper or lower case, case sensitive), digits 0-9, underscore (`_`), tilde (`~`), and dash (`-`). The DFSP identifier should be kept short since the entire address has to fit in 1023 characters, including any sub-account addressing or invoicing information; a good DFSP identifier should be about 20 characters or less.
+
+Example address prefix for "DFSP 1" in a test instance: `private.l1p.ZZZ.dfsp1.`
+
+The address of a customer account should be the DFSP's prefix and the customer's account number. (It's fine to have additional dot-separated segments after the account number to indicate more information about the purpose or destination of a payment.)
+
+Example customer account address for a "medical benefits" sub-account: `private.l1p.ZZZ.dfsp1.849702568.medical`
+
 
 ## Data Formats
 
@@ -151,7 +166,7 @@ TODO: binary format as defined here. https://github.com/interledger/rfcs/blob/ma
 
 TODO: as defined here https://github.com/interledger/rfcs/blob/master/0003-interledger-protocol/0003-interledger-protocol.md#ilp-error-format
 
-JSON equivalent? Conversion from JSON to the ILP binary format?
+JSON equivalent? Conversion from JSON to the ILP binary format? Update ILP Service docs not to reference this?
 
 ### Amounts
 
@@ -160,3 +175,21 @@ TODO
 64-bit UInts: scale and currency defined by ledger and advertised in the 5BL API "Metadata" method
 
 Strings in JSON so as not to lose precision
+
+
+## Connector Risks
+
+Interledger guarantees that the receiver gets paid or the sender gets their money back. There are, however, some failure cases where connectors in the middle could lose money because a transfer expired before the connector could execute it. (In those cases, the receiver gets paid _and_ the sender gets their money back, thanks to the backwards execution.) To balance out these risks, connectors should plan accordingly.
+
+[IL-RFC-18: Connector Risk Mitigations](https://github.com/interledger/rfcs/blob/master/0018-connector-risk-mitigations/0018-connector-risk-mitigations.md) discusses general patterns connectors can follow to minimize their risk of losing money.
+
+In the case of a Level One Project instance, some more specific modifications are possible to further mitigate risk. These are possible because the Level One Project design involves a trusted central ledger, and each DFSP has control over its ledger _and_ connector. These optimizations are, in short:
+
+- **Receiver Wait & Pay** — The receiving DFSP tries to fulfill the transfer on the central ledger before preparing the transfer to the final receiver.
+- **Sender Check-before-Rollback** — The sending DFSP checks the outcome of the transfer on the central ledger shortly after that transfer expires. The sending DFSP sets the timeout of the transfer in its own ledger such that it can execute the transfer (including possible retries) after seeing the outcome on the central ledger.
+    - Or the sender checks the result on the central ledger before expiring a transfer in the sending DFSP's ledger. If the transfer succeeded on the central ledger, the sender executes the transfer on the sender's DFSP ledger even if that means the transfer in the sending DFSP's ledger executes at or slightly past its expiration time.
+
+## How to Troubleshoot ILP Payment Issues
+
+- Consult the logs
+- See which transfers executed and which transfer(s) failed
