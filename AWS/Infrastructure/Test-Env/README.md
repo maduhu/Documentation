@@ -68,16 +68,16 @@ The test environment is used for development and new or possibly breaking change
 
 ## Test Users
 ### DFSP1
-* bob    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/17500419
-* alice    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/48607986
-* merchant    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/11597861
-* dfsp1-testconnector    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/29290645
+* bob    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/43112673
+* alice    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/15125122
+* merchant    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/51965171
+* dfsp1-testconnector    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/70377406
 
 ### DFSP2
-* bob    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/33859321
-* alice    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/66422611
-* merchant    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/99826154
-* dfsp2-testconnector    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/81455568
+* bob    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/52652310
+* alice    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/16433370
+* merchant    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/7642271
+* dfsp2-testconnector    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/17923071
 
 ## Start/Stop scripts
 
