@@ -60,10 +60,10 @@ The test environment is used for development and new or possibly breaking change
 
 | Service | Port | Version | URL |
 | ------- | -----| --------| ----|
-| central-ledger | 80 | 1.81.0 | [http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/](http://central-ledger-1139971789.us-west-2.elb.amazonaws.com/documentation)|
-| central-directory | 80 | 0.15.0 | [ http://central-directory-214462011.us-west-2.elb.amazonaws.com/]( http://central-directory-214462011.us-west-2.elb.amazonaws.com/documentation) |
-| central-fraud-sharing | 80 | 1.4.0 | [http://central-fraud-sharing-test-1335812161.us-west-2.elb.amazonaws.com/](central-fraud-sharing-test-1335812161.us-west-2.elb.amazonaws.com/documentation) |
-| end-user-registry | 80 | 0.9.0 | [http://central-end-user-registry-1833170602.us-west-2.elb.amazonaws.com/](http://central-end-user-registry-1833170602.us-west-2.elb.amazonaws.com/documentation) |
+| central-ledger | 80 | 1.81.0 | [http://central-ledger-test-1778278640.us-west-2.elb.amazonaws.com](http://central-ledger-test-1778278640.us-west-2.elb.amazonaws.com)|
+| central-directory | 80 | 0.16.0 | [ http://central-directory-test-2067903239.us-west-2.elb.amazonaws.com](http://central-directory-test-2067903239.us-west-2.elb.amazonaws.com) |
+| central-fraud-sharing | 80 | 1.4.0 | [http://central-fraud-sharing-test-1335812161.us-west-2.elb.amazonaws.com](http://central-fraud-sharing-test-1335812161.us-west-2.elb.amazonaws.com) |
+| end-user-registry | 80 | 0.9.0 | [http://central-end-user-registry-test-1765383584.us-west-2.elb.amazonaws.com](http://central-end-user-registry-test-1765383584.us-west-2.elb.amazonaws.com) |
 
 
 ## Test Users
