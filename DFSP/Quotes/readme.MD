@@ -1,26 +1,23 @@
 # Quote API
 
-This document proposes an approach for propagading, reserving and applying fees for the payee. It tries to cover all gaps in 'retail' fees between the current state of the system and the requirement document created by Leseley-Ann @ https://www.dropbox.com/s/ixnch73wc34cz4l/Interoperability%20Fee%20Scenarios.docx?dl=0.
+This document proposes an approach for propagating, reserving and applying fees for the payee. It tries to cover all gaps in 'retail' fees between the current state of the system and the requirement document created by Leseley-Ann @ https://www.dropbox.com/s/ixnch73wc34cz4l/Interoperability%20Fee%20Scenarios.docx?dl=0.
 Currenlty the DFSPs are capable for calculating and applying fees both for incoming and outgoing transfers based on amount, transaction type and other criterias. The gap that we have identified is that the payer cannot get the information about the fee that is going to be paid by the payee. The document below describes how to handle that gap. In brief the proposal is:
 
-1. Extend getSourceAmount and getDestinationAmount SPSP APIs to get addtional paramteres (tranaction type, destination account, etc.)
-2. Those APIs will be integrated with the DFSP-API which will provide for each transaction the fee information for the payee, so there will be only one fee engine per DFSP.
-3. Besides the transaction information the payee DFSP will 'reserve' the quote and retun unique identification of the quote reservation
+1. Besides the transaction information the payee DFSP will 'reserve' the quote and retun unique identification of the quote reservation
 
 
 ## I. Communication flow
 
-***1. dfsp-api -> spsp-client-proxy***
+***1. dfsp-api -> scheme-adapter***
 
 * **URL**
 
-  /v1/quotes
+  scheme/adapter/v1/quotes
 
 * **Headers**
 
   * Content-Type: application/json
   * Accept: application/json
-  * Authorization: Basic dGVzdDoxMjM=
 
 * **Method:**
 
@@ -33,15 +30,16 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
 * **Data Params:**
      ```json
     {
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+        "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
           "identifierType": "eur"
         },
         "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
+          "url": "payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
+          "account":"http://payee-account"
         },
         "transferType": "p2p",
         "amountType": "SEND",
@@ -62,7 +60,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
           "receiveAmount": {
             "amount": "9.25",
             "currency": "USD"
@@ -75,24 +73,26 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ipr": "c29tZSBpcHIgaGVyZQ=="
+          "ipr": "c29tZSBpcHIgaGVyZQ==",
+          "sourceExpiryDuration": 10
       }
     ```
 
 * **Sample Call:**
 
   ```curl
-    curl -X POST --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
+    curl -X POST --header 'Accept: application/json'  -d
     '{
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+        "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
           "identifierType": "eur"
         },
         "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
+          "url": "<host>:8088/scheme/adapter/v1",
           "identifier": "30754016",
           "identifierType": "eur",
+          "account":"http://host:port/ledger/v1/accounts/alice"
         },
         "transferType": "p2p",
         "amountType": "SEND",
@@ -108,214 +108,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     'http://spsp-client-proxy/v1/quotes'
   ```
 
-***2. spsp-client-proxy -> spsp-client***
-
-* **Notes**
-    * The spsp-client-proxy should use the 'identifer' and 'identifierType' properties of the payee object to obtain information from the central directory about which the recipient's default DFSP is.
-    * In order to be able to authenticate its request to the cenral directory the proxy should use the credentials passed through the authorization header.
-    * The proxy should use the information returned by the central directory to correctly construct the submissionUrl
-
-* **URL**
-
-  /v1/quotes
-
-* **Headers**
-
-  * Content-Type: application/json
-  * Accept: application/json
-  * Authorization: Basic dGVzdDoxMjM=
-
-* **Method:**
-
-  `POST`
-
-* **URL Params:**
-
-  None
-
-* **Data Params:**
-    ```json
-    {
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-        "payer": {
-          "identifier": "92806391",
-          "identifierType": "eur"
-        },
-        "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
-          "identifier": "30754016",
-          "identifierType": "eur",
-        },
-        "transferType": "p2p",
-        "amountType": "SEND",
-        "amount": {
-          "amount": "10",
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": "0.25",
-          "currency": "USD"
-        },
-        "submissionUrl": "http://spsp-server/v1/quotes"
-    }
-    ```
-
-* **Success Response:**
-
-  * **Code:** 200 OK<br />
-    **Content:**
-     ```json
-      {
-          "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-          "receiveAmount": {
-            "amount": "9.25",
-            "currency": "USD"
-          },
-          "payeeFee": {
-            "amount": "1",
-            "currency": "USD"
-          },
-          "payeeCommission": {
-            "amount": "1",
-            "currency": "USD"
-          },
-          "ipr": "c29tZSBpcHIgaGVyZQ=="
-      }
-    ```
-
-* **Sample Call:**
-
-  ```curl
-    curl -X POST --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
-    '{
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-        "payer": {
-          "identifier": "92806391",
-          "identifierType": "eur"
-        },
-        "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
-          "identifier": "30754016",
-          "identifierType": "eur",
-        },
-        "transferType": "p2p",
-        "amountType": "SEND",
-        "amount": {
-          "amount": "10",
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": "0.25",
-          "currency": "USD"
-        },
-        "submissionUrl": "http://spsp-server/v1/quotes"
-    }'
-    'http://spsp-client/v1/quotes'
-  ```
-
-
-***3. spsp-client -> spsp-server***
-
-* **Notes**
-    * The spsp client should submit the request to the submissionUrl passed by the spsp-client-proxy
-
-* **URL**
-
-  /v1/quotes
-
-* **Headers**
-
-  * Content-Type: application/json
-  * Accept: application/json
-  * Authorization: Basic dGVzdDoxMjM=
-
-* **Method:**
-
-  `POST`
-
-* **URL Params:**
-
-  None
-
-* **Data Params:**
-    ```json
-    {
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-        "payer": {
-          "identifier": "92806391",
-          "identifierType": "eur"
-        },
-        "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
-          "identifier": "30754016",
-          "identifierType": "eur",
-        },
-        "transferType": "p2p",
-        "amountType": "SEND",
-        "amount": {
-          "amount": "10",
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": "0.25",
-          "currency": "USD"
-        }
-    }
-    ```
-
-* **Success Response:**
-
-  * **Code:** 200 OK<br />
-    **Content:**
-    ```json
-      {
-          "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-          "receiveAmount": {
-            "amount": "9.25",
-            "currency": "USD"
-          },
-          "payeeFee": {
-            "amount": "1",
-            "currency": "USD"
-          },
-          "payeeCommission": {
-            "amount": "1",
-            "currency": "USD"
-          },
-          "ipr": "c29tZSBpcHIgaGVyZQ=="
-      }
-    ```
-
-* **Sample Call:**
-
-  ```curl
-    curl -X POST --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
-    '{
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-        "payer": {
-          "identifier": "92806391",
-          "identifierType": "eur"
-        },
-        "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
-          "identifier": "30754016",
-          "identifierType": "eur",
-        },
-        "transferType": "p2p",
-        "amountType": "SEND",
-        "amount": {
-          "amount": "10",
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": "0.25",
-          "currency": "USD"
-        }
-    }'
-    'http://spsp-server/v1/quotes'
-  ```
-
-***4. spsp-server -> spsp-server-backend***
+***2. scheme-adapter -> dfsp-api(payee)***
 
 * **URL**
 
@@ -338,15 +131,16 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
 * **Data Params:**
      ```json
     {
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+        "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
           "identifierType": "eur"
         },
         "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
+          "url": "payee-dfsp-scheme-adaptor-baseUrl",
           "identifier": "30754016",
           "identifierType": "eur",
+          "account":"http://ledger-account-url"
         },
         "transferType": "p2p",
         "amountType": "SEND",
@@ -367,105 +161,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
     **Content:**
     ```json
       {
-          "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-          "receiveAmount": {
-            "amount": "9.25",
-            "currency": "USD"
-          },
-          "payeeFee": {
-            "amount": "1",
-            "currency": "USD"
-          },
-          "payeeCommission":{
-            "amount": "1",
-            "currency": "USD"
-          },
-          "ipr": "c29tZSBpcHIgaGVyZQ=="
-      }
-    ```
-
-* **Sample Call:**
-
-  ```curl
-    curl -X POST --header 'Accept: application/json' --header 'Authorization: Basic dGVzdDoxMjM=' -d
-    '{
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-        "payer": {
-          "identifier": "92806391",
-          "identifierType": "eur"
-        },
-        "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
-          "identifier": "30754016",
-          "identifierType": "eur",
-        },
-        "transferType": "p2p",
-        "amountType": "SEND",
-        "amount": {
-          "amount": "10",
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": "0.25",
-          "currency": "USD"
-        }
-    }'
-    'http://spsp-server-backend/v1/quotes'
-  ```
-
-***5. spsp-server-backend -> dfsp-api***
-
-* **URL**
-
-  /v1/quotes
-
-* **Headers**
-
-  * Content-Type: application/json
-  * Accept: application/json
-  * Authorization: Basic dGVzdDoxMjM=
-
-* **Method:**
-
-  `POST`
-
-* **URL Params:**
-
-  None
-
-* **Data Params:**
-     ```json
-    {
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
-        "payer": {
-          "identifier": "92806391",
-          "identifierType": "eur"
-        },
-        "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
-          "identifier": "30754016",
-          "identifierType": "eur",
-        },
-        "transferType": "p2p",
-        "amountType": "SEND",
-        "amount": {
-          "amount": "10",
-          "currency": "USD"
-        },
-        "fees": {
-          "amount": "0.25",
-          "currency": "USD"
-        }
-    }
-    ```
-
-* **Success Response:**
-
-  * **Code:** 200 OK<br />
-    **Content:**
-    ```json
-      {
-          "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
           "receiveAmount": {
             "amount": "9.25",
             "currency": "USD"
@@ -478,7 +174,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
             "amount": "1",
             "currency": "USD"
           },
-          "ipr": "c29tZSBpcHIgaGVyZQ=="
+          "expiresAt": "2017-06-14T00:00:01.000Z"
       }
     ```
 
@@ -497,7 +193,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           "identifier": "30754016",
           "identifierType": "eur",
         },
-        "transferType": "p2p",
+        "transferType": "PROXY",
         "amountType": "SEND",
         "amount": {
           "amount": "10",
@@ -516,15 +212,16 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
 * The Payee DFSP should calculate the `receiveAmount`,  `payeeFee` and `payeeCommission` based on the parameters it receives
     ```json
     {
-        "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+        "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
         "payer": {
           "identifier": "92806391",
           "identifierType": "eur"
         },
         "payee": {
-          "url": "http://payee-dfsp-scheme-adaptor-baseUrl",
+          "url": "host:8088/scheme/adapter/v1",
           "identifier": "30754016",
           "identifierType": "eur",
+          "account":"ledger-account-url"
         },
         "transferType": "p2p",
         "amountType": "SEND",
@@ -542,7 +239,7 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
 * The Payee DFSP should calculate the `expiration`, fees and should persist those values along with the request parameters and the calculated `receiveAmount`,  `payeeFee` and `payeeCommission` before returning the following request to the spsp-server:
     ```json
       {
-          "transferId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
+          "paymentId": "110ec58a-a0f2-4ac4-8393-c866d813b8d1",
           "receiveAmount": {
             "amount": "9.25",
             "currency": "USD"
@@ -557,16 +254,16 @@ Currenlty the DFSPs are capable for calculating and applying fees both for incom
           }
       }
     ```
-* The generated `transferId` should be used by the Payer DFSP when executing the transfer.
+* The generated `paymentId`, `ipr` should be used by the Payer DFSP when executing the transfer.
 
 ## III. Error cases
 
 The receiver DFSP should throw an error in either of the following cases:
 
-* It receives a transfer request with transferId which is not associated with a locally reserved quote.
-* It receives a transfer request with transferId associated with an already expired quote.
-* It receives a transfer request with correct transferId but different parameters than those associated with the already reserved quote (amount, currency, receiver account, transfer type, etc...)
+* It receives a transfer request with paymentId which is not associated with a locally reserved quote.
+* It receives a transfer request with paymentId associated with an already expired quote.
+* It receives a transfer request with correct paymentId but different parameters than those associated with the already reserved quote (amount, currency, receiver account, transfer type, etc...)
 
 ## IV. Notes
 
-* Additional method `(GET /v1/quotes/{transferId})` could be implemented in case there's a need for already reserved quotes to be obtainable.
+* Additional method `(GET /v1/quotes/{paymentId})` could be implemented in case there's a need for already reserved quotes to be obtainable.
