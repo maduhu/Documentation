@@ -1063,11 +1063,11 @@ Transaction Details Kibana Custom Visualization
 
 In order to access the Transaction Details Kibana custom visualization navigate to Visualize menu and look for “Transaction Details”.
 
-image 1
+![alt text](./images/navigateToTransactionDetails.png)
 
 The Transaction Details Visualization shows a specific transaction identified by its L1P_Trace_Id across L1P components and it displays the transaction start and transaction end timestamps.
 
-image 2
+![alt text](./images/transactionDetailsVisualization.png)
 
 The Transaction Details visualization is backed by the L1P_Index data structure. 
 
