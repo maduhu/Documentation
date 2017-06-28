@@ -462,6 +462,618 @@ and perform a query. Make sure to set proper Time Range at
 Kibana-&gt;Discover on top right hand corner. Simply enter query and
 search.
 
+Custom L1P_Index Configuration
+==============================
+
+The custom L1P_Index is defined by the two files show below (ilp_template.json and types.json) which are part of the interop-elk GitHub repo. The L1P_Index is an elasticsearch index used as the storage data structure for the L1P specific log data. The main purpose is to capture and display L1P transaction timestamp across L1P components. 
+
+ilp_template.json:
+
+>{
+>
+>  "template": [
+>
+>    "l1p_index*"
+>
+>  ],
+>
+>  "mappings": {
+>
+>    "l1p_log": {
+>
+>      "_all": {
+>
+>        "norms": false
+>
+>      },
+>
+>      "dynamic_templates": [
+>
+>        {
+>
+>          "strings_as_keyword": {
+>
+>            "match_mapping_type": "string",
+>
+>            "mapping": {
+>
+>              "ignore_above": 1024,
+>
+>              "type": "keyword"
+>
+>            }
+>
+>          }
+>
+>        }
+>
+>      ],
+>
+>      "properties": {
+>
+>        "@timestamp": {
+>
+>          "type": "date"
+>
+>        },
+>
+>        "l1p_trace_id": {
+>
+>          "type": "keyword"
+>
+>        },
+>
+>        "beat": {
+>
+>          "properties": {
+>
+>            "hostname": {
+>
+>              "type": "keyword",
+>
+>              "ignore_above": 1024
+>
+>            },
+>
+>            "name": {
+>
+>              "type": "keyword",
+>
+>              "ignore_above": 1024
+>
+>            },
+>
+>            "version": {
+>
+>              "type": "keyword",
+>
+>              "ignore_above": 1024
+>
+>            },
+>
+>            "processing_timestamp": {
+>
+>              "type": "date"
+>
+>            }
+>
+>          }
+>
+>        },
+>
+>        "input_type": {
+>
+>          "type": "keyword",
+>
+>          "ignore_above": 1024
+>
+>        },
+>
+>        "message": {
+>
+>          "type": "text",
+>
+>          "norms": false
+>
+>        },
+>
+>        "meta": {
+>
+>          "properties": {
+>
+>            "cloud": {
+>
+>              "properties": {
+>
+>                "availability_zone": {
+>
+>                  "type": "keyword",
+>
+>                  "ignore_above": 1024
+>
+>                },
+>
+>                "instance_id": {
+>
+>                  "type": "keyword",
+>
+>                  "ignore_above": 1024
+>
+>                },
+>
+>                "machine_type": {
+>
+>                  "type": "keyword",
+>
+>                  "ignore_above": 1024
+>
+>                },
+>
+>                "project_id": {
+>
+>                  "type": "keyword",
+>
+>                  "ignore_above": 1024
+>
+>                },
+>
+>                "provider": {
+>
+>                  "type": "keyword",
+>
+>                  "ignore_above": 1024
+>
+>                },
+>
+>                "region": {
+>
+>                  "type": "keyword",
+>
+>                  "ignore_above": 1024
+>
+>                }
+>
+>              }
+>
+>            }
+>
+>          }
+>
+>        },
+>
+>        "offset": {
+>
+>          "type": "long"
+>
+>        },
+>
+>        "source": {
+>
+>          "type": "keyword",
+>
+>          "ignore_above": 1024
+>
+>        },
+>
+>        "tags": {
+>
+>          "type": "keyword",
+>
+>          "ignore_above": 1024
+>
+>        }
+>
+>      }
+>
+>    }
+>
+>  }
+>
+>}
+>
+
+types.json
+
+>{
+>
+>  "l1p_index": {
+>
+>    "mappings": {
+>
+>      "l1p_log": {
+>
+>        "_all": {
+>
+>          "norms": false
+>
+>        },
+>
+>        "dynamic_templates": [
+>
+>          {
+>
+>            "strings_as_keyword": {
+>
+>              "match_mapping_type": "string",
+>
+>              "mapping": {
+>
+>                "ignore_above": 1024,
+>
+>                "type": "keyword"
+>
+>              }
+>
+>            }
+>
+>          }
+>
+>        ],
+>
+>        "properties": {
+>
+>          "@timestamp": {
+>
+>            "type": "date"
+>
+>          },
+>
+>          "ilp_trace_id": {
+>
+>            "type": "keyword"
+>
+>          },
+>
+>          "beat": {
+>
+>            "properties": {
+>
+>              "hostname": {
+>
+>                "type": "keyword",
+>
+>                "ignore_above": 1024
+>
+>              },
+>
+>              "name": {
+>
+>                "type": "keyword",
+>
+>                "ignore_above": 1024
+>
+>              },
+>
+>              "version": {
+>
+>                "type": "keyword",
+>
+>                "ignore_above": 1024
+>
+>              },
+>
+>              "processing_timestamp": {
+>
+>                "type": "date"
+>
+>              }
+>
+>            }
+>
+>          },
+>
+>          "input_type": {
+>
+>            "type": "keyword",
+>
+>            "ignore_above": 1024
+>
+>          },
+>
+>          "message": {
+>
+>            "type": "text",
+>
+>            "norms": false
+>
+>          },
+>
+>          "meta": {
+>
+>            "properties": {
+>
+>              "cloud": {
+>
+>                "properties": {
+>
+>                  "availability_zone": {
+>
+>                    "type": "keyword",
+>
+>                    "ignore_above": 1024
+>
+>                  },
+>
+>                  "instance_id": {
+>
+>                    "type": "keyword",
+>
+>                    "ignore_above": 1024
+>
+>                  },
+>
+>                  "machine_type": {
+>
+>                    "type": "keyword",
+>
+>                    "ignore_above": 1024
+>
+>                  },
+>
+>                  "project_id": {
+>
+>                    "type": "keyword",
+>
+>                    "ignore_above": 1024
+>
+>                  },
+>
+>                  "provider": {
+>
+>                    "type": "keyword",
+>
+>                    "ignore_above": 1024
+>
+>                  },
+>
+>                  "region": {
+>
+>                    "type": "keyword",
+>
+>                    "ignore_above": 1024
+>
+>                  }
+>
+>                }
+>
+>              }
+>
+>            }
+>
+>          },
+>
+>          "offset": {
+>
+>            "type": "long"
+>
+>          },
+>
+>          "source": {
+>
+>            "type": "keyword",
+>
+>            "ignore_above": 1024
+>
+>          },
+>
+>          "tags": {
+>
+>            "type": "keyword",
+>
+>            "ignore_above": 1024
+>
+>          },
+>
+>          "type": {
+>
+>            "type": "keyword",
+>
+>            "ignore_above": 1024
+>
+>          }
+>
+>        }
+>
+>      }
+>
+>    }
+>
+>  }
+>
+>}
+
+L1P_Index population
+====================
+
+The L1P_Index is populated by the Logstash component of the ELK Stack. The following files (log-pipeling.txt, filebeat.yml) found at GitHub’s interop-elk repo contains a Logstash pipeline used to populate the custom L1P_Index elasticsearch index.
+
+log-pipeline.txt
+
+>input {
+>
+>  beats {
+>
+>    port => "5043"
+>
+>  }
+>
+>}
+>
+>filter {
+>
+>  # if the beat is from modusbox
+>
+>  mutate {
+>
+>    rename => {"@timestamp" => "[beat][processing_timestamp]"}
+>
+>  }
+>
+>  grok {
+>
+>    match => { "message" => "\[%{TIMESTAMP_ISO8601:log_timestamp}\]%{SPACE}%{LOGLEVEL}%{SPACE}%{SYSLOG5424PRINTASCII}%
+{SPACE}%{PROG:log_source}%{SPACE}(.*L1P_TRACE_ID=)?(%{UUID:l1p_trace_id})?(.*(L1P_METRIC_TIMER:\[(?<timer_name>%
+{JAVACLASS})\]\[(?<timer_value>%{NUMBER})\]|L1P_METRIC_COUNTER:\[(?<counter_name>%{JAVACLASS})\]|L1P_METRIC_GAUGE:\[(?
+<gauge_name>%{JAVACLASS})\]\[(?<gauge_value>%{NUMBER})\]))?.*"}
+>
+>  }
+>
+>  date {
+>
+>    match => ["log_timestamp", "ISO8601"]
+>
+>    remove_field => ["log_timestamp", "log_source"]
+>
+>  }
+>
+>
+>
+>  # if the beat is from ripple
+>
+>}
+>
+>output {
+>
+>  stdout { codec => rubydebug }
+>
+>
+>
+>  if "metric" not in [tags] {
+>
+>    elasticsearch{
+>
+>      host => "fix_me"
+>
+>      cluster => "change_me"
+>
+>      protocol => "http"
+>
+>      index => "l1p_index_%{+YYYY.MM.dd}"
+>
+>      document_type => "l1p_log"
+>
+>    }
+>
+>  }
+>
+>
+
+filebeat.yml
+
+>#=========================== Filebeat prospectors =============================
+>
+>
+>
+>filebeat.prospectors:
+>
+>
+>
+> #Each - is a prospector. Most options can be set at the prospector level, so you can use different prospectors for various configurations.
+>
+> #Below are the prospector specific configurations.
+>
+>
+>
+>- input_type: log
+>
+>
+>
+>  # Paths that should be crawled and fetched. Glob based paths.
+>
+>  paths:
+>
+>    #- /Users/honainkhan/dev/mbox/bmgf/interop-elk/filebeat/log-samples/modusbox/interop-spsp-clientproxy.log
+>
+>    - /home/ec2-user/elkwork/logs/interop-spsp-backend-services.log
+>
+>    #- /var/log/*.log
+>
+>    #- c:\programdata\elasticsearch\logs\*
+>
+>
+>
+>  # Exclude lines. A list of regular expressions to match. It drops the lines that are
+>
+>  # matching any regular expression from the list.
+>
+>  #exclude_lines: ["^DBG"]
+>
+>
+>
+>  # Include lines. A list of regular expressions to match. It exports the lines that are
+>
+>  # matching any regular expression from the list.
+>
+>  #include_lines: ["^ERR", "^WARN"]
+>
+>
+>
+>  # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+>
+>  # are matching any regular expression from the list. By default, no files are dropped.
+>
+>  #exclude_files: [".gz$"]
+>
+>
+>
+>  # Optional additional fields. These field can be freely picked
+>
+>  # to add additional information to the crawled log files for filtering
+>
+>  #fields:
+>
+>  #  level: debug
+>
+>  #  review: 1
+>
+>
+>
+>  ### Multiline options
+>
+>
+>
+>  # Mutiline can be used for log messages spanning multiple lines. This is common
+>
+>  # for Java Stack Traces or C-Line Continuation
+>
+>
+>
+>  # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+>
+>  multiline.pattern: '^\[[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}'
+>
+>  # Defines if the pattern set under pattern should be negated or not. Default is false.
+>
+>  multiline.negate: true
+>
+>
+>
+>  # Match can be set to "after" or "before". It is used to define if lines should be append to a pattern
+>
+>  # that was (not) matched before or after or as long as a pattern is not matched based on negate.
+>
+>  # Note: After is the equivalent to previous and before is the equivalent to to next in Logstash
+>
+>  multiline.match: after
+
+
+
+Transaction Details Kibana Custom Visualization
+===============================================
+
+In order to access the Transaction Details Kibana custom visualization navigate to Visualize menu and look for “Transaction Details”.
+
+image 1
+
+The Transaction Details Visualization shows a specific transaction identified by its L1P_Trace_Id across L1P components and it displays the transaction start and transaction end timestamps.
+
+image 2
+
+The Transaction Details visualization is backed by the L1P_Index data structure. 
+
+To create the visualization navigate to Visualize menu in Kibana, select the type of visualization, select the Index (L1P_Index), select and organize data depending on type of visualization selected and save visualization.
+
+
 Current Installation
 ====================
 
