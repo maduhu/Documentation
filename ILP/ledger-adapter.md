@@ -22,7 +22,7 @@ The core operations of the API are:
 - [Send Message](#send-message) to another account
 - [Get Auth Token](#get-auth-token) for WebSocket API.
 - [Report metadata about the ledger](#get-server-metadata)
-- [WebSocket Connection](#websocket-connection) for subscribing to account activity
+- [WebSocket Connection](#websocket) for subscribing to account activity
 
 ### Currency Denominations
 
@@ -658,6 +658,55 @@ Example:
       "method": "subscribe_account",
       "params": {
         "accounts": ["https://ledger.example/accounts/alice"]
+      },
+      "id": 1
+    }
+<-- {
+      "jsonrpc": "2.0",
+      "result": 1,
+      "id": 1
+    }
+```
+
+#### Subscribe to all Accounts
+
+If a ledger has an administrator user with permission to fulfill conditions of any account, reject transfers for any account, and see activity of any account, the ledger should implement this functionality. A global subscription allows an administrator to see activity for all accounts over a single websocket connection to the ledger.
+
+This request replaces any existing account subscriptions on this WebSocket connection. The client sends a JSON object to the ledger with the following fields:
+
+| Field              | Value            | Description                          |
+|:-------------------|:-----------------|:-------------------------------------|
+| `id`               | String or Number | An arbitrary identifier for this request. MUST NOT be `null`. The immediate response to this request identifies itself using the same `id`. |
+| `jsonrpc`          | String           | MUST have the value `"2.0"` to indicate this is a JSON-RPC 2.0 request. |
+| `method`           | String           | MUST be the value `"subscribe_all_accounts"`. |
+| `params`           | Object           | Information on what subscriptions to open. |
+| `params.eventType` | String           | Type of events to listen for. MUST be `"*"`. |
+
+##### Response
+The ledger acknowledges the request immediately by sending a JSON object with the following fields:
+
+| Field     | Value            | Description                                   |
+|:----------|:-----------------|:----------------------------------------------|
+| `id`      | String or Number | The `id` value from the request. This helps distinguish responses from other messages. |
+| `jsonrpc` | String           | MUST have the value `"2.0"` to indicate this is a JSON-RPC 2.0 message. |
+| `result`  | Number           | MUST have the value `1` to indicate that one global subscription was created. |
+
+Later, the ledger responds with [notifications](#websocket-notifications) whenever any of the following occurs:
+
+- A transfer affecting any account is prepared (`event` type: `transfer.create`)
+- A transfer affecting any account changes state. For example, from prepared to executed or to expired. (`event` type: `transfer.update`)
+- Someone [sends a message](#send-message) to any account. (`event` type: `message.send`)
+
+It's important that only one notification is sent to the global subscription per event, even if several different accounts are affected by the event. For example, if a transfer is created from `alice` to `bob`, alice's websockets should be notified, bob's websockets should be notified, and the global subscription should be notified.
+
+Example:
+
+```
+--> {
+      "jsonrpc": "2.0",
+      "method": "subscribe_all_accounts",
+      "params": {
+        "eventType": "*"
       },
       "id": 1
     }
