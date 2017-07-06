@@ -4,9 +4,11 @@ The Level One Project is about financial inclusion for everyone.  Today more tha
 For more information on the Level One Project, see the [Level One Project site](https://leveloneproject.org/).
 
 ## Why should I contribute to the Level One Project?
-The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model and prototype for a financial system that could be implemented in any country. In order to expand this service to ensure that we a level playing field for everyone we need your help to enhance this prototype and help realize the vision of having one digital financial system in every country around the world. 
+The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short.  
 
-To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short.  This code takes that a step further by implementing a strong reliable messaging using the [Interledger](http://interledger.org) protocol as well as a functioning central hub that financial providers can connect to facilitate common settlement and regulatory compliance. 
+This project started with a model and prototype for a financial system that could be implemented in any country.  In addition, this code takes that a step further by implementing a strong reliable messaging using the [Interledger](http://interledger.org) protocol as well as a functioning central hub that financial providers can connect to facilitate common settlement and regulatory compliance. 
+
+> In order to expand this service and ensure that we a level playing field for everyone we need your help to enhance this prototype and help realize the vision of having one digital financial system in every country around the world. 
 
 ## How do I contribute to the Level One Project?
 New developers see [the wiki](https://github.com/LevelOneProject/Docs/wiki) for contribution guidance.
