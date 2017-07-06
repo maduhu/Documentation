@@ -10,11 +10,10 @@ This project started with a model and prototype for a financial system that coul
 
 > In order to expand this service and ensure that we a level playing field for everyone we need your help to enhance this project and help to realize the vision of having one digital financial system in every country around the world. 
 
-### How do I contribute to the Level One Project?
-New developers see [the wiki](https://github.com/LevelOneProject/Docs/wiki) for contribution guidance.
+## Getting Started
+The Level One Project in github is broken down into microservices.  As such, the team has created over twenty different repositories in github that align to the different Level One Services.  The "Docs" repository documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repositories in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
 
-### Repo Structure
-The Level One Project in github is broken down into microservices.  As such, the team has created over twenty different repo's in github that align to the different Level One Services.  The "Docs" repo documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repos in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
+New developers see [the wiki](https://github.com/LevelOneProject/Docs/wiki) for contribution guidance.
 
 ## Level One Services
 The following architecture diagram shows the Level One services:
