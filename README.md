@@ -1,15 +1,18 @@
 # Level One Project Overivew
 The Level One Project is about financial inclusion for everyone.  Today more than 2 billion adults do not have a bank account or access to a formal financial institution.  The Level One Project is aimed at changing this denominator by making banking accessible by everyone via a standard flip phone.  Our project is aimed at building a national digital financial solution that is open to everyone.  Specifically, any person in any location with a phone can open a back account, send money, receive money or get paid for services.  This open system will help the poorest people in the most remote locations to ensure a safe and reliable solution.  
 
-The "Docs" repo documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repos in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
-
-## What is the Level One Project?
-> A level playing field for everyone by building one digital financial system in every country around the world. That's The Level One Project.
-
-To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short. The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model and prototype for a financial system that could be implemented in any country. This code takes that a step further by implementing a strong reliable messaging using the [Interledger](http://interledger.org) protocol as well as a functioning central hub that financial providers can connect to facilitate common settlement and regulatory compliance. 
-
 For more information on the Level One Project, see the [Level One Project site](https://leveloneproject.org/).
+
+## Why should I contribute to the Level One Project?
+The Level One Project is an initiative by the Bill & Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. It started with a model and prototype for a financial system that could be implemented in any country. In order to expand this service to ensure that we a level playing field for everyone we need your help to enhance this prototype and help realize the vision of having one digital financial system in every country around the world. 
+
+To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short.  This code takes that a step further by implementing a strong reliable messaging using the [Interledger](http://interledger.org) protocol as well as a functioning central hub that financial providers can connect to facilitate common settlement and regulatory compliance. 
+
+## How do I contribute to the Level One Project?
 New developers see [the wiki](https://github.com/LevelOneProject/Docs/wiki) for contribution guidance.
+
+## Repo Structure
+The Level One Project in github is broken down into microservices.  As such, the team has created over twenty different repo's in github that align to the different Level One Services.  The "Docs" repo documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repos in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
 
 ## Level One Services
 The following architecture diagram shows the Level One services:
