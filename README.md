@@ -13,7 +13,7 @@ This project started with a model and prototype for a financial system that coul
 ## Getting Started
 The Level One Project in github is broken down into microservices.  As such, the team has created over twenty different repositories in github that align to the different Level One Services.  The "Docs" repository documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repositories in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe their component details including source and APIs.
 
-New developers see the [contibutors guide] (contribute.md) for onboarding materials.
+New developers see the [contibutors guide] (.contribute.md) for onboarding materials.
 
 ## Level One Services
 The following architecture diagram shows the Level One services:
