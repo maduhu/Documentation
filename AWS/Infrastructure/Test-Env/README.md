@@ -56,7 +56,7 @@ The test environment is used for development and new or possibly breaking change
 | ilp-connector | 3044 | 17.0.1 | N/A | N/A |
 | ilp-service | 3045 | 0.3.1 | [ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3045] | [ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3045] |
 
-### IST - Dwolla
+### Central Services - Dwolla
 
 | Service | Port | Version | URL |
 | ------- | -----| --------| ----|
@@ -79,7 +79,7 @@ The test environment is used for development and new or possibly breaking change
 * merchant    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/7642271
 * dfsp2-testconnector    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/17923071
 
-## Start/Stop scripts
+## Start/Stop and deployment scripts
 
 ### Mule
 * /home/ec2-user/scripts/modusbox/stop_mule.sh
@@ -91,5 +91,6 @@ The test environment is used for development and new or possibly breaking change
 ### ILP/SPSP
 * See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
 
-### IST
-* <TO BE FILLED>
+### Central Services
+Uses Node instead of Ansible for deployment scripts that so that these can be called by CircleCI. The code for these in each repo under a deploy directory. 
+Example: [Central director](https://github.com/LevelOneProject/central-directory/blob/master/deploy/node/index.js)
