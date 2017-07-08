@@ -101,7 +101,7 @@ pages:
             - all
             - contributor
 
-# scenarios 
+# scenarios
     -   name: 'Scenario Descriptions'
         html: Scenarios.html
         category: Scenarios
@@ -152,14 +152,6 @@ pages:
             - all
             - stakeholder
 
-    -   name: 'Clearing Architecture'
-        html: ClearingArchitecture.html
-        category: 'Level One Client'
-        md: 'Docs/ILP/Clearing Architecture.md'
-        targets:
-            - all
-            - stakeholder
-
     -   name: 'Interledger Components and Flow'
         html: ILP.html
         category: 'Level One Client'
@@ -168,38 +160,18 @@ pages:
             - all
             - stakeholder
 
-    -   name: 'Interledger SPSP Client Proxy Interface'
-        html: ilp-spsp-client-rest.html
+    -   name: 'ILP Service'
+        html: ilp-service.html
         category: 'Level One Client'
-        md:  ilp-spsp-client-rest/README.md
+        md: ilp-service/README.md
         targets:
             - all
-
-    -   name: 'Interledger SPSP Server Interface'
-        html: ilp-spsp-server.html
-        category: 'Level One Client'
-        md:  ilp-spsp-server/README.md
-        targets:
-            - all
-
-    -   name: 'Ledger Adapter'
-        html: ledger-adapter.html
-        category: 'Level One Client'
-        md:  Docs/ILP/ledger-adapter.md
-        targets:
-            - all
+            - stakeholder
 
     -   name: 'Interop Services'
         html: mule.html
         category: 'Level One Client'
         md: Docs/mule/README.md
-        targets:
-            - all
-
-    -   name: 'Interop SPSP Client Proxy'
-        html: interop-spsp-clientproxy.html
-        category: 'Level One Client'
-        md:  interop-spsp-clientproxy/README.md
         targets:
             - all
 
@@ -210,12 +182,6 @@ pages:
         targets:
             - all
 
-    -   name: 'Interop SPSP Backend Services'
-        html: interop-ilp-ledger.html
-        category: 'Level One Client'
-        md:  interop-spsp-backend-services/README.md
-        targets:
-            - all
 
 #Docs/CentralDirectory
 # README.md central_directory_endpoints.md
