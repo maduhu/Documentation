@@ -62,8 +62,8 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 
 | Service | Port | Version | URL |
 | ------- | -----| --------| ----|
-| central-ledger |  | v0.14.0 | *UPDATE* [http://central-ledger-1139971789.us-west-1.elb.amazonaws.com/](http://central-ledger-1139971789.us-west-1.elb.amazonaws.com/documentation)|
-| central-directory |  | v1.81.0 | *UPDATE* [ http://central-directory-214462011.us-west-1.elb.amazonaws.com/]( http://central-directory-214462011.us-west-1.elb.amazonaws.com/documentation) |
+| central-ledger |  | v1.81.0 | *UPDATE* [http://central-ledger-1139971789.us-west-1.elb.amazonaws.com/](http://central-ledger-1139971789.us-west-1.elb.amazonaws.com/documentation)|
+| central-directory |  | v0.14.0 | *UPDATE* [ http://central-directory-214462011.us-west-1.elb.amazonaws.com/]( http://central-directory-214462011.us-west-1.elb.amazonaws.com/documentation) |
 | end-user-registry |  | v0.9.0 | *UPDATE* [http://central-end-user-registry-1833170602.us-west-1.elb.amazonaws.com/](http://central-end-user-registry-1833170602.us-west-1.elb.amazonaws.com/documentation)|
 
 
