@@ -14,7 +14,7 @@
     ILP_LEDGER_ADMIN_USERNAME: admin
     ILP_LEDGER_ADMIN_PASSWORD: admin
     ILP_LEDGER_PREFIX: "{{ ilp_address_neighborhood}}.{{ inventory_hostname }}."
-    ILP_SPSP_SERVER_BACKEND: "{{ base_url }}:8088/spsp/backend"
+    ILP_SERVICE_BACKEND: "{{ base_url }}:8088/scheme/adapter/v1/notifications"
     ILP_CLIENT_INVOICE_URL_TEMPLATE: "{{ base_url }}:3043/v1/receivers/invoices/{invoiceId}"
     ILP_CENTRAL_LEDGER_PREFIX: "{{ ilp_address_neighborhood }}.ist."
     ILP_CONNECTOR: "{{ ilp_address_neighborhood }}.{{ inventory_hostname }}.{{ inventory_hostname }}-testconnector"
@@ -23,6 +23,8 @@
     ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT: "{{ hostvars[inventory_hostname].ist_url }}/accounts/{{ inventory_hostname }}"
     ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD: "{{ inventory_hostname }}"
     ILP_CONNECTOR_PEERS: "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
+    MIN_BALANCE_ON_CENTRAL_LEDGER: "-100000000"
+    MIN_BALANCE_ON_DFSP_LEDGER: "-100000000"
     CURRENCY: USD
   tasks:
 
@@ -47,7 +49,7 @@
       - service
     docker_container:
       name: ilp-service
-      image: "modusbox-level1-docker.jfrog.io/ilp-service:v0.3.1"
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v1.0.1"
       state: started
       pull: yes
       recreate: yes
@@ -70,7 +72,7 @@
         ILP_SERVICE_CENTRAL_CONNECTOR_ACCOUNT: "{{ ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT }}"
         ILP_SERVICE_CENTRAL_CONNECTOR_PASSWORD: "{{ inventory_hostname }}"
         ILP_SERVICE_CONNECTOR_ACCOUNT: "{{ ILP_CONNECTOR_ACCOUNT }}"
-        ILP_SERVICE_BACKEND: "{{ ILP_SPSP_SERVER_BACKEND }}"
+        ILP_SERVICE_BACKEND: "{{ ILP_SERVICE_BACKEND }}"
         DEBUG: "*"
 
   - name: Start ILP connector
@@ -78,7 +80,7 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:v17.0.1"
+      image: "interledger/js-ilp-connector:latest"
       state: started
       recreate: yes
       pull: yes
@@ -100,6 +102,9 @@
               "options": {
                 "account": "{{ILP_CONNECTOR_ACCOUNT}}",
                 "password": "{{ILP_CONNECTOR_PASSWORD}}"
+              },
+              "overrideInfo": {
+                "minBalance": "{{MIN_BALANCE_ON_DFSP_LEDGER}}"
               }
             },
             "{{ILP_CENTRAL_LEDGER_PREFIX}}": {
@@ -108,6 +113,9 @@
               "options": {
                 "account": "{{ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT}}",
                 "password": "{{ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD}}"
+              },
+              "overrideInfo": {
+                "minBalance": "{{MIN_BALANCE_ON_CENTRAL_LEDGER}}"
               }
             }
           }
@@ -127,6 +135,7 @@
         CONNECTOR_BACKEND: one-to-one
         CONNECTOR_FX_SPREAD: 0
         CONNECTOR_SLIPPAGE: 0
+        CONNECTOR_UNWISE_USE_SAME_TRANSFER_ID: 1
         CONNECTOR_LOG_LEVEL: trace
         DEBUG: "*"
 
