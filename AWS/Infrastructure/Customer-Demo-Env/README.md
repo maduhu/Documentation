@@ -54,17 +54,17 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------| --------- | --------- |
-| ilp-spsp-client-rest | 3042 | v5.0.4-5-g99e3654 |         |           |
-| ilp-spsp-server | 3043 | v5.0.3-2-g3e2614d |         |           |
-| ilp-connector | 3044 | v19.0.0-3-gec73934 |  |  |
+| ilp-spsp-client-rest | 3042 | v5.0.2 |         |           |
+| ilp-spsp-server | 3043 | v5.0.1 |         |           |
+| ilp-connector | 3044 | v17.1.0 |  |  |
 
 ### IST - Dwolla
 
 | Service | Port | Version | URL |
 | ------- | -----| --------| ----|
-| central-ledger |  | v1.81.0 | *UPDATE* [http://central-ledger-1139971789.us-west-1.elb.amazonaws.com/](http://central-ledger-1139971789.us-west-1.elb.amazonaws.com/documentation)|
-| central-directory |  | v0.14.0 | *UPDATE* [ http://central-directory-214462011.us-west-1.elb.amazonaws.com/]( http://central-directory-214462011.us-west-1.elb.amazonaws.com/documentation) |
-| end-user-registry |  | v0.9.0 | *UPDATE* [http://central-end-user-registry-1833170602.us-west-1.elb.amazonaws.com/](http://central-end-user-registry-1833170602.us-west-1.elb.amazonaws.com/documentation)|
+| central-ledger | 3002 | v1.80.0 | [http://ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3002](ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3002/documentation)|
+| central-directory | 3000 | v0.8.1 | [http://ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3000](ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3000/documentation)|
+| end-user-registry | 3001 | v0.7.0 | [http://ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3001](ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3001/documentation)|
 
 
 ## Test Users
