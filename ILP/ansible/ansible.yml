@@ -49,7 +49,7 @@
       - service
     docker_container:
       name: ilp-service
-      image: "modusbox-level1-docker.jfrog.io/ilp-service:v1.0.1"
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v1.1.0"
       state: started
       pull: yes
       recreate: yes
@@ -80,7 +80,7 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:latest"
+      image: "interledger/js-ilp-connector:v21.0.6"
       state: started
       recreate: yes
       pull: yes
@@ -101,7 +101,10 @@
               "plugin": "ilp-plugin-bells",
               "options": {
                 "account": "{{ILP_CONNECTOR_ACCOUNT}}",
-                "password": "{{ILP_CONNECTOR_PASSWORD}}"
+                "password": "{{ILP_CONNECTOR_PASSWORD}}",
+                "overrideInfo": {
+                  "scale": 2
+                }
               },
               "overrideInfo": {
                 "minBalance": "{{MIN_BALANCE_ON_DFSP_LEDGER}}"
@@ -112,7 +115,10 @@
               "plugin": "ilp-plugin-bells",
               "options": {
                 "account": "{{ILP_CONNECTOR_CENTRAL_LEDGER_ACCOUNT}}",
-                "password": "{{ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD}}"
+                "password": "{{ILP_CONNECTOR_CENTRAL_LEDGER_PASSWORD}}",
+                "overrideInfo": {
+                  "scale": 2
+                }
               },
               "overrideInfo": {
                 "minBalance": "{{MIN_BALANCE_ON_CENTRAL_LEDGER}}"
