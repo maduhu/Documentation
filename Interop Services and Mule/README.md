@@ -19,7 +19,7 @@ Contents:
 ## Overview
 Structure of interop services
 
-![Overview of mule services](./interop-services-overview.svg)
+![Overview of mule services](./interop-services-overview.jpg)
 
 ## Architecture
 User Message/Flow Diagram of L1P System
