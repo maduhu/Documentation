@@ -19,15 +19,13 @@ Contents:
 ## Overview
 Component Diagram
 
-![Top Level Architecture](./TopLevelArchitecture-ComponentsAndServicesHostedInMule.png)
-
 ![Overview of mule services](./Interop_projects_overview.png)
 
 ## Architecture
 User Message/Flow Diagram
 
-The diagram in this section show the positive or “happy” path of the user. Negative and boundary cases are described in other specifications. A data flow diagram is also used for threat modeling.
-![Overview of L1P services](./L1p_projects_overview.png)
+The diagram in this section (L1P Reference Implementation) show the positive or “happy” path of the user. Negative and boundary cases are described in other specifications. A data flow diagram is also used for threat modeling.
+![Overview of L1P services](./PaymentFlow.png)
 
 ### Interfaces
 - **interop-dfsp-directory** - This project provides an API gateway to the IST Directory Naming Service and provides resources to - "get metadata about a directory", "get customer information by providing identifier, identifierType", "Register a DFSP" and "get identifierTypes supported by the central directory"
