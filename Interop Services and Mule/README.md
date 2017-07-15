@@ -17,12 +17,12 @@ Contents:
 * [Deployment](#deployment)
 
 ## Overview
-Component Diagram
+Structure of interop services
 
-![Overview of mule services](./Interop_projects_overview.png)
+![Overview of mule services](./interop-services-overview.svg)
 
 ## Architecture
-User Message/Flow Diagram
+User Message/Flow Diagram of L1P System
 
 The diagram in this section (L1P Reference Implementation) show the positive or “happy” path of the user. Negative and boundary cases are described in other specifications. A data flow diagram is also used for threat modeling.
 ![Overview of L1P services](./PaymentFlow.png)
