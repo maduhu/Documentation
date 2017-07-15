@@ -1,6 +1,6 @@
 # Interop Services
 
-The various interop service APIs act as proxies and/or provide features such as validation, authentication and data transformation where necessary. The services operate based on service specifications provided in both Open API and RAML. The services run on Mule community runtime. There are four interop micro-services that are mentioned below and several supporting projects.
+The various interop service APIs act as proxies and/or provide features such as validation, authentication and data transformation where necessary. The services operate based on service specifications provided in both Open API and RAML. The services run on Mule community runtime. There are four interop micro-services (recently two of them: interop-spsp-clientproxy and interop-spsp-backend-services are merged into one interop-scheme-adapter, so total of three services) that are mentioned below and several supporting projects.
 
 Contents:
 
@@ -25,28 +25,35 @@ The diagrams in this section show the positive or “happy” path of the user. 
 ### Interfaces
 - **interop-dfsp-directory** - This project provides an API gateway to the IST Directory Naming Service and provides resources to - "get metadata about a directory", "get customer information by providing identifier, identifierType", "Register a DFSP" and "get identifierTypes supported by the central directory"
     - [Spec](https://github.com/LevelOneProject/interop-dfsp-directory/blob/master/README.md) | [Code](https://github.com/LevelOneProject/interop-dfsp-directory)
-- **interop-spsp-clientproxy** - This interop project fulfills the role of ilp-spsp-client proxy. This project provides an API gateway to the ilp-spsp-client Service. It supports methods to query, quoteSourceAmount, setup and payment request as specified.
+- **interop-spsp-clientproxy** - This interop project fulfills the role of ilp-spsp-client proxy. This project provides an API gateway to the ilp-spsp-client Service. It supports methods to query, quoteSourceAmount, setup and payment request as specified. This is now **deprecated** and its functionality is covered by interop-scheme-adapter.
     - [Spec](https://github.com/LevelOneProject/interop-spsp-clientproxy/blob/master/README.md) | [Code](https://github.com/LevelOneProject/interop-spsp-clientproxy)
-- **interop-spsp-backend-services** - This project provides an interop API implementation that interacts with SPSP server and DFSP. Implementation of SPSP Backend server is based on ilp-spsp-server specified [here](https://github.com/LevelOneProject/ilp-spsp-server)
+- **interop-spsp-backend-services** - This project provides an interop API implementation that interacts with SPSP server and DFSP. Implementation of SPSP Backend server is based on ilp-spsp-server specified [here](https://github.com/LevelOneProject/ilp-spsp-server). This is now **deprecated** and its functionality is covered by interop-scheme-adapter.
     - [Spec](https://github.com/LevelOneProject/interop-spsp-backend-services/blob/master/README.md) | [Code](https://github.com/LevelOneProject/interop-spsp-backend-services)
 - **interop-ilp-ledger** - This project provides an interop API implementation of ILP Ledger Service.
     - [Spec](https://github.com/LevelOneProject/interop-ilp-ledger/blob/master/README.md) | [Code](https://github.com/LevelOneProject/interop-ilp-ledger)
+- **interop-scheme-adapter** - This project provides an API gateway to the ilp-service microservice. It supports methods to query, quote,payment request as specified in the [ilp-service](https://github.com/LevelOneProject/ilp-service).
+    - [Spec](https://github.com/LevelOneProject/interop-scheme-adapter/blob/master/README.md) | [Code](https://github.com/LevelOneProject/interop-scheme-adapter)
 
-#### Supporting projects
+#### Supporting projects for features
 * [interop-parent](https://github.com/LevelOneProject/interop-parent)
 * [interop-common](https://github.com/LevelOneProject/interop-common)
 * [interop-domain](https://github.com/LevelOneProject/interop-domain)
+
+#### Supporting projects for non-functional requirements
 * [interop-docker](https://github.com/LevelOneProject/interop-docker)
 * [interop-devops](https://github.com/LevelOneProject/interop-devops)
 * [interop-metrics-ui](https://github.com/LevelOneProject/interop-metrics-ui)
 * [interop-mule-connector-metrics](https://github.com/LevelOneProject/interop-mule-connector-metrics)
 * [interop-functional-tests](https://github.com/LevelOneProject/interop-functional-tests)
+* [interop-performance](https://github.com/LevelOneProject/interop-performance)
+* [interop-elk](https://github.com/LevelOneProject/interop-elk)
+* [interop-metrics-server](https://github.com/LevelOneProject/interop-metrics-server)
 
 ## Test Strategy
 
-Java Unit Tests exist for each of the projects for unit testing. Tests are run as part of executing the Maven pom.xml as mvn clean package.
+Java Unit Tests exist for each of the projects for unit testing, some of which use WireMock framework. Tests are run as part of executing the Maven pom.xml as mvn clean package.
 
-Along with these unit tests, additional tests can be run by using the tests present in [interop-functional-tests](https://github.com/LevelOneProject/interop-functional-tests) which include several functional and scenario tests. These include USSD tests as well as JMeter scripts that can be used for load testing and cover end-to-end scenarios.
+Along with these unit tests, additional tests can be run by using the tests present in [interop-performance](https://github.com/LevelOneProject/interop-performance/tree/master/JMeter) which include several functional and scenario tests. These include USSD tests as well as JMeter scripts that can be used for performance/load testing and cover end-to-end scenarios.
 
 ## Security/Threat Model
 
@@ -55,7 +62,3 @@ Security/Threat Model for L1P team [here](https://www.dropbox.com/home/Level%20O
 ## Resilience Model
 
 Resilience model for L1P [here](https://www.dropbox.com/home/Level%20One%20OSS%20Team%20Share/Discussion%20Docs/Non%20Functional%20Requirements?preview=rmaworkbook+with+Fixes.xlsx)
-
-## Health Model
-
-Health model might be merged with Resilience model described above or when this has its own document, will update it here.
