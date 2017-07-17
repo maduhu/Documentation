@@ -3,12 +3,37 @@
 
 ## Introduction
 In this guide, we will introduce some features of CloudFlare PKI -- [cfssl](https://github.com/cloudflare/cfssl)
+CFSSL is a tool developed by CloudFlare. It’s both a command line tool and an HTTP API server for signing, verifying and bundling TLS certificates. It requires GO 1.6+ to build. In this guide, we use command line tool as the example.
+* [**Background**](#background)
+* [**Rationale**](#rationale)
 * [**Install cfssl**](#install-cfssl)
 * [**CA Config**](#ca-config)
 * [**Client Config**](#client-config)
 * [**Key Suggestions**](#key-suggestions)
 * [**Integrating the Certificates with Service**](#integrating-the-certificates-with-service)
 ***
+
+### Background
+Secure Channels enable confidentiality and integrity of data across network connections.  In the context of the L1P,  a secure channel can be made possible by the implementation of service transport security via TLS to protect data in-transit and enable mutual authentication.  The centralization of trust in a TLS implementation is provided through a Public Key Infrastructure (PKI).  Note:  While the Central KMS may serve as a PKI as the Central Services evolve, an existing internal or hosted PKI can provide the management and distribution of certificates for service endpoints.
+TLS helps mitigate a number of identified threats discovered during the L1P Threat Modeling exercises:
+* **Tampering**: Network traffic sniffing and or manipulation across DFSP, Pathfinder and Central Services
+* **Spoofing**:
+    1. Rogue DFSP pretends to be another DFSP at central directory
+    2. False connector subscribes to notifications for transfers
+    3. Notifications are sent by a party other than the central ledger
+    4. Rogue KMS requests a health check or log inquiry to Forensic Logging Sidecars
+    5. Data manipulation of REST calls
+* **Information Disclosure**:
+    1. A false connector or 3rd party connector subscribes to notifications that are not theirs
+    2. Inappropriate use of Cryptography (including side-channel weaknesses)
+* **Elevation of Privilege**:
+    1. Credential Exposure by DFSP
+    2. Credential Exposure by Customer
+    3. Credential Exposure by Central Services Employee
+
+### Rationale
+The implementation of TLS is a deployment-specific consideration as the standards, configurations and reliance on a PKI are best defined by the implementor.  The L1P team has demonstrated a PKI/TLS design which may be configured and implemented to meet the needs of a deployment scenario through the use of the CloudFlare PKI Toolkit.  This toolkit provides a central root of trust, an API for automation of certificate activities and configuration options which optimize the selection of safe choices while abstracting low-level details such as the selection and implementation of low-level cryptographic primitives.  An introduction to this toolkit with safe examples for the generation and testing of certificates is found below.
+
 
 ### Install cfssl
 To install the cfssl tool, please follow the instructions for Cloudflare's [cfssl](https://github.com/cloudflare/cfssl)

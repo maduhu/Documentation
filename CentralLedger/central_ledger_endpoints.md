@@ -1,8 +1,7 @@
-# Central Ledger
+# Central Ledger API
 
 The central ledger is a system to record transfers between DFSPs, and to calculate net positions for DFSPs and issue settlement instructions.
 
-## Contents
 - [Data Structures](#data_structures)
 	- [Transfer Object](#transfer_object)
 	- [Account Object](#account_object)

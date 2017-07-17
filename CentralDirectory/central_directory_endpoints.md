@@ -1,8 +1,7 @@
-# Central Directory
+# Central Directory API
 
 The central directory is a system that allows DFSPs to retrieve a URI that will return customer information by supplying an identifier and identifier type.
 
-## Contents
 - Data Structures
 	- [Resource Object](#resource_object)
 	- [DFSP Object](#dfsp_object)
