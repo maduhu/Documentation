@@ -51,7 +51,7 @@
       - service
     docker_container:
       name: ilp-service
-      image: "modusbox-level1-docker.jfrog.io/ilp-service:v2.0.0"
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v1.1.2"
       state: started
       pull: yes
       recreate: yes
@@ -84,7 +84,7 @@
       - connector
     docker_container:
       name: ilp-connector
-      image: "interledger/js-ilp-connector:v21.1.3"
+      image: "interledger/js-ilp-connector:v21.0.6"
       state: started
       recreate: yes
       pull: yes
