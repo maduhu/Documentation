@@ -37,15 +37,15 @@ targets:
             ./DFSP/BulkPayment/README.md: BulkPayments.html
             ../../DFSP#default-ports: DFSP.html#default-ports
             ./DFSP: DFSP.html
-            ./ILP/ledger-adapter.md: ledger-adapter.html
+            ../DFSP/README.md: DFSP.html
             ./ILP: ILP.html
             ../CentralDirectory/central_directory_endpoints.md: CentralDirectory.html
             ./CentralDirectory: CentralDirectory.html
             ./CentralLedger: central_ledger.html
+            ../CentralLedger/README.md: central_ledger.html
             ./CentralRules: central_rules.html
             ./JMeter: IntegrationTests.html
             ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
-            ./ledger-adapter.md: ledger-adapter.html
             ../Ports.md: ports.html
   #      link_re_subs:
   #          "[./\\w]*/([\\w%.-]+[.]md)": "\\1.html"
@@ -357,7 +357,7 @@ pages:
     -   name: 'Use Case Tests'
         html: UseCaseTests.html
         category: Testing
-        section_header: true 
+        section_header: true
         md: Docs/test/README.md
         targets:
             - all
