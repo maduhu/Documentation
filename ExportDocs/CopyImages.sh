@@ -19,8 +19,10 @@ cp Docs/LevelOneClient/scenarios/*.png ./images
 cp Docs/LevelOneClient/*.png ./images
 cp Docs/AWS/Infrastructure/*.png ./images
 cp "Docs/Interop Services and Mule"/*.png ./images
+cp "Docs/Interop Services and Mule"/*.jpg ./images
 cp Docs/test/ilp-integration/media/*.jpg ./images
 cp Docs/ILP/*.png ./images
+cp Docs/ILP/*.gif ./images
 cp "Docs/Interop Services and Mule/Repository"/*.png ./images
 cp "Docs/Interop Services and Mule/CircleCI"/*.png ./images
 cp Docs/ELK/images/*png ./images

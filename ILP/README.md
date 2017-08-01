@@ -48,13 +48,13 @@ Interledger conceptualizes a _ledger_ as a system tracking accounts and balances
 
 The Interledger project assumes that no one ledger will ever serve the whole world. Aside from the problem of scaling a ledger to serve billions of members of humanity, ledgers have different intrinsic qualities that benefit different parties; different ledgers exist today in part because their customers have not just different but _mutually exclusive_ needs and preferences. Still, people would like to be able to pay each other even if they don't use the same ledger:
 
-![Sender → Ledger → ? → Ledger → Receiver](payment-problem.png)
+![Sender -> Ledger -> ? -> Ledger -> Receiver](payment-problem.png)
 
 _Payments that cross a ledger boundary are currently hard._
 
 Rather than trying to create one ledger to rule them all, we should make payment systems **interoperable**. We do this by _connecting_ systems to each other, then bridging payments through multiple connectors using cryptographic proof.
 
-![Sender → DFSP Ledger → Connector → IST Ledger → Connector → DFSP Ledger → Receiver](ilp-connectors-2.png)
+![Sender -> DFSP Ledger -> Connector -> IST Ledger -> Connector -> DFSP Ledger -> Receiver](ilp-connectors-2.png)
 
 _Connectors link ledgers to each other. In the L1P model, all DFSPs connect to a central ledger._
 
