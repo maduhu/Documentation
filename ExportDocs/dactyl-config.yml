@@ -28,13 +28,7 @@ targets:
     -   name: all
         display_name: Level One Project Full Documentation
         image_subs:
-            interconnectivity-animation.gif: images/interconnectivity-animation.gif
-            transfer.png: images/transfer.png
-            payment-problem.png: images/payment-problem.png
-            ilp-connectors-2.png: images/ilp-connectors-2.png
-            internet-arch.png: images/internet-arch.png
-            interledger-arch.png: images/interledger-arch.png
-            protocol-suite.png: images/protocol-suite.png
+            ./interconnectivity-animation.gif: images/interconnectivity-animation.gif
         image_re_subs:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
         link_subs:
@@ -64,13 +58,7 @@ targets:
     -  name: stakeholder
        display_name: Level One Project Financial Provider Overview
        image_subs:
-            interconnectivity-animation.gif: images/interconnectivity-animation.gif
-            transfer.png: images/transfer.png
-            payment-problem.png: images/payment-problem.png
-            ilp-connectors-2.png: images/ilp-connectors-2.png
-            internet-arch.png: images/internet-arch.png
-            interledger-arch.png: images/interledger-arch.png
-            protocol-suite.png: images/protocol-suite.png
+            ./interconnectivity-animation.gif: images/interconnectivity-animation.gif
        image_re_subs:
             "[./\\w]*/([\\w%.-]+[.](jpg|JPG|png|PNG))": "images/\\1"
        link_subs:

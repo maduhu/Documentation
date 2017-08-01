@@ -2,7 +2,7 @@
 
 The Interledger project is a suite of protocol definitions and reference implementations that define a standard way to connect any number of disparate payment systems together into one interconnected network: an _internet of value_. The Level One Project uses Interledger as its settlement layer so that individual instances or deployments of the Level One Project software can eventually become interconnected not just with one another, but with all other payment systems worldwide. Interledger development is spearheaded by Ripple, with support from the W3C and various other stakeholders.
 
-![Interconnectivity Animation](interconnectivity-animation.gif)
+![Interconnectivity Animation](./interconnectivity-animation.gif)
 
 _Interledger provides a standard for linking disparate payment networks to one another._
 
@@ -42,19 +42,19 @@ The two remaining principles for the Level One Project are system-wide **shared 
 
 Interledger conceptualizes a _ledger_ as a system tracking accounts and balances in a single currency. In the real world, there are systems called "ledgers" that support multiple currencies; in Interledger parlance, each supported currency in such a system would comprise a separate "ledger". Sending money from one user of a given ledger to another user of the same ledger is called a _transfer_. A payment that can be executed by a single transfer within a single ledger does not need or use Interledger.
 
-![Transfer from Sender to Receiver on the same Ledger](transfer.png)
+![Transfer from Sender to Receiver on the same Ledger](./transfer.png)
 
 ### Connectors
 
 The Interledger project assumes that no one ledger will ever serve the whole world. Aside from the problem of scaling a ledger to serve billions of members of humanity, ledgers have different intrinsic qualities that benefit different parties; different ledgers exist today in part because their customers have not just different but _mutually exclusive_ needs and preferences. Still, people would like to be able to pay each other even if they don't use the same ledger:
 
-![Sender -> Ledger -> ? -> Ledger -> Receiver](payment-problem.png)
+![Sender -> Ledger -> ? -> Ledger -> Receiver](./payment-problem.png)
 
 _Payments that cross a ledger boundary are currently hard._
 
 Rather than trying to create one ledger to rule them all, we should make payment systems **interoperable**. We do this by _connecting_ systems to each other, then bridging payments through multiple connectors using cryptographic proof.
 
-![Sender -> DFSP Ledger -> Connector -> IST Ledger -> Connector -> DFSP Ledger -> Receiver](ilp-connectors-2.png)
+![Sender -> DFSP Ledger -> Connector -> IST Ledger -> Connector -> DFSP Ledger -> Receiver](./ilp-connectors-2.png)
 
 _Connectors link ledgers to each other. In the L1P model, all DFSPs connect to a central ledger._
 
@@ -81,11 +81,11 @@ The design of Interledger intentionally copies the design of the Internet as muc
 
 | Internet Stack | ILP Stack |
 |----------------|-----------|
-| ![Application, Transport, Internetwork, Network layers](internet-arch.png) | ![Application, Transport, Interledger, Ledger layers](interledger-arch.png) |
+| ![Application, Transport, Internetwork, Network layers](./internet-arch.png) | ![Application, Transport, Interledger, Ledger layers](./interledger-arch.png) |
 
 Another way of looking at the protocol:
 
-![Interledger protocol suite "W" diagram](protocol-suite.png)
+![Interledger protocol suite "W" diagram](./protocol-suite.png)
 
 The layers of the Interledger protocol stack are as follows:
 
