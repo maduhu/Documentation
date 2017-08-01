@@ -18,9 +18,9 @@ cp Docs/CentralRules/*.png ./images
 cp Docs/LevelOneClient/scenarios/*.png ./images
 cp Docs/LevelOneClient/*.png ./images
 cp Docs/AWS/Infrastructure/*.png ./images
-cp Docs/mule/*.png ./images
-cp Docs/JMeter/media/*.jpg ./images
+cp "Docs/Interop Services and Mule"/*.png ./images
+cp Docs/test/ilp-integration/media/*.jpg ./images
 cp Docs/ILP/*.png ./images
-cp Docs/mule/Repository/*.png ./images
-cp Docs/mule/CircleCI/*.png ./images
+cp "Docs/Interop Services and Mule/Repository"/*.png ./images
+cp "Docs/Interop Services and Mule/CircleCI"/*.png ./images
 cp Docs/ELK/images/*png ./images

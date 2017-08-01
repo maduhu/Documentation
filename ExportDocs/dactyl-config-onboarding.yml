@@ -154,9 +154,6 @@ pages:
         targets:
             - all
 
-
-# local test environment
-
 # USSD
     -   name: 'USSD Simulator User Guide'
         html: USSD.html
@@ -251,14 +248,14 @@ pages:
     -   name: 'Performance Automation'
         html: PerformanceAutomation.html
         category: Testing
-        md: Docs/mule/L1P Performance Test.md
+        md: Docs/Interop Services and Mule/L1P Performance Test.md
         targets:
             - all
 
     -   name: 'Performance Tests'
         html: PerformanceTests.html
         category: Testing
-        md: Docs/mule/L1P Performance Test.md 
+        md: Docs/Interop Services and Mule/L1P Performance Test.md 
         targets:
             - all
 
@@ -314,12 +311,19 @@ pages:
             - all
 
 # Writing code
+    -   name: Setting up the development environment'
+        html: development.html
+        category: Writing code
+        md: Docs/DFSP/development.md
+        targets:
+            - all   
+
     -   name: 'Writing Code'
         html: Writing-Code.html
         category: Writing code
         md: Docs.wiki/Writing-Code.md
         targets:
-            - all
+            - all    
 
     -   name: 'Pragmatic REST Guidelines'
         html: Pragmatic-REST-Guidelines.html
@@ -338,7 +342,7 @@ pages:
     -   name: 'Creating a new Repository'
         html: NewRepository.html
         category: Writing code
-        md: Docs/mule/Repository/NewRepository.md
+        md: Docs/Interop Services and Mule/Repository/NewRepository.md
         targets:
             - all
 
@@ -349,12 +353,7 @@ pages:
         targets:
             - all
 
-    -   name: 'CircleCI'
-        html: CircleCI.html
-        category: Writing code
-        md: Docs/mule/CircleCI/CircleCI.md
-        targets:
-            - all
+   
 
     -   name: 'Code Quality Metrics'
         html: Code-Quality-Metrics.html
@@ -377,11 +376,33 @@ pages:
         targets:
             - all
 
+# Build and Deployment
+    -   name: 'CircleCI'
+        html: CircleCI.html
+        category: Build
+        md: Docs/Interop Services and Mule/CircleCI/CircleCI.md
+        targets:
+            - all
+
+    -   name: 'Accessing the npm repository'
+        html: npm_repos.html
+        category: Build
+        md: Docs/Artifactory/npm_repos.md
+        targets:
+            - all   
+
+    -   name: 'Accessing the Docker repository'
+        html: docker_repos.html
+        category: Build
+        md: Docs/Artifactory/docker_repos.md
+        targets:
+            - all        
+     
 # Debugging
     -   name: 'Logging Standards'
         html: elk.html
         category: Debugging
-        md: Docs/mule/logging-guidelines.md
+        md: Docs/Interop Services and Mule/logging-guidelines.md
         section_header: true
         targets:
             - all

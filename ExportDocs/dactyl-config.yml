@@ -93,6 +93,14 @@ pages:
             - stakeholder
             - regulator
 
+    -   name: Central Serices Overview
+        html: central-services-overview.html
+        category: Overview
+        md: Docs/central-services-overview.md
+        targets:
+            - all
+            - contributor
+
     -   name: User Discovery
         html: discovery.html
         category: Overview
@@ -100,7 +108,6 @@ pages:
         targets:
             - all
             - contributor
-
 # scenarios
     -   name: 'Scenario Descriptions'
         html: Scenarios.html
@@ -152,26 +159,26 @@ pages:
             - all
             - stakeholder
 
-    -   name: 'Interledger Components and Flow'
-        html: ILP.html
-        category: 'Level One Client'
-        md: Docs/ILP/README.md
-        targets:
-            - all
-            - stakeholder
+# -   name: 'Interledger Components and Flow'
+#     html: ILP.html
+#     category: 'Level One Client'
+#     md: Docs/ILP/README.md
+#     targets:
+#         - all
+#         - stakeholder
 
-    -   name: 'ILP Service'
-        html: ilp-service.html
-        category: 'Level One Client'
-        md: ilp-service/README.md
-        targets:
-            - all
-            - stakeholder
+# -   name: 'ILP Service'
+#     html: ilp-service.html
+#     category: 'Level One Client'
+#     md: ilp-service/README.md
+#     targets:
+#         - all
+#         - stakeholder
 
     -   name: 'Interop Services'
         html: mule.html
         category: 'Level One Client'
-        md: Docs/mule/README.md
+        md: Docs/Interop Services and Mule/README.md
         targets:
             - all
 
@@ -184,7 +191,6 @@ pages:
 
 
 #Docs/CentralDirectory
-# README.md central_directory_endpoints.md
     -   name: 'Central Directory'
         html: CentralDirectory.html
         category: 'Central Directory'
@@ -309,7 +315,7 @@ pages:
     -   name: 'Using Logging'
         html: logging.html
         category: Infrastructure
-        md: Docs/mule/logging-guidelines.md
+        md: Docs/Interop Services and Mule/logging-guidelines.md
         targets:
             - all
 
@@ -326,14 +332,14 @@ pages:
     -   name: "Mule's Docker Image"
         html: docker.html
         category: Infrastructure
-        md: Docs/mule/docker.md
+        md: Docs/Interop Services and Mule/docker.md
         targets:
             - all
 
     -   name: "Configuring High Availability Proxy"
         html: HAProxy.html
         category: Infrastructure
-        md: Docs/mule/Configuring HAProxy.md
+        md: Docs/Interop Services and Mule/Configuring HAProxy.md
         targets:
             - all
 
@@ -422,7 +428,7 @@ pages:
     -   name: 'Performance Automation'
         html: PerformanceAutomation.html
         category: Testing
-        md: Docs/mule/L1P Performance Test.md
+        md: Docs/Interop Services and Mule/L1P Performance Test.md
         targets:
             - all
 
@@ -515,6 +521,14 @@ pages:
         targets:
             - all
 
+# --- security/threat modeling
+    -   name: 'PKI Guide'
+        html: pki.html
+        category: Security
+        md: 'Docs/PKI Guide.md'
+        targets:
+            - all
+
 # -------------------- Appendix ------------------------
     -   name: 'Terminology'
         html: terminology.html
@@ -539,6 +553,7 @@ pages:
         md: Docs/ExportDocs/README.md
         targets:
             - all
+
 
 
 # -------------------- Style Checker Rules ------------------------
