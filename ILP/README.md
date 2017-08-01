@@ -42,19 +42,19 @@ The two remaining principles for the Level One Project are system-wide **shared 
 
 Interledger conceptualizes a _ledger_ as a system tracking accounts and balances in a single currency. In the real world, there are systems called "ledgers" that support multiple currencies; in Interledger parlance, each supported currency in such a system would comprise a separate "ledger". Sending money from one user of a given ledger to another user of the same ledger is called a _transfer_. A payment that can be executed by a single transfer within a single ledger does not need or use Interledger.
 
-![Transfer from Sender to Receiver on the same Ledger](transfer.svg)
+![Transfer from Sender to Receiver on the same Ledger](transfer.png)
 
 ### Connectors
 
 The Interledger project assumes that no one ledger will ever serve the whole world. Aside from the problem of scaling a ledger to serve billions of members of humanity, ledgers have different intrinsic qualities that benefit different parties; different ledgers exist today in part because their customers have not just different but _mutually exclusive_ needs and preferences. Still, people would like to be able to pay each other even if they don't use the same ledger:
 
-![Sender → Ledger → ? → Ledger → Receiver](payment-problem.svg)
+![Sender → Ledger → ? → Ledger → Receiver](payment-problem.png)
 
 _Payments that cross a ledger boundary are currently hard._
 
 Rather than trying to create one ledger to rule them all, we should make payment systems **interoperable**. We do this by _connecting_ systems to each other, then bridging payments through multiple connectors using cryptographic proof.
 
-![Sender → DFSP Ledger → Connector → IST Ledger → Connector → DFSP Ledger → Receiver](ilp-connectors-2.svg)
+![Sender → DFSP Ledger → Connector → IST Ledger → Connector → DFSP Ledger → Receiver](ilp-connectors-2.png)
 
 _Connectors link ledgers to each other. In the L1P model, all DFSPs connect to a central ledger._
 
@@ -81,11 +81,11 @@ The design of Interledger intentionally copies the design of the Internet as muc
 
 | Internet Stack | ILP Stack |
 |----------------|-----------|
-| ![Application, Transport, Internetwork, Network layers](internet-arch.svg) | ![Application, Transport, Interledger, Ledger layers](interledger-arch.svg) |
+| ![Application, Transport, Internetwork, Network layers](internet-arch.png) | ![Application, Transport, Interledger, Ledger layers](interledger-arch.png) |
 
 Another way of looking at the protocol:
 
-![Interledger protocol suite "W" diagram](protocol-suite.svg)
+![Interledger protocol suite "W" diagram](protocol-suite.png)
 
 The layers of the Interledger protocol stack are as follows:
 
@@ -135,9 +135,9 @@ The ledger layer is implemented by the unique, core ledgers of each system. In t
 
 Each Connector must know how to use the API of the ledgers to which it is connected. Rather than having a unique API for each ledger, the Level One Project's reference implementations all use a consistent API, called the [Five Bells Ledger API][]. In the case of a DFSP that has an existing ledger API, either the DFSP must run an adapter to provide a Five Bells Ledger API, or the Connector must have a plugin for using the DFSP's own ledger API.
 
-[Five Bells Ledger API]: https://github.com/interledger/rfcs/pull/125
+[Five Bells Ledger API]: https://github.com/interledger/rfcs/pull/237
 
-***TODO: Update link with the merged RFC and final name (Common Ledger vs. Five Bells Ledger)***
+***TODO: Update link with the merged RFC***
 
 
 ## Addresses and Routing
@@ -205,7 +205,7 @@ Further reading:
 
 In the Interledger layer, amounts are always represented as 64-bit unsigned integers. This provides extremely predictable precision and rounding behavior. Interledger amounts cannot be negative because you cannot transfer a negative value. (That would be the equivalent of a pull payment in a push payment system.) The amount is always defined in the context of a particular ledger, specifically, the one where the receiver's address is located. Each ledger's interface must define a translation from its internal data format to a 64-bit unsigned integer. In the [Five Bells Ledger API][], the "Get Metadata" method handles this by reporting the currency and scale of that currency.
 
-Two ledgers may choose different scales for representing the same currency, depending on their intended use case. For example, a ledger optimized for micropayments might have a "nanodollar precision" with a minimum amount of 10^-9 USD, while a traditional bank might set the limit at "millidollar precision" such that the minimum amount is 10^-3 USD ($0.001). In the nanodollar precision ledger, 2 USD would be represented as `2000000000` while in the millidollar precision ledger 2 USD would be `2000`. Interledger's 64-bit unsigned integer can fit very large numbers without losing precision. For example, a payment in the amount of the gross national product of the USA in 2015 (18.14 purchasing-parity dollars) could be represented down to the level of 10^-6 dollars ($0.000001) without rounding. In the unlikely event that a payment requires more precision than a 64-bit integer can provide, it could be divided into two Interledger payments to different ledger prefixes that represent different scales.
+Two ledgers may choose different scales for representing the same currency, depending on their intended use case. For example, a ledger optimized for micropayments might have a "nanodollar precision" with a minimum amount of 10^-9 USD, while a traditional bank might set the limit at "millidollar precision" such that the minimum amount is 10^-3 USD ($0.001). In the nanodollar precision ledger, 2 USD would be represented as `2000000000` while in the millidollar precision ledger 2 USD would be `2000`. Interledger's 64-bit unsigned integer can fit very large numbers without losing precision. For example, a payment in the amount of the gross national product of the USA in 2015 (18.14 trillion purchasing-parity dollars) could be represented down to the level of 10^-6 dollars ($0.000001) without rounding. In the unlikely event that a payment requires more precision than a 64-bit integer can provide, it could be divided into two Interledger payments to different ledger prefixes that represent different scales.
 
 In JSON data, Interledger amounts should be represented as decimal strings. Many JSON parsers assume JSON numbers have the same precision as JavaScript numbers (64-bit double-precision floating point), which cannot represent all unsigned 64-bit integers without losing precision. By representing amounts as strings, senders and receivers of JSON can serialize and deserialize the amounts using data types that can represent the full precision, or at least as much precision as is necessary for their specific purposes.
 
@@ -243,6 +243,9 @@ The components are summarized as follows:
 | [ILP Connector][]  | Holds money in the DFSP ledger and the Central Ledger, and sets the rates of exchange between them. |
 | [DFSP Ledger][]    | The reference ledger for a DFSP. Tracks customer balances and exposes the [Five Bells Ledger API][]. |
 | [Central Ledger][] | The reference ledger for a central IST. Tracks DFSP / connector balances and exposes the [Five Bells Ledger API][]. |
+
+[DFSP Ledger]: ../DFSP/README.md
+[Central Ledger]: ../CentralLedger/README.md
 
 ### Scheme Adapter
 [Scheme Adapter]: #scheme-adapter
