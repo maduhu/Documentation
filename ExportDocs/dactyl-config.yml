@@ -65,15 +65,15 @@ targets:
             ./DFSP/BulkPayment/README.md: BulkPayments.html
             ../../DFSP#default-ports: DFSP.html#default-ports
             ./DFSP: DFSP.html
-            ./ILP/ledger-adapter.md: https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md
+            ../DFSP/README.md: DFSP.html
             ./ILP: ILP.html
             ../CentralDirectory/central_directory_endpoints.md: https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md
             ./CentralDirectory: https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory
             ./CentralLedger: https://github.com/LevelOneProject/Docs/tree/master/CentralLedger
+            ../CentralLedger/README.md: https://github.com/LevelOneProject/Docs/tree/master/CentralLedger
             ./CentralRules: https://github.com/LevelOneProject/Docs/blob/master/CentralRules
             ./JMeter: https://github.com/LevelOneProject/Docs/blob/master/JMeter
             ./ansible.yml: https://github.com/LevelOneProject/Docs/blob/master/ILP/ansible.yml
-            ./ledger-adapter.md: https://github.com/LevelOneProject/Docs/blob/master/ILP/ledger-adapter.md
             ../Ports.md: https://github.com/LevelOneProject/Docs/blob/master/LevelOneClient/Ports.md
 
 
