@@ -37,7 +37,7 @@ Registration process for the new account holders is required when those are not 
 
 The process starts when the new DFSP user dials the USSD menu. The DFSP will recognize by the phone number of the user that the one is attached as an account holder. The process has 2 cases:
 
-- The user already has a user number but is not registered within the current DFSP. In this case the system will display his name and ask the user to create his new PIN. Then the system will display a confirmation message. In this case the default DFSP of the user will not be changed.
+- The user already has a user number but is not registered within the current DFSP. In this case the system will display his name and ask the user to create his new PIN. Then the system will display a confirmation message. In this case the primary DFSP of the user will not be changed.
 
 
 - The user does not have a user number. In this case DFSP will ask the user to enter his name, them will query the central directory and request a new user number to be created and finally the system will ask the user to create his new PIN.
@@ -68,13 +68,13 @@ In case the account holder which is removed left without accounts, he will see o
 
 All the account holders should be available from 'account information' page. The signatory account holders should be marked there as well.
 
-## Process for changing the default DFSP
+## Process for changing the primary DFSP
 
-Each user in the system has a default DFSP. The default DFSP is kept in the central directory and is used when somebody sends money to a user, identified by a user number, the system to determine to which DFSP the money should be send to.
+Each user in the system has a primary DFSP. The primary DFSP is kept in the central directory and is used when somebody sends money to a user, identified by a user number, the system to determine to which DFSP the money should be send to.
 
-As a security measure the default DFSP could be changed only from the default DFSP for the user.
+As a security measure the primary DFSP could be changed only from the primary DFSP for the user.
 
-The process for changing the default DFSP will start by displaying all available DFSPs that the user has accounts. The user could select a DFSP the he would like to be a default one and confirm the operation via PIN. The DFSP will update the central directory with this change.
+The process for changing the primary DFSP will start by displaying all available DFSPs that the user has accounts. The user could select a DFSP the he would like to be a primary one and confirm the operation via PIN. The DFSP will update the central directory with this change.
 
 
 ## Changed and new APIs in the Central Directory
@@ -84,7 +84,7 @@ The process for changing the default DFSP will start by displaying all available
 
 The registration process for a new DFSP should be improved. When a new DFSP is registered the following parameters should be passed:
 
-- Short DFSP Name (needed for the process for changing the default DFSP)
+- Short DFSP Name (needed for the process for changing the primary DFSP)
 - SPSP Server URL (improvement - instead of passing this URL every time when a new user is added in the central directory, it can be passed upon DFSP registration)
 
 
@@ -92,7 +92,7 @@ As a response the central directory should generate username/password for the DF
 
 ### Get user number information
 
-This API will return the name of the user, the default DFSP and the DFSPs associated with a user number.
+This API will return the name of the user, the primary DFSP and the DFSPs associated with a user number.
 Input parameters:
 
 - User Number
@@ -116,7 +116,7 @@ As a response the central directory should generate a user number and send it ba
 
 ### Add DFSP to user number
 
-Central directory should keep information about all the DFSPs that a user number is registered with, not only the default DFSP for a user number. We need this information for changing default DFSP use case.
+Central directory should keep information about all the DFSPs that a user number is registered with, not only the primary DFSP for a user number. We need this information for changing primary DFSP use case.
 
 
 There should be an option to add DFSP to a user number. Only the authenticated DFSP can send a request do be added to a user number.
@@ -131,15 +131,15 @@ As input parameter the API should expect:
 - User Number
 - DFSP name that should be removed
 
-** Note ** Central directory will not allow a default DFSP to be removed from a user number.
+** Note ** Central directory will not allow a primary DFSP to be removed from a user number.
 
 As a response there should be confirmation or an error message.
 
-### Make a DFSP the default one for a user number
+### Make a DFSP the primary one for a user number
 
-There should be an API that can make a DFSP default. Only the DFSP that is currently a default one for a user number should be able to do a change.
+There should be an API that can make a DFSP primary. Only the DFSP that is currently a primary one for a user number should be able to do a change.
 As input parameter to the API should expect:
 
 - User Number
-- DFSP name that should become the default
+- DFSP name that should become the primary
 As a response there should be confirmation or an error message.

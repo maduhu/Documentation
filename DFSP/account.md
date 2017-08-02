@@ -3,7 +3,7 @@
 -----
 
 This service contains information about relations between users and their accounts. Accounts contain information for the following things:
- - Which account is default for a given user;
+ - Which account is primary for a given user;
  - If particular user is signatory for a given account;
 Account service also manage user roles and their permissions. Each registered user has assigned role in the system and this role has predefined permissions about allowed actions.
 
@@ -45,7 +45,7 @@ For the current moment permissions are set to the roles as follow:
    * `accountNumber [string] - Account number`
    * `actorId [string] - Actor id`
    * `roleName [string] - Name of the role`
-   * `isDefault [boolean] - Is this the default user's account`
+   * `isDefault [boolean] - Is this the primary user's account`
    * `isSignatory [boolean] - Is this actor is signatory for this account`
 
 * **Success Response**
@@ -55,7 +55,7 @@ For the current moment permissions are set to the roles as follow:
        * `actorAccountId [number] - Actor account Id`
        * `actorId [string] - Actor Id`
        * `accountId [number] - Account Id`
-       * `isDefault [boolean] - Is this the default user's account`
+       * `isDefault [boolean] - Is this the primary user's account`
        * `isSignatory [boolean] - Is this actor is signatory for this account`
        * `accountNumber [string] - Account number`
        * `permissions [string array] - Array with names of permissions`
@@ -78,7 +78,7 @@ For the current moment permissions are set to the roles as follow:
    * `actorAccountId [number] - Actor account id`
    * `accountId [number] - Account id`
    * `actorId [string] - Actor id`
-   * `isDefault [boolean] - Is this the default user's account`
+   * `isDefault [boolean] - Is this the primary user's account`
    * `isSignatory [boolean] - Is this actor is signatory for this account`
 
 * **Success Response**
@@ -88,7 +88,7 @@ For the current moment permissions are set to the roles as follow:
        * `actorAccountId [number] - Actor account Id`
        * `actorId [string] - Actor Id`
        * `accountId [number] - Account Id`
-       * `isDefault [boolean] - Is this the default user's account`
+       * `isDefault [boolean] - Is this the primary user's account`
        * `isSignatory [boolean] - Is this actor is signatory for this account`
        * `accountNumber [string] - Account number`
        * `permissions [string array] - Array with names of permissions`
@@ -111,7 +111,7 @@ For the current moment permissions are set to the roles as follow:
    * `accountId [number] - Account id`
    * `actorId [string] - Actor id`
    * `accountNumber [string] - Account number`
-   * `isDefault [boolean] - Is this the default user's account`
+   * `isDefault [boolean] - Is this the primary user's account`
    * `isSignatory [boolean] - Is this actor is signatory for this account`
 
 * **Success Response**
@@ -121,7 +121,7 @@ For the current moment permissions are set to the roles as follow:
        * `actorAccountId [number] - Actor account Id`
        * `actorId [string] - Actor Id`
        * `accountId [number] - Account Id`
-       * `isDefault [boolean] - Is this the default user's account`
+       * `isDefault [boolean] - Is this the primary user's account`
        * `isSignatory [boolean] - Is this actor is signatory for this account`
        * `accountNumber [string] - Account number`
        * `permissions [string array] - Array with names of permissions`
@@ -150,7 +150,7 @@ For the current moment permissions are set to the roles as follow:
        * `actorAccountId [number] - Actor account Id`
        * `actorId [string] - Actor Id`
        * `accountId [number] - Account Id`
-       * `isDefault [boolean] - Is this the default user's account`
+       * `isDefault [boolean] - Is this the primary user's account`
        * `isSignatory [boolean] - Is this actor is signatory for this account`
        * `accountNumber [string] - Account number`
        * `permissions [string array] - Array with names of permissions`

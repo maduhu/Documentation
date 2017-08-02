@@ -12,11 +12,11 @@ See [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scena
 
 
 1. The invoice will be created in the merchant's DFSP. It will be associated with an account.
-2. After the invoice is created in the merchant's DFSP, a notification with the invoice reference will be send to the default client DFSP.
+2. After the invoice is created in the merchant's DFSP, a notification with the invoice reference will be send to the primary client DFSP.
 3. The client DFSP will stored the reference (full URL) to the merchant's invoice.
 4. The invoice reference in the client DFSP will not be associated with any client's account; thus the client can choose the account from which he is going to pay the invoice.
-5. As a consequence of the above, in case the client has accounts in more than one DFSP, he will receive the invoice notification only in his default DFSP.
-From the USSD interface he will be able to pay the invoice only from his default DFSP.
+5. As a consequence of the above, in case the client has accounts in more than one DFSP, he will receive the invoice notification only in his primary DFSP.
+From the USSD interface he will be able to pay the invoice only from his primary DFSP.
 
 
 **Note:** '**dfsp1**' is referred to as client DFSP (paying the invoice) and '**dfsp2**' as the merchant DFSP (issuing the invoice).
