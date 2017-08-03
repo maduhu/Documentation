@@ -102,7 +102,7 @@ This document proposes a redesign of the current approach of reserving quotes be
           "currency": "USD"
         }
     }'
-    'http://spsp-client-proxy/v1/quotes'
+    'http://host/scheme/adapter/v1/quotes'
   ```
 
 ***2. scheme-adapter -> dfsp-api(payee)***
