@@ -438,7 +438,7 @@ pages:
 
     -   name: 'Resilience Modeling and Anaylysis'
         html: RMA.html
-        category: Appendix
+        category: Testing
         md: Docs/test/rma.md
         targets:
             - all
@@ -454,6 +454,12 @@ pages:
         targets:
             - all
             - stakeholder
+
+    -   name: 'Quotes'
+        html: dfspquotes.html
+        md: Docs/DFSP/readme.MD
+        targets:
+            - all
 
     -   name: 'Directory'
         html: directory.html
