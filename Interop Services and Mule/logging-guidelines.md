@@ -36,7 +36,7 @@ Some examples are Transfer Id, User ID (USSD id, email, login name), AppName, an
   
 #### 5. Metrics Logging
 Logs can be used to publish metrics to metrics service.  There are 2 types of metrics that are supported.  The details about supported
-metrics are available [here](https://github.com/paymoja/interop-metrics-ui/blob/master/available-metrics.md).  The snippet below shows the systax for publishing metrics:
+metrics are available [here](https://github.com/LevelOneProject/interop-metrics-ui/blob/master/available-metrics.md).  The snippet below shows the systax for publishing metrics:
   
   1. Counter
     ```

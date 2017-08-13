@@ -87,10 +87,10 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 * /home/ec2-user/scripts/modusbox/start_mule.sh
 
 #### DFSP
-* See [DFSP deployment process](https://github.com/paymoja/Docs/tree/master/DFSP/dfspDeploymentProcess)
+* See [DFSP deployment process](https://github.com/LevelOneProject/Docs/tree/master/DFSP/dfspDeploymentProcess)
 
 #### ILP/SPSP
-* See [Ansible docs for ILP](https://github.com/paymoja/Docs/blob/master/ILP/README.md)
+* See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
 
 #### IST
 * <TO BE FILLED>

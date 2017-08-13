@@ -20,7 +20,7 @@ i.e. It is now:
 
 Our proposal is that when a new user is register we do not need to pass SPSP server url address.
 
-The required changes from Central Directory Service is described in [Manage Account Account](https://github.com/paymoja/Docs/tree/master/DFSP/ManageAcccoutHolders) document.
+The required changes from Central Directory Service is described in [Manage Account Account](https://github.com/LevelOneProject/Docs/tree/master/DFSP/ManageAcccoutHolders) document.
 
   
 ##2. When obtaining information about a payee the dfsp logic should just provide a user identifier
