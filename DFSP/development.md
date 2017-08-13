@@ -1,4 +1,4 @@
-# Setting up the Development Environement
+# Setting up the Development Environment
 
 ## Install development tools
 

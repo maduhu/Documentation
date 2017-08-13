@@ -26,7 +26,7 @@ cover_page:
 
 targets:
     -   name: all
-        display_name: Level One Project Full Documentation
+        display_name: Level One Project Comprehensive Documentation
         image_subs:
             ./interconnectivity-animation.gif: images/interconnectivity-animation.gif
         image_re_subs:
@@ -105,13 +105,6 @@ pages:
             - all
             - contributor
 
-    -   name: User Discovery
-        html: discovery.html
-        category: Overview
-        md: Docs/Discovery.md
-        targets:
-            - all
-            - contributor
 # scenarios
     -   name: 'Scenario Descriptions'
         html: Scenarios.html
@@ -203,6 +196,13 @@ pages:
         targets:
             - all
 
+    -   name: User Discovery
+        html: discovery.html
+        category: 'Central Directory'
+        md: Docs/Discovery.md
+        targets:
+            - all
+            - contributor
 
     # -   name: 'Central Directory Endpoints'
     #     html: central_directory_endpoints.html
@@ -243,7 +243,6 @@ pages:
         targets:
             - all
 
-
     -   name: 'Central Ledger API'
         html: central_ledger_API.html
         category: 'Central Ledger'
@@ -259,6 +258,7 @@ pages:
     #     targets:
     #         - all
     #         - central
+    
     -   name: 'Working with transfers'
         html: execute-transfer-guide.html
         category: 'Central Ledger'
@@ -266,6 +266,12 @@ pages:
         targets:
             - all
 
+    -   name: 'Central ledger Configuration'
+        html: central-ledger-configuration.html
+        category: 'Central Ledger'
+        md: central-ledger/README.md
+        targets:
+            - all
 
     -   name: 'Central Ledger Setup'
         html: central_ledger_Setup.html
@@ -445,7 +451,6 @@ pages:
             - stakeholder
 
 #/Docs/DFSP
-#README.md directory.md identity.md notification.md rule.md subscription.md transfer.md account.md development.md BulkPayments.md
     -   name: 'DFSP'
         html: DFSP.html
         section_header: true
@@ -511,12 +516,12 @@ pages:
         targets:
             - all
 
-    -   name: 'Setting up the Development Environment'
-        html: development.html
-        category: DFSP
-        md: Docs/DFSP/development.md
-        targets:
-            - all
+# -   name: 'Setting up the Development Environment'
+#     html: development.html
+#     category: DFSP
+#     md: Docs/DFSP/development.md
+#     targets:
+#         - all
 
     -   name: 'USSD'
         html: USSD.html

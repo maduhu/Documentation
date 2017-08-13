@@ -252,7 +252,7 @@ A custom application defined by the Level One Project that handles the planning 
 
 Further reading:
 
-- [Scheme Adapter Repository](https://github.com/LevelOneProject/interop-scheme-adapter)
+- [Scheme Adapter Repository](https://github.com/paymoja/interop-scheme-adapter)
 
 ### ILP Service
 [ILP Service]: #ilp-service
@@ -261,7 +261,7 @@ A convenience application for the Level One Project that provides a handful of I
 
 Further reading:
 
-- [ILP Service Repository](https://github.com/LevelOneProject/ilp-service)
+- [ILP Service Repository](https://github.com/paymoja/ilp-service)
 
 ### ILP Client
 [ILP Client]: #ilp-client
@@ -288,7 +288,7 @@ Further reading:
 
 ### Running the ILP Software
 
-[Ansible](https://docs.ansible.com/ansible/playbooks.html) is used for deploying the [`ilp-connector`](https://github.com/interledgerjs/ilp-connector) and the [`ilp-service`](https://github.com/LevelOneProject/ilp-service). The [Ansible Playbook](./ansible/ansible.yml) can be run with the command:
+[Ansible](https://docs.ansible.com/ansible/playbooks.html) is used for deploying the [`ilp-connector`](https://github.com/interledgerjs/ilp-connector) and the [`ilp-service`](https://github.com/paymoja/ilp-service). The [Ansible Playbook](./ansible/ansible.yml) can be run with the command:
 
 ```sh
 ansible-playbook -v --extra-vars="docker_username=<FILL ME IN> docker_password=<FILL ME IN> docker_email=<FILL ME IN>" --inventory-file=hosts-test ansible.yml

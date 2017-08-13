@@ -1,6 +1,6 @@
 See [Machines](/AWS/Infrastructure/machines.md) for current machine information
 
-__**Update**__: This environment is deprecated and as of 10th April 2017, the active environmnets are [Test](https://github.com/LevelOneProject/Docs/tree/master/AWS/Infrastructure/PI4-Test-Env) and [QA](https://github.com/LevelOneProject/Docs/tree/master/AWS/Infrastructure/PI4-QA-Env)
+__**Update**__: This environment is deprecated and as of 10th April 2017, the active environmnets are [Test](https://github.com/paymoja/Docs/tree/master/AWS/Infrastructure/PI4-Test-Env) and [QA](https://github.com/paymoja/Docs/tree/master/AWS/Infrastructure/PI4-QA-Env)
 
 ### Service Info
 

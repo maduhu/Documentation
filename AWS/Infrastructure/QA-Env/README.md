@@ -1,4 +1,6 @@
-## QA Environment - AWS EC2 Instance Information
+## [Deprecated] QA Environment - AWS EC2 Instance Information
+[This environment has been deprecated. It is no longer maintained. The Customer Demo environment is now used.]
+
 The QA environment is used for testing and demos. It is more stable than the test environment and may be a few versions older. 
 
 | Property | DFSP1 | DFSP2 |
@@ -79,10 +81,10 @@ The QA environment is used for testing and demos. It is more stable than the tes
 * /home/ec2-user/scripts/modusbox/start_mule.sh
 
 #### DFSP
-* See [DFSP deployment process](https://github.com/LevelOneProject/Docs/tree/master/DFSP/dfspDeploymentProcess)
+* See [DFSP deployment process](https://github.com/paymoja/Docs/tree/master/DFSP/dfspDeploymentProcess)
 
 #### ILP/SPSP
-* See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
+* See [Ansible docs for ILP](https://github.com/paymoja/Docs/blob/master/ILP/README.md)
 
 #### IST
 * <TO BE FILLED>

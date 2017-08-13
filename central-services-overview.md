@@ -12,7 +12,7 @@ The central directory is a series of services that allows DFSPs to register and 
 - Adding an end user
 - Retrieving an end user
 
-To view the references and available endpoints, please see the [Central Directory repository](https://github.com/LevelOneProject/central-directory).
+To view the references and available endpoints, please see the [Central Directory repository](https://github.com/paymoja/central-directory).
 
 ## Ledger
 
@@ -22,7 +22,7 @@ The central ledger is a series of services that facilitate clearing and settleme
 - Maintaining net positions for a deferred net settlement
 - Propagating scheme-level and off-transfer fees
 
-To view the references and available endpoints, please see the [Central Ledger repository](https://github.com/LevelOneProject/central-ledger).
+To view the references and available endpoints, please see the [Central Ledger repository](https://github.com/paymoja/central-ledger).
 
 ## Fraud Sharing - *in-progress*
 

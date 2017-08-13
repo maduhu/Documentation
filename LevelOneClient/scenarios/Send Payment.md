@@ -1,4 +1,4 @@
-# Send Payment
+# Send Money
 See [Scenario definition](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone) for what this scenario should accomplish.
 
 To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Level One Client Ports guide](../Ports.md), and Central Directory Ports Guide.
@@ -27,6 +27,8 @@ The first stage of any transfer is to find out what institution can accept money
     Post :user/get
     Post: user/add # Expect to change
 
+> ***OUT OF DATE STARTS HERE***
+
 ## B - Query & Quote
 The 2nd, quoting, stage of the transfer is to negotiate the transfer contract. This means agreeing on the currency, fees, time frame, exchange rate, etc. The query asks "Can the transaction go through for this person and amount". The quote sets the contract including fees, rates, etc.
 
@@ -51,7 +53,9 @@ The [SPSP Server proxy](https://github.com/LevelOneProject/interop-spsp-backend-
 [SPSP API Implemented](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/spsp/backend/v1/console/)
 
     GET: /receivers/{payee}   
-    PUT: /receivers/{payee}/payments/{uuid}   
+    PUT: /receivers/{payee}/payments/{uuid}  
+
+> ***OUT OF DATE ENDS HERE***
 
 ### DFSP
 For the DFSP the quoting APIs start in [The DFSP ledger service](./DFSP) which talk to the SPSP Client proxy.
@@ -75,9 +79,12 @@ The final portion begins with a message to send the money from the source DFSP t
     PUT: /transfers/{id}/fulfillment   
     GET: /connectors   
 
+> ***OUT OF DATE STARTS HERE***
+
 ### SPSP Client Proxy PAYMENT
     PUT:  /payments/{id} - execute a payment
     assuming a synchronous pass/fail response for the payment status
+> ***OUT OF DATE ENDS HERE***
 
 The receiving DFSP has to validate that it will accept the transfer (skipped for now) and fulfill it.
 ### DFSP
