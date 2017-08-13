@@ -86,11 +86,11 @@ The test environment is used for development and new or possibly breaking change
 * /home/ec2-user/scripts/modusbox/start_mule.sh
 
 ### DFSP
-* See [Ansible docs for DFSP](https://github.com/paymoja/Docs/tree/master/DFSP/dfspDeploymentProcess)
+* See [Ansible docs for DFSP](https://github.com/LevelOneProject/Docs/tree/master/DFSP/dfspDeploymentProcess)
 
 ### ILP/SPSP
-* See [Ansible docs for ILP](https://github.com/paymoja/Docs/blob/master/ILP/README.md)
+* See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
 
 ### Central Services
 Uses Node instead of Ansible for deployment scripts that so that these can be called by CircleCI. The code for these in each repo under a deploy directory. 
-Example: [Central director](https://github.com/paymoja/central-directory/blob/master/deploy/node/index.js)
+Example: [Central director](https://github.com/LevelOneProject/central-directory/blob/master/deploy/node/index.js)

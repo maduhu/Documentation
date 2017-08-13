@@ -4,7 +4,7 @@
 
 The default branches master and develop must be already setup in order to follow these instructions. If that is not the case go to the New Repository instructions.
 
-https://github.com/paymoja/Docs/blob/master/mule/Repository/NewRepository.md
+https://github.com/LevelOneProject/Docs/blob/master/mule/Repository/NewRepository.md
 
 ## Create circle.yml file ##
 
@@ -14,7 +14,7 @@ CircleCI uses a file called “circle.yml” in every project in order to know h
 ---
 checkout:
   pre:
-    - curl -H "Authorization:token $GITHUB_TOKEN" -H 'Accept:application/vnd.github.v3.raw' -o /tmp/interop_maven_settings.xml -L https://raw.githubusercontent.com/paymoja/automation/master/interop/interop_maven_settings.xml
+    - curl -H "Authorization:token $GITHUB_TOKEN" -H 'Accept:application/vnd.github.v3.raw' -o /tmp/interop_maven_settings.xml -L https://raw.githubusercontent.com/LevelOneProject/automation/master/interop/interop_maven_settings.xml
 dependencies:
   override:
     - "mvn dependency:resolve -s /tmp/interop_maven_settings.xml"
@@ -35,7 +35,7 @@ deployment:
       - mvn -B release:prepare -Darguments="-DskipTests" -DscmCommentPrefix="[maven-release-plugin][ci skip]" -s /tmp/interop_maven_settings.xml
       - mvn -B release:perform -Darguments="-DskipTests" -s /tmp/interop_maven_settings.xml
 
-      - git remote set-url origin https://$GITHUB_TOKEN@github.com/paymoja/interop-xxxxxxxxx.git
+      - git remote set-url origin https://$GITHUB_TOKEN@github.com/LevelOneProject/interop-xxxxxxxxx.git
       - git checkout -B develop origin/develop
       - git pull origin develop
       - git merge master

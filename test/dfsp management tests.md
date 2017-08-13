@@ -2,7 +2,7 @@
 
 DFSP's can be registered and put on hold in the central directory. Doing so enables and disables the DFPS from conducting trasfers with the central ledger.
 
-These operations are done through (restful API calls to the central directory)[https://github.com/paymoja/Docs/blob/master/CentralDirectory/central_directory_endpoints.md]
+These operations are done through (restful API calls to the central directory)[https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/central_directory_endpoints.md]
 
 ## Add DFSP 
 Registers the DFSP with the central directory. 

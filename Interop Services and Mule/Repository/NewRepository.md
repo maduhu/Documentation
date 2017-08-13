@@ -20,4 +20,4 @@ On the left side of the screen click on the submenu item named "Collaborators & 
 ### CircleCI configuration ###
 
 Follow these instructions 
-https://github.com/paymoja/Docs/blob/master/mule/CircleCI/CircleCI.md
+https://github.com/LevelOneProject/Docs/blob/master/mule/CircleCI/CircleCI.md

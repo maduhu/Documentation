@@ -6,8 +6,8 @@ This document provides the details about the performance test tools and steps re
 
 #### Related GitHub Issues
 
-* https://github.com/paymoja/Interop-Issues/issues/186
-* https://github.com/paymoja/Interop-Issues/issues/187
+* https://github.com/LevelOneProject/Interop-Issues/issues/186
+* https://github.com/LevelOneProject/Interop-Issues/issues/187
 
 #### Applications for performance test
 
@@ -22,8 +22,8 @@ A New AWS EC2 Instances will be created for the performance tests. As an Initial
 
 The List of applications/Services required for performing the performance tests can be referenced under the following link
 
-QA - https://github.com/paymoja/Docs/tree/master/AWS/Infrastructure/PI4-QA-Env
-TEST - https://github.com/paymoja/Docs/tree/master/AWS/Infrastructure/PI4-Test-Env
+QA - https://github.com/LevelOneProject/Docs/tree/master/AWS/Infrastructure/PI4-QA-Env
+TEST - https://github.com/LevelOneProject/Docs/tree/master/AWS/Infrastructure/PI4-Test-Env
 
 #### Support Applications
 
@@ -40,7 +40,7 @@ JMeter will be used to execute the End to End performance tests for all the L1P 
 
 More Details about configuring JMeter, Functional and performance test cases can be accessed on the below link
 
-https://github.com/paymoja/Docs/tree/master/JMeter
+https://github.com/LevelOneProject/Docs/tree/master/JMeter
 
 ## Test Scenarios
 
@@ -91,4 +91,4 @@ http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:9000/
 
 More Details on how the metrics dashboards are created can be accessed from the below link
 
-https://github.com/paymoja/interop-metrics-ui/blob/master/available-metrics.md
+https://github.com/LevelOneProject/interop-metrics-ui/blob/master/available-metrics.md
