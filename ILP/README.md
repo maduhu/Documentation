@@ -135,9 +135,7 @@ The ledger layer is implemented by the unique, core ledgers of each system. In t
 
 Each Connector must know how to use the API of the ledgers to which it is connected. Rather than having a unique API for each ledger, the Level One Project's reference implementations all use a consistent API, called the [Five Bells Ledger API][]. In the case of a DFSP that has an existing ledger API, either the DFSP must run an adapter to provide a Five Bells Ledger API, or the Connector must have a plugin for using the DFSP's own ledger API.
 
-[Five Bells Ledger API]: https://github.com/interledger/rfcs/pull/237
-
-***TODO: Update link with the merged RFC***
+[Five Bells Ledger API]: https://github.com/interledger/rfcs/blob/master/0012-five-bells-ledger-api/0012-five-bells-ledger-api.md
 
 
 ## Addresses and Routing
