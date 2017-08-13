@@ -11,7 +11,7 @@ even a photograph of the receiver for validation by the sender.
 1. The sender (End User) has an identifier for the receiver such as their account number, mobile number, national identity number
 or similar identifier.
 2. The sending system (DFSP) uses this identifier to discover the information required to:   
-  a. Render an appropriate UI to the sender (name of receiver, currency code of receiving account etc.)  
+  a. Show appropriate info on the phone of the sender (name of receiver, currency code of receiving account etc.)  
   b. Initiate the ILP transfer (ILP address of receiving account, amount, condition etc.)  
   c. Get a quote for the transfer.
 3. The sender confirms the transfer and initiates it via the sending DFSP.

@@ -1,5 +1,5 @@
 # Terminolgy
-"The terminolgy documents the preferred terms and definitions for the Level One Project.
+These are the preferred terms and definitions for the Level One Project.
 
 ## Details
 | Term	|	Alternative and Related Terms	|	L1P Definition

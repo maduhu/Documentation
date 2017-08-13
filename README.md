@@ -1,7 +1,7 @@
 # Level One Project Overview
 The Level One Project advocates and promotes financial inclusion for everyone. Today more than 2 billion adults do not have a bank account or access to a formal financial institution.  The Level One Project is aimed at changing this denominator by making banking accessible by everyone via a standard flip phone.  Our project is aimed at building a national digital financial solution that is open to everyone.  Specifically, any person in any location with a phone can open a back account, send money, receive money or get paid for services.  This open system will help the poorest people in the most remote locations to ensure a safe and reliable solution.  
 
-For more information on the Level One Project, see the [Level One Project site](https://leveloneproject.org/).
+For more information on the Level One Project, see the [Level One Project site](https://LevelOneProject.org/).
 
 ## Why should I contribute to the Level One Project?
 The Level One Project is an initiative by the Bill and Melinda Gates Foundation to make it easier for developing countries to provide useful digital financial services to the people who live there. To participate in the formal, global economy, everyone needs access to digital financial services so they can transact quickly and safely, across distances long and short.  
@@ -11,7 +11,7 @@ This project started with a model and prototype for a financial system that coul
 > In order to expand this service and ensure that we a level playing field for everyone we need your help to enhance this project and help to realize the vision of having one digital financial system in every country around the world.
 
 ## Getting Started
-The Level One Project in github is organized on the basis of component microservices.  As such, the team has created over twenty different repositories in github that align to the different Level One Services.  The _Docs_ repository documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repositories in the [Level One Project GitHub organization](https://github.com/LevelOneProject) each describe component-specific details including source and APIs.
+The Level One Project in github is organized on the basis of component microservices.  As such, the team has created over twenty different repositories in github that align to the different Level One Services.  The _Docs_ repository documents the overall architecture, component design, message flow, and an overview of the Level One Project (L1P) software. Individual repositories in the [Level One Project GitHub organization](https://github.com/LevelOneProject/) each describe component-specific details including source and APIs.
 
 New developers, see the [contributors guide](./contribute.md) for onboarding materials.
 
@@ -50,7 +50,7 @@ The central services are a collection of separate services that help the DFSPs p
 The aforementioned individual services can't alone describe how key scenarios work across the system. Therefore, for each of the [Level One Scenarios](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios), we provide a technical walk through.
 
 1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone),  [walkthrough](./LevelOneClient/scenarios/Send%20Payment.md)
-2. Invoices [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
+2. Buy Goods [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
 3. Bulk Payment [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#bulk-payments), [message flow](./DFSP/BulkPayment/README.md)
 
 ## System-wide Testing

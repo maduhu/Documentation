@@ -2,42 +2,39 @@
 
 Steps to perform ELK 5.X Stack Installation in AWS EC2 Instance RHEL
 
-JDK 8 Installation
+## JDK 8 Installation
 ==================
 
 > If not already installed JDK 8 must be installed to continue with the
 > ELK 5.X Setup.
 
-Install wget to download JDK 8 rpm
------------------------------------
+### Install wget to download JDK 8 rpm
+
 
 > \# yum -y install wget
 
-Download JDK 8 rpm
--------------------
+### Download JDK 8 rpm
+
 
 > wget --no-cookies --no-check-certificate --header "Cookie:
 > gpw\_e24=http%3A%2F%2Fwww.oracle.com%2F;
 > oraclelicense=accept-securebackup-cookie"
 > <http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.rpm>
 
-Check JDK 8 rpm sha256 sum
----------------------------
+### Check JDK 8 rpm sha256 sum
+
 
 > \# sha256sum jdk-8u121-linux-x64.rpm
 
-Compare JDK 8 rpm sha256 sum against
--------------------------------------
+### Compare JDK 8 rpm sha256 sum against
 
 > [https://www.oracle.com/webfolder/s/digest/**8u121**checksum.html](https://www.oracle.com/webfolder/s/digest/8u121checksum.html)
 
-Install JDK 8 rpm
-------------------
+### Install JDK 8 rpm
 
 > \# rpm -ivh jdk-8u121-linux-x64.rpm
 
-Set Java default
------------------
+### Set Java default
 
 > java –version
 >
@@ -49,11 +46,9 @@ Set Java default
 > Enter the selection number to choose which java executable should be
 > used by default.
 
-Elasticsearch Installation
-==========================
-
-Import Elasticsearch PGP Key
------------------------------
+## Elasticsearch Installation
+---------------
+### Import Elasticsearch PGP Key
 
 > \# rpm --import <https://artifacts.elastic.co/GPG-KEY-elasticsearch>
 
@@ -80,13 +75,11 @@ Create file with elasticsearch repository information
 >
 > type=rpm-md
 
-Install elasticsearch
-----------------------
+### Install elasticsearch
 
 > \# yum –y install elasticsearch
 
-Configure elasticsearch
------------------------
+### Configure elasticsearch
 
 > \# sudo vim /etc/elasticsearch/elasticsearch.yml
 >
@@ -94,8 +87,8 @@ Configure elasticsearch
 >
 > network.host: \[\_eth0\_, \_local\_\]
 
-Start/Stop/Restart elasticsearch
----------------------------------
+### Start/Stop/Restart elasticsearch
+
 
 > sudo service elasticsearch start
 >
@@ -103,18 +96,15 @@ Start/Stop/Restart elasticsearch
 >
 > sudo service elasticsearch restart
 
-Make elasticsearch more verbose by removing the “-- quite \\” flag
--------------------------------------------------------------------
+### Make elasticsearch more verbose by removing the “-- quite \\” flag
 
 > \# vi /usr/lib/system/system/elasticsearch.service
 
-Restart elasticsearch service and perform daemon reload
---------------------------------------------------------
+### Restart elasticsearch service and perform daemon reload
 
 > sudo service elasticsearch restart
 
-Check that elasticsearch is running
-------------------------------------
+### Check that elasticsearch is running
 
 > Install netcat if not already install for debugging purposes:
 >
@@ -155,16 +145,13 @@ Check that elasticsearch is running
 >
 > \# curl -X GET http://localhost:9200/
 
-Kibana Installation
-===================
+## Kibana Installation
 
-Install kibana
---------------
+### Install kibana
 
 > \# yum –y install kibana
 
-Configure Kibana
-----------------
+### Configure Kibana
 
 > \# vi /etc/kibana/kibana.yml
 >
@@ -182,8 +169,7 @@ Configure Kibana
 > ip depending on ELK stack configuration, currently entire ELK stack is
 > running on the same server.
 
-Start/Stop/Restart Kibana
---------------------------
+### Start/Stop/Restart Kibana
 
 > sudo service kibana start
 >
@@ -191,8 +177,7 @@ Start/Stop/Restart Kibana
 >
 > sudo service kibana restart
 
-Verify that you Kibana can be accessed from the browser
---------------------------------------------------------
+### Verify that you Kibana can be accessed from the browser
 
 > <http://localhost:5601/app/kibana>
 >
@@ -200,29 +185,25 @@ Verify that you Kibana can be accessed from the browser
 > ip. If no UI is available, go to NGINX reverse proxy section to access
 > Kibana.
 
-Verify Kibana status from the browser
---------------------------------------
+### Verify Kibana status from the browser
 
 > <http://localhost:5601/status>
 >
 > NOTE: If no UI installed, continue to NGINX reverse proxy installation
 > section to access Kibana from the browser.
 
-Logstash Installation
-=====================
+## Logstash Installation
 
 NOTE: Currently not installed as Beat log shippers (Filebeat and
 Metricsbeat) are directly sending logs to Elasticsearch. Logstash can be
 used to perform processing of logs. For more information, look at
 Additional Considerations section.
 
-Install Logstash
------------------
+### Install Logstash
 
 > \# yum –y install logstash
 
-Start/Stop/Restart Logstash
-----------------------------
+### Start/Stop/Restart Logstash
 
 > sudo service kibana start
 >
@@ -264,7 +245,7 @@ Start/Stop/Restart Logstash
 >
 > }
 
-**BEST PRACTICES **
+### BEST PRACTICES
 
 **-**Separate large Logstash configuration files into several smaller
 ones. Conf file path can be set to a directory. Files in directory will
@@ -273,16 +254,13 @@ alphabetical order.
 
 -Configure Filebeat to feed Logstash and Logstash to feed Elasticsearch.
 
-Filebeat Installation
-=====================
+## Filebeat Installation
 
-Install Filebeat
------------------
+### Install Filebeat
 
 > \# yum –y install filebeat
 
-Configure Filebeat
-------------------
+### Configure Filebeat
 
 vi /etc/filebeat/filebeat.yml
 
@@ -309,13 +287,11 @@ Start/Stop/Restart Filebeat
 >
 > sudo service filebeat restart
 
-Import dashboars and index
---------------------------
+### Import dashboars and index
 
 > /usr/share/filebeat/scripts/import\_dashboards
 
-Logstash vs Beats
-=================
+### Logstash vs Beats
 
 Beats are lightweight data shippers that you install as agents on your
 servers to send specific types of operational data to Elasticsearch.
@@ -338,16 +314,14 @@ data from a variety of sources.
 Among Logstash filters that can be leveraged at L1P are; anonymize,
 json.
 
-Metricbeat Installation
-=======================
+## Metricbeat Installation
 
-Install Metricbeat
--------------------
+
+### Install Metricbeat
 
 > \# yum –y install metricbeat
 
-Configure Metricbeat
---------------------
+### Configure Metricbeat
 
 vi /etc/metricbeat/metricbeat.yml
 
@@ -359,8 +333,7 @@ hosts: \["http://172.31.45.32:9200"\]
 
 NOTE: Use the eth0 ip where Elasticsearch is running.
 
-Start/Stop/Restart Metricbeat
-------------------------------
+### Start/Stop/Restart Metricbeat
 
 > sudo service metricbeat start
 >
@@ -368,26 +341,22 @@ Start/Stop/Restart Metricbeat
 >
 > sudo service metricbeat restart
 
-Import dashboars and index
---------------------------
+### Import dashboars and index
 
 > /usr/share/metricbeat/scripts/import\_dashboards
 
-NGINX Reverse Proxy Installation
+## NGINX Reverse Proxy Installation
 ================================
 
-Install NGINX
--------------
+### Install NGINX
 
 > yum -y install nginx httpd-tools
 
-Create password file for basic authentication of http users
------------------------------------------------------------
+### Create password file for basic authentication of http users
 
 htpasswd -c /etc/nginx/conf.d/kibana.htpasswd kibanaadmin
 
-Configure NGINX
----------------
+### Configure NGINX
 
 > vi /etc/nginx/conf.d/kibana.conf
 >
@@ -419,31 +388,26 @@ Configure NGINX
 >
 > }
 
-Restart NGINX
--------------
+### Restart NGINX
 
 > sudo service kibana restart
 
-Access Kibana via NGINX on your browser
----------------------------------------
+### Access Kibana via NGINX on your browser
 
 > <http://EC2_INSTANCE_URL>
 >
 > Enter username/password kibanaadmin/1lp
 
-Modify AWS EC2 Instance Security Group to open ports
-====================================================
+## Modify AWS EC2 Instance Security Group to open ports
 
-Create Two Inbound rules
-----------------------
+### Create Two Inbound rules
 
 1.  tcp for port 80 for NGINX
 
 2.  tcp for port 9200 for Elasticsearch, can ben only opened for
     Beats/Logstash servers
 
-Kibana Query
-============
+## Kibana Query
 
 <https://www.elastic.co/guide/en/kibana/current/search.html>
 
@@ -462,8 +426,7 @@ and perform a query. Make sure to set proper Time Range at
 Kibana-&gt;Discover on top right hand corner. Simply enter query and
 search.
 
-Custom L1P_Index Configuration
-==============================
+## Custom L1P_Index Configuration
 
 The custom L1P_Index is defined by the two files show below (ilp_template.json and types.json) which are part of the interop-elk GitHub repo. The L1P_Index is an elasticsearch index used as the storage data structure for the L1P specific log data. The main purpose is to capture and display L1P transaction timestamp across L1P components. 
 
@@ -882,8 +845,7 @@ types.json
 >
 >}
 
-L1P_Index population
-====================
+## L1P_Index population
 
 The L1P_Index is populated by the Logstash component of the ELK Stack. The following files (log-pipeling.txt, filebeat.yml) found at GitHub’s interop-elk repo contains a Logstash pipeline used to populate the custom L1P_Index elasticsearch index.
 
@@ -1058,8 +1020,7 @@ filebeat.yml
 
 
 
-Transaction Details Kibana Custom Visualization
-===============================================
+## Transaction Details Kibana Custom Visualization
 
 In order to access the Transaction Details Kibana custom visualization navigate to Visualize menu and look for “Transaction Details”.
 
@@ -1074,8 +1035,7 @@ The Transaction Details visualization is backed by the L1P_Index data structure.
 To create the visualization navigate to Visualize menu in Kibana, select the type of visualization, select the Index (L1P_Index), select and organize data depending on type of visualization selected and save visualization.
 
 
-Current Installation
-====================
+## Current Installation
 
 **User ELK EC2 Instance Mule EC2 Instance**
 
@@ -1083,15 +1043,13 @@ Current Installation
 >
 > Mule EC2 Instance - ec2-35-163-231-111.us-west-2.compute.amazonaws.com
 
-Proposed PROD Architecture
-==========================
+## Proposed PROD Architecture
 
 > **Elasticsearch**
 >
 > **Security**
 
-Additional Considerations
-=========================
+## Additional Considerations
 
 > Utilize Filebeat given its lightweight nature compared to Logstash.
 > Its part of the ELK stack. Use Filebeat to ship and centralize logs.

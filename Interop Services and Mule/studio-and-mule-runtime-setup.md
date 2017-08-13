@@ -5,7 +5,7 @@
 
 #### Anypoint Studio
 * [https://www.mulesoft.com/platform/studio](https://www.mulesoft.com/platform/studio)
-* Clone https://github.com/LevelOneProject/interop-spsp-clientproxy.git to local Git repository
+* Clone https://github.com/paymoja/interop-spsp-clientproxy.git to local Git repository
 * Import into Studio as a Maven-based Mule Project with pom.xml
 * Go to Run -> Run As Configurations.  Make sure interop-spsp-clientproxy project is highlighted.
 

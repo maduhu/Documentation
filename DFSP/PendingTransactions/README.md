@@ -3,7 +3,7 @@
 
 # Pending Transaction
 
-See [Scenario definition](https://github.com/LevelOneProject/Docs/wiki/L1P-Scenarios#buy-goods---pending-transactions)
+See [Scenario definition](https://github.com/paymoja/Docs/wiki/L1P-Scenarios#buy-goods---pending-transactions)
 
 
 #### Assumptions
@@ -387,12 +387,12 @@ This method will be invoked from SPSP Server and will be used to create invoice 
 
 ![](./getInvoiceDetails.png)
 
-###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ SPSP CLIENT PROXY / SPSP CLIENT ](https://github.com/paymoja/ilp-spsp-client-rest) ###
 
 
 **4.1 Get Invoice Details**
 
-Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/LevelOneProject/ilp-spsp-client-rest/blob/master/README.md#get-v1query).
+Get Invoice details will be done by using the already defined method [GET /v1/query API](https://github.com/paymoja/ilp-spsp-client-rest/blob/master/README.md#get-v1query).
 
 
 
@@ -426,12 +426,12 @@ The following changes will be introduced:
 - Add the field 'name' - this is the name of the merchant that has issued the invoice.
 
 
-###  [ SPSP SERVER ](https://github.com/LevelOneProject/ilp-spsp-server) ###
+###  [ SPSP SERVER ](https://github.com/paymoja/ilp-spsp-server) ###
 
 **4.2 Get Invoice Details**
 
 
-Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/LevelOneProject/ilp-spsp-server/blob/master/README.md#invoice).
+Get Invoice details in SPSP server will be done by using the already defined method [GET invoice](https://github.com/paymoja/ilp-spsp-server/blob/master/README.md#invoice).
 
 
 *Request:*
@@ -463,7 +463,7 @@ The following changes will be introduced:
 
 
 
-###  [ SPSP Server Backend / DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [ SPSP Server Backend / DFSP API ](https://github.com/paymoja/dfsp-api) ###
 
 **4.3 Get Invoice Details**
 
@@ -536,7 +536,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
     }
 
 
-###  [ SPSP CLIENT PROXY -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ SPSP CLIENT PROXY -> SPSP CLIENT ](https://github.com/paymoja/ilp-spsp-client-rest) ###
 
 **5.2 Invoice Payment**
 
@@ -549,7 +549,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
     --  to be filled in
 
-###  [ SPSP CLIENT -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [ SPSP CLIENT -> ILP LEDGER ADAPTER ](https://github.com/paymoja/interop-ilp-ledger) ###
 
 **5.3 Prepare Payment**
 
@@ -562,7 +562,7 @@ The following new method will be implemented in DFSP API. SPSP Server will call 
 
     --  to be filled in
 
-###  [ILP LEDGER ADAPTER -> DFSP Ledger ](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP LEDGER ADAPTER -> DFSP Ledger ](https://github.com/paymoja/dfsp-ledger) ###
 
 **5.4 Prepare Payment**
 
@@ -638,7 +638,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
+###  [ILP CONNECTOR -> CENTRAL LEDGER ](https://github.com/paymoja/central-ledger) ###
 
 **5.6 Prepare Payment**
 
@@ -651,7 +651,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP CONNECTOR -> ILP LEDGER ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [ILP CONNECTOR -> ILP LEDGER ADAPTER ](https://github.com/paymoja/interop-ilp-ledger) ###
 
 **5.7 Prepare Payment**
 
@@ -664,7 +664,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP LEDGER ADAPTER  -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP LEDGER ADAPTER  -> DFSP LEDGER ](https://github.com/paymoja/dfsp-ledger) ###
 
 **5.8 Prepare Payment**
 
@@ -733,7 +733,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
  }
 
 
-###  [ILP LEDGER ADAPTER  -> SPSP SERVER](https://github.com/LevelOneProject/ilp-spsp-server) ###
+###  [ILP LEDGER ADAPTER  -> SPSP SERVER](https://github.com/paymoja/ilp-spsp-server) ###
 
 **5.9 Prepare Payment**
 
@@ -747,7 +747,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
     --  to be filled in
 
 
-###  [SPSP SERVER -> SPSP SERVER BACKEND](https://github.com/LevelOneProject/interop-spsp-backend-services) ###
+###  [SPSP SERVER -> SPSP SERVER BACKEND](https://github.com/paymoja/interop-spsp-backend-services) ###
 
 **5.10 Execute Payment Notify**
 
@@ -760,7 +760,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [SPSP SERVER BACKEND -> DFSP API ](https://github.com/LevelOneProject/dfsp-api) ###
+###  [SPSP SERVER BACKEND -> DFSP API ](https://github.com/paymoja/dfsp-api) ###
 
 **5.11 Execute Payment Notify**
 
@@ -783,7 +783,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
     200 OK {}
 
 
-###  [SPSP SERVER -> ILP-LEDGER_ADAPTER ](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [SPSP SERVER -> ILP-LEDGER_ADAPTER ](https://github.com/paymoja/interop-ilp-ledger) ###
 
 **5.12 Execute Payment Request**
 
@@ -796,7 +796,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP-LEDGER_ADAPTER -> DFSP LEDGER](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP-LEDGER_ADAPTER -> DFSP LEDGER](https://github.com/paymoja/dfsp-ledger) ###
 
 **5.13 Execute Payment Request**
 
@@ -833,7 +833,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP-CONNECTOR -> CENTRAL LEDGER ](https://github.com/LevelOneProject/central-ledger) ###
+###  [ILP-CONNECTOR -> CENTRAL LEDGER ](https://github.com/paymoja/central-ledger) ###
 
 **5.15 Execute Payment Request**
 
@@ -846,7 +846,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP-CONNECTOR -> ILP LEDGER ADAPTER](https://github.com/LevelOneProject/interop-ilp-ledger) ###
+###  [ILP-CONNECTOR -> ILP LEDGER ADAPTER](https://github.com/paymoja/interop-ilp-ledger) ###
 
 **5.16 Execute Payment Request**
 
@@ -859,7 +859,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     --  to be filled in
 
-###  [ILP LEDGER ADAPTER -> DFSP LEDGER ](https://github.com/LevelOneProject/dfsp-ledger) ###
+###  [ILP LEDGER ADAPTER -> DFSP LEDGER ](https://github.com/paymoja/dfsp-ledger) ###
 
 **5.17 Execute Payment Request**
 
@@ -882,7 +882,7 @@ PUT http://dfsp-ledger/ledger/transfers/{uuid}
 
     "oCKAIIYvEbZPFojkJML-W6Xl60qEY-NWz10fHN4X5-Yv-s8k"
 
-###  [ILP LEDGER ADAPTER -> SPSP CLIENT ](https://github.com/LevelOneProject/ilp-spsp-client-rest) ###
+###  [ILP LEDGER ADAPTER -> SPSP CLIENT ](https://github.com/paymoja/ilp-spsp-client-rest) ###
 
 **5.18 Execute Payment Notification**
 

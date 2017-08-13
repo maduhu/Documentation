@@ -67,7 +67,7 @@ Security/Threat Model for L1P Reference Implementation is [here](https://www.dro
 
 ## Resilience
 
-Resilience model for L1P Reference Implementation is [here](https://www.dropbox.com/home/Level%20One%20OSS%20Team%20Share/Discussion%20Docs/Non%20Functional%20Requirements?preview=rmaworkbook+with+Fixes.xlsx)
+Resilience model for L1P Reference Implementation is [here](https://github.com/LevelOneProject/Docs/blob/master/test/RMA.md)
 
 ## Performance
 
