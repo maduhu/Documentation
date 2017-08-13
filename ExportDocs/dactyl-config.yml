@@ -444,7 +444,7 @@ pages:
 
     -   name: 'Resilience Modeling and Anaylysis'
         html: RMA.html
-        category: Appendix
+        category: Testing
         md: Docs/test/rma.md
         targets:
             - all
