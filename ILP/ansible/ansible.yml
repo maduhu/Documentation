@@ -137,10 +137,6 @@
             "targetPrefix": "",
             "connectorLedger": "{{ ILP_CENTRAL_LEDGER_PREFIX }}",
             "connectorAccount": "{{ ILP_CENTRAL_LEDGER_PREFIX }}{{ peer_name }}"
-          }, {
-            "targetPrefix": "test.dev.{{ inventory_hostname }}.",
-            "connectorLedger": "{{ ILP_LEDGER_PREFIX }}",
-            "connectorAccount": "{{ ILP_LEDGER_PREFIX }}bob"
           }]
         CONNECTOR_ROUTE_BROADCAST_ENABLED: 0
         CONNECTOR_PEERS: "{{ILP_CONNECTOR_PEERS}}"
