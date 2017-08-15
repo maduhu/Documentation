@@ -11,7 +11,7 @@ Signatory account holders will have full rights over the account and can do push
 Non-signatory account will have the option to check the balance, check mini statement and sell goods.
 
 
-## Process for Adding an Account Holder
+## Adding an Account Holder
 
 Adding an account holder can be done only by another signatory account holder.
 
@@ -21,7 +21,7 @@ When a new account holder is added to an account the identification of the user 
 
 - The new account holder does not have a user number. In this case DFSP will ask the user to enter the new account holder phone number and ask whether the new account holder will be a signatory or a non-signatory. The new account holder should go through a registration process.
 
-- The new account holder does have an existing user number, but in not registered within the DFSP. In this case DFSP verifies that the user number exists in the central directory and gets the name from there. DFSP will ask the user to enter the new account holder phone number and ask whether the new account holder will be a signatory or a non-signatory. The new account holder should go through the registration process
+- The new account holder does have an existing user number, but is not registered within the DFSP. In this case DFSP verifies that the user number exists in the central directory and gets the name from there. DFSP will ask the user to enter the new account holder phone number and ask whether the new account holder will be a signatory or a non-signatory. The new account holder should go through the registration process
 
 - The new account holder does have an existing number and is registered within the DFSP. In this case the system will ask whether the new account holder will be a signatory or a non-signatory. The system will add the new account holder and his primary account will not be changed.
 
@@ -31,7 +31,7 @@ The following diagram shows the process business flow.
 ![](./AddAccountHolder.jpg)
 
 
-## Registration process for new account holder
+## Registering a new account holder
 
 Registration process for the new account holders is required when those are not registered within the DFSP in which the user is added as an account holder.
 
@@ -50,7 +50,7 @@ The business diagram of the process can be seen below:
 
 
 
-## Process for removing an account holder
+## Removing an account holder
 
 An account holder can be removed as such only by a signatory account holder for the same account.
 Removing an account holder will just remove the link between the account and the user and will not change the account itself (e.g. will not close it).
@@ -64,11 +64,11 @@ In case that the account holder is removed from an account that is a primary for
 
 In case the account holder which is removed left without accounts, he will see only the menu 'manage accounts' and will be able to create own account.
 
-## Process for viewing the account holders
+## Viewing account holders
 
 All the account holders should be available from 'account information' page. The signatory account holders should be marked there as well.
 
-## Process for changing the primary DFSP
+## Changing the primary DFSP
 
 Each user in the system has a primary DFSP. The primary DFSP is kept in the central directory and is used when somebody sends money to a user, identified by a user number, the system to determine to which DFSP the money should be send to.
 

@@ -5,7 +5,7 @@ This service contains methods related to fees, limits and other rules.
 ## rule.condition.check
 Check for limits/fraud and return applicable tier (local) fee
 	* parameters
-	    * tranferType - type of transfer (push, pending, bulk, etc.)
+	    * transferType - type of transfer (push, pending, bulk, and so on)
 	    * destinationURL - recipient URL
 	    * sourceURL - sender URL
 	    * sourceAmount |

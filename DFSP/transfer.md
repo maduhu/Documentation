@@ -2,27 +2,27 @@
 
 -----
 
-This service contains information about transfers, invoices and invoice notifications. It is used to hold the following data: 
- - Invoices when they are created by merchants;
- - Invoice notifications when they are sent from merchant's DFSP to the client's DFSP;
- - Invoice types;
- - Invoice statuses;
- - Invoice payments;
- 
-Invoice types can be one of the following: 
- * Standard - Standard invoices;
- * Pending - Not assigned one-time invoice;
- * Product - Not assigned multy-payer invoice;
- * CashOut - Cash out invoices;
+This service contains information about transfers, invoices and invoice notifications. It is used to hold the following data:
+ - Invoices when they are created by merchants
+ - Invoice notifications when they are sent from merchant's DFSP to the client's DFSP
+ - Invoice types
+ - Invoice statuses
+ - Invoice payments
 
-Invoice statuses are as follow: 
- * executed - Invoice has been executed by customer;
- * approved - Invoice has been approved by customer;
- * pending - Invoice is pending;
- * rejected - Invoice has been rejected by customer;
- * cancelled - Invoice has been cancelled by merchant;
+Invoice types can be one of the following:
+ * Standard - Standard invoices
+ * Pending - Not assigned one-time invoice
+ * Product - Not assigned multy-payer invoice
+ * CashOut - Cash out invoices
 
-## Transfer service has exposed the following **private** API calls in two spaces - `[bulk]` and `[transfer]`: ##
+Invoice statuses are:
+ * executed - Invoice has been executed by customer
+ * approved - Invoice has been approved by customer
+ * pending - Invoice is pending
+ * rejected - Invoice has been rejected by customer
+ * cancelled - Invoice has been cancelled by merchant
+
+Transfer service exposes the following **private** API calls in two spaces - `[bulk]` and `[transfer]`:
 
 ### Add batch ###
 
@@ -98,7 +98,7 @@ Invoice statuses are as follow:
        * `fileName [string] - Batch file name`
        * `originalFileName [string] - Batch original file name`
        * `validatedAt [date] - Batch validation date`
-       
+
 
 ### Fetch batch ###
 
@@ -120,7 +120,7 @@ Invoice statuses are as follow:
    * `fromDate [date] - From date`
    * `toDate [date] - To date`
 
-### Note: `'fromDate'` and `'toDate'` are related to the creation date of the batch. They are not related to the `'startDate'` and `'expirationDate'` of the batch.
+** Note: **`'fromDate'` and `'toDate'` are related to the creation date of the batch. They are not related to the `'startDate'` and `'expirationDate'` of the batch.
 
 * **Success Response**
 
@@ -201,7 +201,7 @@ Invoice statuses are as follow:
   * **Code:** 200 <br />
     **Content**
        * `queued [number] - Count of the payments added in the queue`
-       
+
 
 ### Batch ready ###
 
@@ -296,7 +296,7 @@ Invoice statuses are as follow:
        * `key [number] - Status key`
        * `name [string] - Status name`
        * `description [string] - Status description`
-       
+
 
 ### Add payments ###
 
@@ -316,9 +316,7 @@ Invoice statuses are as follow:
    * `payments [json] - json containing list with payments`
    * `batchId [number] - Batch id`
 
-## Note ##
-
-`payments` should have the following fields icluded:
+`payments` should have the following fields included:
  - `sequenceNumber [number] - Sequence number`
  - `identifier [string] - User's identifier`
  - `firstName [string] - User's first name`
@@ -351,9 +349,8 @@ Invoice statuses are as follow:
    * `actorId [string] - Actor id`
    * `payments [json] - json containing list with payments`
 
-## Note ##
 
-`payments` should have the following fields icluded:
+`payments` should have the following fields included:
  - `paymentId [number] - Payment id`
  - `batchId [number] - Batch id`
  - `sequenceNumber [number] - Sequence number`
@@ -484,7 +481,7 @@ Invoice statuses are as follow:
        * `info [string] - Payment info`
        * `createdAt [date] - Payment's created at date`
        * `updatedAt [date] - Payment's updated at date`
-      
+
 
 ### Pre-process payment ###
 
@@ -593,7 +590,7 @@ Invoice statuses are as follow:
        * `key [number] - Payment status key`
        * `name [string] - Payment status name`
        * `description [string] - Payment status description`
-       
+
 
 ### Add invoice notification ###
 
@@ -641,7 +638,7 @@ Invoice statuses are as follow:
   **Required**
 
    * `invoiceUrl [string] - Invoice URL`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -670,7 +667,7 @@ Invoice statuses are as follow:
 
    * `invoiceNotificationId [number] - Invoice notification id`
    * `invoiceNotificationStatusId [number] - Invoice notification status id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -698,7 +695,7 @@ Invoice statuses are as follow:
   **Required**
 
    * `invoiceNotificationId [number] - Invoice notification id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -726,7 +723,7 @@ Invoice statuses are as follow:
 
    * `identifier [string] - Identifier`
    * `status [string] - Invoice notification id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -753,7 +750,7 @@ Invoice statuses are as follow:
   **Required**
 
    * `invoiceNotificationId [number] - Invoice notification id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -779,7 +776,7 @@ Invoice statuses are as follow:
   **Required**
 
    * `invoiceNotificationId [number] - Invoice notification id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -813,7 +810,7 @@ Invoice statuses are as follow:
    * `identifier [string] - Client identifier`
    * `invoiceType [string] - Invoice type`
    * `invoiceInfo [string] - Invoice info`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -846,7 +843,7 @@ Invoice statuses are as follow:
   **Required**
 
    * `invoiceId [number] - Invoice id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -880,7 +877,7 @@ Invoice statuses are as follow:
 
    * `invoiceId [number] - Invoice id`
    * `invoiceStatusId [number] - Invoice status id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -914,7 +911,7 @@ Invoice statuses are as follow:
 
    * `invoiceId [number] - Invoice id`
    * `identifier [string] - Identifier`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -950,7 +947,7 @@ Invoice statuses are as follow:
    * `account [string] - Account`
    * `status [string array] - Array with invoice statuses`
    * `invoiceType [string array] - Array with invoice types`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -983,7 +980,7 @@ Invoice statuses are as follow:
   **Optional**
 
    * `invoiceId [number] - Invoice id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -1016,7 +1013,7 @@ Invoice statuses are as follow:
   **Optional**
 
    * `invoiceId [number] - Invoice id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -1050,7 +1047,7 @@ Invoice statuses are as follow:
 
    * `invoiceId [number] - Invoice id`
    * `identifier [string] - Identifier`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -1059,7 +1056,7 @@ Invoice statuses are as follow:
        * `invoiceId [number] - Invoice id`
        * `identifier [string] - Identifier`
        * `createdAt [date] - Created at date`
-       
+
 
 ### Invoice payer fetch ###
 
@@ -1077,7 +1074,7 @@ Invoice statuses are as follow:
 
    * `invoiceId [number] - Invoice id`
    * `paid [boolean] - Paid`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -1103,7 +1100,7 @@ Invoice statuses are as follow:
   **Optional**
 
    * `invoicePayerId [number] - Invoice payer id`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -1134,7 +1131,7 @@ Invoice statuses are as follow:
    * `currency [string] - Currency code`
    * `fee [number] - Fee amount`
    * `memo [string] - Transaction memo`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />

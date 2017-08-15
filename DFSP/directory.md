@@ -1,6 +1,6 @@
 # Directory service API
 
-The directory service is used to for lookup services, like finding URLs, obtaining lists of districts, towns, participants, etc.
+The directory service is used for lookup services: For example, finding URLs, obtaining lists of districts, towns, participants, and so on.
 
 1. **directory.item.fetch** - returns item lists for things like currencies, countries, districts, towns, etc.
 1. **directory.participant.fetch** - returns list of DFSPs, merchants, NGOs and other types of participants

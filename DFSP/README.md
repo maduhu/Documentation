@@ -1,6 +1,6 @@
 # Overview
 
-## Contents:
+## Contents
 
 - [Component Diagram](#component-diagram)
 - [Flow Diagrams](#flow-diagrams)
@@ -8,7 +8,7 @@
 - [Development Environment Setup](#development-environment-setup)
 
 
-## DFSP microservices
+## DFSP Microservices
 
 DFSP functionality includes the following services:
 
@@ -41,7 +41,7 @@ DFSP functionality includes the following services:
 
 ## Default Ports
 
-Each service has some default ports in the development environment. Below you can find these defaults for each project. For latest machine DNS names, check the [machines list](https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md).
+Each service has default ports in the development environment. Below you can find these defaults for each project. For latest machine DNS names, check the [machines list](https://github.com/LevelOneProject/Docs/blob/master/AWS/Infrastructure/machines.md).
 
 | project                                                                       | debug console    |  httpserver port | API
 | ---------------                                                               | ------------     | ---------------  | -----------

@@ -24,23 +24,27 @@ _Interledger provides a standard for linking disparate payment networks to one a
 
 ## Why Interledger
 
-Short answer: Interledger's features and capabilities closely align with the Level One Project's principles, and Interledger is the most advanced standard for interconnectivity at this time.
+### The Right Technology
 
-Long answer: The Bill & Melinda Gates Foundation has observed the trends, problems, and opportunities in developing countries in the world and developed principles to guide the direction of a financial system that can benefit the most people:
+Interledger's features and capabilities closely align with the Level One Project's principles, and Interledger is the most advanced standard for interconnectivity at this time.
 
-- **A push payment model** with immediate funds transfer and same-day settlement. Interledger is compatible with a push payment model and can enable settement as fast as a few seconds, depending on the limitations of the transacting parties.
-- **Open-loop interoperability** between providers. Interledger is intended to be an open standard that _anyone_ can build on, enabling innovation and interoperability without the usual boundaries
-- Adherence to well-defined and adopted **international standards**. Interledger is being developed by a trans-national community with open standards, in collaboration with the W3C and other standards organizations.
-- Meeting or **exceeding the convenience, cost, and utility of cash**. Interledger's open standards, incredibly fast digital settlement, and open connectivity add up to a system that can be far cheaper, faster, and more convenient than cash for a wider range of transaction values.
+### For the Right Context
 
-The two remaining principles for the Level One Project are system-wide **shared fraud and security protection** and **identity and know-your-customer (KYC) requirements**. Interledger does not have specific provisions for either one of these, but it does not preclude participants from building systems that enforce such restrictions. In fact, Interledger has been designed on the assumption that providers of different types and in different contexts must have different restrictions and needs for fraud, security, and identity requirements. The Level One Project is spearheading one of the first sets of fraud detection and information sharing to be built into an Interledger compatible system.
+The Bill & Melinda Gates Foundation has observed the trends, problems, and opportunities in developing countries in the world and developed principles to guide the direction of a financial system that can benefit the most people:
+
+- A _push payment model_ with immediate funds transfer and same-day settlement. Interledger is compatible with a push payment model and can enable settlement within seconds, depending on the limitations of the transacting parties.
+- _Open-loop interoperability_ between providers. Interledger is intended to be an open standard that _anyone_ can build on, enabling innovation and interoperability without the usual boundaries
+- Adherence to well-defined and adopted _international standards_. Interledger is being developed by a trans-national community with open standards, in collaboration with the W3C and other standards organizations.
+- Meeting or _exceeding the convenience, cost, and utility of cash_. Interledger's open standards, incredibly fast digital settlement, and open connectivity add up to a system that can be far cheaper, faster, and more convenient than cash for a wider range of transaction values.
+
+The two remaining principles for the Level One Project are system-wide _shared fraud and security protection_ and _identity and know-your-customer (KYC) requirements_. Interledger does not have specific provisions for either one of these, but it does not preclude participants from building systems that enforce such restrictions. In fact, Interledger has been designed on the assumption that providers of different types and in different contexts must have different restrictions and needs for fraud, security, and identity requirements. The Level One Project is spearheading one of the first sets of fraud detection and information sharing to be built into an Interledger compatible system.
 
 
 ## Core Concepts
 
 ### Ledgers
 
-Interledger conceptualizes a _ledger_ as a system tracking accounts and balances in a single currency. In the real world, there are systems called "ledgers" that support multiple currencies; in Interledger parlance, each supported currency in such a system would comprise a separate "ledger". Sending money from one user of a given ledger to another user of the same ledger is called a _transfer_. A payment that can be executed by a single transfer within a single ledger does not need or use Interledger.
+Interledger conceptualizes a _ledger_ as a system tracking accounts and balances in a single currency. In the real world, there are systems called "ledgers" that support multiple currencies; in Interledger parlance, each supported currency in such a system would comprise a separate "ledger". The act of sending money from one user of a given ledger to another user of the same ledger is called a _transfer_. A payment that can be executed by a single transfer within a single ledger does not need or use Interledger.
 
 ![Transfer from Sender to Receiver on the same Ledger](./transfer.png)
 
@@ -52,23 +56,23 @@ The Interledger project assumes that no one ledger will ever serve the whole wor
 
 _Payments that cross a ledger boundary are currently hard._
 
-Rather than trying to create one ledger to rule them all, we should make payment systems **interoperable**. We do this by _connecting_ systems to each other, then bridging payments through multiple connectors using cryptographic proof.
+Rather than trying to create one ledger to rule them all, we should make payment systems _interoperable_. We do this by _connecting_ systems to each other, then bridging payments through multiple connectors using _[Cryptographic Proof](#cryptographic-proof)_.
 
 ![Sender -> DFSP Ledger -> Connector -> IST Ledger -> Connector -> DFSP Ledger -> Receiver](./ilp-connectors-2.png)
 
 _Connectors link ledgers to each other. In the L1P model, all DFSPs connect to a central ledger._
 
-The _Connector_ is one of the core pieces of ILP software. Each connector is linked to two or more ledgers where it holds a balance, and it facilitates payments by receiving money in one ledger and paying out money in another ledger. Within a single Level One deployment, we expect that each Digital Financial Services Provider (DFSP) runs a connector pairing their home ledger to the central IST ledger, and all the ledgers are denominated in the same currency. In the greater inter-ledger world, a Connector could link two DFSP directly, and the ledgers could be denominated in any pair of currencies; the connector sets the rate of exchange between each ledger's native currency.
+The _Connector_ is one of the core pieces of ILP software. Each connector is linked to two or more ledgers where it holds a balance, and it facilitates payments by receiving money in one ledger and paying out money in another ledger. Within a single Level One deployment, we expect that each Digital Financial Services Provider (DFSP) runs a connector pairing their home ledger to the central IST ledger, and all the ledgers are denominated in the same currency. In the greater inter-ledger world, a Connector could link two DFSPs directly, and the ledgers could be denominated in any pair of currencies; the connector sets the rate of exchange between each ledger's native currency.
 
 ### Cryptographic Proof
 
-In traditional payments, each intermediary needs to be trustworthy. The more intermediaries, the higher the risk of a transaction failing partway through. Interledger solves this problem with the financial equivalent of a [two-phase commit](https://en.wikipedia.org/wiki/Two-phase_commit_protocol). Each transfer in the payment is locked by a _condition_ value and unlocked by a _fulfillment_ value that hashes to the condition. With interledger, each party only needs to trust the ledger or intermediary immediately adjacent in the chain, regardless of how long many transfers and intermediaries are involved.
+In traditional payments, each intermediary must be trustworthy. The more intermediaries, the higher the risk of a transaction failing partway through. Interledger solves this problem with the financial equivalent of a [two-phase commit](https://en.wikipedia.org/wiki/Two-phase_commit_protocol). Each transfer in the payment is locked by a _condition_ value and unlocked by a _fulfillment_ value that hashes to the condition. With interledger, each party only needs to trust the ledger or intermediary immediately adjacent in the chain, regardless of how long many transfers and intermediaries are involved.
 
 To provide the least risk for users, ledgers should provide conditional hold functionality, such that a cryptographic fulfillment automatically executes a prepared transfer. The Level One Project's example ledgers all implement such systems. Interledger has some other requirements for optimal operation, including authenticated best-effort messaging between users of a ledger. For details of ledger requirements and recommendations, see [IL-RFC-17: Ledger Requirements](https://github.com/interledger/rfcs/blob/master/0017-ledger-requirements/0017-ledger-requirements.md).
 
 ### Forward Holds, Backwards Execution
 
-The typical execution pattern of an Interledger transfer is forward holds (starting with the transfer from originator) followed by backwards execution (starting with the transfer to the beneficiary). First comes a payment planning step wherein the originator asks the beneficiary for a unique cryptographic condition to which the beneficiary knows the answer. (In the Level One Project, the DFSPs provide this functionality on behalf of their customers.) The originator starts by preparing a conditional transfer to an intermediary's account in the sending DFSP's ledger. This intermediary is a _Connector_. In the Level One Project model, each DFSP runs a Connector service that links the DFSP's ledger to a central IST ledger. The Connector chooses a route and prepares a conditional transfer in a different ledger, to either another intermediary Connector or the final beneficiary. That Connector does the same, until the transfer to the beneficiary is prepared in this manner. All the transfers share the same cryptographic condition, which only the beneficiary can fulfill.
+The typical execution pattern of an Interledger transfer is forward holds (starting with the transfer from originator) followed by backwards execution (starting with the transfer to the beneficiary). First comes a payment planning step wherein the originator asks the beneficiary for a unique cryptographic condition to which the beneficiary knows the answer. (In the Level One Project, the DFSPs provide this functionality on behalf of their customers.) The originator starts by preparing a conditional transfer to an intermediary's account in the sending DFSP's ledger. This intermediary is a _Connector_. In the Level One Project model, each DFSP runs a Connector service that links the DFSP's ledger to a central Interoperability Service for Transfer (IST) ledger. The Connector chooses a route and prepares a conditional transfer in a different ledger, to either another intermediary Connector or the final beneficiary. That Connector does the same, until the transfer to the beneficiary is prepared in this manner. All the transfers share the same cryptographic condition, which only the beneficiary can fulfill.
 
 The beneficiary (or, in the Level One Project case, the beneficiary's DFSP) notices that the incoming transfer with a known cryptographic condition has been prepared in the beneficiary's preferred DFSP ledger. The beneficiary executes this transfer by revealing the cryptographic fulfillment to the DFSP ledger; at this point the beneficiary has gotten paid. The last connector sees the fulfillment in the execution notification, then uses the same fulfillment to execute the previous transfer in the chain. This continues until the first transfer executes, debiting the originator.
 
@@ -99,12 +103,12 @@ The layers of the Interledger protocol stack are as follows:
 
 ### Application Layer
 
-The Application Layer coordinates and prepares overall payments. User-facing applications implement protocols from this layer to prepare payments with one another. At this layer, the two endpoints of a payment communicate directly to one another. In the Level One Project, the [Scheme Adapter][] implements a custom a application layer protocol using IPR as the Transport layer. In the L1P's custom protocol, the two DFSP's communicate directly via HTTPS to plan a payment before preparing it.
+The Application Layer coordinates and prepares overall payments. User-facing applications implement protocols from this layer to prepare payments with one another. At this layer, the two endpoints of a payment communicate directly with one another. In the Level One Project, the [Scheme Adapter][] implements a custom application layer protocol using Interledger Payment Request (IPR) format as the Transport layer. In the L1P's custom protocol, the two DFSP's communicate directly using HTTPS to plan a payment before preparing it.
 
 
 ### Transport Layer
 
-The Transport Layer defines how payments are identified and how to generate the cryptographic conditions for the transfers in the payment. The Level One Project uses the Interledger Payment Request (IPR) format. For the data included in this layer, the Level One Project uses the format defined by the Interledger Pre-Shared Key (PSK) specification, which resembles HTTP headers, although L1P does not use the PSK protocol itself. L1P does not encrypt the data.
+The Transport Layer defines how payments are identified and how to generate the cryptographic conditions for the transfers in the payment. The Level One Project uses the IPR format. For the data included in this layer, the Level One Project uses the format defined by the Interledger Pre-Shared Key (PSK) specification, which resembles HTTP headers, although L1P does not use the PSK protocol itself. L1P does not encrypt the data.
 
 Key pieces of data that are defined in this level are:
 
@@ -115,16 +119,16 @@ Key pieces of data that are defined in this level are:
 
 **Note:** Unlike the OSI model, the Interledger stack does not have a hard distinction between the "Application" and "Transport" layers; any application layer protocol is closely fixed to a particular transport layer protocol. The main point of the distinction is to make it possible to implement client libraries for transport layer functionality that can be used as generic building blocks for writing application-layer protocols.
 
-Further reading:
+#### More information
 
 - [IL-RFC-11: Interledger Payment Request](https://github.com/interledger/rfcs/blob/master/0011-interledger-payment-request/0011-interledger-payment-request.md): The IPR specification
 - [IL-RFC-16: Pre-Shared Key](https://github.com/interledger/rfcs/blob/master/0016-pre-shared-key/0016-pre-shared-key.md): The PSK specification, which includes the data format recommended for use with IPR
 
 ### Interledger Layer
 
-There are two closely-related protocols in the Interledger layer: the Interledger Protocol (ILP) and the Interledger Quoting Protocol (ILQP). Connectors communicate to each other in these protocols, using ILQP to quote payments and ILP to prepare payments. (The execution happens individually for each transfer at the ledger layer.)
+There are two closely-related protocols in the Interledger layer: the Interledger Protocol (ILP) and the Interledger Quoting Protocol (ILQP). Connectors communicate with each other in these protocols, using ILQP to quote payments and ILP to prepare payments. (The execution happens individually for each transfer at the ledger layer.)
 
-Further reading:
+#### More information
 
 - [IL-RFC-3: Interledger Protocol](https://github.com/interledger/rfcs/blob/master/0003-interledger-protocol/0003-interledger-protocol.md)
 - [IL-RFC-8: Interledger Quoting Protocol](https://github.com/interledger/rfcs/tree/master/0008-interledger-quoting-protocol)
@@ -140,7 +144,7 @@ Each Connector must know how to use the API of the ledgers to which it is connec
 
 ## Addresses and Routing
 
-Within the Interledger Protocol (ILP) layer, connectors route payments according to their internal routing tables. The destination of a given ILP payment is determined by its ILP Address, a hierarchical string of alphanumeric identifiers analogous to an IP address. For example, all payments to addresses starting with `private.l1p.ZZZ.dfsp1.` are routed to the connector operated by DFSP 1.
+Within the Interledger Protocol (ILP) layer, connectors route payments according to their internal routing tables. The destination of a given ILP payment is determined by its _ILP Address_, a hierarchical string of alphanumeric identifiers analogous to an IP address. For example, all payments to addresses starting with `private.l1p.ZZZ.dfsp1.` are routed to the connector operated by DFSP 1.
 
 Currently, Level One Project participants are not meant to be reachable by the general public, so they use the `private.` prefix.
 
@@ -157,18 +161,20 @@ Each DFSP needs a unique address prefix. The following guidelines establish
 2. A country or location prefix. In most cases, this can be an [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) code. The code `ZZZ` represents demo instances. If there is any doubt, the operator of the IST chooses which code to use.
 3. A unique identifier for the DFSP. The DFSP should suggest a code, and the operator of the IST should confirm that the code is not already in use by another DFSP in the same instance (that is, with the same country/location prefix). Valid characters for the DFSP's segment identifier are alphabetic (A-Z, upper or lower case, case sensitive), digits 0-9, underscore (`_`), tilde (`~`), and dash (`-`). The DFSP identifier should be kept short since the entire address has to fit in 1023 characters, including any sub-account addressing or invoicing information; a good DFSP identifier should be about 20 characters or less.
 
-Example address prefix for "DFSP 1" in a test instance: `private.l1p.ZZZ.dfsp1.`
+#### Example address prefix for "DFSP 1" in a test instance
+ `private.l1p.ZZZ.dfsp1.`
 
-The address of a customer account should be the DFSP's prefix and the customer's account number. (It's fine to have additional dot-separated segments after the account number to indicate more information about the purpose or destination of a payment.)
+The address of a customer account should be the DFSP's prefix and the customer's account number. (It's acceptable to have additional dot-separated segments after the account number to indicate more information about the purpose or destination of a payment.)
 
-Example customer account address for a "medical benefits" sub-account: `private.l1p.ZZZ.dfsp1.849702568.medical`
+#### Example customer account address for a "medical benefits" sub-account
+`private.l1p.ZZZ.dfsp1.849702568.medical`
 
 
 ## Data Formats
 
 Interledger standards are defined using Abstract Syntax Notation One (ASN.1) as defined in ITU X.680 and encoded with Octet Encoding Rules (OER) as defined in ITU X.696. By relying on ASN.1 we can take advantage of highly sophisticated tooling which allows us to verify the integrity of our specifications and the correctness of our implementations. By encoding with OER we ensure that parsers are very simple to write, wire formats are compact and encoding/decoding performance is excellent.
 
-Further reading:
+## More information
 
 - [ASN1 Introduction](http://www.oss.com/asn1/resources/asn1-made-simple/introduction.html)
 - [OER Overview](http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf).
@@ -177,7 +183,7 @@ Further reading:
 
 ### PSK Data Format
 
-The "PSK Data Format" is a data structure closely resembling [HTTP headers](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2), defined for use with the Pre-Shared Key Interledger protocol. The same data format is used in the reference implementation of the IPR transport layer and in the Level One Project, because it provides some convenient properties. For example, it provides a public headers section so that all connectors in the middle of a payment can
+The _PSK Data Format_ is a data structure closely resembling [HTTP headers](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2), defined for use with the PSK Interledger protocol. The same data format is used in the reference implementation of the IPR transport layer and in the Level One Project, because it provides some convenient properties. For example, it provides a public headers section so that all connectors in the middle of a payment can
 
 ### ILP Packet
 
@@ -187,7 +193,7 @@ The ILP Packet is a binary data structure that should be attached to transfers (
 - A 64-bit unsigned integer amount, with the scale and currency defined by the ledger where the amount is to be delivered
 - An arbitrary, opaque, variable-length binary data field
 
-Further reading:
+#### More information
 
 - [ILP Packet Definition](https://github.com/interledger/rfcs/blob/master/0003-interledger-protocol/0003-interledger-protocol.md#ilp-payment-packet-format)
 
@@ -195,13 +201,13 @@ Further reading:
 
 The ILP Error Format is a binary data structure that Interledger components use to indicate a problem with executing a payment in the Interledger layer. The error format includes an error code, which is inspired by HTTP status codes, where the prefix specifies a broad category of causes and the number specifies the exact error that occurred. To distinguish Interledger error codes from HTTP status codes, Interledger errors use a letter prefix instead of a number. For example, temporary interledger errors use the prefix "T"—this is similar to HTTP status codes in the 500 range.
 
-Further reading:
+#### More information
 
 - [ILP Error Format](https://github.com/interledger/rfcs/blob/master/0003-interledger-protocol/0003-interledger-protocol.md#ilp-error-format)
 
 ### Amounts
 
-In the Interledger layer, amounts are always represented as 64-bit unsigned integers. This provides extremely predictable precision and rounding behavior. Interledger amounts cannot be negative because you cannot transfer a negative value. (That would be the equivalent of a pull payment in a push payment system.) The amount is always defined in the context of a particular ledger, specifically, the one where the receiver's address is located. Each ledger's interface must define a translation from its internal data format to a 64-bit unsigned integer. In the [Five Bells Ledger API][], the "Get Metadata" method handles this by reporting the currency and scale of that currency.
+In the Interledger layer, amounts are always represented as 64-bit unsigned integers. This provides extremely predictable precision and rounding behavior. Interledger amounts cannot be negative because you cannot transfer a negative value. (That would be the equivalent of a pull payment in a push payment system.) The amount is always defined in the context of a particular ledger, specifically, the one where the receiver's address is located. Each ledger's interface must define a translation from its internal data format to a 64-bit unsigned integer. In the [Five Bells Ledger API][], the **Get Metadata** method handles this by reporting the currency and scale of that currency.
 
 Two ledgers may choose different scales for representing the same currency, depending on their intended use case. For example, a ledger optimized for micropayments might have a "nanodollar precision" with a minimum amount of 10^-9 USD, while a traditional bank might set the limit at "millidollar precision" such that the minimum amount is 10^-3 USD ($0.001). In the nanodollar precision ledger, 2 USD would be represented as `2000000000` while in the millidollar precision ledger 2 USD would be `2000`. Interledger's 64-bit unsigned integer can fit very large numbers without losing precision. For example, a payment in the amount of the gross national product of the USA in 2015 (18.14 trillion purchasing-parity dollars) could be represented down to the level of 10^-6 dollars ($0.000001) without rounding. In the unlikely event that a payment requires more precision than a 64-bit integer can provide, it could be divided into two Interledger payments to different ledger prefixes that represent different scales.
 
@@ -216,22 +222,23 @@ Interledger guarantees that the receiver gets paid or the sender gets their mone
 
 In the case of a Level One Project instance, some more specific modifications are possible to further mitigate risk. These are possible because the Level One Project design involves a trusted central ledger, and each DFSP has control over its ledger _and_ connector. These optimizations are, in short:
 
-- **Receiver Wait & Pay** — The receiving DFSP tries to fulfill the transfer on the central ledger before preparing the transfer to the final receiver.
-- **Sender Check-before-Rollback** — The sending DFSP checks the outcome of the transfer on the central ledger shortly after that transfer expires. The sending DFSP sets the timeout of the transfer in its own ledger such that it can execute the transfer (including possible retries) after seeing the outcome on the central ledger.
+- _Receiver Wait & Pay_ — The receiving DFSP tries to fulfill the transfer on the central ledger before preparing the transfer to the final receiver.
+- _Sender Check-before-Rollback_ — The sending DFSP checks the outcome of the transfer on the central ledger shortly after that transfer expires. The sending DFSP sets the timeout of the transfer in its own ledger such that it can execute the transfer (including possible retries) after seeing the outcome on the central ledger.
     - Or the sender checks the result on the central ledger before expiring a transfer in the sending DFSP's ledger. If the transfer succeeded on the central ledger, the sender executes the transfer on the sender's DFSP ledger even if that means the transfer in the sending DFSP's ledger executes at or slightly past its expiration time.
 
 
 ## How to Troubleshoot ILP Payment Issues
 
-- Consult the logs
-- See which transfers executed and which transfer(s) failed
+- Consult the logs.
+- See which transfers executed and which transfer oe transfers failed.
 
 
 ## Software Components
 
+Components appear and are described in the following diagram and table.
+
 ![Software block diagram](./block-diagram.png)
 
-The components are summarized as follows:
 
 | Component Name     | Summary                                                 |
 |:-------------------|:--------------------------------------------------------|
@@ -250,16 +257,16 @@ The components are summarized as follows:
 
 A custom application defined by the Level One Project that handles the planning of payments on an end-to-end basis. Part of the DFSP software.
 
-Further reading:
+#### More information
 
 - [Scheme Adapter Repository](https://github.com/LevelOneProject/interop-scheme-adapter)
 
 ### ILP Service
 [ILP Service]: #ilp-service
 
-A convenience application for the Level One Project that provides a handful of ILP-related functions through a RESTful(-ish) API. Functionality includes getting quotes, creating Interledger Payment Request objects (which include the cryptographic conditions), and emitting notifications when the connector detects that ILP-compatible transfers have been prepared.
+A convenience application for the Level One Project that provides a handful of ILP-related functions through a RESTful(-ish) API. Functionality includes getting quotes, creating Interledger Payment Request objects (which include the cryptographic conditions), and issuing notifications when the connector detects that ILP-compatible transfers have been prepared.
 
-Further reading:
+#### More information
 
 - [ILP Service Repository](https://github.com/LevelOneProject/ilp-service)
 
@@ -268,7 +275,7 @@ Further reading:
 
 This is a standard library used by the ILP Service and the ILP Connector. It handles things like validating and verifying [Crypto-Conditions][]. It interfaces with the ILP Connector using the Interledger Protocol and the Interledger Quoting Protocol. It also interfaces with the reference DFSP ledgers and central IST ledger using the [Five Bells Ledger API][], and can be extended with plugins for other ledger interfaces.
 
-Further reading:
+#### More information
 
 - [ILP Client Repository](https://github.com/interledger/js-ilp)
 - [Five Bells Ledger Plugin Repository](https://github.com/interledger/js-ilp-plugin-bells)
@@ -276,13 +283,13 @@ Further reading:
 ### ILP Connector
 [ILP Connector]: #ilp-connector
 
-The ILP Connector is a piece of software that connects one DFSP's Ledger to another ledger. For now, a DFSP's connector always connects the DFSP to the Central Ledger. In the future, it is possible that ILP Connectors could connect two DFSP ledgers directly, and there could even be a competitive marketplace of ILP Connectors between pairs of ledgers.
+The ILP Connector connects one DFSP's Ledger to another ledger. For now, a DFSP's connector always connects the DFSP to the Central Ledger. In the future, it is possible that ILP Connectors could connect two DFSP ledgers directly, and there could even be a competitive marketplace of ILP Connectors between pairs of ledgers.
 
 The ILP Connector has accounts holding money with the ILP Ledger Adapters of each of the two ledgers it connects. (It can also connect directly to ledgers that implement ILP natively.) The connector defines the exchange rates between balances on the two ledgers.
 
 The Level One Project uses the Interledger project's reference implementation for a connector.
 
-Further reading:
+#### More information
 
 - [ILP Connector Repository](https://github.com/interledger/five-bells-connector)
 
@@ -296,12 +303,14 @@ ansible-playbook -v --extra-vars="docker_username=<FILL ME IN> docker_password=<
 
 This command should be run from the [ansible](./ansible) directory in this repository.
 
-Ansible will use the SSH keys found in your normal SSH directory to log in to the servers.
+Ansible uses the SSH keys found in your normal SSH directory to log in to the servers.
 
 The Docker credentials are those used for the private registry (modusbox-level1-docker.jfrog.io).
 
 The Inventory File should either be the [hosts-test](./ansible/hosts-test) or [hosts-qa](./ansible/hosts-qa) depending on whether you want to deploy the components to the L1P Test or QA environment.
 
 ### Execution Flow
+
+Execution flow is shown in the following diagram.
 
 ![Execution Flow Diagram](./flow-diagram.png)
