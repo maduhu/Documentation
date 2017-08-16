@@ -38,7 +38,6 @@
     become: true
     pip:
       name: "docker-py"
-    become: true
 
   - name: Login to Docker repository
     become: true
@@ -54,7 +53,7 @@
     become: true
     docker_container:
       name: ilp-service
-      image: "modusbox-level1-docker.jfrog.io/ilp-service:v2.1.3"
+      image: "modusbox-level1-docker.jfrog.io/ilp-service:v2.1.4"
       state: started
       pull: yes
       recreate: yes
