@@ -2,7 +2,7 @@
 These are the preferred terms and definitions for the Level One Project.
 
 ## Details
-| Term	|	Alternative and Related Terms	|	L1P Definition
+| Term	|	Alternative and Related Terms	|	Paymoja Definition
 |	---------------------------------	|	------------------------------------	|	------------------------------------
 |	Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
 |	Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in the different FSPs. 
@@ -162,7 +162,7 @@ Supply Chain Solutions                                                   Service
 |	Risk Management	|	Fraud  Management	|	The practices that enterprises do to understand, detect, prevent, and manage various types of risks. Risk management occurs at providers, at payments systems and schemes, at processors, and at many merchants or payments acceptors.
 |	Risk-based  Approach	|		|	A regulatory and/or business management approach that creates different levels of obligation based on the risk of the underlying transaction or customer.
 |	Rollback	|		|	The process of reversing a completed transfer.
-|	RTGS 	|	OSS L1P	|	 Real time gross settlement
+|	RTGS 	|	 	|	 Real time gross settlement
 |	Rules	|		|	The private operating rules of a payments scheme, which bind the direct participants (either providers, in an open-loop system, or end users, in a closed-loop system).
 |	Saving and Investing	|		|	Keeping funds for future needs and financial return
 |	Savings Products	|		|	An account at either a bank or non-bank provider, which stores funds with the design of helping end users save money.
