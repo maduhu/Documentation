@@ -8,7 +8,7 @@ Download and install VS Code from [Download Visual Studio Code](https://code.vis
 
 ### Install Node.js platform
 
-Download and install lastest stabile version of Node.js from [Node.js downloads](https://nodejs.org/en/download/).
+Download and install lastest stable version of Node.js from [Node.js downloads](https://nodejs.org/en/download/).
 Check the version by typing `node -v` in the console. It should be at least 4.5.0.
 
 ### Update npm package manager
@@ -17,7 +17,7 @@ Node comes with npm installed. Update to the lastest version with the command `n
 
 ### Install git
 
-Install git from the appropriate place for your OS.
+Install git as appropriate place for your operating system.
 
 ## Clone the project
 

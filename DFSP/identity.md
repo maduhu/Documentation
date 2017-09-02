@@ -2,8 +2,8 @@
 
 -----
 
-Identity Service is used for managing identity related data, like sessions, images, PINs, etc. This service contains information about all the available actions and
-wich roles can perform them.
+Identity Service is used for managing identity related data, such as sessions, images, PINs, and so on. This service contains information about all the available actions and
+the roles that can perform them.
 
 Roles can be one of the following:
 
@@ -38,7 +38,7 @@ Actions are defined as follow:
  * rule.rule.edit - Rule edit
  * ledger.account.fetch - Fetch accounts
 
-## Identity service has exposed the following **private** API calls: ##
+Identity service has exposed the **private** API calls in the following sections:
 
 ### Login action ###
 
@@ -124,7 +124,7 @@ Actions are defined as follow:
 
    * `actorId [string] - Actor id`
    * `sessionId [string] - Generated session id`
-  
+
 
 * **Success Response**
 
@@ -150,7 +150,7 @@ Actions are defined as follow:
    * `username [string] - Username`
    * `actorId [string] - Actor id`
    * `type [string] - Type: password/ussd`
-  
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -161,4 +161,3 @@ Actions are defined as follow:
             - `actorId [string] - Actor id`
             - `type [string] - Type: password/ussd`
        * `roles [json] - json containing all assigned roles for this actorId`
-         

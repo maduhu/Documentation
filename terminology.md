@@ -1,20 +1,20 @@
-# Terminolgy
-These are the preferred terms and definitions for the Level One Project.
+# Terminology
+These are the preferred terms and definitions for Paymoja.
 
 ## Details
 | Term	|	Alternative and Related Terms	|	Paymoja Definition
 |	---------------------------------	|	------------------------------------	|	------------------------------------
 |	Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
-|	Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in the different FSPs. 
+|	Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in FSPs.
 |	Account Number	|	Account ID	|	 A unique number representing an account. There can be multiple accounts for each end user.
 |	Active User	|		|	A term used by many providers in describing how many of their account holders are frequent users of their service.
 |	Addressing	|	Directories,  Aliasing	|	The use of necessary information (account number, phone number, etc.) for a paying user to direct payment to a receiving user.
-|	Agent	|	Agent till, Agent outlet	|	An entity authorized by the provider to handle various functions such as customer enrollment, cash-in and cash-out using an agent till
+|	Agent	|	Agent till, Agent outlet	|	An entity authorized by the provider to handle various functions such as customer enrollment, cash-in and cash-out using an agent till.
 |	Agent Outlet	|	Access point	|	A physical location that carries one or more agent tills, enabling it to perform enrollment, cash-in and cash-out transactions for customers on behalf of one or more providers.  National law defines whether an agent outlet may remain exclusive to one provider. Agent outlets may have other businesses and support functions.
 |	Agent Till	|	Registered agent	|	An agent till is a provider-issued registered “line”, either a special SIM card or a POS machine, used to perform enrollment, cash-in and cash-out transactions for clients. National law dictates which financial service providers can issue agent tills.
-|	Aggregator	|	Merchant  Aggregator	|	A specialized form of a merchant services provider, who typically handles payments transactions for a large number of small merchants. Scheme rules often specify what aggregators are allowed to do.
+|	Aggregator	|	Merchant  Aggregator	|	A specialized form of a merchant services provider who typically handles payments transactions for a large number of small merchants. Scheme rules often specify what aggregators are allowed to do.
 |	Anti Money Laundering	|	AML; also "Combating the Financing of Terrorism", or CFT	|	Initiatives to detect and stop the use of financial systems to disguise use of funds criminally obtained.
-|	Application Program Interface	|		|	A software program that makes it possible for application programs to interact with each other and share data.
+|	Application Program Interface	|	API	|	A software program that makes it possible for application programs to interact with each other and share data.
 |	Arbitration	|		|	The use of an arbitrator, rather than courts, to resolve disputes.
 |	Authentication	|	Verification,  Validation	|	The process of ensuring that a person or a transaction is valid for the process (account opening, transaction initiation, etc.) being peformed.
 |	Authorization	|		|	A process used during a "pull" payment (such as a card payment), when the payee requests (through their provider) confirmation from the payer's bank that the transaction is good.
@@ -27,14 +27,13 @@ These are the preferred terms and definitions for the Level One Project.
 |	Bilateral Netting 	|		|	 An arrangement between two parties to net their bilateral obligations. The obligations covered by the arrangement may arise from financial contracts, transfers or both.
 |	Bill Payment	|	C2B, Utility payments, school payments	|	Making a payment for a recurring service, either in person ("face to face") or remotely.
 |	Biometric  Authentication	|		|	The use of a physical characteristic of a person (fingerprint, IRIS, etc.) to authenticate that person.
-|	Biometric  Authentication	|		|	The use of a physical characteristic of a person (fingerprint, IRIS, etc.) to authenticate that person.
-|	Blacklist	|		|	A list or register of entities (registered users) that are being denied/blocked from a particular privilege, service, mobility, access or recognition. Entities on the list will NOT be accepted, approved and/or recognized. It is the practice of identifying entities that are denied, unrecognized, or ostracized. Where entities are registered users (or user accounts, if granularity allows) and services are informational (e.g. balance check), transactional (e.g. debit/credit) payments services or lifecycle (e.g. registration, closure) services. 
+|	Blacklist	|		|	A list or register of entities (registered users) that are being denied/blocked from a particular privilege, service, mobility, access or recognition. Entities on the list will NOT be accepted, approved and/or recognized. It is the practice of identifying entities that are denied, unrecognized, or ostracized. Where entities are registered users (or user accounts, if granularity allows) and services are informational (e.g. balance check), transactional (e.g. debit/credit) payments services or lifecycle (e.g. registration, closure) services.
 |	Blockchain	|	Digital currency, cryptocurrency, distributed ledger technology	|	The technology underlying bitcoin and other cryptocurrencies—a shared digital ledger, or a continually updated list of all transactions.
 |	Borrowing	|		|	Borrowing money to finance a short term or long term need
 |	Bulk Payer  	|		|	 An organization (or rarely, an individual), that needs to pay to many users at once.
 |	Bulk Payments	|	G2C, B2C , G2P, social transfers	|	Making and receiving payments from a government to a consumer: benefits, cash transfers, salaries, pensions, etc.
-|	Bulk Payments Services	|		|	A service which allows a government agency or an enterprise to make payments to a large number of payees - typically consumers but can be businesses as well.
-|	Bulk upload service	|		|	A service allowing the import of multiple transactions per session, most often via a bulk data transfer file which is used to initiate payments. Example: salary payment file. 
+|	Bulk Payments Services	|		|	A service that allows a government agency or an enterprise to make payments to a large number of payees - typically consumers but can be businesses as well.
+|	Bulk upload service	|		|	A service enabling the import of multiple transactions per session, most often via a bulk data transfer file which is used to initiate payments. Example: salary payment file.
 |	Bundling	|	Packaging, Tying	|	A business model in which a provider which groups a collection of services into one product which an end user agrees to buy or use.
 |	Business	|		|	Entity such as a public limited or limited company or corporation that uses mobile money as a service, e.g. taking bill payments, making bill payments and disbursing salaries
 |	Cash Management	|	Agent Liquidity Management	|	Management of cash balances at an agent.
@@ -43,11 +42,11 @@ These are the preferred terms and definitions for the Level One Project.
 |	Chip Card	|	EMV Chip Card, Contactless Chip Card	|	A chip card contains a computer chip: it may be either contactless or contact (requires insertion into terminal). Global standards for chip cards are set by EMV.
 |	CICO 	|		|	 Cash In Cash Out
 |	Clearing 	|		|	 The process of transmitting, reconciling, and, in some cases, confirming transactions prior to settlement, potentially including the netting of transactions and the establishment of final positions for settlement. Sometimes this term is also used (imprecisely) to cover settlement. For the clearing of futures and options, this term also refers to the daily balancing of profits and losses and the daily calculation of collateral requirements.
-|	Clearing House	|		|	A central location or central processing mechanism through which financial institutions agree to exchange payment instructions                                                                                      or other financial obligations (e.g. securities). The institutions settle for items exchanged at a designated time                                                                                                                  based on the rules and procedures of the clearinghouse. In some cases, the clearinghouse may assume significant counterparty,                                                                              financial, or risk management responsibilities for the clearing system.
+|	Clearing House	|		|	A central location or central processing mechanism through which financial institutions agree to exchange payment instructions or other financial obligations (e.g. securities). The institutions settle for items exchanged at a designated time based on the rules and procedures of the clearinghouse. In some cases, the clearinghouse may assume significant counterparty, financial, or risk management responsibilities for the clearing system.
 |	Closed-Loop	|		|	A payment system used by a single provider, or a very tightly constrained group of providers.
 |	Combatting Terrorist Financing	|	CFT (Counter Financing of Terrorism)	|	Initiatives to detect and stop the use of financial systems to transfer funds to terrorist organizations or people.
 |	Commission	|		|	An incentive payment made, typically to an agent or other intermediary who acts on behalf of a DFS provider. Provides an incentive for agent.
-|	Commit	|		|	Commit means that the electronic funds that were earlier reserved are now moved to the final state of the financial transaction. The financial transaction is completed. The electronic funds are no longer locked for usage. 
+|	Commit	|		|	Commit means that the electronic funds that were earlier reserved are now moved to the final state of the financial transaction. The financial transaction is completed. The electronic funds are no longer locked for usage.
 |	Counterparty	|	Payee, payer, borrower, lender	|	The other side of a payment or credit transaction. A payee is the counterparty to a payer, and vice-versa.
 |	Coupon	|		|	A token that entitles the holder to a discount or that may be exchanged for goods or services
 |	Credit History	|	Credit bureaus, credit files	|	A set of records kept for an end user reflecting their use of credit, including borrowing and repayment.
@@ -65,15 +64,14 @@ These are the preferred terms and definitions for the Level One Project.
 |	Digital Payment	|	Mobile Payment, Electronic Funds Transfer	|	A broad term including any payment which is executed electronically. Includes payments which are initiated by mobile phone or computer. Card payments in some circumstances are considered to be digital payments. The term "mobile payment" is equally broad, and includes a wide variety of transaction types which in some way use a mobile phone.
 |	Dispute Resolution	|		|	A process specified by a provider or by the rules of a payment scheme to resolve issues between end users and providers, or between an end user and its counter party.
 |	Domestic  Remittance	|	P2P; Remote Domestic Transfer of Value	|	Making and receiving payments to another person in the same country.
-|	"Electronic Invoicing, ERP, Digital Accounting
-Supply Chain Solutions                                                   Services, Business Intelligence"	|		|	Services which support merchant or business functions relating to DFS services.
+|	Electronic Invoicing, ERP, Digital Accounting,  Supply Chain Solutions  Services, Business Intelligence|		|	Services that support merchant or business functions relating to DFS services.
 |	eMoney	|	eFloat, Float, Mobile Money, Electronic Money, Prepaid Cards	|	A record of funds or value available to a consumer stored on a payment device such as chip, prepaid cards, mobile phones or on computer systems as a non-traditional account with a banking or non-banking entity.
 |	eMoney Accounts and Transaction Services	|	Digital Wallet, Mobile Wallet, Mobile Money Account	|	A transaction account held at a non-bank. The value in such an account is refrred to as eMoney.
 |	eMoney Issuer	|	Issuer, Provider	|	A provider (bank or non-bank) who deposits eMoney into an account they establish for an end user. eMoney can be created when the provider receives cash ("cash-in") from the end user (typically at an agent location) or when the provider receives a digital payment from another provider.
 |	Encryption	|	Decryption	|	The process of encoding a message so that it can be read only by the sender and the intended recipient.
 |	End User	|	Consumer, Customer, Merchant, Biller	|	The customer of a digital financial services provider: the customer may be a consumer, a merchant, a government, or another form of enterprise.
 |	Escrow	|	Funds Isolation, Funds Safeguarding, Custodian Account, Trust Account.	|	A means of holding funds for the benefit of another party. eMoney Issuers are usually required by law to hold the value of end users' eMoney accounts at a bank, typically in a Trust Account. This accomplishes the goals of funds isolation and funds safeguarding.
-|	External Account	|		|	An account hosted outside the FSP, regularly accessible by an external provider interface API. 
+|	External Account	|		|	An account hosted outside the FSP, regularly accessible by an external provider interface API.
 |	FATF	|		|	The Financial Action Task Force is an intergovernmental organization to combat money laundering and to act on terrorism financing.
 |	Feature Phone	|		|	A mobile telephone without significant computational capabilities.
 |	Fees	|		|	The payments assessed by a provider to their end user. This may either be a fixed fee, a percent-of-value fee, or a mixture. A Merchant Discount Fee is a fee charged by a Merchant Services Provider to a merchant for payments acceptance. Payments systems or schemes, as well as processors, also charge fees to their customer (typically the provider.)
@@ -96,7 +94,7 @@ Supply Chain Solutions                                                   Service
 |	Interoperability settlement bank 	|		|	Entity that facilitates the exchange of funds between the FSPs. The settlement bank is one of the main entities involved in any inter-FSP transactions.
 |	Investment  Products	|		|	A variety of products which allow end users to put funds into investments other than a savings account.
 |	Irrevocable	|	Non-Repudiation	|	A transaction that cannot be "called back" by the payer; an irrevocable payment, once received by a payee, cannot be taken back by the payer.
-|	IST 	|		|	 Interoperability service for transfer
+|	Interoperability service for transfer	| IST	|	 Inter system trunk that allows for routing of payments.
 |	Know Your Customer	|	KYC, Agent and Customer Due Diligence, Tiered KYC, Zero Tier	|	The process of identifying a new customer at the time of account opening, in compliance with law and regulation. The identification requirements may be lower for low value accounts ("Tiered KYC"). The term is also used in connection with regulatory requirements for a provider to understand, on an ongoing basis, who their customer is and how they are using their account.
 |	L1P Bulk Payment Facilitator  	|		|	 An organization that processes L1P compliant payments and resulting reports on behalf of Bulk Payers.
 |	Liability	|	Agent Liability, Issuer Liability, Acquirer Liability	|	A legal obligation of one party to another; required by either national law, payment scheme rules, or specific agreements by providers. Some scheme rules transfer liabilities for a transaction from one provider to another under certain conditions.
@@ -197,5 +195,5 @@ Supply Chain Solutions                                                   Service
 |	USSD	|		|	A communication technology that is used to send text between a mobile phone and an application program in the network.
 |	Voucher	|		|	A token that entitles the holder to a discount or that may be exchanged for goods or services.
 |	Wallet	|		|	Repository of funds for an account.
-|	Whitelist	|		|	A list or register of entities (registered users) that are being provided a particular privilege, service, mobility, access or recognition, especially those that were initially blacklisted. Entities on the list will be accepted, approved and/or recognized. Whitelisting is the reverse of blacklisting, the practice of identifying entities that are denied, unrecognized, or ostracized. Where entities are registered users (or user accounts, if granularity allows) and services are informational (e.g. balance check), transactional (e.g. debit/credit) payments services or lifecycle (e.g. registration, closure) services. 
+|	Whitelist	|		|	A list or register of entities (registered users) that are being provided a particular privilege, service, mobility, access or recognition, especially those that were initially blacklisted. Entities on the list will be accepted, approved and/or recognized. Whitelisting is the reverse of blacklisting, the practice of identifying entities that are denied, unrecognized, or ostracized. Where entities are registered users (or user accounts, if granularity allows) and services are informational (e.g. balance check), transactional (e.g. debit/credit) payments services or lifecycle (e.g. registration, closure) services.
 |	'x'-initiated	|		|	Used when referring to the side that initiated a transaction, e.g. agent-initiated cash-out vs. user-initiated cash-out"

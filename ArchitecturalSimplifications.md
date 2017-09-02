@@ -172,4 +172,8 @@ As a body of the request the dfsp-api passes the object returned from call the s
 
 **Changes Required by: Softwaregroup, ModusBox, Ripple, Dwolla**
 
+<<<<<<< HEAD
 I believe there should be a centralized point of configuration somewhere within the core of the paymoja project. It should know about where the different internal services reside and respectively be able to dynamically build different kind of internal and external URLs. 
+=======
+I believe there should be a centralized point of configuration somewhere within the core of the L1P project. It should know about where the different internal services reside and respectively be able to dynamically build different kind of internal and external URLs. 
+>>>>>>> 592b070e292a7a150ad3a6a1b7cc4f00ee2aa7da

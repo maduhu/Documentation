@@ -3,29 +3,29 @@
 -----
 
 This service contains information about relations between users and their accounts. Accounts contain information for the following things:
- - Which account is primary for a given user;
- - If particular user is signatory for a given account;
-Account service also manage user roles and their permissions. Each registered user has assigned role in the system and this role has predefined permissions about allowed actions.
+ - Which account is primary for a given user
+ - If particular user is signatory for a given account,
+account service can manage user roles and their permissions. Each registered user has assigned role in the system and this role has predefined permissions about allowed actions.
 
-Roles can be one of the following: 
+Roles can be one of the following:
  * Customer
  * Merchant
  * Agent
 
-Permissions are as follow: 
- * p2p - User is able to send peer to peer transfers;
- * cashIn - User is able to cash in;
- * cashOut - User is able to cash out;
- * invoice - User is able to issue an invoice / Sell goods;
- * ministatement - User is able to check ministatement menu;
- * balanceCheck - User is able to check his balance; 
+Permissions are as follow:
+ * p2p - User is able to send peer to peer transfers
+ * cashIn - User is able to cash in
+ * cashOut - User is able to cash out
+ * invoice - User is able to issue an invoice / Sell goods
+ * ministatement - User is able to check mini-statement menu
+ * balanceCheck - User is able to check his balance
 
 For the current moment permissions are set to the roles as follow:
- - Agent: p2p, ministatement, balanceCheck, cashIn, cashOut;
- - Customer: p2p, ministatement, balanceCheck; 
- - Merchant: p2p, ministatement, balanceCheck, invoice;
+ - Agent: p2p, ministatement, balanceCheck, cashIn, cashOut
+ - Customer: p2p, ministatement, balanceCheck
+ - Merchant: p2p, ministatement, balanceCheck, invoice
 
-## Account service has exposed the following **private** API calls: ##
+Account service exposes the following **private** API calls:
 
 ### Add actor to a given account ###
 

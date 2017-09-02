@@ -1,0 +1,7 @@
+[dfsps]
+dfsp1 ansible_host="ec2-34-231-88-223.compute-1.amazonaws.com" ansible_user="ubuntu" peer_name="dfsp2"
+dfsp2 ansible_host="ec2-34-194-186-111.compute-1.amazonaws.com" ansible_user="ubuntu" peer_name="dfsp1"
+
+[dfsps:vars]
+ist_url="http://ec2-34-206-201-170.compute-1.amazonaws.com:3002"
+l1p_env="test"
