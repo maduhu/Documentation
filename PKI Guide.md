@@ -14,8 +14,8 @@ CFSSL is a tool developed by CloudFlare. It’s both a command line tool and an 
 ***
 
 ### Background
-Secure Channels enable confidentiality and integrity of data across network connections.  In the context of the L1P,  a secure channel can be made possible by the implementation of service transport security via TLS to protect data in-transit and enable mutual authentication.  The centralization of trust in a TLS implementation is provided through a Public Key Infrastructure (PKI).  Note:  While the Central KMS may serve as a PKI as the Central Services evolve, an existing internal or hosted PKI can provide the management and distribution of certificates for service endpoints.
-TLS helps mitigate a number of identified threats discovered during the L1P Threat Modeling exercises:
+Secure Channels enable confidentiality and integrity of data across network connections.  In the context of the Paymoja,  a secure channel can be made possible by the implementation of service transport security via TLS to protect data in-transit and enable mutual authentication.  The centralization of trust in a TLS implementation is provided through a Public Key Infrastructure (PKI).  Note:  While the Central KMS may serve as a PKI as the Central Services evolve, an existing internal or hosted PKI can provide the management and distribution of certificates for service endpoints.
+TLS helps mitigate a number of identified threats discovered during the Paymoja Threat Modeling exercises:
 * **Tampering**: Network traffic sniffing and or manipulation across DFSP, Pathfinder and Central Services
 * **Spoofing**:
     1. Rogue DFSP pretends to be another DFSP at central directory
@@ -32,7 +32,7 @@ TLS helps mitigate a number of identified threats discovered during the L1P Thre
     3. Credential Exposure by Central Services Employee
 
 ### Rationale
-The implementation of TLS is a deployment-specific consideration as the standards, configurations and reliance on a PKI are best defined by the implementor.  The L1P team has demonstrated a PKI/TLS design which may be configured and implemented to meet the needs of a deployment scenario through the use of the CloudFlare PKI Toolkit.  This toolkit provides a central root of trust, an API for automation of certificate activities and configuration options which optimize the selection of safe choices while abstracting low-level details such as the selection and implementation of low-level cryptographic primitives.  An introduction to this toolkit with safe examples for the generation and testing of certificates is found below.
+The implementation of TLS is a deployment-specific consideration as the standards, configurations and reliance on a PKI are best defined by the implementor. The Paymoja team has demonstrated a PKI/TLS design which may be configured and implemented to meet the needs of a deployment scenario through the use of the CloudFlare PKI Toolkit.  This toolkit provides a central root of trust, an API for automation of certificate activities and configuration options which optimize the selection of safe choices while abstracting low-level details such as the selection and implementation of low-level cryptographic primitives.  An introduction to this toolkit with safe examples for the generation and testing of certificates is found below.
 
 
 ### Install cfssl
@@ -56,7 +56,7 @@ First, you need to configure the certificate signing request (csr), which we've 
     "C": "US",
     "L": "Des Moines",
     "O": "Dwolla, Inc.",
-    "OU": "Level One Project",
+    "OU": "Paymoja",
     "ST": "Iowa"
     }
   ]
@@ -148,8 +148,8 @@ You will also need another config file -- ```central_ledger.json``` for the serv
          {
              "C": "US",
              "L": "Des Moines",
-             "O": "Level 1 Project",
-             "OU": "l1p-central-services",
+             "O": "Paymoja",
+             "OU": "paymoja-central-services",
              "ST": "Iowa"
          }
      ]

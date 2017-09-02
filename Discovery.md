@@ -92,9 +92,10 @@ The logical steps for a sending DFSP are:
 
 ## Design Considerations
 
-The Level One Project has  specific design constraints and assumptions that drive the design of this implementation.
-The project favors the use of a central directory for discovery but also as a proxy for the SPSP session with DFSPs.
-While this means it is not necessary for the discovery and setup to be decoupled, maintaining this architecture future-proofs the solution for deployments where these constraints and assumptions no longer hold.
+The Paymoja project has some specific design constraints and assumptions which drive the design of this implementation. The project
+favors the use of a central directory for discovery but also as a proxy for the quoting session with DFSPs. While this means it is not
+necessary for the discovery and setup to be decoupled, maintaining this architecture future-proofs the solution for deployments where
+these constraints and assumptions no longer hold.
 
 ### Central Directory
 

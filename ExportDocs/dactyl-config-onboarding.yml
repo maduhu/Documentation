@@ -74,7 +74,7 @@ pages:
             - all
 
     -   name: 'Onboarding Developers'
-        md: Docs.wiki/Onboarding-Developers.md
+        md: paymoja/contribute/Onboarding-Developers.md
         html: Onboarding-Developers.html
         category: Onboarding
         targets:
@@ -84,7 +84,7 @@ pages:
     -   name: 'Structure of the Documentation'
         html: Structure-of-the-Documentation.html
         category: 'Structure of the Documentation'
-        md: Docs.wiki/Structure-of-the-Documentation.md
+        md: paymoja/contribute/Structure-of-the-Documentation.md
         section_header: true
         targets:
             - all
@@ -92,28 +92,28 @@ pages:
     -   name: 'Documentation and Template Standards'
         html: L1P-Documentation-and-Template-Standards.html
         category: 'Structure of the Documentation'
-        md: Docs.wiki/L1P-Documentation-and-Template-Standards.md
+        md: paymoja/contribute/L1P-Documentation-and-Template-Standards.md
         targets:
             - all
 
     -   name: 'Architecture Documentation Guidelines'
         html: Architecture-Documentation-Guidelines.html
         category: 'Structure of the Documentation'
-        md: Docs.wiki/Architecture-Documentation-Guidelines.md
+        md: paymoja/contribute/Architecture-Documentation-Guidelines.md
         targets:
             - all
 
     -   name: 'Documentation Style Guide'
         html: Documentation-Style-Guide.html
         category: 'Structure of the Documentation'
-        md: Docs.wiki/Documentation-Style-Guide.md
+        md: paymoja/contribute/Documentation-Style-Guide.md
         targets:
             - all
 
     -   name: 'README Template'
         html: README-Template.html
         category: 'Structure of the Documentation'
-        md: Docs.wiki/README-Template.md
+        md: paymoja/contribute/README-Template.md
         targets:
             - all
 
@@ -121,7 +121,7 @@ pages:
     -   name: 'Accessing the Test Environment'
         html: Accessing-the-Test-Environment.html
         category: 'Accessing the Test Environment'
-        md: Docs.wiki/Accessing-the-Test-Environment.md
+        md: paymoja/contribute/Accessing-the-Test-Environment.md
         section_header: true
         targets:
             - all
@@ -129,7 +129,7 @@ pages:
     -   name: 'Accessing AWS instances'
         html: Accessing-AWS-instances.html
         category: 'Accessing the Test Environment'
-        md: Docs.wiki/Accessing-AWS-instances.md
+        md: paymoja/contribute/Accessing-AWS-instances.md
         targets:
             - all 
 
@@ -176,7 +176,7 @@ pages:
     -   name: 'Testing strategy'
         html: Testing-strategy.html
         category: Testing
-        md: Docs.wiki/Testing-strategy.md
+        md: paymoja/contribute/Testing-strategy.md
         section_header: true
         targets:
             - all
@@ -271,42 +271,42 @@ pages:
     -   name: 'Software Development Process Management'
         html: Software-Development-Process.html
         category: Software Development Process
-        md: Docs.wiki/Software-Development-Process.md
+        md: paymoja/contribute/Software-Development-Process.md
         targets:
             - all
 
     -   name: 'Program Increments and Milestones'
         html: Program-Increments-and-Milestones.html
         category: Software Development Process
-        md: Docs.wiki/Program-Increments-and-Milestones.md
+        md: paymoja/contribute/Program-Increments-and-Milestones.md
         targets:
             - all
 
     -   name: 'Scenarios and Epics'
         html: Scenarios-and-Epics.html
         category: Software Development Process
-        md: Docs.wiki/Scenarios-and-Epics.md
+        md: paymoja/contribute/Scenarios-and-Epics.md
         targets:
             - all
 
     -   name: 'User Story Pipeline'
         html: Pipeline.html
         category: Software Development Process
-        md: Docs.wiki/Pipeline.md
+        md: paymoja/contribute/Pipeline.md
         targets:
             - all
 
     -   name: 'GitHub Labels'
         html: GitHub-Labels.html
         category: Software Development Process
-        md: Docs.wiki/GitHub-Labels.md
+        md: paymoja/contribute/GitHub-Labels.md
         targets:
             - all
 
     -   name: 'Estimates'
         html: Estimates.html
         category: Software Development Process
-        md: Docs.wiki/Estimates.md
+        md: paymoja/contribute/Estimates.md
         targets:
             - all
 
@@ -321,21 +321,21 @@ pages:
     -   name: 'Writing Code'
         html: Writing-Code.html
         category: Writing code
-        md: Docs.wiki/Writing-Code.md
+        md: paymoja/contribute/Writing-Code.md
         targets:
             - all    
 
     -   name: 'Pragmatic REST Guidelines'
         html: Pragmatic-REST-Guidelines.html
         category: Writing code
-        md: Docs.wiki/Pragmatic-REST-Guidelines.md
+        md: paymoja/contribute/Pragmatic-REST-Guidelines.md
         targets:
             - all
 
     -   name: 'Branching Strategy'
         html: Branching-Strategy.html
         category: Writing code
-        md: Docs.wiki/Branching-Strategy.md
+        md: paymoja/contribute/Branching-Strategy.md
         targets:
             - all
 
@@ -349,7 +349,7 @@ pages:
     -   name: 'Build and Publish NodeJS'
         html: Build-and-Publish-NodeJS.html
         category: Writing code
-        md: Docs.wiki/Build-and-Publish-NodeJS.md
+        md: paymoja/contribute/Build-and-Publish-NodeJS.md
         targets:
             - all
 
@@ -358,21 +358,21 @@ pages:
     -   name: 'Code Quality Metrics'
         html: Code-Quality-Metrics.html
         category: Writing code
-        md: Docs.wiki/Code-Quality-Metrics.md
+        md: paymoja/contribute/Code-Quality-Metrics.md
         targets:
             - all
 
     -   name: 'Collecting and viewing code coverage'
         html: Collecting-and-viewing-code-coverage.html
         category: Writing code
-        md: Docs.wiki/Collecting-and-viewing-code-coverage.md
+        md: paymoja/contribute/Collecting-and-viewing-code-coverage.md
         targets:
             - all
 
     -   name: 'Code  Style Guidelines'
         html: Code-Style.html
         category: Writing code
-        md: Docs.wiki/Code-Style.md
+        md: paymoja/contribute/Code-Style.md
         targets:
             - all
 
@@ -433,14 +433,14 @@ pages:
     -   name: 'FAQ'
         html: FAQ.html
         category: Appendix
-        md: Docs.wiki/FAQ.md
+        md: paymoja/contribute/FAQ.md
         targets:
             - all
 
     -   name: 'Roadmap'
         html: Roadmap.html
         category: Appendix
-        md: Docs.wiki/Roadmap.md
+        md: paymoja/contribute/Roadmap.md
         targets:
             - all      
 
