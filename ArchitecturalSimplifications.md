@@ -4,7 +4,7 @@
 -----
 
 
-The motivation behind all the points proposed here is that the proxies and the connectors should be developed once in a way that they could be plugged in various DFSP instances, while each DFSP instance will have its own internal logic. So therefore common functionalists like those should be provided by the l1p platform out of the box without the need to be replicated across different custom implementations.
+The motivation behind all the points proposed here is that the proxies and the connectors should be developed once in a way that they could be plugged in various DFSP instances, while each DFSP instance will have its own internal logic. So therefore common functionalities like those should be provided by the paymoja platform out of the box without the need to be replicated across different custom implementations.
 
 
 ##1. When adding a user we should pass no arguments to POST /user-registration/users
@@ -172,4 +172,8 @@ As a body of the request the dfsp-api passes the object returned from call the s
 
 **Changes Required by: Softwaregroup, ModusBox, Ripple, Dwolla**
 
+<<<<<<< HEAD
+I believe there should be a centralized point of configuration somewhere within the core of the paymoja project. It should know about where the different internal services reside and respectively be able to dynamically build different kind of internal and external URLs. 
+=======
 I believe there should be a centralized point of configuration somewhere within the core of the L1P project. It should know about where the different internal services reside and respectively be able to dynamically build different kind of internal and external URLs. 
+>>>>>>> 592b070e292a7a150ad3a6a1b7cc4f00ee2aa7da

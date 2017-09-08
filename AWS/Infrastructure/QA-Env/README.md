@@ -1,4 +1,6 @@
-## QA Environment - AWS EC2 Instance Information
+## [Deprecated] QA Environment - AWS EC2 Instance Information
+[This environment has been deprecated. It is no longer maintained. The Customer Demo environment is now used.]
+
 The QA environment is used for testing and demos. It is more stable than the test environment and may be a few versions older. 
 
 | Property | DFSP1 | DFSP2 |

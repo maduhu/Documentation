@@ -1,4 +1,4 @@
-# Send Payment
+# Send Money
 See [Scenario definition](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone) for what this scenario should accomplish.
 
 To connect to working API definitions use the [DFSP Ports guide](../../DFSP#default-ports), [Level One Client Ports guide](../Ports.md), and Central Directory Ports Guide.
@@ -7,9 +7,9 @@ To connect to working API definitions use the [DFSP Ports guide](../../DFSP#defa
 ![Send Payment](./PaymentFlow.png)
 This diagram shows the order of the calls.
 
-Calls are made from A through C, and within each letter they increment by number. Example: C.1, C.2, C.3, etc.
+Calls are made from A through C, and within each letter they increment by number. Example: C.1, C.2, C.3, and so on.
 
-The 3 ledgers send notifications of each transaction to all subscribers, so, for example, following C.1 there are two C.2 notifications. One goes back to the ILP client and tells it that the ledger got the message the ILP client just sent. The second more important notification goes on to the ILP Connector, which in turn calls C.3 .
+The three ledgers send notifications of each transaction to all subscribers, so, for example, following C.1 there are two C.2 notifications. One goes back to the ILP client and tells it that the ledger got the message the ILP client just sent. The second more important notification goes on to the ILP Connector, which in turn calls C.3.
 
 ## A - Lookup/Discovery
 The first stage of any transfer is to find out what institution can accept money for this user number. The DFSP calls the Central Directory through the DSFP Directory Gateway.
@@ -27,8 +27,10 @@ The first stage of any transfer is to find out what institution can accept money
     Post :user/get
     Post: user/add # Expect to change
 
+> ***OUT OF DATE STARTS HERE***
+
 ## B - Query & Quote
-The 2nd, quoting, stage of the transfer is to negotiate the transfer contract. This means agreeing on the currency, fees, time frame, exchange rate, etc. The query asks "Can the transaction go through for this person and amount". The quote sets the contract including fees, rates, etc.
+The second stage of the transfer is to negotiate the transfer contract. This means agreeing on the currency, fees, time frame, exchange rate, and so on. The query asks "Can the transaction go through for this person and amount?" The quote sets the contract including fees, rates, and so on.
 
 The [query](https://github.com/LevelOneProject/ilp-spsp-client-rest#get-v1query) gets the user information and currency information. The [quote](https://github.com/LevelOneProject/ilp-spsp-client-rest#get-v1quotesourceamount) is an optional setup to get the fees ahead of setup.
 
@@ -51,7 +53,9 @@ The [SPSP Server proxy](https://github.com/LevelOneProject/interop-spsp-backend-
 [SPSP API Implemented](http://ec2-35-166-189-14.us-west-2.compute.amazonaws.com:8081/spsp/backend/v1/console/)
 
     GET: /receivers/{payee}   
-    PUT: /receivers/{payee}/payments/{uuid}   
+    PUT: /receivers/{payee}/payments/{uuid}  
+
+> ***OUT OF DATE ENDS HERE***
 
 ### DFSP
 For the DFSP the quoting APIs start in [The DFSP ledger service](./DFSP) which talk to the SPSP Client proxy.
@@ -75,9 +79,12 @@ The final portion begins with a message to send the money from the source DFSP t
     PUT: /transfers/{id}/fulfillment   
     GET: /connectors   
 
+> ***OUT OF DATE STARTS HERE***
+
 ### SPSP Client Proxy PAYMENT
     PUT:  /payments/{id} - execute a payment
     assuming a synchronous pass/fail response for the payment status
+> ***OUT OF DATE ENDS HERE***
 
 The receiving DFSP has to validate that it will accept the transfer (skipped for now) and fulfill it.
 ### DFSP

@@ -3,6 +3,8 @@
 ## Introduction
 This document provides L1P service logging guidelines in order to provide end-end traceability of interactions, aid in troubleshooting and publish metrics to the backend
 
+The section [in this video](https://www.dropbox.com/home/Level%20One%20OSS%20Team%20Share/Phase%20One%20Wrap-up/Demo%20Folder?preview=ModusBox+Demo.mp4) starting at 11:22 and ending at 21:16 provides a brief overview of the ELK capabilities, Usage, Indexing and Querying formats and capabilities.
+
 ### Desired Goals
 * End-to-end Traceability of a particular transaction
 * Understand service behavior

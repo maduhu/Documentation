@@ -2,7 +2,7 @@
 
 -----
 
-This service is used for mapping between the users and phone numbers. It is supporting the following **private** API calls:
+This service is used for mapping between users and phone numbers. It supports the following **private** API calls:
 
 ### Add subscription ###
 
@@ -20,7 +20,7 @@ This service is used for mapping between the users and phone numbers. It is supp
 
    * `actorId [string] - Actor id`
    * `phoneNumber [string] - Phone number`
- 
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -46,7 +46,7 @@ This service is used for mapping between the users and phone numbers. It is supp
 
    * `actorId [string] - Actor id`
    * `phoneNumber [string] - Phone number`
- 
+
 * **Success Response**
 
   * **Code:** 200 <br />
@@ -70,7 +70,7 @@ This service is used for mapping between the users and phone numbers. It is supp
   **Optional**
 
    * `subscriptionId [number] - Subscription id`
- 
+
 * **Success Response**
 
   * **Code:** 200 <br />

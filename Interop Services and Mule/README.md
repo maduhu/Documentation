@@ -67,7 +67,7 @@ Security/Threat Model for L1P Reference Implementation is [here](https://www.dro
 
 ## Resilience
 
-Resilience model for L1P Reference Implementation is [here](https://www.dropbox.com/home/Level%20One%20OSS%20Team%20Share/Discussion%20Docs/Non%20Functional%20Requirements?preview=rmaworkbook+with+Fixes.xlsx)
+Resilience model for L1P Reference Implementation is [here](https://github.com/LevelOneProject/Docs/blob/master/test/RMA.md)
 
 ## Performance
 
@@ -80,3 +80,5 @@ Logging guidelines for L1P project were drafed and after review by partner teams
 ## Deployment
 
 The L1P system can be deployed using Vagrant and Ansible playbooks to create two DFSPs and one CST VMs with support for MGMT VMs to allow execution on all supported platforms, including windows. The user guide for this is [here](https://github.com/LevelOneProject/interop-devops/blob/master/USERGUIDE.md)
+
+[This video](https://www.dropbox.com/home/Level%20One%20OSS%20Team%20Share/Phase%20One%20Wrap-up/Demo%20Folder?preview=ModusBox+Demo.mp4) gives an overview of various aspects such as Performance, JMeter Scripts for Tesing and their Usage, ELK for Logging, End-to-End Traceability, Metrics usage and capabilities, Metrics-UI and charging/graphs and such others.
