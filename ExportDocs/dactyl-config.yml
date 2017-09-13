@@ -87,10 +87,20 @@ targets:
 pages:
 # /Docs
     -   name: Level One Project Overview
-        md: Docs/README.md
-        html: overview.html
+        md: paymoja/README.md
+        html: paymoja.html
         category: Overview
         section_header: true
+        targets:
+            - all
+            - contributor
+            - stakeholder
+            - regulator
+
+    -   name: Documentation Overview
+        md: Docs/README.md
+        html: docs.html
+        category: Overview
         targets:
             - all
             - contributor
@@ -182,7 +192,7 @@ pages:
     -   name: 'Interop Ledger'
         html: interop-ilp-ledger.html
         category: 'Level One Client'
-        md:  interop-ilp-ledger/README.md
+        md: interop-ilp-ledger/README.md
         targets:
             - all
 

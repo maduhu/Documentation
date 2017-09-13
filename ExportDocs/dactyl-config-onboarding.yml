@@ -68,7 +68,7 @@ pages:
     -   name: 'Contribution Guide'
         html: Contributionguide.html
         category: Onboarding
-        md: Docs/contribute.md
+        md: paymoja/contribute.md
         section_header: true
         targets:
             - all
@@ -90,9 +90,9 @@ pages:
             - all
 
     -   name: 'Documentation and Template Standards'
-        html: L1P-Documentation-and-Template-Standards.html
+        html: Documentation-and-Template-Standards.html
         category: 'Structure of the Documentation'
-        md: paymoja/contribute/L1P-Documentation-and-Template-Standards.md
+        md: paymoja/contribute/Documentation-and-Template-Standards.md
         targets:
             - all
 
