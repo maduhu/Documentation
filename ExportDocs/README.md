@@ -11,16 +11,13 @@ All the repositories should be in the same root directory.
 
 Because building the documentation requires md files from multiple repos, the latest files from all the repos mentioned in the dactyl-config file need to be obtained. The list of required repos may change, but currently includes all of the following:
 
+	paymoja
     central-directory
     central-ledger
     Docs
-    Docs.wiki
+	ilp-service
     forensic-logging-sidecar
-    ilp-spsp-client-rest
-    ilp-spsp-server
     interop-ilp-ledger
-    interop-spsp-backend-services
-    interop-spsp-clientproxy
     interop-dfsp-directory
     
 

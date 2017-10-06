@@ -68,16 +68,24 @@ The test environment is used for development and new or possibly breaking change
 
 ## Test Users
 ### DFSP1
-* bob    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/43112673
-* alice    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/15125122
-* merchant    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/51965171
-* dfsp1-testconnector    http://ec2-52-32-130-4.us-west-2.compute.amazonaws.com:3043/v1/receivers/70377406
+* bob    tel:27713803905
+* alice    tel:27616790836
+* merchant    tel:27638445864
+* agent    tel:27825773935
+* dfsp1-testconnector    tel:27721855610
+* Ibada Zambi    tel:255620470901
+* Asani Nassari    tel:255624229652
+* Ishara Kamani    tel:255620319728
 
 ### DFSP2
-* bob    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/52652310
-* alice    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/16433370
-* merchant    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/7642271
-* dfsp2-testconnector    http://ec2-35-166-236-69.us-west-2.compute.amazonaws.com:3043/v1/receivers/17923071
+* bob    tel:27145901062
+* alice    tel:27213971461
+* merchant    tel:255772273582
+* agent    tel:255773526419
+* dfsp2-testconnector    tel:255774454054
+* Ibada Zambi    tel:255689546990
+* Asani Nassari    tel:255627126156
+* Ishara Kamani    tel:255625411852
 
 ## Start/Stop and deployment scripts
 
