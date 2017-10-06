@@ -3,19 +3,19 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 
 | Property | DFSP1 | DFSP2 |
 | ----     | ----- | ----- |
-| Instance Name | demo-dfsp1 | demo-dfsp2 |
-| Instance ID | i-0be4f45016bc2288d | i-0be4f45016bc2288d |
-| Public DNS | ec2-52-8-184-95.us-west-1.compute.amazonaws.com | ec2-54-153-95-230.us-west-1.compute.amazonaws.com |
-| Public IP | 52.8.68.18 | 54.153.95.230 |
-| Instance type | m4.large | m4.large |
-| Private DNS | ip-172-31-1-193.us-west-1.compute.internal | ip-172-31-10-105.us-west-1.compute.interna |
-| Private IPs | 172.31.10.105 | 172.31.2.238 |
+| Instance Name | dfsp1-demo | dfsp2-demo |
+| Instance ID | i-0b29f70d8aa42ded5 | i-0695f7869efb2d1b1 |
+| Public DNS | ec2-52-8-184-95.us-west-1.compute.amazonaws.com | ec2-52-8-68-18.us-west-1.compute.amazonaws.com |
+| Public IP | 52.8.184.95 | 52.8.68.18 |
+| Instance type | m4.xlarge | m4.xlarge |
+| Private DNS | ip-172-31-13-86.us-west-1.compute.internal | ip-172-31-3-14.us-west-1.compute.internal |
+| Private IPs | 172.31.13.86 | 172.31.3.14 |
 
 ### SSH
 
 #### Mac  
-* for dfsp1 - `ssh -i "interop-dev2.pem" ec2-user@ec2-52-8-184-95.us-west-1.compute.amazonaws.com`
-* for dfsp2 - `ssh -i "interop-dev2.pem" ec2-user@ec2-54-153-95-230.us-west-1.compute.amazonaws.com`
+* for dfsp1 - `ssh -i "interop-dev1.pem" ubuntu@ec2-52-8-184-95.us-west-1.compute.amazonaws.com`
+* for dfsp2 - `ssh -i "interop-dev1.pem" ubuntu@ec2-52-8-68-18.us-west-1.compute.amazonaws.com`
 
 
 #### Windows
@@ -29,42 +29,42 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------| --------- | --------- |
-| dfsp-account | 8009 | 0.9.14 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8009](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8009/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8009](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8009/documentation)  |
-| dfsp-api | 8010 | 0.28.26 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8010](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8010/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8010](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8010/documentation)  |
-| dfsp-directory | 8011 | 0.7.14 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8011](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8011/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8011](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8011/documentation)  |
-| dfsp-identity | 8012 | 0.9.13 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8012](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8012/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8012](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8012/documentation)  |
-| dfsp-ledger | 8014 | 1.1.18 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8014](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8014/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8014](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8014/documentation)  |
-| dfsp-rule | 8016 | 0.5.11 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8016](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8016/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8016](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8016/documentation)  |
-| dfsp-subscription | 8017 | 0.3.16 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8017](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8017/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8017](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8017/documentation)  |
-| dfsp-transfer | 8018 | 0.20.13 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8018](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8018/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8018](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8018/documentation)  |
-| dfsp-ussd | 8019 | 0.23.21 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8019](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8019/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8019](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8019/documentation)  |
-| dfsp-admin | 8020 | 0.15.8 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8020](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8020/documentation) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8020](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8020/documentation)  |
+| dfsp-account | 8009 | 0.9.26-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8009](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8009/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8009](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8009/documentation)  |
+| dfsp-api | 8010 | 1.0.0-quotes.81-major_quotes | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8010](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8010/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8010](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8010/documentation)  |
+| dfsp-directory | 8011 | 0.7.26-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8011](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8011/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8011](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8011/documentation)  |
+| dfsp-identity | 8012 | 0.10.4-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8012](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8012/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8012](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8012/documentation)  |
+| dfsp-ledger | 8014 | 2.0.0-quotes.29-major_quotes | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8014](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8014/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8014](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8014/documentation)  |
+| dfsp-rule | 8016 | 0.5.24-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8016](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8016/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8016](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8016/documentation)  |
+| dfsp-subscription | 8017 | 0.5.8-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8017](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8017/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8017](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8017/documentation)  |
+| dfsp-transfer | 8018 | 0.20.23-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8018](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8018/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8018](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8018/documentation)  |
+| dfsp-ussd | 8019 | 1.0.0-quotes.42-major_quotes | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8019](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8019/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8019](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8019/documentation)  |
+| dfsp-admin | 8020 | 0.17.42-master | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8020](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8020/documentation) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8020](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8020/documentation)  |
 
 ### Mule Proxy  - Modusbox
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------| --------- | --------- |
-| interop-directory-gateway | 8088 | 0.4.23 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/directory/v1](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/directory/v1/open-api/) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/directory/v1](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/directory/v1/open-api/) |
-| interop-spsp-client-proxy | 8088 | 0.4.14 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/spsp/client/v1/open-api) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/spsp/client/v1/open-api) |
-| interop-ledger-adapter | 8088 | 0.1.4 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/ledger](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/ledger](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) |
-| interop-spsp-backend | 8088 | 0.1.14 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/spsp/backend/v1/open-api) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/spsp/backend/v1](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/spsp/backend/v1/open-api) |
-| interop-scheme-adapter | 8088 | 0.1.1 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/scheme/adapter/v1](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/scheme/adapter/v1/open-api) | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/scheme/adapter/v1](http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:8088/scheme/adapter/v1/open-api) |
+| interop-dfsp-directory | 8088 | 0.4.23 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/directory/v1](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/directory/v1/open-api/) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8088/directory/v1](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8088/directory/v1/open-api/) |
+| interop-ilp-ledger | 8088 | 0.1.5 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/spsp/client/v1/open-api) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8088/spsp/client/v1](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8088/spsp/client/v1/open-api) |
+| interop-scheme-adapter | 8088 | 1.0.12 | [http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/ledger](http://ec2-52-8-184-95.us-west-1.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) | [http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8088/ledger](http://ec2-52-8-68-18.us-west-1.compute.amazonaws.com:8088/ilp/ledger/v1/open-api) |
 
 ### ILP - Ripple
 
 | Service | Port | Version | DFSP1 URL | DFSP2 URL |
 | ------- | -----| --------| --------- | --------- |
-| ilp-spsp-client-rest | 3042 | v5.0.2 |         |           |
-| ilp-spsp-server | 3043 | v5.0.1 |         |           |
-| ilp-connector | 3044 | v17.1.0 |  |  |
+| ilp-service| 3043 | v2.1.4 |         |           |
+| ilp-connector | 3000 | v21.1.3 |  |  |
 
 ### IST - Dwolla
 
 | Service | Port | Version | URL |
 | ------- | -----| --------| ----|
-| central-ledger | 3002 | v1.80.0 | [http://ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3002](ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3002/documentation)|
-| central-directory | 3000 | v0.8.1 | [http://ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3000](ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3000/documentation)|
-| end-user-registry | 3001 | v0.7.0 | [http://ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3001](ec2-52-27-13-94.us-west-2.compute.amazonaws.com:3001/documentation)|
+| central-ledger | 3002 | v1.85.3 | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3002](ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3002/documentation)|
+| central-ledger-admin | 3004 | v1.85.3 | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3002](ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3002/documentation)|
+| central-directory | 3000 | v0.21.3 | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3000](ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3000/documentation)|
+| central-end-user-registry | 3001 | v0.9.0 | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3001](ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3001/documentation)|
+| central-fraud-sharing | 3003 | v1.5.0 | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3001](ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3001/documentation)|
+| central-hub | 4001 | v0.5.0 | [http://ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3002](ec2-54-153-95-230.us-west-1.compute.amazonaws.com:3002/documentation)|
 
 
 ## Test Users
