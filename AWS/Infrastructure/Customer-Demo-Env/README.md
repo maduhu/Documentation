@@ -68,23 +68,26 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 
 
 ## Test Users
-### DFSP1    
-* bob    http://ec2-35-163-231-111.us-west-1.compute.amazonaws.com:3043/v1/receivers/88925537
-* alice    http://ec2-35-163-231-111.us-west-1.compute.amazonaws.com:3043/v1/receivers/54200545
-* merchant    http://ec2-35-163-231-111.us-west-1.compute.amazonaws.com:3043/v1/receivers/31909641
-* dfsp1-testconnector    http://ec2-35-163-231-111.us-west-1.compute.amazonaws.com:3043/v1/receivers/91959846
+### DFSP1
+* bob    1212121212
+* alice    1312121212
+* admin 1412121212
+* dfsp1-testconnector    1512121212
+* merchant    1612121212
 
-### DFSP2    
-* bob    http://ec2-35-163-249-3.us-west-1.compute.amazonaws.com:3043/v1/receivers/97181061
-* alice    http://ec2-35-163-249-3.us-west-1.compute.amazonaws.com:3043/v1/receivers/52602716
-* merchant    http://ec2-35-163-249-3.us-west-1.compute.amazonaws.com:3043/v1/receivers/63858707
-* dfsp2-testconnector    http://ec2-35-163-249-3.us-west-1.compute.amazonaws.com:3043/v1/receivers/76838531
+
+### DFSP2
+* bob    2212121212
+* alice    2312121212
+* admin 2412121212
+* dfsp2-testconnector    2512121212
+* merchant    2612121212
 
 ## Start/Stop scripts
 
 #### Mule
-* /home/ec2-user/scripts/modusbox/stop_mule.sh
-* /home/ec2-user/scripts/modusbox/start_mule.sh
+* sudo /opt/mule/bin/mule stop
+* sudo /opt/mule/bin/mule start
 
 #### DFSP
 * See [DFSP deployment process](https://github.com/LevelOneProject/Docs/tree/master/DFSP/dfspDeploymentProcess)
@@ -93,4 +96,6 @@ The Customer Demo environment is used for Client demos. It is more stable than t
 * See [Ansible docs for ILP](https://github.com/LevelOneProject/Docs/blob/master/ILP/README.md)
 
 #### IST
-* <TO BE FILLED>
+* https://github.com/LevelOneProject/Docs/blob/master/CentralDirectory/README.md
+* https://github.com/LevelOneProject/Docs/blob/master/CentralLedger/README.md
+* https://github.com/LevelOneProject/Docs/blob/master/CentralRules/README.md
