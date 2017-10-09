@@ -1,8 +1,8 @@
 # Terminology
-These are the preferred terms and definitions for Paymoja.
+These are the preferred terms and definitions for the Level One Project.
 
 ## Details
-| Term	|	Alternative and Related Terms	|	Paymoja Definition
+| Term	|	Alternative and Related Terms	|	Level One Project Definition
 |	---------------------------------	|	------------------------------------	|	------------------------------------
 |	Access Point	|	POS ("Point of Sale"), Customer Access Point, ATM, Branch	|	Places or capabilities that are used to initiate or receive a payment. Access points can include bank branch offices, ATMs, terminals at the POS, agent outlets, mobile phones, and computers.
 |	Account Lookup System	|		|	Account Lookup System is an abstract entity used for retrieving information regarding in which FSP an account, wallet or identity is hosted. The Account Lookup System itself can be hosted in its own server, as part of a financial switch, or in FSPs.
