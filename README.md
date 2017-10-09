@@ -1,16 +1,16 @@
 # Docs Overview
-The _Docs_ repository documents the overall architecture, component design, message flow, high level tests and an overview of the Paymoja software. 
+The _Docs_ repository documents the overall architecture, component design, message flow, high level tests and an overview of the Level One Project software. 
 
-Individual repositories in the [Paymoja GitHub organization](https://github.com/LevelOneProject/) each describe component-specific details including source and APIs.
+Individual repositories in the [leveloneproject GitHub organization](https://github.com/LevelOneProject/) each describe component-specific details including source and APIs.
 
-Paymoja is a sofware implementation of the Level One Project. For more information on the Level One Project, see the https://LevelOneProject.org
+For more information on the Level One Project, see the https://LevelOneProject.org
 
 New developers, see the [contributors guide](https://github.com/LevelOneProject/leveloneproject/blob/master/contribute.md) for onboarding materials.
 
-## Paymoja Services
-The following architecture diagram shows the Paymoja services:
+## Level One Project Services
+The following architecture diagram shows the Level One Project services:
 
-![Paymoja Services](./Wiki/Basic%20Overview.png)
+![Level One Project Services](./Wiki/Basic%20Overview.png)
 
 See the [physical machines](./AWS/Infrastructure/machines.md) for information about the test and demonstration implementations in Amazon Web Services (AWS).
 
@@ -33,14 +33,14 @@ The central services are a collection of separate services that help the DFSPs p
 - The [Fraud service](https://github.com/LevelOneProject/central-fraud-sharing) aids DFPS in identifying suspicious behavior.
 
 ## End-to-End Scenarios
-The aforementioned individual services can't alone describe how key scenarios work across the system. Therefore, for each of the [Paymoja Scenarios](https://github.com/LevelOneProject/leveloneproject/contribute/Scenarios.md), we provide a technical walk through.
+The aforementioned individual services can't alone describe how key scenarios work across the system. Therefore, for each of the [Level One Project Scenarios](https://github.com/LevelOneProject/leveloneproject/contribute/Scenarios.md), we provide a technical walk through.
 
 1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone),  [walkthrough](./LevelOneClient/scenarios/Send%20Payment.md)
 2. Buy Goods [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
 3. Bulk Payment [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#bulk-payments), [message flow](./DFSP/BulkPayment/README.md)
 
 ## System-wide Testing
-Individual services have their own tests, but the [testing strategy](https://github.com/LevelOneProject/paymojacontribute/Manual-and-automated-testing-strategy.md) also includes the following system-wide tests:
+Individual services have their own tests, but the [testing strategy](https://github.com/LevelOneProject/leveloneproject/testing-strategy.md) also includes the following system-wide tests:
 
 - [Scenario testing](https://github.com/LevelOneProject/Docs/blob/master/test/end-to-end/readme.md)
 - [End-to-end functional testing](https://github.com/LevelOneProject/interop-functional-tests)
@@ -49,7 +49,7 @@ Individual services have their own tests, but the [testing strategy](https://git
 - Threat Modeling
 
 ## Related Projects
-The [Interledger Protocol Suite](https://interledger.org/) (ILP) is an open and secure standard that enables DFSPs to settle payments with minimal _counter-party risk_ (the risk you incur when someone else is holding your money). With ILP, you can transact across different systems with no chance that someone in the middle disappears with your money. Paymoja uses the Interledger Protocol Suite for the clearing layer. For an overview of how it works, see the [Clearing Architecture Documentation](./ILP).
+The [Interledger Protocol Suite](https://interledger.org/) (ILP) is an open and secure standard that enables DFSPs to settle payments with minimal _counter-party risk_ (the risk you incur when someone else is holding your money). With ILP, you can transact across different systems with no chance that someone in the middle disappears with your money. The Level One Project uses the Interledger Protocol Suite for the clearing layer. For an overview of how it works, see the [Clearing Architecture Documentation](./ILP).
 
 ## About This Document
 
