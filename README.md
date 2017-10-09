@@ -5,7 +5,7 @@ Individual repositories in the [Paymoja GitHub organization](https://github.com/
 
 Paymoja is a sofware implementation of the Level One Project. For more information on the Level One Project, see the https://LevelOneProject.org
 
-New developers, see the [contributors guide](https://github.com/LevelOneProject/paymoja/blob/master/contribute.md) for onboarding materials.
+New developers, see the [contributors guide](https://github.com/LevelOneProject/leveloneproject/blob/master/contribute.md) for onboarding materials.
 
 ## Paymoja Services
 The following architecture diagram shows the Paymoja services:
@@ -33,7 +33,7 @@ The central services are a collection of separate services that help the DFSPs p
 - The [Fraud service](https://github.com/LevelOneProject/central-fraud-sharing) aids DFPS in identifying suspicious behavior.
 
 ## End-to-End Scenarios
-The aforementioned individual services can't alone describe how key scenarios work across the system. Therefore, for each of the [Paymoja Scenarios](https://github.com/LevelOneProject/paymoja/contribute/Scenarios.md), we provide a technical walk through.
+The aforementioned individual services can't alone describe how key scenarios work across the system. Therefore, for each of the [Paymoja Scenarios](https://github.com/LevelOneProject/leveloneproject/contribute/Scenarios.md), we provide a technical walk through.
 
 1. Send Money to Anyone: [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#send-money-to-anyone),  [walkthrough](./LevelOneClient/scenarios/Send%20Payment.md)
 2. Buy Goods [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#buy-goods---pending-transactions), [message flow](./DFSP/PendingTransactions/README.md)
