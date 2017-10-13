@@ -40,7 +40,7 @@ The aforementioned individual services can't alone describe how key scenarios wo
 3. Bulk Payment [scenario](https://github.com/LevelOneProject/Docs/blob/master/scenarios.md#bulk-payments), [message flow](./DFSP/BulkPayment/README.md)
 
 ## System-wide Testing
-Individual services have their own tests, but the [testing strategy](https://github.com/LevelOneProject/leveloneproject/blob/master/contribute/testing-strategy.md) also includes the following system-wide tests:
+Individual services have their own tests, but the [testing strategy](https://github.com/LevelOneProject/leveloneproject/blob/master/contribute/Testing-strategy.md) also includes the following system-wide tests:
 
 - [Scenario testing](https://github.com/LevelOneProject/Docs/blob/master/test/end-to-end/readme.md)
 - [End-to-end functional testing](https://github.com/LevelOneProject/interop-functional-tests)
